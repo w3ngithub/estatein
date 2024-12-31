@@ -37,13 +37,14 @@ export default {
       },
       colors: {
         black: "#000",
-        purple: {
-          60: "#FF7A00",
+        "purple-shade": {
+          60: "#703BF7", //this
           65: "#1A64FF",
           70: "#FF9533",
           90: "#FFE4CC",
           95: "#FFF1E5",
           97: "#FFF7F0",
+          d60: "#562CBF",
         },
         white: {
           DEFAULT: "#FFF",
