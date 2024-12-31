@@ -24,11 +24,17 @@ export default {
       center: true,
       padding: "1rem",
       screens: {
-        desktop: "1920px",
+        xl: "1440px",
+        lg: "1024px",
+        md: "768px",
+        sm: "640px",
         "mobile-sm": "100%",
       },
     },
     extend: {
+      textColor: {
+        DEFAULT: "#FFFFFF",
+      },
       colors: {
         black: "#000",
         purple: {
@@ -46,7 +52,7 @@ export default {
           97: "#F7F7F8",
           99: "#FCFCFD",
         },
-        grey: {
+        "grey-shade": {
           8: "#141414",
           10: "#1A1A1A",
           15: "#262626",
