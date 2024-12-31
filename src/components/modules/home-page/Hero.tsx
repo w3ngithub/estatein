@@ -29,7 +29,7 @@ const Hero = () => {
             <CustomersCard />
           </div>
         </div>
-        <div className="border border-red-500">
+        <div className="border border-red-500 relative">
           <div className="flex justify-end">
             <Image
               src={`${
@@ -40,6 +40,18 @@ const Hero = () => {
               alt="Hero icon"
               priority
             />
+            {/* logo */}
+            <div className="absolute top-[20%] left-[-5%]">
+              <Image
+                src={`${
+                  process.env.NEXT_PUBLIC_BASE_PATH + "/images/hero-logo.png"
+                }`}
+                width={129}
+                height={129}
+                alt="Hero Logo"
+                priority
+              />
+            </div>
           </div>
         </div>
       </div>
