@@ -1,7 +1,12 @@
+"use client";
 import Link from "next/link";
 import { Button } from "../ui/button";
+import { useState } from "react";
 
 const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
   return (
     <nav className="bg-grey-shade-10">
       <div className="container text-white">
@@ -108,33 +113,58 @@ const Header = () => {
               </Link>
             </ul>
           </div>
-          {/* mobile screen */}
+          {/* mobile screen: burger icon*/}
           <div className="hidden max-tablet-sm:block">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M2 4.75C2 4.33579 2.33579 4 2.75 4H17.25C17.6642 4 18 4.33579 18 4.75C18 5.16421 17.6642 5.5 17.25 5.5H2.75C2.33579 5.5 2 5.16421 2 4.75ZM9 15.25C9 14.8358 9.33579 14.5 9.75 14.5H17.25C17.6642 14.5 18 14.8358 18 15.25C18 15.6642 17.6642 16 17.25 16H9.75C9.33579 16 9 15.6642 9 15.25Z"
-                fill="white"
-              />
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M2 10C2 9.58579 2.33579 9.25 2.75 9.25H17.25C17.6642 9.25 18 9.58579 18 10C18 10.4142 17.6642 10.75 17.25 10.75H2.75C2.33579 10.75 2 10.4142 2 10Z"
-                fill="white"
-              />
-            </svg>
+            <button onClick={toggleMenu} aria-label="Toggle menu">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M2 4.75C2 4.33579 2.33579 4 2.75 4H17.25C17.6642 4 18 4.33579 18 4.75C18 5.16421 17.6642 5.5 17.25 5.5H2.75C2.33579 5.5 2 5.16421 2 4.75ZM9 15.25C9 14.8358 9.33579 14.5 9.75 14.5H17.25C17.6642 14.5 18 14.8358 18 15.25C18 15.6642 17.6642 16 17.25 16H9.75C9.33579 16 9 15.6642 9 15.25Z"
+                  fill="white"
+                />
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M2 10C2 9.58579 2.33579 9.25 2.75 9.25H17.25C17.6642 9.25 18 9.58579 18 10C18 10.4142 17.6642 10.75 17.25 10.75H2.75C2.33579 10.75 2 10.4142 2 10Z"
+                  fill="white"
+                />
+              </svg>
+            </button>
           </div>
           <div className="border border-grey-shade-15 bg-grey-shade-8 py-2 px-3 rounded-md font-medium text-lg max-desktop-2xl:text-sm block max-tablet-sm:hidden">
             Contact Us
           </div>
         </div>
+
+        {/* Mobile menu */}
+        {isMenuOpen && (
+          <div className="max-tablet-sm:block hidden bg-grey-shade-8 py-4">
+            <ul className="flex flex-col gap-4 text-white font-medium text-sm">
+              <Link href="/">
+                <li className="border-2 border-grey-shade-15 bg-grey-shade-10 py-2 px-3 rounded-md">
+                  Home
+                </li>
+              </Link>
+              <Link href="/">
+                <li className="py-2 px-3">About Us</li>
+              </Link>
+              <Link href="/">
+                <li className="py-2 px-3">Properties</li>
+              </Link>
+              <Link href="/">
+                <li className="py-2 px-3">Services</li>
+              </Link>
+              <li className="py-2 px-3">Contact Us</li>
+            </ul>
+          </div>
+        )}
       </div>
     </nav>
   );
