@@ -35,7 +35,7 @@ const Header = () => {
               </svg>
             </div>
             {/* laptop logo */}
-            <div className="hidden max-desktop-2xl:block">
+            <div className="hidden max-tablet-sm:hidden max-desktop-2xl:block ">
               <svg
                 width="34"
                 height="35"
@@ -61,9 +61,36 @@ const Header = () => {
                 />
               </svg>
             </div>
-            <h1 className="font-medium text-2xl">Estatein</h1>
+            {/* mobile logo */}
+            <div className="hidden max-tablet-sm:block">
+              <svg
+                width="28"
+                height="28"
+                viewBox="0 0 28 28"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M14 28C6.26889 28 0 21.7311 0 14H14V28Z"
+                  fill="#703BF7"
+                />
+                <path d="M0 0C7.73111 0 14 6.26889 14 14H0V0Z" fill="#703BF7" />
+                <path
+                  d="M14 28C21.7311 28 28 21.7311 28 14H14V28Z"
+                  fill="#703BF7"
+                />
+                <path
+                  d="M28 14C28 6.26889 21.7311 0 14 0V14H28Z"
+                  fill="#703BF7"
+                />
+              </svg>
+            </div>
+
+            <h1 className="font-medium text-2xl max-tablet-sm:text-xl">
+              Estatein
+            </h1>
           </div>
-          <div>
+          <div className="block max-tablet-sm:hidden">
             <ul className="flex flex-row gap-8 text-white justify-center items-center font-medium text-lg max-desktop-2xl:text-sm">
               <Link href="/">
                 <li className="border-2 border-grey-shade-15 bg-grey-shade-8 py-2 px-3 rounded-md">
@@ -81,7 +108,30 @@ const Header = () => {
               </Link>
             </ul>
           </div>
-          <div className="border border-grey-shade-15 bg-grey-shade-8 py-2 px-3 rounded-md font-medium text-lg max-desktop-2xl:text-sm">
+          {/* mobile screen */}
+          <div className="hidden max-tablet-sm:block">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M2 4.75C2 4.33579 2.33579 4 2.75 4H17.25C17.6642 4 18 4.33579 18 4.75C18 5.16421 17.6642 5.5 17.25 5.5H2.75C2.33579 5.5 2 5.16421 2 4.75ZM9 15.25C9 14.8358 9.33579 14.5 9.75 14.5H17.25C17.6642 14.5 18 14.8358 18 15.25C18 15.6642 17.6642 16 17.25 16H9.75C9.33579 16 9 15.6642 9 15.25Z"
+                fill="white"
+              />
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M2 10C2 9.58579 2.33579 9.25 2.75 9.25H17.25C17.6642 9.25 18 9.58579 18 10C18 10.4142 17.6642 10.75 17.25 10.75H2.75C2.33579 10.75 2 10.4142 2 10Z"
+                fill="white"
+              />
+            </svg>
+          </div>
+          <div className="border border-grey-shade-15 bg-grey-shade-8 py-2 px-3 rounded-md font-medium text-lg max-desktop-2xl:text-sm block max-tablet-sm:hidden">
             Contact Us
           </div>
         </div>
