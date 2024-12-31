@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/layouts/Header";
-import LearnMore from "@/components/layouts/LearnMore";
+import HeaderBanner from "@/components/layouts/HeaderBanner";
 
 const urbanist = localFont({
   src: "../../public/fonts/Urbanist-VariableFont_wght.ttf",
@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${urbanist.className}`}>
-        <LearnMore />
+        <HeaderBanner />
         <Header />
         {children}
       </body>
