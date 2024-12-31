@@ -170,16 +170,3 @@ const Header = () => {
   );
 };
 export default Header;
-
-// <!-- /images/burger.svg
-// <div>
-//         <Image
-//           src={`${
-//             process.env.NEXT_PUBLIC_BASE_PATH + contactInfo.iconSrc
-//           }`}
-//           width={40}
-//           height={40}
-//           className="h-[40px] w-[40px]"
-//           alt={contactInfo.altText}
-//         />
-//       </div> -->
