@@ -4,7 +4,9 @@ import HeroCard from "@/components/modules/home-page/HeroCard";
 export default function Home() {
   return (
     <>
-      <Hero />
+      <div className="bg-grey-shade-10">
+        <Hero />
+      </div>
       <HeroCard />
     </>
   );

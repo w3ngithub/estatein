@@ -24,10 +24,7 @@ export default {
       center: true,
       padding: "1rem",
       screens: {
-        xl: "1440px",
-        lg: "1024px",
-        md: "768px",
-        sm: "640px",
+        desktop: "1440px",
         "mobile-sm": "100%",
       },
     },
