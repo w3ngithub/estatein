@@ -6,8 +6,8 @@ export default function Home() {
     <>
       <div className="bg-grey-shade-10">
         <Hero />
+        <HeroCard />
       </div>
-      <HeroCard />
     </>
   );
 }
