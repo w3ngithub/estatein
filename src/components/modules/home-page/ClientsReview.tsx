@@ -246,13 +246,13 @@ const ClientsReview = () => {
             </div>
           </div>
           {/* Carousel section */}
-          <div className="flex justify-center items-center my-2">
+          <div className="flex justify-center items-center my-2  h-full">
             <CarouselContent>
               {carouselData.map((item, index) => {
                 console.log(typeof item.star, "ffffffffff");
                 return (
                   <CarouselItem key={item.id} className="mobile-xl:basis-1/3">
-                    <div className="border border-grey-shade-15 bg-grey-shade-8 rounded-md px-4 py-5">
+                    <div className="border border-grey-shade-15 bg-grey-shade-8 rounded-md px-4 py-5 h-full">
                       {/* p-2 border border-red-500 */}
                       <div className="flex flex-col gap-9 p-2">
                         {/* star logo */}
