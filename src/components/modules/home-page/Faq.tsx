@@ -77,7 +77,7 @@ const Faq = () => {
   return (
     <>
       <Carousel>
-        <section className="container flex flex-col gap-10 pt-5">
+        <section className="container flex flex-col gap-10 pt-5 max-mobile-md:gap-5">
           <div className="flex flex-row justify-between items-end">
             <div className="flex flex-col gap-3">
               <div>
@@ -198,16 +198,16 @@ const Faq = () => {
           <div className="flex justify-center items-center my-2">
             <CarouselContent>
               {carouselData.map((item) => (
-                <CarouselItem key={item.id} className="basis-1/3">
+                <CarouselItem key={item.id} className="mobile-xl:basis-1/3">
                   <div className="">
-                    <div className="flex flex-col gap-3 border border-grey-shade-15 bg-grey-shade-8 p-3 rounded-md">
+                    <div className="flex flex-col gap-3 border border-grey-shade-15 bg-grey-shade-8 p-3 rounded-md max-mobile-md:p-5">
                       <h2 className="font-semibold text-2xl text-white max-desktop-lg:text-xl max-tablet-sm:text-lg">
                         {item.title}
                       </h2>
                       <p className="text-grey-shade-60 text-lg leading-6 max-desktop-lg:text-base max-tablet-sm:text-sm">
                         {item.description}
                       </p>
-                      <Button className="border-2 border-grey-shade-15 bg-grey-shade-8 rounded-md py-5 px-3 w-fit text-lg font-medium max-desktop-lg:text-sm">
+                      <Button className="border-2 border-grey-shade-15 bg-grey-shade-8 rounded-md py-5 px-3 w-fit text-lg font-medium max-desktop-lg:text-sm max-mobile-md:w-full">
                         Read More
                       </Button>
                     </div>
@@ -216,7 +216,7 @@ const Faq = () => {
               ))}
             </CarouselContent>
           </div>
-          <div className="flex flex-row justify-between mb-4">
+          <div className="flex flex-row justify-between mb-4 max-mobile-md:hidden">
             <div className="text-base font-medium">
               <span className="text-white">01</span>{" "}
               <span className="text-grey-shade-60">
@@ -226,6 +226,27 @@ const Faq = () => {
             <div className="flex flex-row gap-3">
               <CarouselPrevious />
               <CarouselNext />
+            </div>
+          </div>
+          {/* for mobile screen */}
+          <div className="hidden max-mobile-md:block">
+            {/* <hr className="border-1 border-grey-shade-15" /> */}
+            <div className="flex flex-row justify-between mb-3">
+              <Button className="text-sm border-2 border-grey-shade-15 bg-grey-shade-8 rounded-md px-4 py-5">
+                View All FAQ's
+              </Button>
+              <div className="flex flex-row items-center justify-center gap-3">
+                <CarouselPrevious />
+                <div>
+                  <div className="text-base font-medium">
+                    <span className="text-white">01</span>{" "}
+                    <span className="text-grey-shade-60">
+                      of {carouselData.length}
+                    </span>
+                  </div>
+                </div>
+                <CarouselNext />
+              </div>
             </div>
           </div>
         </section>
