@@ -9,8 +9,122 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Image from "next/image";
+import Rating from "../common/Rating";
 
 const ClientsReview = () => {
+  const carouselData = [
+    {
+      id: 1,
+      star: 5,
+      title: "Exceptional Service!",
+      description:
+        "Our experience with Estatein was outstanding. Their team's dedication and professionalism made finding our dream home a breeze. Highly recommended!",
+      profileName: "Wade Warren",
+      profilePicSrc: "/images/profile-pic.png",
+      location: "USA, California",
+    },
+    {
+      id: 2,
+      star: 5,
+      title: "Efficient and Reliable",
+      description:
+        "Estatein provided us with top-notch service. They helped us sell our property quickly and at a great price. We couldn't be happier with the results.",
+      profileName: "Emelie Thomson",
+      profilePicSrc: "/images/profile-pic.png",
+      location: "USA, Florida",
+    },
+    {
+      id: 3,
+      star: 5,
+      title: "Exceptional Service!",
+      description:
+        "Our experience with Estatein was outstanding. Their team's dedication and professionalism made finding our dream home a breeze. Highly recommended!",
+      profileName: "John Mans",
+      profilePicSrc: "/images/profile-pic.png",
+      location: "USA, Nevada",
+    },
+    {
+      id: 4,
+      star: 4,
+      title: "Exceptional Service!",
+      description:
+        "Our experience with Estatein was outstanding. Their team's dedication and professionalism made finding our dream home a breeze. Highly recommended!",
+      profileName: "Wade Warren",
+      profilePicSrc: "/images/profile-pic.png",
+      location: "USA, California",
+    },
+    {
+      id: 5,
+      star: 5,
+      title: "Exceptional Service!",
+      description:
+        "Our experience with Estatein was outstanding. Their team's dedication and professionalism made finding our dream home a breeze. Highly recommended!",
+      profileName: "Wade Warren",
+      profilePicSrc: "/images/profile-pic.png",
+      location: "USA, California",
+    },
+    {
+      id: 6,
+      star: 5,
+      title: "Exceptional Service!",
+      description:
+        "Our experience with Estatein was outstanding. Their team's dedication and professionalism made finding our dream home a breeze. Highly recommended!",
+      profileName: "Wade Warren",
+      profilePicSrc: "/images/profile-pic.png",
+      location: "USA, California",
+    },
+    {
+      id: 7,
+      star: 5,
+      title: "Exceptional Service!",
+      description:
+        "Our experience with Estatein was outstanding. Their team's dedication and professionalism made finding our dream home a breeze. Highly recommended!",
+      profileName: "Wade Warren",
+      profilePicSrc: "/images/profile-pic.png",
+      location: "USA, California",
+    },
+    {
+      id: 8,
+      star: 5,
+      title: "Exceptional Service!",
+      description:
+        "Our experience with Estatein was outstanding. Their team's dedication and professionalism made finding our dream home a breeze. Highly recommended!",
+      profileName: "Wade Warren",
+      profilePicSrc: "/images/profile-pic.png",
+      location: "USA, California",
+    },
+    {
+      id: 9,
+      star: 5,
+      title: "Exceptional Service!",
+      description:
+        "Our experience with Estatein was outstanding. Their team's dedication and professionalism made finding our dream home a breeze. Highly recommended!",
+      profileName: "Wade Warren",
+      profilePicSrc: "/images/profile-pic.png",
+      location: "USA, California",
+    },
+    {
+      id: 10,
+      star: 5,
+      title: "Exceptional Service!",
+      description:
+        "Our experience with Estatein was outstanding. Their team's dedication and professionalism made finding our dream home a breeze. Highly recommended!",
+      profileName: "Wade Warren",
+      profilePicSrc: "/images/profile-pic.png",
+      location: "USA, California",
+    },
+    {
+      id: 11,
+      star: 5,
+      title: "Exceptional Service!",
+      description:
+        "Our experience with Estatein was outstanding. Their team's dedication and professionalism made finding our dream home a breeze. Highly recommended!",
+      profileName: "Wade Warren",
+      profilePicSrc: "/images/profile-pic.png",
+      location: "USA, California",
+    },
+  ];
+
   return (
     <>
       <Carousel>
@@ -134,57 +248,50 @@ const ClientsReview = () => {
           {/* Carousel section */}
           <div className="flex justify-center items-center my-2">
             <CarouselContent>
-              <CarouselItem className="mobile-xl:basis-1/3">
-                <div className="">
-                  <div className="p-2 flex flex-col gap-3">
-                    {/* star logo */}
-                    <div className="flex items-center justify-center w-fit border-2 border-grey-shade-15 bg-grey-shade-d61 rounded-full p-[6px]">
-                      <svg
-                        width="22"
-                        height="22"
-                        viewBox="0 0 22 22"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M10.1586 1.30996C10.5522 0.697195 11.4478 0.697195 11.8414 1.30996L14.8804 6.04141C15.0158 6.25225 15.2255 6.40456 15.4678 6.4682L20.9068 7.89639C21.6112 8.08135 21.888 8.93313 21.4268 9.49681L17.8661 13.8492C17.7074 14.0431 17.6273 14.2896 17.6417 14.5397L17.9641 20.1539C18.0059 20.8809 17.2813 21.4074 16.6028 21.143L11.363 19.1014C11.1296 19.0105 10.8704 19.0105 10.637 19.1014L5.39725 21.143C4.71867 21.4074 3.99409 20.8809 4.03585 20.1539L4.3583 14.5397C4.37267 14.2896 4.2926 14.0431 4.13393 13.8492L0.573162 9.49681C0.112013 8.93313 0.388775 8.08135 1.09317 7.89639L6.53216 6.4682C6.77452 6.40456 6.98416 6.25225 7.11958 6.04141L10.1586 1.30996Z"
-                          fill="#FFE600"
-                        />
-                      </svg>
-                    </div>
-                    <h2 className="font-semibold text-2xl text-white max-desktop-lg:text-xl max-tablet-sm:text-lg">
-                      Exceptional Service!
-                    </h2>
-                    <p className="text-white text-lg leading-6 max-desktop-lg:text-base max-tablet-sm:text-sm">
-                      Our experience with Estatein was outstanding. Their team's
-                      dedication and professionalism made finding our dream home
-                      a breeze. Highly recommended!
-                    </p>
-                    <div className="flex flex-row gap-3">
-                      <div>
-                        <Image
-                          src={`${
-                            process.env.NEXT_PUBLIC_BASE_PATH +
-                            "/images/profile-pic.png"
-                          }`}
-                          width={60}
-                          height={60}
-                          alt="profile icon"
-                          priority
-                        />
-                      </div>
-                      <div className="flex-col gap-2">
-                        <p className="text-white text-xl max-desktop-lg:text-lg max-tablet-sm:text-base">
-                          Wade Warren
+              {carouselData.map((item, index) => {
+                console.log(typeof item.star, "ffffffffff");
+                return (
+                  <CarouselItem key={item.id} className="mobile-xl:basis-1/3">
+                    <div className="border border-grey-shade-15 bg-grey-shade-8 rounded-md px-4 py-5">
+                      {/* p-2 border border-red-500 */}
+                      <div className="flex flex-col gap-9 p-2">
+                        {/* star logo */}
+                        <div className="flex flex-row gap-3">
+                          <Rating rating={Number(item.star)} />
+                        </div>
+                        <h2 className="font-semibold text-2xl text-white max-desktop-lg:text-xl max-tablet-sm:text-lg">
+                          {item.title}
+                        </h2>
+                        <p className="text-white text-lg leading-6 max-desktop-lg:text-base max-tablet-sm:text-sm">
+                          {item.description}
                         </p>
-                        <p className="text-grey-shade-60 text-lg max-desktop-lg:text-base max-tablet-sm:text-sm">
-                          USA, California
-                        </p>
+                        <div className="flex flex-row gap-3">
+                          <div>
+                            <Image
+                              src={`${
+                                process.env.NEXT_PUBLIC_BASE_PATH +
+                                `${item.profilePicSrc}`
+                              }`}
+                              width={60}
+                              height={60}
+                              alt="profile icon"
+                              priority
+                            />
+                          </div>
+                          <div className="flex-col gap-2">
+                            <p className="text-white text-xl max-desktop-lg:text-lg max-tablet-sm:text-base">
+                              {item.profileName}
+                            </p>
+                            <p className="text-grey-shade-60 text-lg max-desktop-lg:text-base max-tablet-sm:text-sm">
+                              {item.location}
+                            </p>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-              </CarouselItem>
+                  </CarouselItem>
+                );
+              })}
             </CarouselContent>
           </div>
           <div className="flex flex-row justify-between mb-4 max-mobile-md:hidden">
