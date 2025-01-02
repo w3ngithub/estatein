@@ -1,5 +1,12 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const Faq = () => {
   return (
@@ -123,7 +130,20 @@ const Faq = () => {
         </div>
 
         {/* pagination section */}
-        <div>Pagination div</div>
+        <div className="border border-red-500">
+          <div className="flex flex-col gap-3 border border-grey-shade-15 bg-grey-shade-8 p-3 rounded-md">
+            <h2 className="font-semibold text-2xl text-white max-desktop-lg:text-xl max-tablet-sm:text-lg">
+              How do I search for properties on Estatein?
+            </h2>
+            <p className="text-grey-shade-60 text-lg leading-6 max-desktop-lg:text-base max-tablet-sm:text-sm">
+              Learn how to use our user-friendly search tools to find properties
+              that match your criteria.
+            </p>
+            <Button className="w-fit text-lg font-medium max-desktop-lg:text-sm">
+              Read More
+            </Button>
+          </div>
+        </div>
       </section>
     </>
   );
