@@ -251,7 +251,7 @@ const ClientsReview = () => {
               {carouselData.map((item, index) => {
                 console.log(typeof item.star, "ffffffffff");
                 return (
-                  <CarouselItem key={item.id} className="mobile-xl:basis-1/3">
+                  <CarouselItem key={item.id} className="tablet-sm:basis-1/3">
                     <div className="border border-grey-shade-15 bg-grey-shade-8 rounded-md px-4 py-5 h-full">
                       {/* p-2 border border-red-500 */}
                       <div className="flex flex-col gap-9 p-2">
@@ -262,7 +262,7 @@ const ClientsReview = () => {
                         <h2 className="font-semibold text-2xl text-white max-desktop-lg:text-xl max-tablet-sm:text-lg">
                           {item.title}
                         </h2>
-                        <p className="text-white text-lg leading-6 max-desktop-lg:text-base max-tablet-sm:text-sm">
+                        <p className="text-white text-lg leading-7 max-desktop-lg:text-base max-tablet-sm:text-sm">
                           {item.description}
                         </p>
                         <div className="flex flex-row gap-3">
