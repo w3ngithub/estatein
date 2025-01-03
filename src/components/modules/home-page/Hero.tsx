@@ -5,7 +5,7 @@ import CustomersCard from "../common/CustomersCard";
 
 const Hero = () => {
   return (
-    <section className="container bg-grey-shade-10">
+    <section className="container bg-grey-shade-10 border border-red-500">
       <div className="grid tablet-lg:grid-cols-2">
         <div className="flex flex-col items-start justify-center gap-8 mt-5">
           <h1 className="max-w-[610px] leading-tight font-semibold text-6xl max-desktop-2xl:text-5xl max-desktop-2xl:leading-snug max-mobile-lg:text-3xl text-white">

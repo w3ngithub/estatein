@@ -29,6 +29,7 @@ export default function RootLayout({
         {children}
         <div className="bg-grey-shade-8">
           <FooterBanner />
+          {/* <Footer /> */}
         </div>
       </body>
     </html>
