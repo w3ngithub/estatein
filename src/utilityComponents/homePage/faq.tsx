@@ -1,4 +1,4 @@
-export const carouselData = [
+export const carouselDataFaq = [
   {
     id: 1,
     title: "How do I search for properties on Estatein?",
