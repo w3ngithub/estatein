@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/layouts/Header";
 import HeaderBanner from "@/components/layouts/HeaderBanner";
+import FooterBanner from "@/components/layouts/FooterBanner";
 
 const urbanist = localFont({
   src: "../../public/fonts/Urbanist-VariableFont_wght.ttf",
@@ -26,6 +27,9 @@ export default function RootLayout({
         <HeaderBanner />
         <Header />
         {children}
+        <div className="bg-grey-shade-8">
+          <FooterBanner />
+        </div>
       </body>
     </html>
   );
