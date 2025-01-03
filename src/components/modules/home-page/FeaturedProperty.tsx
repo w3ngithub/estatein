@@ -180,17 +180,22 @@ const FeaturedProperty = () => {
                         );
                       })}
                     </div>
-                    <div className="flex flex-row gap-1 items-center justify-between">
-                      <div className="flex flex-col gap-1">
-                        <p className="text-lg text-grey-shade-60 max-desktop-lg:text-sm">
-                          Price
-                        </p>
-                        <h2 className="text-2xl font-semibold text-white max-desktop-lg:text-xl max-tablet-sm:text-lg">
-                          $550.000
-                        </h2>
+                    {/* <div className="flex flex-row gap-1 items-center justify-between"> */}
+                    <div className="grid grid-cols-12 border border-red-500">
+                      <div className="col-span-4 border border-red-500">
+                        <div className="flex flex-col gap-1">
+                          <p className="text-lg text-grey-shade-60 max-desktop-lg:text-sm">
+                            Price
+                          </p>
+                          <h2 className="text-2xl font-semibold text-white max-desktop-lg:text-xl max-tablet-sm:text-lg">
+                            $550.000
+                          </h2>
+                        </div>
                       </div>
-                      <div>
-                        <Button className="py-6 px-4 text-lg font-medium bg-purple-shade-60 rounded-md hover:bg-purple-shade-d60 max-desktop-2xl:text-sm max-tablet-sm:text-sm">
+
+                      <div className="col-span-8 border border-red-500">
+                        {/* py-6 px-4 */}
+                        <Button className="w-full h-full text-lg font-medium bg-purple-shade-60 rounded-md hover:bg-purple-shade-d60 max-desktop-2xl:text-sm max-tablet-sm:text-sm">
                           View Property Details
                         </Button>
                       </div>
