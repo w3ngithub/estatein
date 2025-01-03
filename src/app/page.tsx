@@ -10,7 +10,7 @@ export default function Home() {
     <>
       <div className="bg-grey-shade-10">
         <HeroNew />
-        <Hero />
+        {/* <Hero /> */}
         <HeroCard />
         <div className="bg-grey-shade-8">
           <ClientsReview />
