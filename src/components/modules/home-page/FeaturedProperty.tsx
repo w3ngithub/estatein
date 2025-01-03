@@ -137,7 +137,10 @@ const FeaturedProperty = () => {
         <div className="flex justify-center items-center my-2">
           <CarouselContent>
             {carouselDataFeaturedProperty.map((item, index) => (
-              <CarouselItem key={index} className="tablet-sm:basis-1/3">
+              <CarouselItem
+                key={index}
+                className="mobile-lg:basis-1/2 tablet-lg:basis-1/3"
+              >
                 <div className="border border-grey-shade-15 bg-grey-shade-8 rounded-md px-4 py-5">
                   <div className="flex flex-col gap-8">
                     <div>
@@ -181,8 +184,8 @@ const FeaturedProperty = () => {
                       })}
                     </div>
                     {/* <div className="flex flex-row gap-1 items-center justify-between"> */}
-                    <div className="grid grid-cols-12 border border-red-500">
-                      <div className="col-span-4 border border-red-500">
+                    <div className="grid grid-cols-12">
+                      <div className="col-span-4">
                         <div className="flex flex-col gap-1">
                           <p className="text-lg text-grey-shade-60 max-desktop-lg:text-sm">
                             Price
@@ -193,7 +196,7 @@ const FeaturedProperty = () => {
                         </div>
                       </div>
 
-                      <div className="col-span-8 border border-red-500">
+                      <div className="col-span-8">
                         {/* py-6 px-4 */}
                         <Button className="w-full h-full text-lg font-medium bg-purple-shade-60 rounded-md hover:bg-purple-shade-d60 max-desktop-2xl:text-sm max-tablet-sm:text-sm">
                           View Property Details
