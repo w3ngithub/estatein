@@ -179,7 +179,7 @@ const ClientsReview = () => {
             })}
           </CarouselContent>
         </div>
-        <div className="flex flex-row justify-between mb-4 max-mobile-md:hidden">
+        <div className="flex flex-row justify-between mb-4 max-mobile-md:hidden border-t-[1px] border-t-grey-shade-15 bg-grey-shade-8 pt-5">
           <div className="text-base font-medium">
             <span className="text-white">01</span>{" "}
             <span className="text-grey-shade-60">of 10</span>
@@ -191,7 +191,7 @@ const ClientsReview = () => {
         </div>
         {/* for mobile screen */}
         <div className="hidden max-mobile-md:block">
-          <div className="flex flex-row justify-between mb-3">
+          <div className="flex flex-row justify-between mb-3 border-t-[1px] border-t-grey-shade-15 bg-grey-shade-8 pt-5">
             <Button className="text-sm border-2 border-grey-shade-15 bg-grey-shade-8 rounded-md px-4 py-5">
               View All Testimonials
             </Button>

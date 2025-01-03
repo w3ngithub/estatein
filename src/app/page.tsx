@@ -10,8 +10,8 @@ export default function Home() {
         <Hero />
         <HeroCard />
         <div className="bg-grey-shade-8">
-          <Faq />
           <ClientsReview />
+          <Faq />
         </div>
       </div>
     </>
