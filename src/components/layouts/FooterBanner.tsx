@@ -19,7 +19,7 @@ const FooterBanner = () => {
         }}
       >
         <div className="container py-8">
-          <div className="flex flex-row justify-between items-center">
+          <div className="flex flex-row justify-between items-center gap-2 max-mobile-lg:flex-col max-mobile-lg:gap-8">
             <div className="flex flex-col gap-4">
               <h1 className="text-white text-5xl font-semibold max-desktop-lg:text-4xl max-tablet-sm:text-[28px]">
                 Start Your Real Estate Journey Today
@@ -33,8 +33,8 @@ const FooterBanner = () => {
                 personalized assistance.
               </p>
             </div>
-            <div>
-              <Button className="py-3 px-4text-lg bg-purple-shade-60 rounded-md hover:bg-purple-shade-d60 max-desktop-2xl:text-sm">
+            <div className="max-mobile-lg:w-full">
+              <Button className="bg-purple-shade-60 hover:bg-purple-shade-d60 py-6 px-4 font-medium rounded-md max-desktop-lg:text-sm max-mobile-lg:w-full">
                 Explore Properties
               </Button>
             </div>
