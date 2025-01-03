@@ -139,7 +139,7 @@ const FeaturedProperty = () => {
             {carouselDataFeaturedProperty.map((item, index) => (
               <CarouselItem key={index} className="tablet-sm:basis-1/3">
                 <div className="border border-grey-shade-15 bg-grey-shade-8 rounded-md px-4 py-5">
-                  <div className="flex flex-col gap-2">
+                  <div className="flex flex-col gap-8">
                     <div>
                       <Image
                         src={`${
@@ -147,20 +147,22 @@ const FeaturedProperty = () => {
                         }`}
                         width={432}
                         height={318}
-                        alt={`card image`}
+                        alt="house image"
                       />
                     </div>
-                    <div>
-                      <h2 className="text-2xl font-semibold text-white">
+                    <div className="flex flex-col gap-2">
+                      <h2 className="text-2xl font-semibold text-white max-desktop-lg:text-xl max-tablet-sm:text-lg">
                         {item.title}
                       </h2>
                       <div>
-                        <span className="text-lg text-grey-shade-60">
+                        <span className="text-lg text-grey-shade-60 max-desktop-lg:text-base max-tablet-sm:text-sm">
                           {item.description}
                         </span>
-                        <span className="underline font-medium text-white">
-                          Read More
-                        </span>
+                        <Link href="/">
+                          <span className="underline font-medium text-white text-base p-[0.5px] max-tablet-sm:text-sm">
+                            Read More
+                          </span>
+                        </Link>
                       </div>
                     </div>
                     <div className="flex flex-row gap-2 flex-wrap">
@@ -168,25 +170,27 @@ const FeaturedProperty = () => {
                         return (
                           <div
                             key={idx}
-                            className="flex flex-row gap-1 border border-grey-shade-15 bg-grey-shade-8 px-3 py-2 rounded-full"
+                            className="flex flex-row justify-center items-center gap-1 border border-grey-shade-15 bg-grey-shade-8 px-3 py-2 rounded-full"
                           >
                             <div>{detail.pillIcon}</div>
-                            <p className="text-white text-lg">
+                            <p className="text-white text-lg max-desktop-lg:text-sm max-tablet-sm:text-sm">
                               {detail.pillName}
                             </p>
                           </div>
                         );
                       })}
                     </div>
-                    <div className="flex flex-row gap-3 items-center justify-between border border-red-500">
-                      <div className="flex flex-col gap-2">
-                        <p className="text-lg text-grey-shade-60">Price</p>
-                        <h2 className="text-2xl font-semibold text-white">
+                    <div className="flex flex-row gap-1 items-center justify-between">
+                      <div className="flex flex-col gap-1">
+                        <p className="text-lg text-grey-shade-60 max-desktop-lg:text-sm">
+                          Price
+                        </p>
+                        <h2 className="text-2xl font-semibold text-white max-desktop-lg:text-xl max-tablet-sm:text-lg">
                           $550.000
                         </h2>
                       </div>
                       <div>
-                        <Button className="py-3 px-4 text-lg bg-purple-shade-60 rounded-md hover:bg-purple-shade-d60 max-desktop-2xl:text-sm">
+                        <Button className="py-6 px-4 text-lg font-medium bg-purple-shade-60 rounded-md hover:bg-purple-shade-d60 max-desktop-2xl:text-sm max-tablet-sm:text-sm">
                           View Property Details
                         </Button>
                       </div>
