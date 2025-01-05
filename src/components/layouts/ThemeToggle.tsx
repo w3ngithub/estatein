@@ -17,7 +17,7 @@ const ThemeToggle = () => {
     document.querySelector("html")?.classList.add(themeMode);
   }, [themeMode]);
 
-  const onChangeBtn = (e) => {
+  const onChangeBtn = (e: any) => {
     const darkModeStatus = e.currentTarget.checked;
     if (darkModeStatus) {
       darkTheme();
