@@ -8,11 +8,11 @@ import HeroCard from "@/components/modules/home-page/HeroCard";
 export default function Home() {
   return (
     <>
-      <div className="bg-grey-shade-10">
+      <div className="dark:bg-grey-shade-10">
         <HeroNew />
         {/* <Hero /> */}
         <HeroCard />
-        <div className="bg-grey-shade-8">
+        <div className="dark:bg-grey-shade-8">
           <ClientsReview />
           <Faq />
           <FeaturedProperty />

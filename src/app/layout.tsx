@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/layouts/Header";
 import HeaderBanner from "@/components/layouts/HeaderBanner";
 import FooterBanner from "@/components/layouts/FooterBanner";
+import ThemeToggle from "@/components/layouts/ThemeToggle";
 
 const urbanist = localFont({
   src: "../../public/fonts/Urbanist-VariableFont_wght.ttf",
@@ -24,10 +25,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${urbanist.className}`}>
+        <ThemeToggle />
         <HeaderBanner />
         <Header />
         {children}
-        <div className="bg-grey-shade-8">
+        <div className="dark:bg-grey-shade-8">
           <FooterBanner />
           {/* <Footer /> */}
         </div>
