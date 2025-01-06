@@ -2,9 +2,9 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <div className="container">
-      <div className="grid grid-cols-12 border border-red-500 gap-10">
-        <div className="col-span-4 border border-red-500">
+    <div className="container py-12">
+      <div className="grid grid-cols-12 gap-10">
+        <div className="col-span-4">
           <div className="flex flex-col gap-5">
             <div className="flex flex-row gap-2">
               <div>
@@ -83,9 +83,9 @@ const Footer = () => {
           </div>
         </div>
         {/* second section */}
-        <div className="col-span-8 border border-red-500">
-          <div className="grid grid-cols-12 border border-yellow-500">
-            <div className="col-span-2 border border-green-500">
+        <div className="col-span-8">
+          <div className="grid grid-cols-12 space-x-7">
+            <div className="col-span-2">
               <ul className="flex flex-col gap-3 list-none">
                 <Link href="/">
                   <li className="text-xl font-medium text-grey-shade-60 mb-1 max-desktop-lg:text-lg max-tablet-sm:text-base">
@@ -119,7 +119,7 @@ const Footer = () => {
                 </Link>
               </ul>
             </div>
-            <div className="col-span-2 border border-green-500">
+            <div className="col-span-2">
               <ul className="flex flex-col gap-3 list-none">
                 <Link href="/">
                   <li className="text-xl font-medium text-grey-shade-60 mb-1">
@@ -153,7 +153,7 @@ const Footer = () => {
                 </Link>
               </ul>
             </div>
-            <div className="col-span-2 border border-green-500">
+            <div className="col-span-2">
               <ul className="flex flex-col gap-3 list-none">
                 <Link href="/">
                   <li className="text-xl font-medium text-grey-shade-60 mb-1 max-desktop-lg:text-lg max-tablet-sm:text-base">
@@ -172,7 +172,7 @@ const Footer = () => {
                 </Link>
               </ul>
             </div>
-            <div className="col-span-4 border border-green-500">
+            <div className="col-span-4">
               <ul className="flex flex-col gap-3 list-none">
                 <Link href="/">
                   <li className="text-xl font-medium text-grey-shade-60 mb-1 max-desktop-lg:text-lg max-tablet-sm:text-base">
@@ -206,7 +206,7 @@ const Footer = () => {
                 </Link>
               </ul>
             </div>
-            <div className="col-span-2 border border-green-500">
+            <div className="col-span-2">
               <ul className="flex flex-col gap-3 list-none">
                 <Link href="/">
                   <li className="text-xl font-medium text-grey-shade-60 mb-1 max-desktop-lg:text-lg max-tablet-sm:text-base">
