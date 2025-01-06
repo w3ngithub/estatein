@@ -3,7 +3,7 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <div className="container">
-      <div className="grid grid-cols-12 border border-red-500">
+      <div className="grid grid-cols-12 border border-red-500 gap-10">
         <div className="col-span-4 border border-red-500">
           <div className="flex flex-col gap-5">
             <div className="flex flex-row gap-2">
@@ -38,7 +38,7 @@ const Footer = () => {
               </h1>
             </div>
             {/* input field container */}
-            <div className="flex items-center gap-3 w-[80%] max-w-md px-4 py-3 bg-[#1C1C1C] rounded-lg">
+            <div className="flex items-center gap-3 w-[85%] max-w-md px-4 py-3 bg-[#1C1C1C] rounded-lg">
               <div>
                 <svg
                   width="20"
@@ -88,32 +88,34 @@ const Footer = () => {
             <div className="col-span-2 border border-green-500">
               <ul className="flex flex-col gap-3 list-none">
                 <Link href="/">
-                  <li className="text-xl font-medium text-grey-shade-60 mb-1">
+                  <li className="text-xl font-medium text-grey-shade-60 mb-1 max-desktop-lg:text-lg max-tablet-sm:text-base">
                     Home
                   </li>
                 </Link>
                 <Link href="/">
-                  <li className="font-medium text-lg dark:text-white">
+                  <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
                     Hero Section
                   </li>
                 </Link>
                 <Link href="/">
-                  <li className="font-medium text-lg dark:text-white">
+                  <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
                     Features
                   </li>
                 </Link>
                 <Link href="/">
-                  <li className="font-medium text-lg dark:text-white">
+                  <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
                     Properties
                   </li>
                 </Link>
                 <Link href="/">
-                  <li className="font-medium text-lg dark:text-white">
+                  <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
                     Testimonials
                   </li>
                 </Link>
                 <Link href="/">
-                  <li className="font-medium text-lg dark:text-white">FAQ's</li>
+                  <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
+                    FAQ's
+                  </li>
                 </Link>
               </ul>
             </div>
@@ -125,27 +127,27 @@ const Footer = () => {
                   </li>
                 </Link>
                 <Link href="/">
-                  <li className="font-medium text-lg dark:text-white">
+                  <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
                     Our Story
                   </li>
                 </Link>
                 <Link href="/">
-                  <li className="font-medium text-lg dark:text-white">
+                  <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
                     Our Works
                   </li>
                 </Link>
                 <Link href="/">
-                  <li className="font-medium text-lg dark:text-white">
+                  <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
                     How It Works
                   </li>
                 </Link>
                 <Link href="/">
-                  <li className="font-medium text-lg dark:text-white">
+                  <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
                     Our Team
                   </li>
                 </Link>
                 <Link href="/">
-                  <li className="font-medium text-lg dark:text-white">
+                  <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
                     Our Clients
                   </li>
                 </Link>
@@ -154,17 +156,17 @@ const Footer = () => {
             <div className="col-span-2 border border-green-500">
               <ul className="flex flex-col gap-3 list-none">
                 <Link href="/">
-                  <li className="text-xl font-medium text-grey-shade-60 mb-1">
+                  <li className="text-xl font-medium text-grey-shade-60 mb-1 max-desktop-lg:text-lg max-tablet-sm:text-base">
                     Properties
                   </li>
                 </Link>
                 <Link href="/">
-                  <li className="font-medium text-lg dark:text-white">
+                  <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
                     Portfolio
                   </li>
                 </Link>
                 <Link href="/">
-                  <li className="font-medium text-lg dark:text-white">
+                  <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
                     Categories
                   </li>
                 </Link>
@@ -173,32 +175,32 @@ const Footer = () => {
             <div className="col-span-4 border border-green-500">
               <ul className="flex flex-col gap-3 list-none">
                 <Link href="/">
-                  <li className="text-xl font-medium text-grey-shade-60 mb-1">
+                  <li className="text-xl font-medium text-grey-shade-60 mb-1 max-desktop-lg:text-lg max-tablet-sm:text-base">
                     Services
                   </li>
                 </Link>
                 <Link href="/">
-                  <li className="font-medium text-lg dark:text-white">
+                  <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
                     Valuation Mastery
                   </li>
                 </Link>
                 <Link href="/">
-                  <li className="font-medium text-lg dark:text-white">
+                  <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
                     Stategic Marketing
                   </li>
                 </Link>
                 <Link href="/">
-                  <li className="font-medium text-lg dark:text-white">
+                  <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
                     Negotiation Wizardry
                   </li>
                 </Link>
                 <Link href="/">
-                  <li className="font-medium text-lg dark:text-white">
+                  <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
                     Closing Success
                   </li>
                 </Link>
                 <Link href="/">
-                  <li className="font-medium text-lg dark:text-white">
+                  <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
                     Property Management
                   </li>
                 </Link>
@@ -207,17 +209,17 @@ const Footer = () => {
             <div className="col-span-2 border border-green-500">
               <ul className="flex flex-col gap-3 list-none">
                 <Link href="/">
-                  <li className="text-xl font-medium text-grey-shade-60 mb-1">
+                  <li className="text-xl font-medium text-grey-shade-60 mb-1 max-desktop-lg:text-lg max-tablet-sm:text-base">
                     Contact Us
                   </li>
                 </Link>
                 <Link href="/">
-                  <li className="font-medium text-lg dark:text-white">
+                  <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
                     Contact Form
                   </li>
                 </Link>
                 <Link href="/">
-                  <li className="font-medium text-lg dark:text-white">
+                  <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
                     Our Offices
                   </li>
                 </Link>
