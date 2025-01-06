@@ -9,7 +9,7 @@ const HeroNew = () => {
       <div className="relative w-full h-full">
         <div className="grid container tablet-lg:h-[100vh] tablet-sm:grid-cols-2 gap-2 max-tablet-sm:flex max-tablet-sm:flex-col">
           {/* left section */}
-          <div className="h-full max-tablet-sm:w-full">
+          <div className="h-full max-tablet-sm:w-full max-mobile-md:order-last">
             <div className="h-full pt-32 max-desktop-lg:pt-10">
               <div className="flex flex-col items-start justify-center gap-8 mt-5">
                 <h1 className="max-w-[610px] leading-tight font-semibold text-6xl max-desktop-2xl:text-5xl max-desktop-2xl:leading-snug max-tablet-lg:text-4xl max-tablet-lg:max-w-[350px] max-mobile-lg:text-3xl text-white">
@@ -44,7 +44,7 @@ const HeroNew = () => {
                 }`}
                 width={1920} // Large width to ensure high-quality scaling
                 height={814} // Proportional height
-                className="object-cover"
+                className="object-cover max-mobile-md:rounded-lg"
                 alt="Hero icon"
                 priority
               />
