@@ -7,7 +7,7 @@ const Header = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <nav className="bg-grey-shade-10">
+    <nav className="bg-grey-shade-10 py-3">
       <div className="container text-white">
         <div className="flex flex-row justify-between items-center">
           <div className="flex flex-row gap-2 items-center">
@@ -97,12 +97,14 @@ const Header = () => {
           <div className="block max-tablet-sm:hidden">
             <ul className="flex flex-row gap-8 text-white justify-center items-center font-medium text-lg max-desktop-2xl:text-sm">
               <Link href="/">
-                <li className="border-2 border-grey-shade-15 bg-grey-shade-8 py-2 px-3 rounded-md">
+                <li className="border-2 border-grey-shade-15 bg-grey-shade-8 py-2 px-3 rounded-md hover:bg-grey-shade-15 dark:text-white">
                   Home
                 </li>
               </Link>
               <Link href="/">
-                <li>About Us</li>
+                <li className="hover:bg-grey-shade-15 dark:text-white">
+                  About Us
+                </li>
               </Link>
               <Link href="/">
                 <li>Properties</li>
@@ -137,7 +139,7 @@ const Header = () => {
               </svg>
             </button>
           </div>
-          <div className="border border-grey-shade-15 bg-grey-shade-8 py-2 px-3 rounded-md font-medium text-lg max-desktop-2xl:text-sm block max-tablet-sm:hidden">
+          <div className="border border-grey-shade-15 bg-grey-shade-8 py-2 px-3 rounded-md font-medium text-lg max-desktop-2xl:text-sm block max-tablet-sm:hidden hover:bg-grey-shade-15 dark:text-white">
             Contact Us
           </div>
         </div>
