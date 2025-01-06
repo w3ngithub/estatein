@@ -126,7 +126,7 @@ const ClientsReview = () => {
           </div>
           <div className="block max-mobile-xl:hidden">
             <Link href="/">
-              <Button className="flex items-center justify-center text-lg py-6 px-4 font-medium border-2 border-grey-shade-15 bg-grey-shade-8 rounded-md max-desktop-lg:text-sm">
+              <Button className="flex items-center justify-center text-lg py-6 px-4 font-medium border-2 border-grey-shade-15 bg-grey-shade-8 rounded-md max-desktop-lg:text-sm hover:bg-grey-shade-15 dark:text-white">
                 View All Testimonials
               </Button>
             </Link>
@@ -192,7 +192,7 @@ const ClientsReview = () => {
         {/* for mobile screen */}
         <div className="hidden max-mobile-md:block">
           <div className="flex flex-row justify-between mb-3 border-t-[1px] border-t-grey-shade-15 bg-grey-shade-8 pt-5">
-            <Button className="text-sm border-2 border-grey-shade-15 bg-grey-shade-8 rounded-md px-4 py-5">
+            <Button className="text-sm border-2 border-grey-shade-15 bg-grey-shade-8 rounded-md px-4 py-5 dark:text-white">
               View All Testimonials
             </Button>
             <div className="flex flex-row items-center justify-center gap-3">

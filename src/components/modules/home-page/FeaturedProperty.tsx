@@ -9,7 +9,6 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Image from "next/image";
-import Rating from "../common/Rating";
 import { carouselDataFeaturedProperty } from "@/utilityComponents/homePage/featuredProperty";
 
 const FeaturedProperty = () => {
@@ -115,7 +114,7 @@ const FeaturedProperty = () => {
                 </defs>
               </svg>
             </div>
-            <h1 className="text-white text-5xl font-semibold max-desktop-lg:text-4xl max-tablet-sm:text-[28px]">
+            <h1 className="text-5xl font-semibold max-desktop-lg:text-4xl max-tablet-sm:text-[28px] dark:text-white">
               Featured Properties
             </h1>
             <p className="max-w-[900px] text-grey-shade-60 text-lg leading-6 max-desktop-lg:text-base max-tablet-sm:text-sm">
@@ -127,7 +126,7 @@ const FeaturedProperty = () => {
           </div>
           <div className="block max-mobile-xl:hidden">
             <Link href="/">
-              <Button className="flex items-center justify-center text-lg py-6 px-4 font-medium border-2 border-grey-shade-15 bg-grey-shade-8 rounded-md max-desktop-lg:text-sm">
+              <Button className="flex items-center justify-center text-lg py-6 px-4 font-medium border-2 border-grey-shade-15 bg-grey-shade-8 rounded-md max-desktop-lg:text-sm hover:bg-grey-shade-15 dark:text-white">
                 View All Properties
               </Button>
             </Link>
@@ -183,7 +182,6 @@ const FeaturedProperty = () => {
                         );
                       })}
                     </div>
-                    {/* <div className="flex flex-row gap-1 items-center justify-between"> */}
                     <div className="grid grid-cols-12">
                       <div className="col-span-4">
                         <div className="flex flex-col gap-1">
@@ -197,8 +195,7 @@ const FeaturedProperty = () => {
                       </div>
 
                       <div className="col-span-8">
-                        {/* py-6 px-4 */}
-                        <Button className="w-full h-full text-lg font-medium bg-purple-shade-60 rounded-md hover:bg-purple-shade-d60 max-desktop-2xl:text-sm max-tablet-sm:text-sm">
+                        <Button className="w-full h-full text-lg font-medium bg-purple-shade-60 rounded-md hover:bg-purple-shade-d60 max-desktop-2xl:text-sm max-tablet-sm:text-sm dark:text-white">
                           View Property Details
                         </Button>
                       </div>
@@ -222,7 +219,7 @@ const FeaturedProperty = () => {
         {/* for mobile screen */}
         <div className="hidden max-mobile-md:block">
           <div className="flex flex-row justify-between mb-3 border-t-[1px] border-t-grey-shade-15 bg-grey-shade-8 pt-5">
-            <Button className="text-sm border-2 border-grey-shade-15 bg-grey-shade-8 rounded-md px-4 py-5">
+            <Button className="text-sm border-2 border-grey-shade-15 bg-grey-shade-8 rounded-md px-4 py-5 dark:text-white">
               View All Properties
             </Button>
             <div className="flex flex-row items-center justify-center gap-3">

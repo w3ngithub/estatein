@@ -124,7 +124,7 @@ const Faq = () => {
           </div>
           <div className="block max-mobile-xl:hidden">
             <Link href="/">
-              <Button className="flex items-center justify-center text-lg py-6 px-4 font-medium border-2 border-grey-shade-15 bg-grey-shade-8 rounded-md max-desktop-lg:text-sm">
+              <Button className="flex items-center justify-center text-lg py-6 px-4 font-medium border-2 border-grey-shade-15 bg-grey-shade-8 rounded-md max-desktop-lg:text-sm hover:bg-grey-shade-15 dark:text-white">
                 View All FAQ's
               </Button>
             </Link>
@@ -143,7 +143,7 @@ const Faq = () => {
                     <p className="text-grey-shade-60 text-lg leading-6 max-desktop-lg:text-base max-tablet-sm:text-sm">
                       {item.description}
                     </p>
-                    <Button className="border-2 border-grey-shade-15 bg-grey-shade-8 rounded-md py-5 px-3 w-fit text-lg font-medium max-desktop-lg:text-sm max-mobile-md:w-full">
+                    <Button className="border-2 border-grey-shade-15 bg-grey-shade-8 rounded-md py-5 px-3 w-fit text-lg font-medium max-desktop-lg:text-sm max-mobile-md:w-full hover:bg-grey-shade-15 dark:text-white">
                       Read More
                     </Button>
                   </div>
@@ -167,7 +167,7 @@ const Faq = () => {
         {/* for mobile screen */}
         <div className="hidden max-mobile-md:block">
           <div className="flex flex-row justify-between mb-3 border-t-[1px] border-t-grey-shade-15 bg-grey-shade-8 pt-5">
-            <Button className="text-sm border-2 border-grey-shade-15 bg-grey-shade-8 rounded-md px-4 py-5">
+            <Button className="text-sm border-2 border-grey-shade-15 bg-grey-shade-8 rounded-md px-4 py-5 dark:text-white">
               View All FAQ's
             </Button>
             <div className="flex flex-row items-center justify-center gap-3">
