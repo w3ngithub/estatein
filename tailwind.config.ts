@@ -60,6 +60,7 @@ export default {
           50: "#808080",
           60: "#999999",
           d61: "#191919",
+          d62: "#303030",
         },
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
