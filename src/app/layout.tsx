@@ -3,10 +3,10 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/layouts/Header";
 import HeaderBanner from "@/components/layouts/HeaderBanner";
-import FooterBanner from "@/components/layouts/FooterBanner";
 import ThemeToggle from "@/components/layouts/ThemeToggle";
 import Footer from "@/components/layouts/Footer";
 import TermsAndCondition from "@/components/layouts/TermsAndCondition";
+import ExploreProperty from "@/components/layouts/FooterBanner";
 
 const urbanist = localFont({
   src: "../../public/fonts/Urbanist-VariableFont_wght.ttf",
@@ -32,11 +32,11 @@ export default function RootLayout({
         <Header />
         {children}
         <div className="dark:bg-grey-shade-8">
-          {/* <FooterBanner /> */}
+          <ExploreProperty />
           {/* <Footer /> */}
         </div>
         <div className="dark:bg-grey-shade-10 py-5">
-          {/* <TermsAndCondition /> */}
+          <TermsAndCondition />
         </div>
       </body>
     </html>
