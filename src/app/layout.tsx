@@ -32,11 +32,11 @@ export default function RootLayout({
         <Header />
         {children}
         <div className="dark:bg-grey-shade-8">
-          <FooterBanner />
-          <Footer />
+          {/* <FooterBanner /> */}
+          {/* <Footer /> */}
         </div>
         <div className="dark:bg-grey-shade-10 py-5">
-          <TermsAndCondition />
+          {/* <TermsAndCondition /> */}
         </div>
       </body>
     </html>

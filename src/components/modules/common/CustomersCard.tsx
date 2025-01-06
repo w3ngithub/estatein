@@ -1,6 +1,6 @@
 const CustomersCard = () => {
   return (
-    <div className="flex flex-row gap-3">
+    <div className="relative flex flex-row gap-3 z-50">
       {/* 1 */}
       <div className="flex flex-col gap-5 border-2 border-grey-shade-15 bg-grey-shade-10 rounded-md p-2 px-4">
         <h1 className="text-4xl font-bold max-desktop-2xl:text-3xl text-white pt-1">
