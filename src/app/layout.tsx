@@ -5,6 +5,7 @@ import Header from "@/components/layouts/Header";
 import HeaderBanner from "@/components/layouts/HeaderBanner";
 import FooterBanner from "@/components/layouts/FooterBanner";
 import ThemeToggle from "@/components/layouts/ThemeToggle";
+import Footer from "@/components/layouts/Footer";
 
 const urbanist = localFont({
   src: "../../public/fonts/Urbanist-VariableFont_wght.ttf",
@@ -31,7 +32,7 @@ export default function RootLayout({
         {children}
         <div className="dark:bg-grey-shade-8">
           <FooterBanner />
-          {/* <Footer /> */}
+          <Footer />
         </div>
       </body>
     </html>
