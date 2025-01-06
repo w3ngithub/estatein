@@ -50,7 +50,7 @@ const HeroNew = () => {
               />
             </div>
             {/* logo */}
-            <div className="absolute top-[20%] left-[-5%]">
+            <div className="absolute top-[20%] left-[-5%] max-mobile-md:top-[75%]">
               <Image
                 src={`${
                   process.env.NEXT_PUBLIC_BASE_PATH + "/images/hero-logo.png"
