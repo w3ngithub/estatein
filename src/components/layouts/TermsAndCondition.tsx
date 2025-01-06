@@ -2,7 +2,6 @@ import Link from "next/link";
 import React from "react";
 
 const TermsAndCondition = () => {
-  // max-mobile-xl:
   return (
     <div className="container">
       <div className="flex flex-row justify-between items-center flex-wrap max-mobile-xl:justify-center max-mobile-xl:gap-5">
