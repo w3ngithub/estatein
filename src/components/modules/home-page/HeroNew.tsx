@@ -7,9 +7,9 @@ const HeroNew = () => {
   return (
     <>
       <div className="relative">
-        <div className="grid container  grid-cols-2 h-screen">
+        <div className="grid container grid-cols-2 h-screen">
           <div className="h-full">
-            <div className="h-full">
+            <div className="h-full pt-32">
               <div className="flex flex-col items-start justify-center gap-8 mt-5">
                 <h1 className="max-w-[610px] leading-tight font-semibold text-6xl max-desktop-2xl:text-5xl max-desktop-2xl:leading-snug max-mobile-lg:text-3xl text-white">
                   Discover Your Dream Property with Estatein
