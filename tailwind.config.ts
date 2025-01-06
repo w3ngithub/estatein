@@ -17,7 +17,7 @@ export default {
       "tablet-sm": "768px",
       "mobile-xl": "640px",
       "mobile-lg": "524px",
-      "mobile-md": "420px", //from this make hero responsive
+      "mobile-md": "420px",
       "mobile-sm": "360px",
     },
     container: {

@@ -8,7 +8,7 @@ const Header = () => {
 
   return (
     <nav className="bg-grey-shade-10">
-      <div className="container text-white border border-red-500">
+      <div className="container text-white">
         <div className="flex flex-row justify-between items-center">
           <div className="flex flex-row gap-2 items-center">
             {/* desktop logo */}
