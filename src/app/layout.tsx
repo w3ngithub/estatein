@@ -6,6 +6,7 @@ import HeaderBanner from "@/components/layouts/HeaderBanner";
 import FooterBanner from "@/components/layouts/FooterBanner";
 import ThemeToggle from "@/components/layouts/ThemeToggle";
 import Footer from "@/components/layouts/Footer";
+import TermsAndCondition from "@/components/layouts/TermsAndCondition";
 
 const urbanist = localFont({
   src: "../../public/fonts/Urbanist-VariableFont_wght.ttf",
@@ -33,6 +34,9 @@ export default function RootLayout({
         <div className="dark:bg-grey-shade-8">
           <FooterBanner />
           <Footer />
+        </div>
+        <div className="dark:bg-grey-shade-10 py-5">
+          <TermsAndCondition />
         </div>
       </body>
     </html>

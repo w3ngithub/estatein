@@ -86,7 +86,7 @@ const Footer = () => {
         {/* max-tablet-sm:h-fit */}
         <div className="desktop-md:col-span-8">
           <div className="grid grid-cols-2 tablet-sm:grid-cols-12">
-            <div className="tablet-sm:col-span-2 border border-red-500">
+            <div className="tablet-sm:col-span-2 ">
               <ul className="flex flex-col gap-3 list-none">
                 <Link href="/">
                   <li className="text-xl font-medium text-grey-shade-60 mb-1 max-desktop-lg:text-lg max-tablet-sm:text-base">
@@ -120,7 +120,7 @@ const Footer = () => {
                 </Link>
               </ul>
             </div>
-            <div className="tablet-sm:col-span-2 border border-red-500">
+            <div className="tablet-sm:col-span-2 ">
               <ul className="flex flex-col gap-3 list-none">
                 <Link href="/">
                   <li className="text-xl font-medium text-grey-shade-60 mb-1">
@@ -154,7 +154,7 @@ const Footer = () => {
                 </Link>
               </ul>
             </div>
-            <div className="tablet-sm:col-span-2 border border-red-500">
+            <div className="tablet-sm:col-span-2 ">
               <ul className="flex flex-col gap-3 list-none">
                 <Link href="/">
                   <li className="text-xl font-medium text-grey-shade-60 mb-1 max-desktop-lg:text-lg max-tablet-sm:text-base">
@@ -173,7 +173,7 @@ const Footer = () => {
                 </Link>
               </ul>
             </div>
-            <div className="tablet-sm:col-span-4 border border-red-500">
+            <div className="tablet-sm:col-span-4 ">
               <ul className="flex flex-col gap-3 list-none">
                 <Link href="/">
                   <li className="text-xl font-medium text-grey-shade-60 mb-1 max-desktop-lg:text-lg max-tablet-sm:text-base">
@@ -207,7 +207,7 @@ const Footer = () => {
                 </Link>
               </ul>
             </div>
-            <div className="tablet-sm:col-span-2 border border-red-500">
+            <div className="tablet-sm:col-span-2 ">
               <ul className="flex flex-col gap-3 list-none">
                 <Link href="/">
                   <li className="text-xl font-medium text-grey-shade-60 mb-1 max-desktop-lg:text-lg max-tablet-sm:text-base">
