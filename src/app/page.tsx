@@ -10,8 +10,8 @@ export default function Home() {
     <>
       <div className="dark:bg-grey-shade-10">
         <HeroNew />
-        {/* <Hero /> */}
-        {/* <HeroCard /> */}
+        <HeroCard />
+        <Hero />
         <div className="dark:bg-grey-shade-8">
           <ClientsReview />
           <Faq />

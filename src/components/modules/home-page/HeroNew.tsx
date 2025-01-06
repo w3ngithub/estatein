@@ -7,7 +7,7 @@ const HeroNew = () => {
   return (
     <>
       <div className="relative">
-        <div className="grid container px-0 grid-cols-2 h-[600px]">
+        <div className="grid container  grid-cols-2 h-screen">
           <div className="h-full">
             <div className="h-full">
               <div className="flex flex-col items-start justify-center gap-8 mt-5">
@@ -35,7 +35,21 @@ const HeroNew = () => {
               </div>
             </div>
           </div>
-          <div className="bg-lime-300 z-100 w-1/2 absolute right-0 h-full"></div>
+          <div className="bg-lime-300 z-100 w-1/2 absolute right-0">
+            <div className="border border-red-500 w-full">
+              <Image
+                src={`${
+                  process.env.NEXT_PUBLIC_BASE_PATH +
+                  "/images/hero-building.png"
+                }`}
+                width={1920} // Large width to ensure high-quality scaling
+                height={814} // Proportional height
+                className="w-full h-auto"
+                alt="Hero icon"
+                priority
+              />
+            </div>
+          </div>
         </div>
       </div>
     </>
