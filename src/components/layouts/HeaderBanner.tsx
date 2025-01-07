@@ -4,7 +4,7 @@ import React from "react";
 const HeaderBanner = () => {
   return (
     <>
-      <div
+      {/* <div
         style={{
           backgroundImage: `url(${process.env.NEXT_PUBLIC_BASE_PATH}/images/header-banner.svg)`,
           backgroundSize: "cover",
@@ -12,6 +12,14 @@ const HeaderBanner = () => {
           backgroundRepeat: "no-repeat",
         }}
         className="relative"
+      > */}
+      <div
+        style={{
+          backgroundImage: `url(${process.env.NEXT_PUBLIC_BASE_PATH}/images/header-banner.svg)`,
+          backgroundSize: "contain",
+          backgroundRepeat: "no-repeat",
+        }}
+        className="bg-white-90"
       >
         <div className="flex justify-center items-center w-full border border-red-500">
           <div className="absolute top-[50%] left-[50%]  transform -translate-x-1/2 -translate-y-1/2 flex flex-row gap-3 justify-center items-center text-white text-lg font-medium max-desktop-2xl:text-sm max-mobile-lg:text-xs">
