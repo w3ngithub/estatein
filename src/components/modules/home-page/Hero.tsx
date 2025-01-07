@@ -25,7 +25,7 @@ const Hero = () => {
                   Browse Properties
                 </Button>
               </div>
-              <div>
+              <div className="max-mobile-extra-md:w-full">
                 <CustomersCard />
               </div>
             </div>

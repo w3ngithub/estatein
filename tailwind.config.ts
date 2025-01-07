@@ -18,6 +18,7 @@ export default {
       "mobile-xl": "640px",
       "mobile-lg": "524px",
       "mobile-md": "420px",
+      "mobile-extra-md": "373px", //only for customera card
       "mobile-sm": "360px",
     },
     container: {
