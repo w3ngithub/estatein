@@ -74,7 +74,11 @@ const Header = () => {
           </div>
           {/* mobile screen: burger icon*/}
           <div className="hidden max-tablet-sm:block">
-            <button onClick={toggleMenu} aria-label="Toggle menu">
+            <button
+              onClick={toggleMenu}
+              aria-label="Toggle menu"
+              className="bg-grey-shade-8 px-2 py-2 rounded-lg"
+            >
               <BurgerIcon />
             </button>
           </div>
@@ -88,7 +92,7 @@ const Header = () => {
 
         {/* Mobile menu */}
         {isMenuOpen && (
-          <div className="max-tablet-sm:block hidden bg-grey-shade-8 py-4">
+          <div className="max-tablet-sm:block hidden dark:bg-grey-shade-8 py-4">
             <ul className="flex flex-col gap-4 font-medium text-sm dark:text-white">
               {navItems.map((item) => (
                 <NavLink key={item.name} item={item} />
