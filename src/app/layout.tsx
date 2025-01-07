@@ -7,6 +7,7 @@ import ThemeToggle from "@/components/modules/common/ThemeToggle";
 import Footer from "@/components/layouts/Footer";
 import TermsAndCondition from "@/components/modules/home-page/TermsAndCondition";
 import ExploreProperty from "@/components/modules/home-page/ExploreProperty";
+import FooterMobile from "@/components/layouts/FooterMobile";
 
 const urbanist = localFont({
   src: "../../public/fonts/Urbanist-VariableFont_wght.ttf",
@@ -34,6 +35,7 @@ export default function RootLayout({
         <div className="dark:bg-grey-shade-8">
           <ExploreProperty />
           <Footer />
+          <FooterMobile />
         </div>
         <div className="dark:bg-grey-shade-10 py-5">
           <TermsAndCondition />
