@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${urbanist.className}`}>
-        {/* <ThemeToggle /> */}
+        <ThemeToggle />
         <HeaderBanner />
         <Header />
         {children}

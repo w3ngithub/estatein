@@ -12,7 +12,7 @@ const HeaderBanner = () => {
       className="relative py-1"
     >
       <div className="flex justify-center items-center w-full">
-        <div className="absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 flex flex-row gap-3 justify-center items-center text-white text-lg font-medium max-desktop-2xl:text-sm max-mobile-lg:text-xs max-tablet-sm:w-full max-mobile-lg:justify-start max-mobile-lg:pl-2">
+        <div className="absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 flex flex-row gap-3 justify-center items-center text-white text-lg font-medium max-desktop-2xl:text-sm max-mobile-lg:text-xs max-tablet-sm:w-full max-mobile-lg:justify-start max-mobile-lg:pl-2  max-mobile-md:gap-2">
           <p className="">✨Discover Your Dream Property with Estatein</p>
           <Link href="/" className="underline">
             Learn More
@@ -26,6 +26,7 @@ const HeaderBanner = () => {
               viewBox="0 0 14 14"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
+              className="max-desktop-lg:w-3 max-desktop-lg:h-3 max-mobile-lg:h-2 max-mobile-lg:w-2"
             >
               <path
                 d="M1 13L13 1M1 1L13 13"
