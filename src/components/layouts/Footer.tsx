@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { footerData } from "@/utilityComponents/homePage/footer";
 import FooterMobile from "./FooterMobile";
 
 const Footer = () => {
@@ -116,7 +115,7 @@ const Footer = () => {
                 </Link>
                 <Link href="/">
                   <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
-                    FAQ's
+                    FAQ&apos;s
                   </li>
                 </Link>
               </ul>
