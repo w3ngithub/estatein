@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { footerData } from "@/utilityComponents/homePage/footer";
+import FooterMobile from "./FooterMobile";
 
 const Footer = () => {
   return (
@@ -82,151 +84,34 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        {/* second section */}
+        {/* second section: big screen */}
         <div className="block desktop-md:col-span-8 max-tablet-sm:hidden">
           <div className="grid grid-cols-2 tablet-sm:grid-cols-12">
-            <div className="tablet-sm:col-span-2">
-              <ul className="flex flex-col gap-3 list-none">
-                <Link href="/">
+            {footerData.map((menu, index) => (
+              <div
+                className={`tablet-sm:col-span-${
+                  menu.title === "Services" ? 4 : 2
+                }`}
+                key={index}
+              >
+                <ul className="flex flex-col gap-3 list-none">
                   <li className="text-xl font-medium text-grey-shade-60 mb-1 max-desktop-lg:text-lg max-tablet-sm:text-base">
-                    Home
+                    {menu.title}
                   </li>
-                </Link>
-                <Link href="/">
-                  <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
-                    Hero Section
-                  </li>
-                </Link>
-                <Link href="/">
-                  <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
-                    Features
-                  </li>
-                </Link>
-                <Link href="/">
-                  <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
-                    Properties
-                  </li>
-                </Link>
-                <Link href="/">
-                  <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
-                    Testimonials
-                  </li>
-                </Link>
-                <Link href="/">
-                  <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
-                    FAQ's
-                  </li>
-                </Link>
-              </ul>
-            </div>
-            <div className="tablet-sm:col-span-2">
-              <ul className="flex flex-col gap-3 list-none">
-                <Link href="/">
-                  <li className="text-xl font-medium text-grey-shade-60 mb-1 max-desktop-lg:text-lg max-tablet-sm:text-base">
-                    About Us
-                  </li>
-                </Link>
-                <Link href="/">
-                  <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
-                    Our Story
-                  </li>
-                </Link>
-                <Link href="/">
-                  <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
-                    Our Works
-                  </li>
-                </Link>
-                <Link href="/">
-                  <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
-                    How It Works
-                  </li>
-                </Link>
-                <Link href="/">
-                  <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
-                    Our Team
-                  </li>
-                </Link>
-                <Link href="/">
-                  <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
-                    Our Clients
-                  </li>
-                </Link>
-              </ul>
-            </div>
-            <div className="tablet-sm:col-span-2">
-              <ul className="flex flex-col gap-3 list-none">
-                <Link href="/">
-                  <li className="text-xl font-medium text-grey-shade-60 mb-1 max-desktop-lg:text-lg max-tablet-sm:text-base">
-                    Properties
-                  </li>
-                </Link>
-                <Link href="/">
-                  <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
-                    Portfolio
-                  </li>
-                </Link>
-                <Link href="/">
-                  <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
-                    Categories
-                  </li>
-                </Link>
-              </ul>
-            </div>
-            <div className="tablet-sm:col-span-4">
-              <ul className="flex flex-col gap-3 list-none">
-                <Link href="/">
-                  <li className="text-xl font-medium text-grey-shade-60 mb-1 max-desktop-lg:text-lg max-tablet-sm:text-base">
-                    Services
-                  </li>
-                </Link>
-                <Link href="/">
-                  <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
-                    Valuation Mastery
-                  </li>
-                </Link>
-                <Link href="/">
-                  <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
-                    Stategic Marketing
-                  </li>
-                </Link>
-                <Link href="/">
-                  <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
-                    Negotiation Wizardry
-                  </li>
-                </Link>
-                <Link href="/">
-                  <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
-                    Closing Success
-                  </li>
-                </Link>
-                <Link href="/">
-                  <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
-                    Property Management
-                  </li>
-                </Link>
-              </ul>
-            </div>
-            <div className="tablet-sm:col-span-2">
-              <ul className="flex flex-col gap-3 list-none">
-                <Link href="/">
-                  <li className="text-xl font-medium text-grey-shade-60 mb-1 max-desktop-lg:text-lg max-tablet-sm:text-base">
-                    Contact Us
-                  </li>
-                </Link>
-                <Link href="/">
-                  <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
-                    Contact Form
-                  </li>
-                </Link>
-                <Link href="/">
-                  <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
-                    Our Offices
-                  </li>
-                </Link>
-              </ul>
-            </div>
+                  {menu.links.map((link, idx) => (
+                    <Link href={link.href} key={idx}>
+                      <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
+                        {link.label}
+                      </li>
+                    </Link>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
+        {/* second section: small screen */}
+        <FooterMobile />
       </div>
     </div>
   );

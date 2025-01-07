@@ -35,7 +35,6 @@ export default function RootLayout({
         <div className="dark:bg-grey-shade-8">
           <ExploreProperty />
           <Footer />
-          <FooterMobile />
         </div>
         <div className="dark:bg-grey-shade-10 py-5">
           <TermsAndCondition />
