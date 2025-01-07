@@ -7,7 +7,7 @@ const HeroCard = () => {
         {heroCard.map((card, index) => (
           <div
             key={index}
-            className="border-2 border-grey-shade-15 bg-grey-shade-10 rounded-md flex flex-col"
+            className="border-2 border-[#E4E4E7] dark:border-grey-shade-15 dark:bg-grey-shade-10 rounded-md flex flex-col"
           >
             <div className="flex justify-end items-center pt-4 pr-4 hover:cursor-pointer">
               <svg
@@ -31,7 +31,7 @@ const HeroCard = () => {
               <div className="flex items-center justify-center max-desktop-lg:h-[60px] max-desktop-lg:w-[60px] max-desktop-lg:gap-4">
                 {card.icon}
               </div>
-              <p className="text-white font-semibold text-lg text-center max-desktop-lg:text-base max-tablet-sm:text-sm">
+              <p className="dark:text-white font-semibold text-lg text-center max-desktop-lg:text-base max-tablet-sm:text-sm">
                 {card.title}
               </p>
             </div>

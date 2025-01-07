@@ -21,10 +21,10 @@ const ExploreProperty = () => {
         <div className="container py-8">
           <div className="flex flex-row justify-between items-center gap-2 max-mobile-lg:flex-col max-mobile-lg:gap-8">
             <div className="flex flex-col gap-4">
-              <h1 className="text-white text-5xl font-semibold max-desktop-lg:text-4xl max-tablet-sm:text-[28px]">
+              <h1 className="dark:text-white text-5xl font-semibold max-desktop-lg:text-4xl max-tablet-sm:text-[28px]">
                 Start Your Real Estate Journey Today
               </h1>
-              <p className="max-w-[900px] text-grey-shade-60 text-lg leading-6 max-desktop-lg:text-base max-tablet-sm:text-sm">
+              <p className="max-w-[900px] dark:text-grey-shade-60 text-lg leading-6 max-desktop-lg:text-base max-tablet-sm:text-sm">
                 Your dream property is just a click away. Whether you&apos;re
                 looking for a new home, a strategic investment, or expert real
                 estate advice, Estatein is here to assist you every step of the

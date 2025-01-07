@@ -48,7 +48,7 @@ const TermsAndCondition = () => {
           </Link>
 
           <Link href="/">
-            <div className="bg-grey-shade-8 rounded-full px-3 py-4">
+            <div className="bg-grey-shade-8 rounded-full px-4 py-4">
               <svg
                 width="20"
                 height="18"

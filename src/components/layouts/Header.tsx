@@ -35,7 +35,7 @@ const Header = () => {
       <Link href={item.path}>
         <li
           className={`py-2 px-3 rounded-md dark:text-white
-          ${isActive ? "border-2  border-grey-shade-15 text-white" : ""}`}
+          ${isActive ? "border-2  border-grey-shade-15" : ""}`}
         >
           {item.name}
         </li>
@@ -44,8 +44,8 @@ const Header = () => {
   };
 
   return (
-    <nav className="bg-grey-shade-10 py-3">
-      <div className="container text-white">
+    <nav className="bg-white-95 dark:bg-grey-shade-10 py-3">
+      <div className="container dark:text-white">
         <div className="flex flex-row justify-between items-center">
           <div className="flex flex-row gap-2 items-center">
             {/* desktop logo */}
@@ -66,7 +66,7 @@ const Header = () => {
             </h1>
           </div>
           <div className="block max-tablet-sm:hidden">
-            <ul className="flex flex-row gap-8 text-white justify-center items-center font-medium text-lg max-desktop-2xl:text-sm">
+            <ul className="flex flex-row gap-8 justify-center items-center font-medium text-lg max-desktop-2xl:text-sm dark:text-white ">
               {navItems.map((item) => (
                 <NavLink key={item.name} item={item} />
               ))}
@@ -80,7 +80,7 @@ const Header = () => {
           </div>
           <Button
             onClick={() => router.push("/contact-us")}
-            className="border border-grey-shade-15 bg-grey-shade-8 py-2 px-3 rounded-md font-medium text-lg max-desktop-2xl:text-sm block max-tablet-sm:hidden hover:bg-grey-shade-15 dark:text-white"
+            className="border border-grey-shade-15 py-2 px-3 rounded-md font-medium text-lg max-desktop-2xl:text-sm block max-tablet-sm:hidden hover:bg-grey-shade-15 dark:text-white dark:bg-grey-shade-8"
           >
             Contact Us
           </Button>
@@ -89,7 +89,7 @@ const Header = () => {
         {/* Mobile menu */}
         {isMenuOpen && (
           <div className="max-tablet-sm:block hidden bg-grey-shade-8 py-4">
-            <ul className="flex flex-col gap-4 text-white font-medium text-sm">
+            <ul className="flex flex-col gap-4 font-medium text-sm dark:text-white">
               {navItems.map((item) => (
                 <NavLink key={item.name} item={item} />
               ))}

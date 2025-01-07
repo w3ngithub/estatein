@@ -40,7 +40,7 @@ const Footer = () => {
               </h1>
             </div>
             {/* input field container */}
-            <div className="flex items-center gap-3 w-[85%] max-w-sm px-4 py-3 bg-[#1C1C1C] rounded-lg">
+            <div className="flex items-center gap-3 w-[85%] max-w-sm px-4 py-3 bg-[#E4E4E7] dark:bg-[#1C1C1C] rounded-lg">
               <div>
                 <svg
                   width="20"
@@ -59,7 +59,7 @@ const Footer = () => {
               <input
                 type="email"
                 placeholder="Enter Your Email"
-                className="flex-1 bg-transparent text-white placeholder:text-gray-400 focus:outline-none text-sm"
+                className="flex-1 bg-transparent dark:text-white dark:placeholder:text-gray-400 focus:outline-none text-sm"
               />
 
               <div className="p-2 rounded-full">
@@ -90,7 +90,7 @@ const Footer = () => {
             <div className="tablet-sm:col-span-2">
               <ul className="flex flex-col gap-3 list-none">
                 <Link href="/">
-                  <li className="text-xl font-medium text-grey-shade-60 mb-1 max-desktop-lg:text-lg max-tablet-sm:text-base">
+                  <li className="text-xl font-medium dark:text-grey-shade-60 mb-1 max-desktop-lg:text-lg max-tablet-sm:text-base">
                     Home
                   </li>
                 </Link>
@@ -124,7 +124,7 @@ const Footer = () => {
             <div className="tablet-sm:col-span-2">
               <ul className="flex flex-col gap-3 list-none">
                 <Link href="/">
-                  <li className="text-xl font-medium text-grey-shade-60 mb-1 max-desktop-lg:text-lg max-tablet-sm:text-base">
+                  <li className="text-xl font-medium dark:text-grey-shade-60 mb-1 max-desktop-lg:text-lg max-tablet-sm:text-base">
                     About Us
                   </li>
                 </Link>
@@ -158,7 +158,7 @@ const Footer = () => {
             <div className="tablet-sm:col-span-2">
               <ul className="flex flex-col gap-3 list-none">
                 <Link href="/">
-                  <li className="text-xl font-medium text-grey-shade-60 mb-1 max-desktop-lg:text-lg max-tablet-sm:text-base">
+                  <li className="text-xl font-medium dark:text-grey-shade-60 mb-1 max-desktop-lg:text-lg max-tablet-sm:text-base">
                     Properties
                   </li>
                 </Link>
@@ -177,7 +177,7 @@ const Footer = () => {
             <div className="tablet-sm:col-span-4">
               <ul className="flex flex-col gap-3 list-none">
                 <Link href="/">
-                  <li className="text-xl font-medium text-grey-shade-60 mb-1 max-desktop-lg:text-lg max-tablet-sm:text-base">
+                  <li className="text-xl font-medium dark:text-grey-shade-60 mb-1 max-desktop-lg:text-lg max-tablet-sm:text-base">
                     Services
                   </li>
                 </Link>
@@ -211,7 +211,7 @@ const Footer = () => {
             <div className="tablet-sm:col-span-2">
               <ul className="flex flex-col gap-3 list-none">
                 <Link href="/">
-                  <li className="text-xl font-medium text-grey-shade-60 mb-1 max-desktop-lg:text-lg max-tablet-sm:text-base">
+                  <li className="text-xl font-medium dark:text-grey-shade-60 mb-1 max-desktop-lg:text-lg max-tablet-sm:text-base">
                     Contact Us
                   </li>
                 </Link>

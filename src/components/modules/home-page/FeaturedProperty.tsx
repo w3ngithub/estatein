@@ -25,7 +25,7 @@ const FeaturedProperty = () => {
             <h1 className="text-5xl font-semibold max-desktop-lg:text-4xl max-tablet-sm:text-[28px] dark:text-white">
               Featured Properties
             </h1>
-            <p className="max-w-[900px] text-grey-shade-60 text-lg leading-6 max-desktop-lg:text-base max-tablet-sm:text-sm">
+            <p className="max-w-[900px] dark:text-grey-shade-60 text-lg leading-6 max-desktop-lg:text-base max-tablet-sm:text-sm">
               Explore our handpicked selection of featured properties. Each
               listing offers a glimpse into exceptional homes and investments
               available through Estatein. Click &quot;View Details&quot; for
@@ -48,7 +48,7 @@ const FeaturedProperty = () => {
                 key={index}
                 className="mobile-lg:basis-1/2 tablet-lg:basis-1/3"
               >
-                <div className="border border-grey-shade-15 bg-grey-shade-8 rounded-md px-4 py-5">
+                <div className="border border-[#E4E4E7] dark:border-grey-shade-15 dark:bg-grey-shade-8 rounded-md px-4 py-5">
                   <div className="flex flex-col gap-8">
                     <div>
                       <Image
@@ -61,15 +61,15 @@ const FeaturedProperty = () => {
                       />
                     </div>
                     <div className="flex flex-col gap-2">
-                      <h2 className="text-2xl font-semibold text-white max-desktop-lg:text-xl max-tablet-sm:text-lg">
+                      <h2 className="text-2xl font-semibold dark:text-white max-desktop-lg:text-xl max-tablet-sm:text-lg">
                         {item.title}
                       </h2>
                       <div>
-                        <span className="text-lg text-grey-shade-60 max-desktop-lg:text-base max-tablet-sm:text-sm">
+                        <span className="text-lg dark:text-grey-shade-60 max-desktop-lg:text-base max-tablet-sm:text-sm">
                           {item.description}
                         </span>
                         <Link href="/">
-                          <span className="underline font-medium text-white text-base p-[0.5px] max-tablet-sm:text-sm">
+                          <span className="underline font-medium dark:text-white text-base p-[0.5px] max-tablet-sm:text-sm">
                             Read More
                           </span>
                         </Link>
@@ -96,7 +96,7 @@ const FeaturedProperty = () => {
                           <p className="text-lg text-grey-shade-60 max-desktop-lg:text-sm">
                             Price
                           </p>
-                          <h2 className="text-2xl font-semibold text-white max-desktop-lg:text-xl max-tablet-sm:text-lg">
+                          <h2 className="text-2xl font-semibold dark:text-white max-desktop-lg:text-xl max-tablet-sm:text-lg">
                             $550.000
                           </h2>
                         </div>
@@ -114,10 +114,10 @@ const FeaturedProperty = () => {
             ))}
           </CarouselContent>
         </div>
-        <div className="flex flex-row justify-between mb-4 max-mobile-md:hidden border-t-[1px] border-t-grey-shade-15 bg-grey-shade-8 pt-5">
+        <div className="flex flex-row justify-between mb-4 max-mobile-md:hidden border-t-[1px] border-t-[#E4E4E7] dark:border-t-grey-shade-15 dark:bg-grey-shade-8 pt-5">
           <div className="text-base font-medium">
-            <span className="text-white">01</span>{" "}
-            <span className="text-grey-shade-60">of 10</span>
+            <span className="dark:text-white">01</span>{" "}
+            <span className="dark:text-grey-shade-60">of 10</span>
           </div>
           <div className="flex flex-row gap-3">
             <CarouselPrevious />
@@ -126,7 +126,7 @@ const FeaturedProperty = () => {
         </div>
         {/* for mobile screen */}
         <div className="hidden max-mobile-md:block">
-          <div className="flex flex-row justify-between mb-3 border-t-[1px] border-t-grey-shade-15 bg-grey-shade-8 pt-5">
+          <div className="flex flex-row justify-between mb-3 border-t-[1px] border-t-[#E4E4E7] dark:border-t-grey-shade-15 darl:bg-grey-shade-8 pt-5">
             <Button className="text-sm border-2 border-grey-shade-15 bg-grey-shade-8 rounded-md px-4 py-5 dark:text-white">
               View All Properties
             </Button>

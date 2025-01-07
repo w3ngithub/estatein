@@ -9,7 +9,7 @@ const FooterMobile = () => {
           <div className="space-y-5">
             <ul className="flex flex-col gap-3 list-none ml-4 py-2 border-b border-grey-shade-15">
               <Link href="/">
-                <li className="text-xl font-medium text-grey-shade-60 mb-1 max-desktop-lg:text-lg max-tablet-sm:text-base">
+                <li className="text-xl font-medium dark:text-grey-shade-60 mb-1 max-desktop-lg:text-lg max-tablet-sm:text-base">
                   Home
                 </li>
               </Link>

@@ -10,10 +10,10 @@ const Hero = () => {
         <div className="h-full max-tablet-sm:w-full max-mobile-md:order-last">
           <div className="h-full pt-32 max-desktop-lg:pt-10">
             <div className="flex flex-col items-start justify-center gap-8 mt-5">
-              <h1 className="max-w-[610px] leading-tight font-semibold text-6xl max-desktop-2xl:text-5xl max-desktop-2xl:leading-snug max-tablet-lg:text-4xl max-tablet-lg:max-w-[350px] max-mobile-lg:text-3xl text-white">
+              <h1 className="max-w-[610px] leading-tight font-semibold text-6xl max-desktop-2xl:text-5xl max-desktop-2xl:leading-snug max-tablet-lg:text-4xl max-tablet-lg:max-w-[350px] max-mobile-lg:text-3xl dark:text-white">
                 Discover Your Dream Property with Estatein
               </h1>
-              <p className="max-w-[610px] text-lg leading-6 max-desktop-2xl:text-base max-tablet-lg:max-w-[350px] text-grey-shade-60">
+              <p className="max-w-[610px] text-lg leading-6 max-desktop-2xl:text-base max-tablet-lg:max-w-[350px] dark:text-grey-shade-60">
                 Your journey to finding the perfect property begins here.
                 Explore our listings to find the home that matches your dreams.
               </p>

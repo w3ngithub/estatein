@@ -23,10 +23,10 @@ const ClientsReview = () => {
             <div>
               <ThreeStars />
             </div>
-            <h1 className="text-white text-5xl font-semibold max-desktop-lg:text-4xl max-tablet-sm:text-[28px]">
+            <h1 className="dark:text-white text-5xl font-semibold max-desktop-lg:text-4xl max-tablet-sm:text-[28px]">
               What Our Clients Say
             </h1>
-            <p className="max-w-[900px] text-grey-shade-60 text-lg leading-6 max-desktop-lg:text-base max-tablet-sm:text-sm">
+            <p className="max-w-[900px] dark:text-grey-shade-60 text-lg leading-6 max-desktop-lg:text-base max-tablet-sm:text-sm">
               Read the success stories and heartfelt testimonials from our
               valued clients. Discover why they chose Estatein for their real
               estate needs.
@@ -46,16 +46,16 @@ const ClientsReview = () => {
             {carouselDataClientReview.map((item, index) => {
               return (
                 <CarouselItem key={index} className="tablet-sm:basis-1/3">
-                  <div className="border border-grey-shade-15 bg-grey-shade-8 rounded-md px-4 py-5 h-full">
+                  <div className="border border-[#E4E4E7] dark:border-grey-shade-15 dark:bg-grey-shade-8 rounded-md px-4 py-5 h-full">
                     <div className="flex flex-col gap-9 p-2">
                       {/* star logo */}
                       <div className="flex flex-row gap-3">
                         <Rating rating={Number(item.star)} />
                       </div>
-                      <h2 className="font-semibold text-2xl text-white max-desktop-lg:text-xl max-tablet-sm:text-lg">
+                      <h2 className="font-semibold text-2xl dark:text-white max-desktop-lg:text-xl max-tablet-sm:text-lg">
                         {item.title}
                       </h2>
-                      <p className="text-white text-lg leading-7 max-desktop-lg:text-base max-tablet-sm:text-sm">
+                      <p className="dark:text-white text-lg leading-7 max-desktop-lg:text-base max-tablet-sm:text-sm">
                         {item.description}
                       </p>
                       <div className="flex flex-row gap-3">
@@ -72,10 +72,10 @@ const ClientsReview = () => {
                           />
                         </div>
                         <div className="flex-col gap-2">
-                          <p className="text-white text-xl max-desktop-lg:text-lg max-tablet-sm:text-base">
+                          <p className="dark:text-white text-xl max-desktop-lg:text-lg max-tablet-sm:text-base">
                             {item.profileName}
                           </p>
-                          <p className="text-grey-shade-60 text-lg max-desktop-lg:text-base max-tablet-sm:text-sm">
+                          <p className="dark:text-grey-shade-60 text-lg max-desktop-lg:text-base max-tablet-sm:text-sm">
                             {item.location}
                           </p>
                         </div>
@@ -87,10 +87,10 @@ const ClientsReview = () => {
             })}
           </CarouselContent>
         </div>
-        <div className="flex flex-row justify-between mb-4 max-mobile-md:hidden border-t-[1px] border-t-grey-shade-15 bg-grey-shade-8 pt-5">
+        <div className="flex flex-row justify-between mb-4 max-mobile-md:hidden border-t-[1px] border-t-[#E4E4E7] dark:border-t-grey-shade-15 dark:bg-grey-shade-8 pt-5">
           <div className="text-base font-medium">
-            <span className="text-white">01</span>{" "}
-            <span className="text-grey-shade-60">of 10</span>
+            <span className="dark:text-white">01</span>{" "}
+            <span className="dark:text-grey-shade-60">of 10</span>
           </div>
           <div className="flex flex-row gap-3">
             <CarouselPrevious />
@@ -99,7 +99,7 @@ const ClientsReview = () => {
         </div>
         {/* for mobile screen */}
         <div className="hidden max-mobile-md:block">
-          <div className="flex flex-row justify-between mb-3 border-t-[1px] border-t-grey-shade-15 bg-grey-shade-8 pt-5">
+          <div className="flex flex-row justify-between mb-3 border-t-[1px] border-t-[#E4E4E7] dark:border-t-grey-shade-15 dark:bg-grey-shade-8 pt-5">
             <Button className="text-sm border-2 border-grey-shade-15 bg-grey-shade-8 rounded-md px-4 py-5 dark:text-white">
               View All Testimonials
             </Button>

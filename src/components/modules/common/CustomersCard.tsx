@@ -19,12 +19,12 @@ const CustomersCard = () => {
       {customerData.map((data, index) => (
         <div
           key={index}
-          className="flex flex-col gap-5 border-2 border-grey-shade-15 bg-grey-shade-10 rounded-md p-2 px-4 max-mobile-md:items-center max-mobile-md:justify-center"
+          className="flex flex-col gap-5 border-2 border-[#E4E4E7] dark:border-grey-shade-15 dark:bg-grey-shade-10 rounded-md p-2 px-4 max-mobile-md:items-center max-mobile-md:justify-center"
         >
-          <h1 className="text-4xl font-bold max-desktop-2xl:text-3xl max-mobile-md:text-2xl text-white pt-1">
+          <h1 className="text-4xl font-bold max-desktop-2xl:text-3xl max-mobile-md:text-2xl dark:text-white pt-1">
             {data.count}
           </h1>
-          <p className="text-grey-shade-60 text-lg max-desktop-2xl:text-base max-mobile-md:text-sm">
+          <p className="dark:text-grey-shade-60 text-lg max-desktop-2xl:text-base max-mobile-md:text-sm">
             {data.label}
           </p>
         </div>

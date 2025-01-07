@@ -7,7 +7,7 @@ import HeroCard from "@/components/modules/home-page/HeroCard";
 export default function Home() {
   return (
     <>
-      <div className="dark:bg-grey-shade-10">
+      <div className="bg-white-95 dark:bg-grey-shade-10">
         <Hero />
         <HeroCard />
         <div className="dark:bg-grey-shade-8">
