@@ -16,13 +16,13 @@ const HeaderBanner = () => {
       <div
         style={{
           backgroundImage: `url(${process.env.NEXT_PUBLIC_BASE_PATH}/images/header-banner.svg)`,
-          backgroundSize: "contain",
+          backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
         }}
-        className="bg-white-90"
+        className="relative"
       >
-        <div className="flex justify-center items-center w-full border border-red-500">
-          <div className="absolute top-[50%] left-[50%]  transform -translate-x-1/2 -translate-y-1/2 flex flex-row gap-3 justify-center items-center text-white text-lg font-medium max-desktop-2xl:text-sm max-mobile-lg:text-xs">
+        <div className="flex justify-center items-center w-full">
+          <div className="absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 flex flex-row gap-3 justify-center items-center text-white text-lg font-medium max-desktop-2xl:text-sm max-mobile-lg:text-xs">
             <p className="">✨Discover Your Dream Property with Estatein</p>
             <Link href="/" className="underline">
               Learn More
