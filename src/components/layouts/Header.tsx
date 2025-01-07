@@ -7,10 +7,41 @@ import {
 } from "@/svgs/HomePageSvg";
 import Link from "next/link";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { Button } from "../ui/button";
+import { useRouter } from "next/navigation";
+
+type NavItem = {
+  name: string;
+  path: string;
+};
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const navItems: NavItem[] = [
+    { name: "Home", path: "/" },
+    { name: "About Us", path: "/about" },
+    { name: "Properties", path: "/properties" },
+    { name: "Services", path: "/services" },
+  ];
+
+  const NavLink: React.FC<{ item: NavItem }> = ({ item }) => {
+    const isActive = pathname === item.path;
+    return (
+      <Link href={item.path}>
+        <li
+          className={`py-2 px-3 rounded-md dark:text-white
+          ${isActive ? "border-2  border-grey-shade-15 text-white" : ""}`}
+        >
+          {item.name}
+        </li>
+      </Link>
+    );
+  };
 
   return (
     <nav className="bg-grey-shade-10 py-3">
@@ -36,22 +67,9 @@ const Header = () => {
           </div>
           <div className="block max-tablet-sm:hidden">
             <ul className="flex flex-row gap-8 text-white justify-center items-center font-medium text-lg max-desktop-2xl:text-sm">
-              <Link href="/">
-                <li className="border-2 border-grey-shade-15 bg-grey-shade-8 py-2 px-3 rounded-md hover:bg-grey-shade-15 dark:text-white">
-                  Home
-                </li>
-              </Link>
-              <Link href="/">
-                <li className="border-2 border-grey-shade-15 bg-grey-shade-8 py-2 px-3 rounded-md hover:bg-grey-shade-15 dark:text-white">
-                  About Us
-                </li>
-              </Link>
-              <Link href="/">
-                <li>Properties</li>
-              </Link>
-              <Link href="/">
-                <li>Services</li>
-              </Link>
+              {navItems.map((item) => (
+                <NavLink key={item.name} item={item} />
+              ))}
             </ul>
           </div>
           {/* mobile screen: burger icon*/}
@@ -60,30 +78,24 @@ const Header = () => {
               <BurgerIcon />
             </button>
           </div>
-          <div className="border border-grey-shade-15 bg-grey-shade-8 py-2 px-3 rounded-md font-medium text-lg max-desktop-2xl:text-sm block max-tablet-sm:hidden hover:bg-grey-shade-15 dark:text-white">
+          <Button
+            onClick={() => router.push("/contact-us")}
+            className="border border-grey-shade-15 bg-grey-shade-8 py-2 px-3 rounded-md font-medium text-lg max-desktop-2xl:text-sm block max-tablet-sm:hidden hover:bg-grey-shade-15 dark:text-white"
+          >
             Contact Us
-          </div>
+          </Button>
         </div>
 
         {/* Mobile menu */}
         {isMenuOpen && (
           <div className="max-tablet-sm:block hidden bg-grey-shade-8 py-4">
             <ul className="flex flex-col gap-4 text-white font-medium text-sm">
-              <Link href="/">
-                <li className="border-2 border-grey-shade-15 bg-grey-shade-10 py-2 px-3 rounded-md">
-                  Home
-                </li>
+              {navItems.map((item) => (
+                <NavLink key={item.name} item={item} />
+              ))}
+              <Link href="/contact-us">
+                <li className="py-2 px-3">Contact Us</li>
               </Link>
-              <Link href="/">
-                <li className="py-2 px-3">About Us</li>
-              </Link>
-              <Link href="/">
-                <li className="py-2 px-3">Properties</li>
-              </Link>
-              <Link href="/">
-                <li className="py-2 px-3">Services</li>
-              </Link>
-              <li className="py-2 px-3">Contact Us</li>
             </ul>
           </div>
         )}
@@ -91,4 +103,5 @@ const Header = () => {
     </nav>
   );
 };
+
 export default Header;
