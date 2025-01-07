@@ -7,7 +7,7 @@ const FooterMobile = () => {
       <div className="py-10">
         <div className="grid grid-cols-2 divide-x-2 gap-5">
           <div className="space-y-5">
-            <ul className="flex flex-col gap-3 list-none ml-4 py-2 border-b border-red-500">
+            <ul className="flex flex-col gap-3 list-none ml-4 py-2 border-b border-grey-shade-15">
               <Link href="/">
                 <li className="text-xl font-medium text-grey-shade-60 mb-1 max-desktop-lg:text-lg max-tablet-sm:text-base">
                   Home
@@ -39,7 +39,7 @@ const FooterMobile = () => {
                 </li>
               </Link>
             </ul>
-            <ul className="flex flex-col gap-3 list-none ml-4 py-2 border-b border-red-500">
+            <ul className="flex flex-col gap-3 list-none ml-4 py-2 border-b border-grey-shade-15">
               <Link href="/">
                 <li className="text-xl font-medium text-grey-shade-60 mb-1 max-desktop-lg:text-lg max-tablet-sm:text-base">
                   Properties
@@ -56,7 +56,7 @@ const FooterMobile = () => {
                 </li>
               </Link>
             </ul>
-            <ul className="flex flex-col gap-3 list-none ml-4 py-2 border-b border-red-500">
+            <ul className="flex flex-col gap-3 list-none ml-4 py-2 border-b border-grey-shade-15">
               <Link href="/">
                 <li className="text-xl font-medium text-grey-shade-60 mb-1 max-desktop-lg:text-lg max-tablet-sm:text-base">
                   Contact Us
@@ -75,7 +75,7 @@ const FooterMobile = () => {
             </ul>
           </div>
           <div className="space-y-5">
-            <ul className="flex flex-col gap-3 list-none ml-4 py-2 border-b border-red-500">
+            <ul className="flex flex-col gap-3 list-none ml-4 py-2 border-b border-grey-shade-15">
               <Link href="/">
                 <li className="text-xl font-medium text-grey-shade-60 mb-1 max-desktop-lg:text-lg max-tablet-sm:text-base">
                   About Us
@@ -109,7 +109,7 @@ const FooterMobile = () => {
             </ul>
             <div className="">
               {" "}
-              <ul className="flex flex-col gap-3 list-none ml-4 py-2 border-b border-red-500">
+              <ul className="flex flex-col gap-3 list-none ml-4 py-2 border-b border-grey-shade-15">
                 <Link href="/">
                   <li className="text-xl font-medium text-grey-shade-60 mb-1 max-desktop-lg:text-lg max-tablet-sm:text-base">
                     Services
