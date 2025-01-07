@@ -3,7 +3,7 @@ interface RatingProps {
 }
 
 const Rating = ({ rating }: RatingProps) => {
-  let ratingArray = Array(5).fill(false);
+  const ratingArray = Array(5).fill(false);
   for (let i = 0; i < rating; i++) {
     ratingArray[i] = true;
   }

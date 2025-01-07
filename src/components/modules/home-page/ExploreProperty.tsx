@@ -25,12 +25,12 @@ const ExploreProperty = () => {
                 Start Your Real Estate Journey Today
               </h1>
               <p className="max-w-[900px] text-grey-shade-60 text-lg leading-6 max-desktop-lg:text-base max-tablet-sm:text-sm">
-                Your dream property is just a click away. Whether you're looking
-                for a new home, a strategic investment, or expert real estate
-                advice, Estatein is here to assist you every step of the way.
-                Take the first step towards your real estate goals and explore
-                our available properties or get in touch with our team for
-                personalized assistance.
+                Your dream property is just a click away. Whether you&apos;re
+                looking for a new home, a strategic investment, or expert real
+                estate advice, Estatein is here to assist you every step of the
+                way. Take the first step towards your real estate goals and
+                explore our available properties or get in touch with our team
+                for personalized assistance.
               </p>
             </div>
             <div className="max-mobile-lg:w-full">

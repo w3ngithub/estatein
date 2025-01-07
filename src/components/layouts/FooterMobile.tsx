@@ -35,7 +35,7 @@ const FooterMobile = () => {
               </Link>
               <Link href="/">
                 <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
-                  FAQ's
+                  FAQ&apos;s
                 </li>
               </Link>
             </ul>

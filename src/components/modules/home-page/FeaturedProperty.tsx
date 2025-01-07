@@ -28,8 +28,8 @@ const FeaturedProperty = () => {
             <p className="max-w-[900px] text-grey-shade-60 text-lg leading-6 max-desktop-lg:text-base max-tablet-sm:text-sm">
               Explore our handpicked selection of featured properties. Each
               listing offers a glimpse into exceptional homes and investments
-              available through Estatein. Click "View Details" for more
-              information.
+              available through Estatein. Click &quot;View Details&quot; for
+              more information.
             </p>
           </div>
           <div className="block max-mobile-xl:hidden">

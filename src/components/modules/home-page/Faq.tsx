@@ -25,15 +25,15 @@ const Faq = () => {
               Frequently Asked Questions
             </h1>
             <p className="max-w-[900px] text-grey-shade-60 text-lg leading-6 max-desktop-lg:text-base max-tablet-sm:text-sm">
-              Find answers to common questions about Estatein's services,
-              property listings, and the real estate process. We're here to
+              Find answers to common questions about Estatein&apos;s services,
+              property listings, and the real estate process. We&apos;re here to
               provide clarity and assist you every step of the way.
             </p>
           </div>
           <div className="block max-mobile-xl:hidden">
             <Link href="/">
               <Button className="flex items-center justify-center text-lg py-6 px-4 font-medium border-2 border-grey-shade-15 bg-grey-shade-8 rounded-md max-desktop-lg:text-sm hover:bg-grey-shade-15 dark:text-white">
-                View All FAQ's
+                View All FAQ&apos;s
               </Button>
             </Link>
           </div>
@@ -76,7 +76,7 @@ const Faq = () => {
         <div className="hidden max-mobile-md:block">
           <div className="flex flex-row justify-between mb-3 border-t-[1px] border-t-grey-shade-15 bg-grey-shade-8 pt-5">
             <Button className="text-sm border-2 border-grey-shade-15 bg-grey-shade-8 rounded-md px-4 py-5 dark:text-white">
-              View All FAQ's
+              View All FAQ&apos;s
             </Button>
             <div className="flex flex-row items-center justify-center gap-3">
               <CarouselPrevious />
