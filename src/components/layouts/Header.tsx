@@ -10,6 +10,7 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { Button } from "../ui/button";
 import { useRouter } from "next/navigation";
+import ThemeToggle from "../modules/common/ThemeToggle";
 
 type NavItem = {
   name: string;
@@ -64,6 +65,7 @@ const Header = () => {
             <h1 className="font-medium text-2xl max-tablet-sm:text-xl">
               Estatein
             </h1>
+            <ThemeToggle />
           </div>
           <div className="block max-tablet-sm:hidden">
             <ul className="flex flex-row gap-8 justify-center items-center font-medium text-lg max-desktop-2xl:text-sm dark:text-white ">

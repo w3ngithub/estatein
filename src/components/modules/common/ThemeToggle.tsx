@@ -1,39 +1,30 @@
 "use client";
+import { Button } from "@/components/ui/button";
 import React, { useEffect, useState } from "react";
+import { Moon, Sun } from "lucide-react";
 
 const ThemeToggle = () => {
   const [themeMode, setThemeMode] = useState("dark");
-
-  const darkTheme = () => {
-    setThemeMode("dark");
-  };
-
-  const lightTheme = () => {
-    setThemeMode("light");
-  };
 
   useEffect(() => {
     document.querySelector("html")?.classList.remove("dark", "light");
     document.querySelector("html")?.classList.add(themeMode);
   }, [themeMode]);
 
-  const onChangeBtn = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const darkModeStatus = e.currentTarget.checked;
-    if (darkModeStatus) {
-      darkTheme();
-    } else {
-      lightTheme();
-    }
+  const toggleTheme = () => {
+    setThemeMode((prevTheme) => (prevTheme === "dark" ? "light" : "dark"));
   };
+
   return (
-    <>
-      <input
-        type="checkbox"
-        value=""
-        onChange={onChangeBtn}
-        checked={themeMode === "dark"}
-      />
-    </>
+    <div className="flex items-center gap-4">
+      <Button onClick={toggleTheme} variant="ghost" size="sm">
+        {themeMode === "dark" ? (
+          <Sun className="w-5 h-5" />
+        ) : (
+          <Moon className="w-5 h-5" />
+        )}
+      </Button>
+    </div>
   );
 };
 
