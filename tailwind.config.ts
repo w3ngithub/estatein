@@ -35,7 +35,7 @@ export default {
       colors: {
         black: "#000",
         "purple-shade": {
-          60: "#703BF7", //this
+          60: "#703BF7",
           65: "#1A64FF",
           70: "#FF9533",
           90: "#FFE4CC",
