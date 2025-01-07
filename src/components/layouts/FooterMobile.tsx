@@ -3,8 +3,8 @@ import React from "react";
 
 const FooterMobile = () => {
   return (
-    <div className="container">
-      <div className="py-10">
+    <div className="hidden container max-tablet-sm:block">
+      <div className="py-5">
         <div className="grid grid-cols-2 divide-x-2 gap-5">
           <div className="space-y-5">
             <ul className="flex flex-col gap-3 list-none ml-4 py-2 border-b border-grey-shade-15">

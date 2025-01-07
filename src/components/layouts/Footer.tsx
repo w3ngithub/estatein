@@ -83,9 +83,7 @@ const Footer = () => {
           </div>
         </div>
         {/* second section */}
-        {/* max-tablet-sm:h-fit */}
-        {/* max-tablet-sm: */}
-        <div className="desktop-md:col-span-8">
+        <div className="block desktop-md:col-span-8 max-tablet-sm:hidden">
           <div className="grid grid-cols-2 tablet-sm:grid-cols-12">
             <div className="tablet-sm:col-span-2">
               <ul className="flex flex-col gap-3 list-none">
