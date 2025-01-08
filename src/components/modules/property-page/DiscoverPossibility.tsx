@@ -117,18 +117,13 @@ const DiscoveredProperty = () => {
         </div>
         {/* for mobile screen */}
         <div className="hidden max-mobile-md:block">
-          <div className="flex flex-row justify-between mb-3 border-t-[1px] border-t-[#E4E4E7] dark:border-t-grey-shade-15 darl:bg-grey-shade-8 pt-5">
-            <Button className="text-sm border-2 border-grey-shade-15 bg-grey-shade-8 rounded-md px-4 py-5 dark:text-white">
-              View All Properties
-            </Button>
-            <div className="flex flex-row items-center justify-center gap-3">
-              <CarouselPrevious />
-              <div className="text-base font-medium">
-                <span className="text-white">01</span>{" "}
-                <span className="text-grey-shade-60">of 10</span>
-              </div>
-              <CarouselNext />
+          <div className="flex flex-row justify-between items-center">
+            <CarouselPrevious />
+            <div className="text-base font-medium">
+              <span className="dark:text-white">01</span>{" "}
+              <span className="dark:text-grey-shade-60">of 10</span>
             </div>
+            <CarouselNext />
           </div>
         </div>
       </section>
