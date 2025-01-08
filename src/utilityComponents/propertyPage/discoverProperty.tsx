@@ -5,7 +5,7 @@ export const carouselDataDiscoverProperty = [
     title: "Seaside Serenity Villa",
     description:
       "A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood.A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood.A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood.A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood.",
-    price: "$1250.000",
+    price: "1250.000",
     details: [
       {
         pillName: "Coastal Escapes - Where Waves Beckon",
@@ -18,7 +18,7 @@ export const carouselDataDiscoverProperty = [
     title: "Seaside Serenity Villa",
     description:
       "A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood...",
-    price: "$650.000",
+    price: "650.000",
     details: [
       {
         pillName: "Urban Oasis - Life in the Heart of the City",
@@ -31,7 +31,7 @@ export const carouselDataDiscoverProperty = [
     title: "Seaside Serenity Villa",
     description:
       "A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood...",
-    price: "$350.000",
+    price: "350.000",
     details: [
       {
         pillName: "Countryside Charm - Escape to Nature's Embrace",
@@ -44,7 +44,7 @@ export const carouselDataDiscoverProperty = [
     title: "Seaside Serenity Villa",
     description:
       "A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood...",
-    price: "$650.000",
+    price: "650.000",
 
     details: [
       {
@@ -58,7 +58,7 @@ export const carouselDataDiscoverProperty = [
     title: "Seaside Serenity Villa",
     description:
       "A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood...",
-    price: "$650.000",
+    price: "650.000",
 
     details: [
       {
@@ -72,7 +72,7 @@ export const carouselDataDiscoverProperty = [
     title: "Seaside Serenity Villa",
     description:
       "A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood...",
-    price: "$650.000",
+    price: "650.000",
 
     details: [
       {
@@ -86,7 +86,7 @@ export const carouselDataDiscoverProperty = [
     title: "Seaside Serenity Villa",
     description:
       "A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood...",
-    price: "$650.000",
+    price: "650.000",
 
     details: [
       {
@@ -100,7 +100,7 @@ export const carouselDataDiscoverProperty = [
     title: "Seaside Serenity Villa",
     description:
       "A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood...",
-    price: "$650.000",
+    price: "650.000",
 
     details: [
       {
@@ -114,7 +114,7 @@ export const carouselDataDiscoverProperty = [
     title: "Seaside Serenity Villa",
     description:
       "A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood...",
-    price: "$650.000",
+    price: "650.000",
 
     details: [
       {
@@ -128,7 +128,7 @@ export const carouselDataDiscoverProperty = [
     title: "Seaside Serenity Villa",
     description:
       "A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood...",
-    price: "$650.000",
+    price: "650.000",
 
     details: [
       {
@@ -142,7 +142,7 @@ export const carouselDataDiscoverProperty = [
     title: "Seaside Serenity Villa",
     description:
       "A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood...",
-    price: "$650.000",
+    price: "650.000",
 
     details: [
       {

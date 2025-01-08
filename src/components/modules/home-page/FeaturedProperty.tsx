@@ -97,7 +97,7 @@ const FeaturedProperty = () => {
                             Price
                           </p>
                           <h2 className="text-2xl font-semibold dark:text-white max-desktop-lg:text-xl max-tablet-sm:text-lg">
-                            $550.000
+                            ${item.price}
                           </h2>
                         </div>
                       </div>
