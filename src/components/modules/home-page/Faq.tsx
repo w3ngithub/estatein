@@ -44,7 +44,7 @@ const Faq = () => {
             {carouselDataFaq.map((item) => (
               <CarouselItem key={item.id} className="mobile-xl:basis-1/3">
                 <div className="h-full flex-grow">
-                  <div className="flex flex-col gap-3 border border-[#E4E4E7] dark:border-grey-shade-15 dark:bg-grey-shade-8 p-5 rounded-md max-mobile-md:p-5 h-full">
+                  <div className="flex flex-col gap-5 justify-between border border-[#E4E4E7] dark:border-grey-shade-15 dark:bg-grey-shade-8 p-5 rounded-md max-mobile-md:p-5 h-full">
                     <h2 className="font-semibold text-2xl dark:text-white max-desktop-lg:text-xl max-tablet-sm:text-lg">
                       {item.title}
                     </h2>
