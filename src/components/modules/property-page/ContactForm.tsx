@@ -369,17 +369,13 @@ const ContactForm = () => {
                   </div>
 
                   <input
-                    type="email"
-                    placeholder="Enter Your Email"
+                    type="number"
+                    placeholder="Enter Your Number"
                     className="flex-1 bg-transparent dark:text-white dark:placeholder:text-gray-400 focus:outline-none text-sm"
                   />
 
                   <div className="p-2 rounded-full max-mobile-extra-md:pl-0">
-                    <RadioGroupItem
-                      value="option-one"
-                      id="option-one"
-                      className=""
-                    />
+                    <RadioGroupItem value="option-one" id="option-one" />
                   </div>
                 </div>
                 <div className="flex items-center gap-3 w-full px-4 py-3 bg-[#E4E4E7] dark:bg-[#1C1C1C] rounded-lg">
@@ -426,9 +422,16 @@ const ContactForm = () => {
           </Label>
           <Textarea
             id="message"
+            {...register("message")}
             placeholder="Enter your Message here.."
             className="h-44 max-desktop-lg:h-28 max-mobile-xl:h-20"
           />
+          {errors.message?.message && (
+            <span className="text-red-500">
+              {typeof errors.message.message === "string" &&
+                errors.message.message}
+            </span>
+          )}
         </div>
         {/* fifth row */}
         <div className="flex flex-row justify-between items-center max-mobile-xl:flex-col max-mobile-xl:gap-5">
