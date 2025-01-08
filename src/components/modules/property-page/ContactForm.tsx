@@ -12,6 +12,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import SelectField from "../common/SelectField";
+import { Textarea } from "@/components/ui/textarea";
 
 const ContactForm = () => {
   const preferredLocation = [
@@ -165,7 +166,15 @@ const ContactForm = () => {
           </div>
         </div>
         {/* fourth row */}
-        <div></div>
+        <div className="flex flex-col gap-3">
+          <Label
+            htmlFor="firstName"
+            className="font-semibold text-xl max-desktop-lg:text-base"
+          >
+            Message
+          </Label>
+          <Textarea placeholder="Enter your Message here.." />
+        </div>
         <div></div>
         <div></div>
         <div></div>
