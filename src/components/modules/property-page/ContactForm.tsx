@@ -1,21 +1,38 @@
 "use client";
 import React from "react";
-import Image from "next/image";
-import Rating from "../common/Rating";
-import { carouselDataClientReview } from "@/utilityComponents/homePage/clientsReview";
 import { ThreeStars } from "@/svgs/HomePageSvg";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import SelectField from "../common/SelectField";
+
 const ContactForm = () => {
+  const preferredLocation = [
+    { value: "ktm", selectFieldData: "Kathmandu" },
+    { value: "bkt", selectFieldData: "Bhaktapur" },
+    { value: "lalit", selectFieldData: "Lalitpur" },
+  ];
+  const propertyType = [
+    { value: "rental", selectFieldData: "Rental" },
+    { value: "own", selectFieldData: "Owned" },
+  ];
+  const noOfBathrooms = [
+    { value: "1", selectFieldData: "One" },
+    { value: "2", selectFieldData: "Two" },
+    { value: "3", selectFieldData: "Three" },
+  ];
+  const noOfBedrooms = [
+    { value: "1", selectFieldData: "One" },
+    { value: "2", selectFieldData: "Two" },
+    { value: "3", selectFieldData: "Three" },
+  ];
   return (
     <section className="container flex flex-col gap-10 pt-5 max-mobile-md:gap-5">
       <div className="flex flex-row justify-between items-end">
@@ -93,6 +110,57 @@ const ContactForm = () => {
               type="text"
               placeholder="Enter Phone Number"
               className="h-16 max-desktop-lg:h-14"
+            />
+          </div>
+        </div>
+        {/* second row */}
+        <div className="grid grid-cols-1 max-mobile-xl:space-y-3 mobile-xl:grid-cols-2 tablet-lg:grid-cols-4 gap-3">
+          <div className="flex flex-col gap-3">
+            <Label
+              htmlFor="firstName"
+              className="font-semibold text-xl max-desktop-lg:text-base"
+            >
+              Preferred Location
+            </Label>
+            <SelectField
+              placeholder="Select Location"
+              data={preferredLocation}
+            />
+          </div>
+          <div className="flex flex-col gap-3">
+            <Label
+              htmlFor="lastName"
+              className="font-semibold text-xl max-desktop-lg:text-base"
+            >
+              Property Type
+            </Label>
+            <SelectField
+              placeholder="Select Property Type"
+              data={propertyType}
+            />
+          </div>
+          <div className="flex flex-col gap-3">
+            <Label
+              htmlFor="email"
+              className="font-semibold text-xl max-desktop-lg:text-base"
+            >
+              No. of Bathrooms
+            </Label>
+            <SelectField
+              placeholder="Select no. of Bathrooms"
+              data={noOfBathrooms}
+            />
+          </div>
+          <div className="flex flex-col gap-3">
+            <Label
+              htmlFor="email"
+              className="font-semibold text-xl max-desktop-lg:text-base"
+            >
+              No. of Bedrooms
+            </Label>
+            <SelectField
+              placeholder="Select no. of Bedrooms"
+              data={noOfBedrooms}
             />
           </div>
         </div>
