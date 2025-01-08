@@ -34,6 +34,11 @@ const ContactForm = () => {
     { value: "2", selectFieldData: "Two" },
     { value: "3", selectFieldData: "Three" },
   ];
+  const budget = [
+    { value: "1000", selectFieldData: "10000" },
+    { value: "2000", selectFieldData: "20000" },
+    { value: "3000", selectFieldData: "30000" },
+  ];
   return (
     <section className="container flex flex-col gap-10 pt-5 max-mobile-md:gap-5">
       <div className="flex flex-row justify-between items-end">
@@ -165,6 +170,43 @@ const ContactForm = () => {
             />
           </div>
         </div>
+        {/* third row */}
+        <div className="grid grid-cols-2 gap-3">
+          <div className="flex flex-col gap-3">
+            <Label
+              htmlFor="budget"
+              className="font-semibold text-xl max-desktop-lg:text-base"
+            >
+              Budget
+            </Label>
+            <SelectField placeholder="Select Budget" data={budget} />
+          </div>
+          <div className="flex flex-col gap-3">
+            <Label
+              htmlFor="budget"
+              className="font-semibold text-xl max-desktop-lg:text-base"
+            >
+              Preferred Contact Method
+            </Label>
+            <div className="flex flex-row gap-3">
+              <div className="w-1/2">
+                <Input
+                  type="text"
+                  placeholder="Enter Your Number"
+                  className="h-16 max-desktop-lg:h-14"
+                />
+              </div>
+              <div className="w-1/2">
+                <Input
+                  type="text"
+                  placeholder="Enter Your Email"
+                  className="h-16 max-desktop-lg:h-14"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* fourth row */}
         <div className="flex flex-col gap-3">
           <Label
@@ -179,7 +221,6 @@ const ContactForm = () => {
             className="h-44 max-desktop-lg:h-28 max-mobile-xl:h-20"
           />
         </div>
-        <div></div>
         <div></div>
         <div></div>
       </div>
