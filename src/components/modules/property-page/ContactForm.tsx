@@ -13,6 +13,8 @@ import {
 } from "@/components/ui/select";
 import SelectField from "../common/SelectField";
 import { Textarea } from "@/components/ui/textarea";
+import { Checkbox } from "@/components/ui/checkbox";
+import InputField from "../common/InputField";
 
 const ContactForm = () => {
   const preferredLocation = [
@@ -183,18 +185,19 @@ const ContactForm = () => {
           </div>
           <div className="flex flex-col gap-3">
             <Label
-              htmlFor="budget"
+              htmlFor="contact"
               className="font-semibold text-xl max-desktop-lg:text-base"
             >
               Preferred Contact Method
             </Label>
             <div className="flex flex-row gap-3">
               <div className="w-1/2">
-                <Input
+                {/* <Input
                   type="text"
                   placeholder="Enter Your Number"
                   className="h-16 max-desktop-lg:h-14"
-                />
+                /> */}
+                <InputField />
               </div>
               <div className="w-1/2">
                 <Input
@@ -221,8 +224,24 @@ const ContactForm = () => {
             className="h-44 max-desktop-lg:h-28 max-mobile-xl:h-20"
           />
         </div>
-        <div></div>
-        <div></div>
+        {/* fifth row */}
+        <div className="flex flex-row justify-between items-center">
+          <div className="flex flex-row items-center gap-2">
+            <div className="flex items-center">
+              <Checkbox className="border border-grey-shade-15 bg-grey-shade-10" />
+            </div>
+            <p className="text-lg text-grey-shade-60 max-desktop-lg:text-base max-mobile-xl:text-sm">
+              I agree with<span className="underline px-2">Terms of Use</span>
+              and
+              <span className="underline px-2">Privacy Policy</span>
+            </p>
+          </div>
+          <div>
+            <Button className="bg-purple-shade-60 hover:bg-purple-shade-d60 py-6 px-4 font-medium rounded-md max-desktop-lg:text-sm max-mobile-lg:w-full dark:text-white">
+              Send Your Message
+            </Button>
+          </div>
+        </div>
       </div>
     </section>
   );
