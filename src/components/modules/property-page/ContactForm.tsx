@@ -53,7 +53,7 @@ const ContactForm = () => {
         </div>
       </div>
       {/* second section */}
-      <div className="border border-grey-shade-15 p-10 rounded-md">
+      <div className="space-y-7 border border-grey-shade-15 p-10 rounded-md">
         {/* first row */}
         <div className="grid grid-cols-1 max-mobile-xl:space-y-3 mobile-xl:grid-cols-2 tablet-lg:grid-cols-4 gap-3">
           <div className="flex flex-col gap-3">
@@ -164,6 +164,7 @@ const ContactForm = () => {
             />
           </div>
         </div>
+        {/* fourth row */}
         <div></div>
         <div></div>
         <div></div>
