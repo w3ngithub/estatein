@@ -65,7 +65,7 @@ const FeaturedProperty = () => {
                         {item.title}
                       </h2>
                       <div>
-                        <span className="text-lg dark:text-grey-shade-60 max-desktop-lg:text-base max-tablet-sm:text-sm">
+                        <span className="text-lg dark:text-grey-shade-60 max-desktop-lg:text-base max-tablet-sm:text-sm line-clamp-2">
                           {item.description}
                         </span>
                         <Link href="/">
@@ -80,7 +80,7 @@ const FeaturedProperty = () => {
                         return (
                           <div
                             key={idx}
-                            className="flex flex-row justify-center items-center gap-1 border border-grey-shade-15 bg-grey-shade-8 px-3 py-2 rounded-full"
+                            className="flex flex-row justify-center items-center gap-1 border border-grey-shade-10 bg-grey-shade-15 px-3 py-2 rounded-full"
                           >
                             <div>{detail.pillIcon}</div>
                             <p className="text-white text-lg max-desktop-lg:text-sm max-tablet-sm:text-sm">
