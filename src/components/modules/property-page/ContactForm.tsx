@@ -168,12 +168,16 @@ const ContactForm = () => {
         {/* fourth row */}
         <div className="flex flex-col gap-3">
           <Label
-            htmlFor="firstName"
+            htmlFor="message"
             className="font-semibold text-xl max-desktop-lg:text-base"
           >
             Message
           </Label>
-          <Textarea placeholder="Enter your Message here.." />
+          <Textarea
+            id="message"
+            placeholder="Enter your Message here.."
+            className="h-44 max-desktop-lg:h-28 max-mobile-xl:h-20"
+          />
         </div>
         <div></div>
         <div></div>
