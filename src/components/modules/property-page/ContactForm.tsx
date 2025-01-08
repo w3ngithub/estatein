@@ -113,7 +113,7 @@ const ContactForm = () => {
               {...register("firstName")}
               type="text"
               placeholder="Enter First Name"
-              className="h-16 max-desktop-lg:h-14"
+              className="h-16 max-desktop-lg:h-14 border border-grey-15 bg-grey-shade-10"
             />
             {errors.firstName?.message && (
               <span className="text-red-500">
@@ -134,7 +134,7 @@ const ContactForm = () => {
               {...register("lastName")}
               type="text"
               placeholder="Enter Last Name"
-              className="h-16 max-desktop-lg:h-14"
+              className="h-16 max-desktop-lg:h-14 border border-grey-15 bg-grey-shade-10"
             />
             {errors.lastName?.message && (
               <span className="text-red-500">
@@ -155,7 +155,7 @@ const ContactForm = () => {
               {...register("email")}
               type="email"
               placeholder="Enter your Email"
-              className="h-16 max-desktop-lg:h-14"
+              className="h-16 max-desktop-lg:h-14 border border-grey-15 bg-grey-shade-10"
             />
             {errors.email?.message && (
               <span className="text-red-500">
@@ -176,7 +176,7 @@ const ContactForm = () => {
               {...register("phone")}
               type="text"
               placeholder="Enter Phone Number"
-              className="h-16 max-desktop-lg:h-14"
+              className="h-16 max-desktop-lg:h-14 border border-grey-15 bg-grey-shade-10"
             />
             {errors.phone?.message && (
               <span className="text-red-500">
@@ -424,7 +424,7 @@ const ContactForm = () => {
             id="message"
             {...register("message")}
             placeholder="Enter your Message here.."
-            className="h-44 max-desktop-lg:h-28 max-mobile-xl:h-20"
+            className="h-44 max-desktop-lg:h-28 max-mobile-xl:h-20 border border-grey-15 bg-grey-shade-10"
           />
           {errors.message?.message && (
             <span className="text-red-500">
