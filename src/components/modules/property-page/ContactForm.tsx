@@ -318,7 +318,25 @@ const ContactForm = () => {
             >
               Budget
             </Label>
-            <SelectField placeholder="Select Budget" data={budget} />
+            {/* <SelectField placeholder="Select Budget" data={budget} /> */}
+            <Controller
+              name="budget"
+              control={control}
+              render={({ field, fieldState: { error } }) => (
+                <SelectField
+                  placeholder="Select Budget"
+                  data={budget}
+                  value={field.value}
+                  onChange={field.onChange}
+                />
+              )}
+            />
+            {errors.budget?.message && (
+              <span className="text-red-500">
+                {typeof errors.budget.message === "string" &&
+                  errors.budget.message}
+              </span>
+            )}
           </div>
           <div className="flex flex-col gap-3">
             <Label
