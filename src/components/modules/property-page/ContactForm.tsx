@@ -15,8 +15,42 @@ import SelectField from "../common/SelectField";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { z } from "zod";
+import { useForm, Controller, Form } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { FormMessage } from "@/components/ui/form";
+
+const formSchema = z.object({
+  firstName: z.string().min(1, "First Name is required"),
+  lastName: z.string().min(1, "Last Name is required"),
+  email: z.string().email("Invalid email address").min(1, "Email is required"),
+  phone: z.string().regex(/^[0-9]{10}$/, "Invalid phone number"),
+  preferredLocation: z.string().min(1, "Preferred Location is required"),
+  propertyType: z.string().min(1, "Property Type is required"),
+  noOfBathrooms: z.string().min(1, "Number of Bathrooms is required"),
+  noOfBedrooms: z.string().min(1, "Number of Bedrooms is required"),
+  budget: z.string().min(1, "Budget is required"),
+  preferredContactMethod: z.enum(["option-one", "option-two"]),
+  message: z.string().optional(),
+  agreeToTerms: z.boolean().refine((value) => value, {
+    message: "You must agree to the terms and conditions",
+  }),
+});
 
 const ContactForm = () => {
+  const {
+    register,
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = useForm({
+    resolver: zodResolver(formSchema),
+  });
+
+  const onSubmit = (data: any) => {
+    console.log("Form Data:", data);
+  };
+
   const preferredLocation = [
     { value: "ktm", selectFieldData: "Kathmandu" },
     { value: "bkt", selectFieldData: "Bhaktapur" },
@@ -61,7 +95,10 @@ const ContactForm = () => {
         </div>
       </div>
       {/* second section */}
-      <div className="space-y-7 border border-grey-shade-15 p-10 rounded-md">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="space-y-7 border border-grey-shade-15 p-10 rounded-md"
+      >
         {/* first row */}
         <div className="grid grid-cols-1 max-mobile-xl:space-y-3 mobile-xl:grid-cols-2 tablet-lg:grid-cols-4 gap-3">
           <div className="flex flex-col gap-3">
@@ -73,10 +110,17 @@ const ContactForm = () => {
             </Label>
             <Input
               id="firstName"
+              {...register("firstName")}
               type="text"
               placeholder="Enter First Name"
               className="h-16 max-desktop-lg:h-14"
             />
+            {errors.firstName?.message && (
+              <span className="text-red-500">
+                {typeof errors.firstName.message === "string" &&
+                  errors.firstName.message}
+              </span>
+            )}
           </div>
           <div className="flex flex-col gap-3">
             <Label
@@ -87,10 +131,17 @@ const ContactForm = () => {
             </Label>
             <Input
               id="lastName"
+              {...register("lastName")}
               type="text"
               placeholder="Enter Last Name"
               className="h-16 max-desktop-lg:h-14"
             />
+            {errors.lastName?.message && (
+              <span className="text-red-500">
+                {typeof errors.lastName.message === "string" &&
+                  errors.lastName.message}
+              </span>
+            )}
           </div>
           <div className="flex flex-col gap-3">
             <Label
@@ -101,10 +152,17 @@ const ContactForm = () => {
             </Label>
             <Input
               id="email"
+              {...register("email")}
               type="email"
               placeholder="Enter your Email"
               className="h-16 max-desktop-lg:h-14"
             />
+            {errors.email?.message && (
+              <span className="text-red-500">
+                {typeof errors.email.message === "string" &&
+                  errors.email.message}
+              </span>
+            )}
           </div>
           <div className="flex flex-col gap-3">
             <Label
@@ -115,10 +173,17 @@ const ContactForm = () => {
             </Label>
             <Input
               id="phone"
+              {...register("phone")}
               type="text"
               placeholder="Enter Phone Number"
               className="h-16 max-desktop-lg:h-14"
             />
+            {errors.phone?.message && (
+              <span className="text-red-500">
+                {typeof errors.phone.message === "string" &&
+                  errors.phone.message}
+              </span>
+            )}
           </div>
         </div>
         {/* second row */}
@@ -293,7 +358,7 @@ const ContactForm = () => {
             </Button>
           </div>
         </div>
-      </div>
+      </form>
     </section>
   );
 };
