@@ -194,9 +194,9 @@ const ContactForm = () => {
             <div className="grid grid-cols-1">
               <RadioGroup
                 defaultValue="option-one"
-                className="flex flex-row justify-between w-full"
+                className="flex flex-row justify-between w-full h-16 max-desktop-lg:h-14"
               >
-                <div className="flex items-center gap-3 w-full px-4 py-3 bg-[#E4E4E7] dark:bg-[#1C1C1C] rounded-lg">
+                <div className="flex items-center gap-3 w-full px-4 py-3 rounded-lg border border-grey-15 bg-grey-shade-10">
                   <div>
                     <svg
                       width="21"
