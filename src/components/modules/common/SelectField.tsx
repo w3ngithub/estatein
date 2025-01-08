@@ -9,11 +9,18 @@ import {
 interface SelectFieldProps {
   placeholder: string;
   data: { value: string; selectFieldData: string }[];
+  value?: string;
+  onChange?: (value: string) => void;
 }
 
-const SelectField = ({ placeholder, data }: SelectFieldProps) => {
+const SelectField = ({
+  placeholder,
+  data,
+  value,
+  onChange,
+}: SelectFieldProps) => {
   return (
-    <Select>
+    <Select value={value} onValueChange={onChange}>
       <SelectTrigger className="h-16 max-desktop-lg:h-14">
         <SelectValue placeholder={placeholder} />
       </SelectTrigger>

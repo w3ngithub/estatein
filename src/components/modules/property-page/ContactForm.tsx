@@ -195,10 +195,28 @@ const ContactForm = () => {
             >
               Preferred Location
             </Label>
-            <SelectField
+            {/* <SelectField
               placeholder="Select Location"
               data={preferredLocation}
+            /> */}
+            <Controller
+              name="preferredLocation"
+              control={control}
+              render={({ field, fieldState: { error } }) => (
+                <SelectField
+                  placeholder="Select Location"
+                  data={preferredLocation}
+                  value={field.value}
+                  onChange={field.onChange}
+                />
+              )}
             />
+            {errors.preferredLocation?.message && (
+              <span className="text-red-500">
+                {typeof errors.preferredLocation.message === "string" &&
+                  errors.preferredLocation.message}
+              </span>
+            )}
           </div>
           <div className="flex flex-col gap-3">
             <Label
@@ -207,10 +225,28 @@ const ContactForm = () => {
             >
               Property Type
             </Label>
-            <SelectField
+            {/* <SelectField
               placeholder="Select Property Type"
               data={propertyType}
+            /> */}
+            <Controller
+              name="propertyType"
+              control={control}
+              render={({ field, fieldState: { error } }) => (
+                <SelectField
+                  placeholder="Select Property Type"
+                  data={propertyType}
+                  value={field.value}
+                  onChange={field.onChange}
+                />
+              )}
             />
+            {errors.propertyType?.message && (
+              <span className="text-red-500">
+                {typeof errors.propertyType.message === "string" &&
+                  errors.propertyType.message}
+              </span>
+            )}
           </div>
           <div className="flex flex-col gap-3">
             <Label
@@ -219,10 +255,28 @@ const ContactForm = () => {
             >
               No. of Bathrooms
             </Label>
-            <SelectField
+            {/* <SelectField
               placeholder="Select no. of Bathrooms"
               data={noOfBathrooms}
+            /> */}
+            <Controller
+              name="noOfBathrooms"
+              control={control}
+              render={({ field, fieldState: { error } }) => (
+                <SelectField
+                  placeholder="Select no. of Bathrooms"
+                  data={noOfBathrooms}
+                  value={field.value}
+                  onChange={field.onChange}
+                />
+              )}
             />
+            {errors.noOfBathrooms?.message && (
+              <span className="text-red-500">
+                {typeof errors.noOfBathrooms.message === "string" &&
+                  errors.noOfBathrooms.message}
+              </span>
+            )}
           </div>
           <div className="flex flex-col gap-3">
             <Label
@@ -231,10 +285,28 @@ const ContactForm = () => {
             >
               No. of Bedrooms
             </Label>
-            <SelectField
+            {/* <SelectField
               placeholder="Select no. of Bedrooms"
               data={noOfBedrooms}
+            /> */}
+            <Controller
+              name="noOfBedrooms"
+              control={control}
+              render={({ field, fieldState: { error } }) => (
+                <SelectField
+                  placeholder="Select no. of Bedrooms"
+                  data={noOfBedrooms}
+                  value={field.value}
+                  onChange={field.onChange}
+                />
+              )}
             />
+            {errors.noOfBedrooms?.message && (
+              <span className="text-red-500">
+                {typeof errors.noOfBedrooms.message === "string" &&
+                  errors.noOfBedrooms.message}
+              </span>
+            )}
           </div>
         </div>
         {/* third row */}
