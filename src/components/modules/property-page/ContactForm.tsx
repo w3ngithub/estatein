@@ -14,7 +14,6 @@ import {
 import SelectField from "../common/SelectField";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
-import InputField from "../common/InputField";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 const ContactForm = () => {
@@ -174,7 +173,7 @@ const ContactForm = () => {
           </div>
         </div>
         {/* third row */}
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid tablet-sm:grid-cols-2 gap-3 max-tablet-sm:pb-12">
           <div className="flex flex-col gap-3">
             <Label
               htmlFor="budget"
@@ -194,7 +193,7 @@ const ContactForm = () => {
             <div className="grid grid-cols-1">
               <RadioGroup
                 defaultValue="option-one"
-                className="flex flex-row justify-between w-full h-16 max-desktop-lg:h-14"
+                className="flex flex-row justify-between w-full h-16 max-desktop-lg:h-14 max-desktop-md:flex-col max-desktop-md:mb-6"
               >
                 <div className="flex items-center gap-3 w-full px-4 py-3 rounded-lg border border-grey-15 bg-grey-shade-10">
                   <div>
