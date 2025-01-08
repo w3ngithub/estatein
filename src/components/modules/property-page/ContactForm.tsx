@@ -219,7 +219,7 @@ const ContactForm = () => {
                     className="flex-1 bg-transparent dark:text-white dark:placeholder:text-gray-400 focus:outline-none text-sm"
                   />
 
-                  <div className="p-2 rounded-full">
+                  <div className="p-2 rounded-full max-mobile-extra-md:pl-0">
                     <RadioGroupItem
                       value="option-one"
                       id="option-one"
@@ -252,7 +252,7 @@ const ContactForm = () => {
                     className="flex-1 bg-transparent dark:text-white dark:placeholder:text-gray-400 focus:outline-none text-sm"
                   />
 
-                  <div className="p-2 rounded-full">
+                  <div className="p-2 rounded-full max-mobile-extra-md:pl-0">
                     <RadioGroupItem value="option-two" id="option-two" />
                   </div>
                 </div>
@@ -276,7 +276,7 @@ const ContactForm = () => {
           />
         </div>
         {/* fifth row */}
-        <div className="flex flex-row justify-between items-center">
+        <div className="flex flex-row justify-between items-center max-mobile-xl:flex-col max-mobile-xl:gap-5">
           <div className="flex flex-row items-center gap-2">
             <div className="flex items-center">
               <Checkbox className="border border-grey-shade-15 bg-grey-shade-10" />
