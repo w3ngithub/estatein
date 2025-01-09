@@ -23,7 +23,7 @@ const SelectFieldWithIcon = ({
 }: SelectFieldProps) => {
   return (
     <Select value={value} onValueChange={onChange}>
-      <SelectTrigger className="h-16 max-desktop-lg:h-14 border border-grey-15 bg-grey-shade-8">
+      <SelectTrigger className="h-16 max-desktop-lg:h-14 border border-grey-15 dark:bg-grey-shade-8">
         <div className="border-r border-grey-shade-15 pr-3">{svgIcon}</div>
         <SelectValue placeholder={placeholder} />
       </SelectTrigger>

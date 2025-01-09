@@ -65,13 +65,13 @@ const DiscoveredProperty = () => {
       <div className="search-select-container flex flex-col gap-0 max-mobile-md:gap-5 max-mobile-md:pt-5 mobile-md:mt-[-38px]">
         {/* search property field */}
         <div className="container flex flex-col justify-center items-center">
-          <div className="w-[80%] max-mobile-md:w-full max-mobile-md:p-1 p-2 bg-grey-shade-10 rounded-lg">
+          <div className="w-[80%] max-mobile-md:w-full max-mobile-md:p-1 p-2 dark:bg-grey-shade-10 rounded-lg">
             <SearchProperty />
           </div>
         </div>
         {/* select fields */}
         <div className="container">
-          <div className="grid mobile-md:grid-cols-3 tablet-lg:grid-cols-5 gap-3 p-2 max-mobile-md:p-5 bg-grey-shade-10 rounded-lg">
+          <div className="grid mobile-md:grid-cols-3 tablet-lg:grid-cols-5 gap-3 p-2 max-mobile-md:p-5 dark:bg-grey-shade-10 rounded-lg">
             <div>
               <SelectFieldWithIcon
                 placeholder="Location"

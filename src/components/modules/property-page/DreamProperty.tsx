@@ -2,7 +2,7 @@ import React from "react";
 
 const DreamProperty = () => {
   return (
-    <div className="bg-gradient-to-r from-[#1D1D1D] via-black to-black">
+    <div className="dark:bg-gradient-to-r from-[#1D1D1D] via-black to-black">
       <div className="container flex items-center h-[350px]">
         <div className="flex flex-col gap-3">
           <h1 className="text-5xl font-semibold max-desktop-lg:text-4xl max-tablet-sm:text-[28px] dark:text-white">
