@@ -45,53 +45,55 @@ const DiscoveredProperty = () => {
   ];
   return (
     <div>
-      {/* search property field */}
-      <div className="container flex flex-col justify-center items-center">
-        <div className="w-[80%]">
-          <SearchProperty />
+      <div className="search-select-container flex flex-col gap-3 mt-[-38px]">
+        {/* search property field */}
+        <div className="container flex flex-col justify-center items-center">
+          <div className="w-[80%]">
+            <SearchProperty />
+          </div>
         </div>
-      </div>
-      {/* select fields */}
-      <div className="container">
-        <div className="grid grid-cols-5 gap-3">
-          <div>
-            <SelectFieldWithIcon
-              placeholder="Location"
-              data={preferredLocation}
-              svgIcon={<LocationIcon />}
-            />
-          </div>
-          <div>
-            {" "}
-            <SelectFieldWithIcon
-              placeholder="Property Type"
-              data={propertyType}
-              svgIcon={<HouseIcon />}
-            />
-          </div>
-          <div>
-            {" "}
-            <SelectFieldWithIcon
-              placeholder="Pricing Range"
-              data={pricingrange}
-              svgIcon={<CameraIcon />}
-            />
-          </div>
-          <div>
-            {" "}
-            <SelectFieldWithIcon
-              placeholder="Property Size"
-              data={propertySize}
-              svgIcon={<CubeIcon />}
-            />
-          </div>
-          <div>
-            {" "}
-            <SelectFieldWithIcon
-              placeholder="Build Year"
-              data={buildYear}
-              svgIcon={<CalenderIcon />}
-            />
+        {/* select fields */}
+        <div className="container">
+          <div className="grid grid-cols-5 gap-3">
+            <div>
+              <SelectFieldWithIcon
+                placeholder="Location"
+                data={preferredLocation}
+                svgIcon={<LocationIcon />}
+              />
+            </div>
+            <div>
+              {" "}
+              <SelectFieldWithIcon
+                placeholder="Property Type"
+                data={propertyType}
+                svgIcon={<HouseIcon />}
+              />
+            </div>
+            <div>
+              {" "}
+              <SelectFieldWithIcon
+                placeholder="Pricing Range"
+                data={pricingrange}
+                svgIcon={<CameraIcon />}
+              />
+            </div>
+            <div>
+              {" "}
+              <SelectFieldWithIcon
+                placeholder="Property Size"
+                data={propertySize}
+                svgIcon={<CubeIcon />}
+              />
+            </div>
+            <div>
+              {" "}
+              <SelectFieldWithIcon
+                placeholder="Build Year"
+                data={buildYear}
+                svgIcon={<CalenderIcon />}
+              />
+            </div>
           </div>
         </div>
       </div>
