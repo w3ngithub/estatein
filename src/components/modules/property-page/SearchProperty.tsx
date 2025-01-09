@@ -4,7 +4,7 @@ import React from "react";
 
 const SearchProperty = () => {
   return (
-    <div className="bg-grey-shade-8 border border-grey-15 px-2 py-3 shadow-[#191919]">
+    <div className="bg-grey-shade-8 border border-grey-15 px-2 py-3 shadow-[#191919] rounded-t-lg max-mobile-xl:rounded-lg">
       <div className="flex w-full mx-auto gap-2">
         <Input
           type="text"

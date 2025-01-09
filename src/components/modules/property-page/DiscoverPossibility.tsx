@@ -15,9 +15,9 @@ import SearchProperty from "./SearchProperty";
 
 const DiscoveredProperty = () => {
   return (
-    <div className="border border-red-500">
+    <div className="">
       <div className="container flex flex-col justify-center items-center">
-        <div className="border border-red-500 w-[80%]">
+        <div className="w-[80%]">
           <SearchProperty />
         </div>
         <div>select field haru</div>
