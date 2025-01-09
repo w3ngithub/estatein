@@ -1,4 +1,9 @@
-import { AreaIcon, BedIcon, ShowerIcon } from "@/svgs/PropertyDetailPageSvg";
+import {
+  AreaIcon,
+  BedIcon,
+  ShowerIcon,
+  ThunderIcon,
+} from "@/svgs/PropertyDetailPageSvg";
 import React from "react";
 
 const PropertyDescription = () => {
@@ -60,7 +65,22 @@ const PropertyDescription = () => {
             </div>
           </div>
         </div>
-        <div>second section</div>
+        {/* second section */}
+        <div className="border border-grey-shade-15 p-5 rounded-lg">
+          <div className="flex flex-col gap-5">
+            <h1 className="font-semibold text-2xl max-desktop-lg:text-xl">
+              Key Features and Amenities
+            </h1>
+            <div className="border-l-[1.5px] border-purple-shade-60 flex flex-row gap-2 pl-5 py-3">
+              <div>
+                <ThunderIcon />
+              </div>
+              <p className="font-medium text-lg text-grey-shade-60 max-desktop-lg:text-base">
+                Expansive oceanfront terrace for outdoor entertaining
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
