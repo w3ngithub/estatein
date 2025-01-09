@@ -22,11 +22,15 @@ import {
   LocationIcon,
 } from "@/svgs/PropertyPageSvg";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 const DiscoveredProperty = () => {
+  //for carousal
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
+
+  const router = useRouter();
 
   useEffect(() => {
     if (!api) {
@@ -60,6 +64,10 @@ const DiscoveredProperty = () => {
     { value: "1999", selectFieldData: "1999" },
     { value: "2000", selectFieldData: "2000" },
   ];
+
+  const handleNavigation = (id: number) => {
+    router.push(`/property/${id}`);
+  };
   return (
     <div className="flex flex-col gap-10">
       <div className="search-select-container flex flex-col gap-0 max-mobile-md:gap-5 max-mobile-md:pt-5 mobile-md:mt-[-38px]">
@@ -195,7 +203,10 @@ const DiscoveredProperty = () => {
                         </div>
 
                         <div className="col-span-8">
-                          <Button className="w-full h-full text-lg font-medium bg-purple-shade-60 rounded-md hover:bg-purple-shade-d60 max-desktop-2xl:text-sm max-tablet-sm:text-sm dark:text-white">
+                          <Button
+                            className="w-full h-full text-lg font-medium bg-purple-shade-60 rounded-md hover:bg-purple-shade-d60 max-desktop-2xl:text-sm max-tablet-sm:text-sm dark:text-white"
+                            onClick={() => handleNavigation(item.id)}
+                          >
                             View Property Details
                           </Button>
                         </div>
