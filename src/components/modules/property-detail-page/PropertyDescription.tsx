@@ -41,7 +41,7 @@ const PropertyDescription = () => {
               property is the epitome of coastal living.
             </p>
           </div>
-          <div className="grid grid-cols-3 border-t border-grey-shade-15 pt-3">
+          <div className="grid grid-cols-2 mobile-lg:grid-cols-3 border-t border-grey-shade-15 pt-3 max-mobile-lg:gap-5">
             <div className="flex flex-col gap-3">
               <div className="flex flex-row items-center gap-1">
                 <div>
@@ -68,7 +68,7 @@ const PropertyDescription = () => {
                 03
               </h1>
             </div>
-            <div className="flex flex-col gap-3 border-l border-grey-shade-15 pl-3">
+            <div className="flex flex-col gap-3 mobile-lg:border-l border-grey-shade-15 pl-3 max-mobile-lg:pl-0  max-mobile-lg:border-t max-mobile-lg:pt-3">
               <div className="flex flex-row items-center gap-1">
                 <div>
                   <AreaIcon />
