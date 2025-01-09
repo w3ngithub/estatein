@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import {
   Carousel,
+  CarouselApi,
   CarouselContent,
   CarouselItem,
   CarouselNext,
@@ -20,8 +21,24 @@ import {
   HouseIcon,
   LocationIcon,
 } from "@/svgs/PropertyPageSvg";
+import { useEffect, useState } from "react";
 
 const DiscoveredProperty = () => {
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
+    setCount(api.scrollSnapList().length);
+    setCurrent(api.selectedScrollSnap());
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap());
+    });
+  }, [api]);
+
   const preferredLocation = [
     { value: "ktm", selectFieldData: "Kathmandu" },
     { value: "bkt", selectFieldData: "Bhaktapur" },
@@ -97,7 +114,7 @@ const DiscoveredProperty = () => {
           </div>
         </div>
       </div>
-      <Carousel>
+      <Carousel setApi={setApi}>
         <section className="container flex flex-col gap-10 pt-5 max-mobile-md:gap-5">
           <div className="flex flex-row justify-between items-end">
             <div className="flex flex-col gap-3">
@@ -191,8 +208,12 @@ const DiscoveredProperty = () => {
           </div>
           <div className="flex flex-row justify-between mb-4 max-mobile-md:hidden border-t-[1px] border-t-[#E4E4E7] dark:border-t-grey-shade-15 dark:bg-grey-shade-8 pt-5">
             <div className="text-base font-medium">
-              <span className="dark:text-white">01</span>{" "}
-              <span className="dark:text-grey-shade-60">of 10</span>
+              <span className="dark:text-white">
+                {String(current + 1).padStart(2, "0")}
+              </span>{" "}
+              <span className="dark:text-grey-shade-60">
+                of {String(count).padStart(2, "0")}
+              </span>
             </div>
             <div className="flex flex-row gap-3">
               <CarouselPrevious />
@@ -204,8 +225,12 @@ const DiscoveredProperty = () => {
             <div className="flex flex-row justify-between items-center">
               <CarouselPrevious />
               <div className="text-base font-medium">
-                <span className="dark:text-white">01</span>{" "}
-                <span className="dark:text-grey-shade-60">of 10</span>
+                <span className="dark:text-white">
+                  {String(current + 1).padStart(2, "0")}
+                </span>{" "}
+                <span className="dark:text-grey-shade-60">
+                  of {String(count).padStart(2, "0")}
+                </span>
               </div>
               <CarouselNext />
             </div>
