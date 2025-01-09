@@ -76,7 +76,7 @@ const ContactForm = () => {
     { value: "3000", selectFieldData: "30000" },
   ];
   return (
-    <section className="container flex flex-col gap-10 pt-5 max-mobile-md:gap-5">
+    <section className="container flex flex-col gap-10 pt-5 max-mobile-md:gap-5 max-mobile-md:pb-8">
       <div className="flex flex-row justify-between items-end">
         <div className="flex flex-col gap-3">
           {/* 3 star logo */}
