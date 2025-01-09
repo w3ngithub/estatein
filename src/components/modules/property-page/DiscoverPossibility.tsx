@@ -12,15 +12,88 @@ import Image from "next/image";
 import { carouselDataDiscoverProperty } from "@/utilityComponents/propertyPage/discoverProperty";
 import { ThreeStars } from "@/svgs/HomePageSvg";
 import SearchProperty from "./SearchProperty";
+import SelectFieldWithIcon from "../common/SelectFieldWithIcon";
+import {
+  CalenderIcon,
+  CameraIcon,
+  CubeIcon,
+  HouseIcon,
+  LocationIcon,
+} from "@/svgs/PropertyPageSvg";
 
 const DiscoveredProperty = () => {
+  const preferredLocation = [
+    { value: "ktm", selectFieldData: "Kathmandu" },
+    { value: "bkt", selectFieldData: "Bhaktapur" },
+    { value: "lalit", selectFieldData: "Lalitpur" },
+  ];
+  const propertyType = [
+    { value: "rental", selectFieldData: "Rental" },
+    { value: "own", selectFieldData: "Owned" },
+  ];
+  const pricingrange = [
+    { value: "10", selectFieldData: "10k to 20k" },
+    { value: "20", selectFieldData: "30k to 40k" },
+  ];
+  const propertySize = [
+    { value: "1", selectFieldData: "1 BHK" },
+    { value: "2", selectFieldData: "2 BHK" },
+  ];
+  const buildYear = [
+    { value: "1999", selectFieldData: "1999" },
+    { value: "2000", selectFieldData: "2000" },
+  ];
   return (
-    <div className="">
+    <div>
+      {/* search property field */}
       <div className="container flex flex-col justify-center items-center">
         <div className="w-[80%]">
           <SearchProperty />
         </div>
-        <div>select field haru</div>
+      </div>
+      {/* select fields */}
+      <div className="container">
+        <div className="grid grid-cols-5 gap-3">
+          <div>
+            <SelectFieldWithIcon
+              placeholder="Location"
+              data={preferredLocation}
+              svgIcon={<LocationIcon />}
+            />
+          </div>
+          <div>
+            {" "}
+            <SelectFieldWithIcon
+              placeholder="Property Type"
+              data={propertyType}
+              svgIcon={<HouseIcon />}
+            />
+          </div>
+          <div>
+            {" "}
+            <SelectFieldWithIcon
+              placeholder="Pricing Range"
+              data={pricingrange}
+              svgIcon={<CameraIcon />}
+            />
+          </div>
+          <div>
+            {" "}
+            <SelectFieldWithIcon
+              placeholder="Property Size"
+              data={propertySize}
+              svgIcon={<CubeIcon />}
+            />
+          </div>
+          <div>
+            {" "}
+            <SelectFieldWithIcon
+              placeholder="Build Year"
+              data={buildYear}
+              svgIcon={<CalenderIcon />}
+            />
+          </div>
+        </div>
       </div>
       <Carousel>
         <section className="container flex flex-col gap-10 pt-5 max-mobile-md:gap-5">
