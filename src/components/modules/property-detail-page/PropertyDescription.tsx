@@ -7,6 +7,24 @@ import {
 import React from "react";
 
 const PropertyDescription = () => {
+  const keyFeatures = [
+    {
+      id: 1,
+      features: "Expansive oceanfront terrace for outdoor entertaining",
+    },
+    { id: 2, features: "Gourmet kitchen with top-of-the-line appliances" },
+    {
+      id: 3,
+      features: "Private beach access for morning strolls and sunset views",
+    },
+    {
+      id: 4,
+      features:
+        "Master suite with a spa-inspired bathroom and ocean-facing balcony",
+    },
+    { id: 5, features: "Private garage and ample storage space" },
+  ];
+
   return (
     <div className="container">
       <div className="grid grid-cols-2 py-10">
@@ -71,7 +89,7 @@ const PropertyDescription = () => {
             <h1 className="font-semibold text-2xl max-desktop-lg:text-xl">
               Key Features and Amenities
             </h1>
-            <div className="border-l-[1.5px] border-purple-shade-60 flex flex-row gap-2 pl-5 py-3">
+            <div className="border-l-[1.5px] border-purple-shade-60 flex flex-row gap-2 pl-5 py-3 dark:bg-gradient-to-r from-[#1D1D1D] via-black to-black">
               <div>
                 <ThunderIcon />
               </div>
