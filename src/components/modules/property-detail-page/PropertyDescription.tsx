@@ -68,7 +68,7 @@ const PropertyDescription = () => {
                 03
               </h1>
             </div>
-            <div className="flex flex-col gap-3 mobile-lg:border-l border-grey-shade-15 pl-3 max-mobile-lg:pl-0  max-mobile-lg:border-t max-mobile-lg:pt-3">
+            <div className="flex flex-col gap-3 mobile-lg:border-l border-grey-shade-15 pl-3 max-mobile-lg:pl-0  max-mobile-lg:border-t max-mobile-lg:pt-3 max-mobile-lg:col-span-2">
               <div className="flex flex-row items-center gap-1">
                 <div>
                   <AreaIcon />
