@@ -113,7 +113,7 @@ const ContactForm = () => {
               {...register("firstName")}
               type="text"
               placeholder="Enter First Name"
-              className="h-16 max-desktop-lg:h-14 border border-grey-15 bg-grey-shade-10"
+              className="h-16 max-desktop-lg:h-14 border border-grey-15 dark:bg-grey-shade-10"
             />
             {errors.firstName?.message && (
               <span className="text-red-500">
@@ -134,7 +134,7 @@ const ContactForm = () => {
               {...register("lastName")}
               type="text"
               placeholder="Enter Last Name"
-              className="h-16 max-desktop-lg:h-14 border border-grey-15 bg-grey-shade-10"
+              className="h-16 max-desktop-lg:h-14 border border-grey-15 dark:bg-grey-shade-10"
             />
             {errors.lastName?.message && (
               <span className="text-red-500">
@@ -155,7 +155,7 @@ const ContactForm = () => {
               {...register("email")}
               type="email"
               placeholder="Enter your Email"
-              className="h-16 max-desktop-lg:h-14 border border-grey-15 bg-grey-shade-10"
+              className="h-16 max-desktop-lg:h-14 border border-grey-15 dark:bg-grey-shade-10"
             />
             {errors.email?.message && (
               <span className="text-red-500">
@@ -176,7 +176,7 @@ const ContactForm = () => {
               {...register("phone")}
               type="text"
               placeholder="Enter Phone Number"
-              className="h-16 max-desktop-lg:h-14 border border-grey-15 bg-grey-shade-10"
+              className="h-16 max-desktop-lg:h-14 border border-grey-15 dark:bg-grey-shade-10"
             />
             {errors.phone?.message && (
               <span className="text-red-500">
@@ -350,7 +350,7 @@ const ContactForm = () => {
                 defaultValue="option-one"
                 className="flex flex-row justify-between w-full h-16 max-desktop-lg:h-14 max-desktop-md:flex-col max-desktop-md:mb-6"
               >
-                <div className="flex items-center gap-3 w-full px-4 py-3 rounded-lg border border-grey-15 bg-grey-shade-10">
+                <div className="flex items-center gap-3 w-full px-4 py-3 rounded-lg border border-grey-15 dark:bg-grey-shade-10">
                   <div>
                     <svg
                       width="21"
@@ -424,7 +424,7 @@ const ContactForm = () => {
             id="message"
             {...register("message")}
             placeholder="Enter your Message here.."
-            className="h-44 max-desktop-lg:h-28 max-mobile-xl:h-20 border border-grey-15 bg-grey-shade-10"
+            className="h-44 max-desktop-lg:h-28 max-mobile-xl:h-20 border border-grey-15 dark:bg-grey-shade-10"
           />
           {errors.message?.message && (
             <span className="text-red-500">
@@ -437,7 +437,7 @@ const ContactForm = () => {
         <div className="flex flex-row justify-between items-center max-mobile-xl:flex-col max-mobile-xl:gap-5">
           <div className="flex flex-row items-center gap-2">
             <div className="flex items-center">
-              <Checkbox className="border border-grey-shade-15 bg-grey-shade-10" />
+              <Checkbox className="border border-grey-shade-15 dark:bg-grey-shade-10" />
             </div>
             <p className="text-lg text-grey-shade-60 max-desktop-lg:text-base max-mobile-xl:text-sm">
               I agree with<span className="underline px-2">Terms of Use</span>
