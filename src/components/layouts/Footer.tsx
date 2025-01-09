@@ -39,7 +39,7 @@ const Footer = () => {
               </h1>
             </div>
             {/* input field container */}
-            <div className="flex items-center gap-3 w-[85%] max-w-sm px-4 py-3 bg-[#E4E4E7] dark:bg-[#1C1C1C] rounded-lg">
+            <div className="flex items-center gap-3 w-[85%] max-w-sm px-4 py-3 bg-[#E4E4E7] border border-grey-shade-15 dark:bg-grey-shade-8 rounded-lg max-mobile-md:w-full">
               <div>
                 <svg
                   width="20"
