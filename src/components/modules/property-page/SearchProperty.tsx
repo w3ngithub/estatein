@@ -11,8 +11,8 @@ const SearchProperty = () => {
           placeholder="Search For A Property"
           className="flex-1 bg-transparent border-0 text-gray-300 placeholder:text-gray-500 focus-visible:ring-0 focus-visible:ring-offset-0"
         />
-        <Button className="py-3 px-4 text-lg bg-purple-shade-60 rounded-md hover:bg-purple-shade-d60 max-desktop-2xl:text-sm h-full max-mobile-md:w-full max-mobile-md:py-4 dark:text-white">
-          <div>
+        <Button className="py-3 px-4 text-lg bg-purple-shade-60 rounded-md hover:bg-purple-shade-d60 max-desktop-2xl:text-sm h-full dark:text-white">
+          <div className="">
             <svg
               width="20"
               height="21"
@@ -29,7 +29,7 @@ const SearchProperty = () => {
               />
             </svg>
           </div>
-          <div>Find Property</div>
+          <div className="block max-mobile-lg:hidden">Find Property</div>
         </Button>
       </div>
     </div>
