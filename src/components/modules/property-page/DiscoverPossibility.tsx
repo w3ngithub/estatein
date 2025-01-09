@@ -62,7 +62,7 @@ const DiscoveredProperty = () => {
   ];
   return (
     <div>
-      <div className="search-select-container flex flex-col gap-0 max-mobile-md:gap-5 mt-[-38px]">
+      <div className="search-select-container flex flex-col gap-0 max-mobile-md:gap-5 max-mobile-md:pt-5 mobile-md:mt-[-38px]">
         {/* search property field */}
         <div className="container flex flex-col justify-center items-center">
           <div className="w-[80%] max-mobile-md:w-full max-mobile-md:p-1 p-2 bg-grey-shade-10 rounded-lg">
