@@ -27,9 +27,9 @@ const PropertyDescription = () => {
 
   return (
     <div className="container">
-      <div className="grid grid-cols-2 gap-4 py-10">
+      <div className="grid tablet-md:grid-cols-2 gap-4 py-10">
         {/* first section */}
-        <div className="flex flex-col gap-10 border border-grey-shade-15 p-5 rounded-lg">
+        <div className="flex flex-col gap-10 border border-grey-shade-15 p-8 rounded-lg h-fit">
           <div className="flex flex-col gap-4">
             <h2 className="font-semibold text-2xl text-white max-desktop-lg:text-xl">
               Description
@@ -84,7 +84,7 @@ const PropertyDescription = () => {
           </div>
         </div>
         {/* second section */}
-        <div className="border border-grey-shade-15 p-5 rounded-lg">
+        <div className="border border-grey-shade-15 p-8 rounded-lg">
           <div className="flex flex-col gap-5">
             <h1 className="font-semibold text-2xl max-desktop-lg:text-xl">
               Key Features and Amenities
