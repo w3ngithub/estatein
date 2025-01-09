@@ -350,7 +350,7 @@ const ContactForm = () => {
                 defaultValue="option-one"
                 className="flex flex-row justify-between w-full h-16 max-desktop-lg:h-14 max-desktop-md:flex-col max-desktop-md:mb-6"
               >
-                <div className="flex items-center gap-3 w-full px-4 py-3 rounded-lg border border-grey-15 dark:bg-grey-shade-10">
+                <div className="flex items-center gap-3 w-full px-4 py-3 rounded-lg bg-[#E4E4E7] dark:bg-[#1C1C1C]">
                   <div>
                     <svg
                       width="21"
