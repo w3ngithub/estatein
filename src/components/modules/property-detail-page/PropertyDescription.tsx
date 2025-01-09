@@ -11,14 +11,14 @@ const PropertyDescription = () => {
             <h2 className="font-semibold text-2xl text-white max-desktop-lg:text-xl">
               Description
             </h2>
-            <p className="font-medium text-lg text-grey-60 max-desktop-lg:text-base">
+            <p className="font-medium text-lg text-grey-shade-60 max-desktop-lg:text-base">
               Discover your own piece of paradise with the Seaside Serenity
               Villa. T With an open floor plan, breathtaking ocean views from
               every room, and direct access to a pristine sandy beach, this
               property is the epitome of coastal living.
             </p>
           </div>
-          <div className="grid grid-cols-3">
+          <div className="grid grid-cols-3 border-t border-grey-shade-15 pt-3">
             <div className="flex flex-col gap-3">
               <div className="flex flex-row items-center gap-1">
                 <div>
@@ -32,7 +32,7 @@ const PropertyDescription = () => {
                 04
               </h1>
             </div>
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-3 border-l border-grey-shade-15 pl-3">
               <div className="flex flex-row items-center gap-1">
                 <div>
                   <ShowerIcon />
@@ -45,7 +45,7 @@ const PropertyDescription = () => {
                 03
               </h1>
             </div>
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-3 border-l border-grey-shade-15 pl-3">
               <div className="flex flex-row items-center gap-1">
                 <div>
                   <AreaIcon />
