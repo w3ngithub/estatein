@@ -445,7 +445,7 @@ const ContactForm = () => {
               <span className="underline px-2">Privacy Policy</span>
             </p>
           </div>
-          <div>
+          <div className="max-mobile-md:w-full">
             <Button className="bg-purple-shade-60 hover:bg-purple-shade-d60 py-6 px-4 font-medium rounded-md max-desktop-lg:text-sm max-mobile-lg:w-full dark:text-white">
               Send Your Message
             </Button>
