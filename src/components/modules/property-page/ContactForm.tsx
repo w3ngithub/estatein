@@ -4,21 +4,13 @@ import { ThreeStars } from "@/svgs/HomePageSvg";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import SelectField from "../common/SelectField";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { z } from "zod";
-import { useForm, Controller, Form } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { FormMessage } from "@/components/ui/form";
 
 const formSchema = z.object({
   firstName: z.string().min(1, "First Name is required"),
@@ -37,17 +29,19 @@ const formSchema = z.object({
   }),
 });
 
+type FormSchema = z.infer<typeof formSchema>;
+
 const ContactForm = () => {
   const {
     register,
     handleSubmit,
     control,
     formState: { errors },
-  } = useForm({
+  } = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
   });
 
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: FormSchema) => {
     console.log("Form Data:", data);
   };
 
@@ -84,13 +78,13 @@ const ContactForm = () => {
             <ThreeStars />
           </div>
           <h1 className="dark:text-white text-5xl font-semibold max-desktop-lg:text-4xl max-tablet-sm:text-[28px]">
-            Let's Make it Happen
+            Let&apos;s Make it Happen
           </h1>
           <p className="max-w-[900px] dark:text-grey-shade-60 text-lg leading-6 max-desktop-lg:text-base max-tablet-sm:text-sm">
             Ready to take the first step toward your dream property? Fill out
             the form below, and our real estate wizards will work their magic to
-            find your perfect match. Don't wait; let's embark on this exciting
-            journey together.
+            find your perfect match. Don&apos;t wait; let&apos;s embark on this
+            exciting journey together.
           </p>
         </div>
       </div>
@@ -202,7 +196,7 @@ const ContactForm = () => {
             <Controller
               name="preferredLocation"
               control={control}
-              render={({ field, fieldState: { error } }) => (
+              render={({ field }) => (
                 <SelectField
                   placeholder="Select Location"
                   data={preferredLocation}
@@ -211,12 +205,12 @@ const ContactForm = () => {
                 />
               )}
             />
-            {errors.preferredLocation?.message && (
+            {/* {errors.preferredLocation?.message && (
               <span className="text-red-500">
                 {typeof errors.preferredLocation.message === "string" &&
                   errors.preferredLocation.message}
               </span>
-            )}
+            )} */}
           </div>
           <div className="flex flex-col gap-3">
             <Label
@@ -232,7 +226,7 @@ const ContactForm = () => {
             <Controller
               name="propertyType"
               control={control}
-              render={({ field, fieldState: { error } }) => (
+              render={({ field }) => (
                 <SelectField
                   placeholder="Select Property Type"
                   data={propertyType}
@@ -241,12 +235,12 @@ const ContactForm = () => {
                 />
               )}
             />
-            {errors.propertyType?.message && (
+            {/* {errors.propertyType?.message && (
               <span className="text-red-500">
                 {typeof errors.propertyType.message === "string" &&
                   errors.propertyType.message}
               </span>
-            )}
+            )} */}
           </div>
           <div className="flex flex-col gap-3">
             <Label
@@ -262,7 +256,7 @@ const ContactForm = () => {
             <Controller
               name="noOfBathrooms"
               control={control}
-              render={({ field, fieldState: { error } }) => (
+              render={({ field }) => (
                 <SelectField
                   placeholder="Select no. of Bathrooms"
                   data={noOfBathrooms}
@@ -292,7 +286,7 @@ const ContactForm = () => {
             <Controller
               name="noOfBedrooms"
               control={control}
-              render={({ field, fieldState: { error } }) => (
+              render={({ field }) => (
                 <SelectField
                   placeholder="Select no. of Bedrooms"
                   data={noOfBedrooms}
@@ -301,12 +295,12 @@ const ContactForm = () => {
                 />
               )}
             />
-            {errors.noOfBedrooms?.message && (
+            {/* {errors.noOfBedrooms?.message && (
               <span className="text-red-500">
                 {typeof errors.noOfBedrooms.message === "string" &&
                   errors.noOfBedrooms.message}
               </span>
-            )}
+            )} */}
           </div>
         </div>
         {/* third row */}
@@ -322,7 +316,7 @@ const ContactForm = () => {
             <Controller
               name="budget"
               control={control}
-              render={({ field, fieldState: { error } }) => (
+              render={({ field }) => (
                 <SelectField
                   placeholder="Select Budget"
                   data={budget}
@@ -331,12 +325,12 @@ const ContactForm = () => {
                 />
               )}
             />
-            {errors.budget?.message && (
+            {/* {errors.budget?.message && (
               <span className="text-red-500">
                 {typeof errors.budget.message === "string" &&
                   errors.budget.message}
               </span>
-            )}
+            )} */}
           </div>
           <div className="flex flex-col gap-3">
             <Label
