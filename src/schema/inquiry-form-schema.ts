@@ -9,9 +9,9 @@ export const inquiryFormSchema = z.object({
     .string({ required_error: "Please select a location" })
     .min(1, "Please select a location"),
   message: z.string().min(1, "Message is required"),
-  terms: z
-    .boolean({ required_error: "You must agree to the terms" })
-    .refine((val) => val === true, "You must agree to the terms"),
+  terms: z.literal(true, {
+    errorMap: () => ({ message: "You must accept the terms & conditions" }),
+  }),
 });
 
 export type InquiryFormData = z.infer<typeof inquiryFormSchema>;
