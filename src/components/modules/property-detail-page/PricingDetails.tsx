@@ -34,7 +34,7 @@ const PricingDetails = () => {
           </div>
         </div>
         {/* third row */}
-        <div className="grid grid-cols-12 gap-2">
+        <div className="grid tablet-lg:grid-cols-12 gap-2 max-tablet-lg:gap-5">
           {/* 1st section */}
           <div className="col-span-2 space-y-3">
             <p className="dark:text-grey-shade-60 font-medium text-xl leading-6 max-desktop-lg:text-base max-tablet-sm:text-sm">
@@ -59,8 +59,8 @@ const PricingDetails = () => {
                   </Button>
                 </div>
                 {/* 1st card: second row */}
-                <div className="grid grid-cols-2 border-t border-grey-shade-15 py-5">
-                  <div className="flex flex-col gap-3">
+                <div className="grid tablet-lg:grid-cols-2 border-t border-grey-shade-15 py-5">
+                  <div className="flex flex-col gap-3 max-tablet-lg:pb-5">
                     <p className="dark:text-grey-shade-60 font-medium text-lg leading-6 max-desktop-lg:text-sm">
                       Property Transfer Tax
                     </p>
@@ -75,7 +75,7 @@ const PricingDetails = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="flex flex-col gap-3 border-l border-grey-shade-15 pl-5">
+                  <div className="flex flex-col gap-3 tablet-lg:border-l border-grey-shade-15 tablet-lg:pl-5 max-tablet-lg:border-t max-tablet-lg:pt-5">
                     <p className="dark:text-grey-shade-60 font-medium text-lg leading-6 max-desktop-lg:text-sm">
                       Legal Fees
                     </p>
@@ -93,8 +93,8 @@ const PricingDetails = () => {
                   </div>
                 </div>
                 {/* 2 */}
-                <div className="grid grid-cols-2 border-t border-grey-shade-15 py-5">
-                  <div className="flex flex-col gap-3">
+                <div className="grid tablet-lg:grid-cols-2 border-t border-grey-shade-15 py-5">
+                  <div className="flex flex-col gap-3 max-tablet-lg:pb-5">
                     <p className="dark:text-grey-shade-60 font-medium text-lg leading-6 max-desktop-lg:text-sm">
                       Home Inspection
                     </p>
@@ -109,7 +109,7 @@ const PricingDetails = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="flex flex-col gap-3 border-l border-grey-shade-15 pl-5">
+                  <div className="flex flex-col gap-3 tablet-lg:border-l border-grey-shade-15 tablet-lg:pl-5 max-tablet-lg:border-t max-tablet-lg:pt-5">
                     <p className="dark:text-grey-shade-60 font-medium text-lg leading-6 max-desktop-lg:text-sm">
                       Property Insurance
                     </p>
@@ -126,7 +126,7 @@ const PricingDetails = () => {
                   </div>
                 </div>
                 {/* 3 */}
-                <div className="grid grid-cols-2 border-t border-grey-shade-15 py-5">
+                <div className="grid tablet-lg:grid-cols-2 border-t border-grey-shade-15 py-5">
                   <div className="flex flex-col gap-3">
                     <p className="dark:text-grey-shade-60 font-medium text-lg leading-6 max-desktop-lg:text-sm">
                       Mortgage Fees
