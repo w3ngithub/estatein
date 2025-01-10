@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import { ThreeStars } from "@/svgs/HomePageSvg";
 import React from "react";
 
@@ -34,7 +35,8 @@ const PricingDetails = () => {
         </div>
         {/* third row */}
         <div className="grid grid-cols-12 gap-2">
-          <div className="col-span-3">
+          {/* 1st section */}
+          <div className="col-span-3 grid gap-2">
             <p className="dark:text-grey-shade-60 font-medium text-xl leading-6 max-desktop-lg:text-base max-tablet-sm:text-sm">
               Listing Price
             </p>
@@ -42,9 +44,24 @@ const PricingDetails = () => {
               $1,250,000
             </h1>
           </div>
+          {/* 2nd section */}
           <div className="col-span-9">
             <div className="flex flex-col gap-3">
-              <div></div>
+              {/* 1st card */}
+              <div className="p-5 border border-grey-shade-15 rounded-lg">
+                <div className="flex flex-row items-center justify-between gap-2">
+                  <h2 className="text-2xl font-semibold max-desktop-lg:text-xl max-tablet-sm:text-lg">
+                    Additional Fees
+                  </h2>
+                  <Button className="py-6 px-4 border-2 border-grey-shade-15 bg-grey-shade-10 rounded-md text-lg max-desktop-2xl:text-sm hover:bg-grey-shade-15 dark:text-white">
+                    Learn More
+                  </Button>
+                </div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+              {/* 2nd 3rd card */}
               <div></div>
               <div></div>
               <div></div>
