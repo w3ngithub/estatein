@@ -34,9 +34,9 @@ const PricingDetails = () => {
           </div>
         </div>
         {/* third row */}
-        <div className="grid grid-cols-12 gap-2 border border-red-500">
+        <div className="grid grid-cols-12 gap-2">
           {/* 1st section */}
-          <div className="col-span-3 grid gap-2">
+          <div className="col-span-2 space-y-3">
             <p className="dark:text-grey-shade-60 font-medium text-xl leading-6 max-desktop-lg:text-base max-tablet-sm:text-sm">
               Listing Price
             </p>
@@ -45,7 +45,7 @@ const PricingDetails = () => {
             </h1>
           </div>
           {/* 2nd section */}
-          <div className="col-span-9">
+          <div className="col-span-10">
             <div className="flex flex-col gap-3">
               {/* 1st card */}
               <div className="p-5 border border-grey-shade-15 rounded-lg">
@@ -64,7 +64,7 @@ const PricingDetails = () => {
                     <p className="dark:text-grey-shade-60 font-medium text-lg leading-6 max-desktop-lg:text-sm">
                       Property Transfer Tax
                     </p>
-                    <div className="flex flex-row gap-3">
+                    <div className="flex flex-row items-center gap-3">
                       <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
                         $25,000
                       </h1>
@@ -79,7 +79,7 @@ const PricingDetails = () => {
                     <p className="dark:text-grey-shade-60 font-medium text-lg leading-6 max-desktop-lg:text-sm">
                       Legal Fees
                     </p>
-                    <div className="flex flex-row gap-3">
+                    <div className="flex flex-row items-center gap-3">
                       <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
                         $3,000
                       </h1>
@@ -98,7 +98,7 @@ const PricingDetails = () => {
                     <p className="dark:text-grey-shade-60 font-medium text-lg leading-6 max-desktop-lg:text-sm">
                       Home Inspection
                     </p>
-                    <div className="flex flex-row gap-3">
+                    <div className="flex flex-row items-center gap-3">
                       <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
                         $500
                       </h1>
@@ -113,7 +113,7 @@ const PricingDetails = () => {
                     <p className="dark:text-grey-shade-60 font-medium text-lg leading-6 max-desktop-lg:text-sm">
                       Property Insurance
                     </p>
-                    <div className="flex flex-row gap-3">
+                    <div className="flex flex-row items-center gap-3">
                       <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
                         $1,200
                       </h1>
@@ -131,7 +131,7 @@ const PricingDetails = () => {
                     <p className="dark:text-grey-shade-60 font-medium text-lg leading-6 max-desktop-lg:text-sm">
                       Mortgage Fees
                     </p>
-                    <div className="flex flex-row gap-3">
+                    <div className="flex flex-row items-center gap-3">
                       <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
                         Varies
                       </h1>
