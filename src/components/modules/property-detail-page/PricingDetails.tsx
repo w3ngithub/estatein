@@ -35,8 +35,12 @@ const PricingDetails = () => {
         {/* third row */}
         <div className="grid grid-cols-12 gap-2">
           <div className="col-span-3">
-            <p></p>
-            <h1></h1>
+            <p className="dark:text-grey-shade-60 font-medium text-xl leading-6 max-desktop-lg:text-base max-tablet-sm:text-sm">
+              Listing Price
+            </p>
+            <h1 className="font-semibold text-4xl max-desktop-lg:text-3xl max-tablet-sm:text-2xl">
+              $1,250,000
+            </h1>
           </div>
           <div className="col-span-9">
             <div className="flex flex-col gap-3">
