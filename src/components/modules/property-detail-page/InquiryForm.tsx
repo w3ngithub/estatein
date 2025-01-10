@@ -14,25 +14,44 @@ import {
   inquiryFormSchema,
 } from "@/schema/inquiry-form-schema";
 
+const preferredLocation = [
+  { value: "ktm", selectFieldData: "Kathmandu" },
+  { value: "bkt", selectFieldData: "Bhaktapur" },
+  { value: "lalit", selectFieldData: "Lalitpur" },
+];
+
 const InquiryForm = () => {
   const {
     register,
     handleSubmit,
     control,
     formState: { errors },
+    reset,
   } = useForm<InquiryFormData>({
     resolver: zodResolver(inquiryFormSchema),
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      phoneNumber: "",
+      selectedProperty: "",
+      message: "",
+      terms: false,
+    },
   });
 
   const onSubmit = (data: InquiryFormData) => {
     console.log("Form submitted successfully:", data);
+    reset({
+      firstName: "",
+      lastName: "",
+      email: "",
+      phoneNumber: "",
+      selectedProperty: "",
+      message: "",
+      terms: false,
+    });
   };
-
-  const preferredLocation = [
-    { value: "ktm", selectFieldData: "Kathmandu" },
-    { value: "bkt", selectFieldData: "Bhaktapur" },
-    { value: "lalit", selectFieldData: "Lalitpur" },
-  ];
 
   return (
     <form
@@ -101,7 +120,7 @@ const InquiryForm = () => {
             htmlFor="phoneNumber"
             className="font-semibold text-xl max-desktop-lg:text-base"
           >
-            Last Name
+            Phone
           </Label>
           <Input
             id="phoneNumber"
@@ -122,7 +141,6 @@ const InquiryForm = () => {
         >
           Preferred Location
         </Label>
-        {/* <SelectField placeholder="Select Location" data={preferredLocation} /> */}
         <Controller
           name="selectedProperty"
           control={control}
@@ -130,7 +148,7 @@ const InquiryForm = () => {
             <SelectField
               placeholder="Select Location"
               data={preferredLocation}
-              value={field.value}
+              value={field.value || ""}
               onChange={field.onChange}
             />
           )}
@@ -159,10 +177,6 @@ const InquiryForm = () => {
       <div className="flex flex-row justify-between items-center max-mobile-xl:flex-col max-mobile-xl:gap-5 max-mobile-lg:pt-5">
         <div className="flex flex-row items-center gap-2">
           <div className="flex items-center">
-            {/* <Checkbox
-              id="terms"
-              className="border border-grey-shade-15 dark:bg-grey-shade-10 data-[state=checked]:text-white"
-            /> */}
             <Controller
               name="terms"
               control={control}
@@ -170,7 +184,7 @@ const InquiryForm = () => {
                 <Checkbox
                   id="terms"
                   className="border border-grey-shade-15 dark:bg-grey-shade-10 data-[state=checked]:text-white"
-                  checked={field.value}
+                  checked={field.value || false}
                   onCheckedChange={field.onChange}
                 />
               )}

@@ -5,10 +5,12 @@ export const inquiryFormSchema = z.object({
   lastName: z.string().min(1, "Last name is required"),
   email: z.string().email("Invalid email address"),
   phoneNumber: z.string().regex(/^\d{10}$/, "Phone number must be 10 digits"),
-  selectedProperty: z.string().min(1, "Please select a location"),
+  selectedProperty: z
+    .string({ required_error: "Please select a location" })
+    .min(1, "Please select a location"),
   message: z.string().min(1, "Message is required"),
   terms: z
-    .boolean()
+    .boolean({ required_error: "You must agree to the terms" })
     .refine((val) => val === true, "You must agree to the terms"),
 });
 
