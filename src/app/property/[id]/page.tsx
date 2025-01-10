@@ -1,4 +1,4 @@
-import PricingDetails from "@/components/modules/property-detail-page/PricingDetails";
+import PricingDetails from "@/components/modules/property-detail-page/pricing-detail-section/PricingDetails";
 import PropertyDescription from "@/components/modules/property-detail-page/PropertyDescription";
 import React from "react";
 
