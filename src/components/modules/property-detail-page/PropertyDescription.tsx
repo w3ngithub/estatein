@@ -7,22 +7,42 @@ import {
 import React from "react";
 
 const PropertyDescription = () => {
-  const keyFeatures = [
+  const propertyDetail = [
     {
-      id: 1,
-      features: "Expansive oceanfront terrace for outdoor entertaining",
+      description:
+        "Discover your own piece of paradise with the Seaside Serenity Villa. T With an open floor plan, breathtaking ocean views from every room, and direct access to a pristine sandy beach, this property is the epitome of coastal living.",
+      details: [
+        {
+          label: "Bedrooms",
+          value: "04",
+        },
+        {
+          label: "Bathrooms",
+          value: "03",
+        },
+        {
+          label: "Area",
+          value: "2,500 Square Feet",
+        },
+      ],
+      features: [
+        {
+          id: 1,
+          features: "Expansive oceanfront terrace for outdoor entertaining",
+        },
+        { id: 2, features: "Gourmet kitchen with top-of-the-line appliances" },
+        {
+          id: 3,
+          features: "Private beach access for morning strolls and sunset views",
+        },
+        {
+          id: 4,
+          features:
+            "Master suite with a spa-inspired bathroom and ocean-facing balcony",
+        },
+        { id: 5, features: "Private garage and ample storage space" },
+      ],
     },
-    { id: 2, features: "Gourmet kitchen with top-of-the-line appliances" },
-    {
-      id: 3,
-      features: "Private beach access for morning strolls and sunset views",
-    },
-    {
-      id: 4,
-      features:
-        "Master suite with a spa-inspired bathroom and ocean-facing balcony",
-    },
-    { id: 5, features: "Private garage and ample storage space" },
   ];
 
   return (
@@ -90,7 +110,7 @@ const PropertyDescription = () => {
               Key Features and Amenities
             </h1>
             {/* first feature */}
-            <div className="border-l-[1.5px] border-purple-shade-60 flex flex-row gap-2 pl-5 py-3 dark:bg-gradient-to-r from-[#1D1D1D] via-black to-black">
+            <div className="border-l-[1.5px] border-purple-shade-60 flex flex-row items-center gap-2 pl-5 py-3 dark:bg-gradient-to-r from-[#1D1D1D] via-black to-black max-mobile-xl:gap-3">
               <div>
                 <ThunderIcon />
               </div>
@@ -98,7 +118,7 @@ const PropertyDescription = () => {
                 Expansive oceanfront terrace for outdoor entertaining
               </p>
             </div>
-            <div className="border-l-[1.5px] border-purple-shade-60 flex flex-row gap-2 pl-5 py-3 dark:bg-gradient-to-r from-[#1D1D1D] via-black to-black">
+            <div className="border-l-[1.5px] border-purple-shade-60 flex flex-row items-center gap-2 pl-5 py-3 dark:bg-gradient-to-r from-[#1D1D1D] via-black to-black max-mobile-xl:gap-3">
               <div>
                 <ThunderIcon />
               </div>
@@ -106,7 +126,7 @@ const PropertyDescription = () => {
                 Gourmet kitchen with top-of-the-line appliances
               </p>
             </div>
-            <div className="border-l-[1.5px] border-purple-shade-60 flex flex-row gap-2 pl-5 py-3 dark:bg-gradient-to-r from-[#1D1D1D] via-black to-black">
+            <div className="border-l-[1.5px] border-purple-shade-60 flex flex-row items-center gap-2 pl-5 py-3 dark:bg-gradient-to-r from-[#1D1D1D] via-black to-black max-mobile-xl:gap-3">
               <div>
                 <ThunderIcon />
               </div>
@@ -114,7 +134,7 @@ const PropertyDescription = () => {
                 Private beach access for morning strolls and sunset views
               </p>
             </div>
-            <div className="border-l-[1.5px] border-purple-shade-60 flex flex-row gap-2 pl-5 py-3 dark:bg-gradient-to-r from-[#1D1D1D] via-black to-black">
+            <div className="border-l-[1.5px] border-purple-shade-60 items-center flex flex-row gap-2 pl-5 py-3 dark:bg-gradient-to-r from-[#1D1D1D] via-black to-black max-mobile-xl:gap-3">
               <div>
                 <ThunderIcon />
               </div>
@@ -123,7 +143,7 @@ const PropertyDescription = () => {
                 balcony
               </p>
             </div>
-            <div className="border-l-[1.5px] border-purple-shade-60 flex flex-row gap-2 pl-5 py-3 dark:bg-gradient-to-r from-[#1D1D1D] via-black to-black">
+            <div className="border-l-[1.5px] border-purple-shade-60 items-center flex flex-row gap-2 pl-5 py-3 dark:bg-gradient-to-r from-[#1D1D1D] via-black to-black max-mobile-xl:gap-3">
               <div>
                 <ThunderIcon />
               </div>
