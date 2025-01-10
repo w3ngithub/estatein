@@ -13,8 +13,11 @@ import Image from "next/image";
 import { carouselDataFeaturedProperty } from "@/utilityComponents/homePage/featuredProperty";
 import { ThreeStars } from "@/svgs/HomePageSvg";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 const FeaturedProperty = () => {
+  const router = useRouter();
+  //for carousel
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
@@ -29,6 +32,10 @@ const FeaturedProperty = () => {
       setCurrent(api.selectedScrollSnap());
     });
   }, [api]);
+
+  const handleNavigation = (id: number) => {
+    router.push(`/property/${id}`);
+  };
 
   return (
     <Carousel setApi={setApi}>
@@ -85,7 +92,7 @@ const FeaturedProperty = () => {
                         <span className="text-lg dark:text-grey-shade-60 max-desktop-lg:text-base max-tablet-sm:text-sm line-clamp-2">
                           {item.description}
                         </span>
-                        <Link href="/">
+                        <Link href={`/property/${item.id}`}>
                           <span className="underline font-medium dark:text-white text-base p-[0.5px] max-tablet-sm:text-sm">
                             Read More
                           </span>
@@ -120,7 +127,10 @@ const FeaturedProperty = () => {
                       </div>
 
                       <div className="col-span-8">
-                        <Button className="w-full h-full text-lg font-medium bg-purple-shade-60 rounded-md hover:bg-purple-shade-d60 max-desktop-2xl:text-sm max-tablet-sm:text-sm dark:text-white">
+                        <Button
+                          className="w-full h-full text-lg font-medium bg-purple-shade-60 rounded-md hover:bg-purple-shade-d60 max-desktop-2xl:text-sm max-tablet-sm:text-sm dark:text-white"
+                          onClick={() => handleNavigation(item.id)}
+                        >
                           View Property Details
                         </Button>
                       </div>
