@@ -34,7 +34,7 @@ const PricingDetails = () => {
           </div>
         </div>
         {/* third row */}
-        <div className="grid grid-cols-12 gap-2">
+        <div className="grid grid-cols-12 gap-2 border border-red-500">
           {/* 1st section */}
           <div className="col-span-3 grid gap-2">
             <p className="dark:text-grey-shade-60 font-medium text-xl leading-6 max-desktop-lg:text-base max-tablet-sm:text-sm">
@@ -58,7 +58,8 @@ const PricingDetails = () => {
                     Learn More
                   </Button>
                 </div>
-                <div className="flex flex-row gap-3 border-t border-grey-shade-15 pt-5">
+                <div className="flex flex-row gap-10 justify-between border-t border-grey-shade-15 py-5">
+                  {/* 1 */}
                   <div className="flex flex-col gap-3">
                     <p className="dark:text-grey-shade-60 font-medium text-lg leading-6 max-desktop-lg:text-sm">
                       Property Transfer Tax
@@ -74,10 +75,75 @@ const PricingDetails = () => {
                       </div>
                     </div>
                   </div>
-                  <div>legal fees</div>
+                  <div className="flex flex-col gap-3 border-l border-grey-shade-15 pl-5">
+                    <p className="dark:text-grey-shade-60 font-medium text-lg leading-6 max-desktop-lg:text-sm">
+                      Legal Fees
+                    </p>
+                    <div className="flex flex-row gap-3">
+                      <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
+                        $3,000
+                      </h1>
+                      <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-15 bg-grey-shade-10 px-3 py-2 rounded-full">
+                        <p className="text-grey-shade-60 text-lg max-desktop-lg:text-sm">
+                          Approximate cost for legal services, including title
+                          transfer
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div></div>
-                <div></div>
+                {/* 2 */}
+                <div className="flex flex-row gap-3 justify-between border-t border-grey-shade-15 py-5">
+                  <div className="flex flex-col gap-3">
+                    <p className="dark:text-grey-shade-60 font-medium text-lg leading-6 max-desktop-lg:text-sm">
+                      Home Inspection
+                    </p>
+                    <div className="flex flex-row gap-3">
+                      <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
+                        $500
+                      </h1>
+                      <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-15 bg-grey-shade-10 px-3 py-2 rounded-full">
+                        <p className="text-grey-shade-60 text-lg max-desktop-lg:text-sm">
+                          Recommended for due diligence
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex flex-col gap-3 border-l border-grey-shade-15 pl-5">
+                    <p className="dark:text-grey-shade-60 font-medium text-lg leading-6 max-desktop-lg:text-sm">
+                      Property Insurance
+                    </p>
+                    <div className="flex flex-row gap-3">
+                      <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
+                        $1,200
+                      </h1>
+                      <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-15 bg-grey-shade-10 px-3 py-2 rounded-full">
+                        <p className="text-grey-shade-60 text-lg max-desktop-lg:text-sm">
+                          Annual cost for comprehensive property insurance
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {/* 3 */}
+                <div className="flex flex-row gap-3 justify-between border-t border-grey-shade-15 py-5">
+                  <div className="flex flex-col gap-3">
+                    <p className="dark:text-grey-shade-60 font-medium text-lg leading-6 max-desktop-lg:text-sm">
+                      Mortgage Fees
+                    </p>
+                    <div className="flex flex-row gap-3">
+                      <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
+                        Varies
+                      </h1>
+                      <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-15 bg-grey-shade-10 px-3 py-2 rounded-full">
+                        <p className="text-grey-shade-60 text-lg max-desktop-lg:text-sm">
+                          If applicable, consult with your lender for specific
+                          details
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
               {/* 2nd 3rd card */}
               <div></div>
