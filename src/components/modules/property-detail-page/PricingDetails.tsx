@@ -4,7 +4,7 @@ import React from "react";
 const PricingDetails = () => {
   return (
     <div className="container">
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-10">
         {/* first row */}
         <div className="flex flex-col gap-3">
           <div>
@@ -13,7 +13,7 @@ const PricingDetails = () => {
           <h1 className="dark:text-white text-5xl font-semibold max-desktop-lg:text-4xl max-tablet-sm:text-[28px]">
             Comprehensive Pricing Details
           </h1>
-          <p className="max-w-[900px] dark:text-grey-shade-60 text-lg leading-6 max-desktop-lg:text-base max-tablet-sm:text-sm">
+          <p className="max-w-[900px] font-medium dark:text-grey-shade-60 text-lg leading-6 max-desktop-lg:text-base max-tablet-sm:text-sm">
             At Estatein, transparency is key. We want you to have a clear
             understanding of all costs associated with your property investment.
             Below, we break down the pricing for Seaside Serenity Villa to help
@@ -21,7 +21,17 @@ const PricingDetails = () => {
           </p>
         </div>
         {/* second row */}
-        <div>Note:</div>
+        <div className="border border-grey-shade-15 dark:bg-grey-shade-10 p-5 rounded-lg">
+          <div className="flex flex-row items-center gap-4">
+            <h2 className="text-2xl font-semibold max-desktop-lg:text-xl max-tablet-sm:text-lg border-r border-grey-shade-15 pr-5">
+              Note
+            </h2>
+            <p className="dark:text-grey-shade-60 font-medium text-lg leading-6 max-desktop-lg:text-sm">
+              The figures provided above are estimates and may vary depending on
+              the property, location, and individual circumstances.
+            </p>
+          </div>
+        </div>
         {/* third row */}
         <div className="grid grid-cols-12 gap-2">
           <div className="col-span-3">
