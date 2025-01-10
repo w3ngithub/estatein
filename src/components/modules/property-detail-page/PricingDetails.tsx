@@ -58,8 +58,8 @@ const PricingDetails = () => {
                     Learn More
                   </Button>
                 </div>
-                <div className="flex flex-row gap-10 justify-between border-t border-grey-shade-15 py-5">
-                  {/* 1 */}
+                {/* 1st card: second row */}
+                <div className="grid grid-cols-2 border-t border-grey-shade-15 py-5">
                   <div className="flex flex-col gap-3">
                     <p className="dark:text-grey-shade-60 font-medium text-lg leading-6 max-desktop-lg:text-sm">
                       Property Transfer Tax
@@ -93,7 +93,7 @@ const PricingDetails = () => {
                   </div>
                 </div>
                 {/* 2 */}
-                <div className="flex flex-row gap-3 justify-between border-t border-grey-shade-15 py-5">
+                <div className="grid grid-cols-2 border-t border-grey-shade-15 py-5">
                   <div className="flex flex-col gap-3">
                     <p className="dark:text-grey-shade-60 font-medium text-lg leading-6 max-desktop-lg:text-sm">
                       Home Inspection
@@ -126,7 +126,7 @@ const PricingDetails = () => {
                   </div>
                 </div>
                 {/* 3 */}
-                <div className="flex flex-row gap-3 justify-between border-t border-grey-shade-15 py-5">
+                <div className="grid grid-cols-2 border-t border-grey-shade-15 py-5">
                   <div className="flex flex-col gap-3">
                     <p className="dark:text-grey-shade-60 font-medium text-lg leading-6 max-desktop-lg:text-sm">
                       Mortgage Fees
