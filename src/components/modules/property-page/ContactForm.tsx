@@ -431,7 +431,7 @@ const ContactForm = () => {
         <div className="flex flex-row justify-between items-center max-mobile-xl:flex-col max-mobile-xl:gap-5">
           <div className="flex flex-row items-center gap-2">
             <div className="flex items-center">
-              <Checkbox className="border border-grey-shade-15 dark:bg-grey-shade-10" />
+              <Checkbox className="border border-grey-shade-15 dark:bg-grey-shade-10 data-[state=checked]:text-white" />
             </div>
             <p className="text-lg text-grey-shade-60 max-desktop-lg:text-base max-mobile-xl:text-sm">
               I agree with<span className="underline px-2">Terms of Use</span>
