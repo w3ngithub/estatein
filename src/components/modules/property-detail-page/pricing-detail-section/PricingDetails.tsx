@@ -1,8 +1,8 @@
-import { Button } from "@/components/ui/button";
 import { ThreeStars } from "@/svgs/HomePageSvg";
 import React from "react";
 import AdditionalFeeCard from "./AdditionalFeeCard";
 import MonthlyCostsCard from "./MonthlyCostsCard";
+import TotalInitialCostCard from "./TotalInitialCostCard";
 
 const PricingDetails = () => {
   return (
@@ -52,9 +52,9 @@ const PricingDetails = () => {
               {/* 1st 2nd 3rd 4th card */}
               <AdditionalFeeCard />
               <MonthlyCostsCard />
+              <TotalInitialCostCard />
 
               {/* 3rd 4th card */}
-              <div></div>
               <div></div>
             </div>
           </div>
