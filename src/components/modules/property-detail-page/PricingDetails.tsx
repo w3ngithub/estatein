@@ -68,7 +68,7 @@ const PricingDetails = () => {
                       <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
                         $25,000
                       </h1>
-                      <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-15 bg-grey-shade-10 px-3 py-2 rounded-full">
+                      <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-15 bg-grey-shade-10 px-3 py-2 rounded-full max-mobile-md:rounded-lg">
                         <p className="text-grey-shade-60 text-lg max-desktop-lg:text-sm">
                           Based on the sale price and local regulations
                         </p>
@@ -83,7 +83,7 @@ const PricingDetails = () => {
                       <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
                         $3,000
                       </h1>
-                      <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-15 bg-grey-shade-10 px-3 py-2 rounded-full">
+                      <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-15 bg-grey-shade-10 px-3 py-2 rounded-full max-mobile-md:rounded-lg">
                         <p className="text-grey-shade-60 text-lg max-desktop-lg:text-sm">
                           Approximate cost for legal services, including title
                           transfer
@@ -117,7 +117,7 @@ const PricingDetails = () => {
                       <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
                         $1,200
                       </h1>
-                      <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-15 bg-grey-shade-10 px-3 py-2 rounded-full">
+                      <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-15 bg-grey-shade-10 px-3 py-2 rounded-full max-mobile-md:rounded-lg">
                         <p className="text-grey-shade-60 text-lg max-desktop-lg:text-sm">
                           Annual cost for comprehensive property insurance
                         </p>
@@ -135,7 +135,7 @@ const PricingDetails = () => {
                       <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
                         Varies
                       </h1>
-                      <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-15 bg-grey-shade-10 px-3 py-2 rounded-full">
+                      <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-15 bg-grey-shade-10 px-3 py-2 rounded-full max-mobile-md:rounded-lg">
                         <p className="text-grey-shade-60 text-lg max-desktop-lg:text-sm">
                           If applicable, consult with your lender for specific
                           details
