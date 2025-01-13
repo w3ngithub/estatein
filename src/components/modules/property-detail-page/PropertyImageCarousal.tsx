@@ -104,41 +104,48 @@ export default function PropertyImageCarousal() {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <div className="flex justify-center items-center gap-2 mt-4">
-              {/* <Button
-            variant="outline"
-            size="icon"
-            className="bg-white/10 hover:bg-white/20"
-            onClick={() => mainApi?.scrollPrev()}
-          >
-            <ChevronLeft className="w-4 h-4 text-white" />
-          </Button> */}
-              <CarouselPrevious />
-              <div className="flex gap-1">
-                {images.map((_, index) => (
-                  <div
-                    key={index}
-                    className={`w-4 h-[2px] rounded-none transition-all ${
-                      Math.floor(selectedIndex / 2) === Math.floor(index / 2)
-                        ? "bg-purple-shade-60"
-                        : "bg-grey-shade-30"
-                    }`}
-                  />
-                ))}
+            <div className="flex flex-row justify-center items-center gap-2 mt-4">
+              <div className="flex flex-row justify-center items-center gap-2 bg-grey-shade-8 p-1 rounded-full">
+                <CarouselPrevious />
+                <div className="flex gap-1">
+                  {images.map((_, index) => (
+                    <div
+                      key={index}
+                      className={`w-4 h-[2px] rounded-none transition-all ${
+                        Math.floor(selectedIndex / 2) === Math.floor(index / 2)
+                          ? "bg-purple-shade-60"
+                          : "bg-grey-shade-30"
+                      }`}
+                    />
+                  ))}
+                </div>
+                <CarouselNext />
               </div>
-              <CarouselNext />
-              {/* <Button
-            variant="outline"
-            size="icon"
-            className="bg-white/10 hover:bg-white/20"
-            onClick={() => mainApi?.scrollNext()}
-          >
-            <ChevronRight className="w-4 h-4 text-white" />
-          </Button> */}
             </div>
           </Carousel>
         </div>
       </div>
     </div>
   );
+}
+
+{
+  /* <Button
+                variant="outline"
+                size="icon"
+                className="bg-white/10 hover:bg-white/20"
+                onClick={() => mainApi?.scrollPrev()}
+            >
+                    <ChevronLeft className="w-4 h-4 text-white" />
+               </Button> */
+}
+{
+  /* <Button
+                variant="outline"
+                size="icon"
+                className="bg-white/10 hover:bg-white/20"
+                onClick={() => mainApi?.scrollNext()}
+                >
+                    <ChevronRight className="w-4 h-4 text-white" />
+              </Button> */
 }
