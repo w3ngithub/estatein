@@ -14,15 +14,18 @@ import {
 } from "@/components/ui/carousel";
 
 const images = [
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/carousel.JPG-XxpXqFIYNFMzdhT5ka10Am47y3wYpv.jpeg",
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/carousel.JPG-XxpXqFIYNFMzdhT5ka10Am47y3wYpv.jpeg",
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/carousel.JPG-XxpXqFIYNFMzdhT5ka10Am47y3wYpv.jpeg",
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/carousel.JPG-XxpXqFIYNFMzdhT5ka10Am47y3wYpv.jpeg",
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/carousel.JPG-XxpXqFIYNFMzdhT5ka10Am47y3wYpv.jpeg",
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/carousel.JPG-XxpXqFIYNFMzdhT5ka10Am47y3wYpv.jpeg",
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/carousel.JPG-XxpXqFIYNFMzdhT5ka10Am47y3wYpv.jpeg",
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/carousel.JPG-XxpXqFIYNFMzdhT5ka10Am47y3wYpv.jpeg",
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/carousel.JPG-XxpXqFIYNFMzdhT5ka10Am47y3wYpv.jpeg",
+  "/estatein/images/carousel-one.png",
+  "/estatein/images/carousel-two.png",
+  "/estatein/images/carousel-one.png",
+  "/estatein/images/carousel-two.png",
+  "/estatein/images/carousel-one.png",
+  "/estatein/images/carousel-two.png",
+  "/estatein/images/carousel-one.png",
+  "/estatein/images/carousel-two.png",
+  "/estatein/images/carousel-one.png",
+  "/estatein/images/carousel-two.png",
+  "/estatein/images/carousel-one.png",
+  "/estatein/images/carousel-two.png",
 ];
 
 export default function PropertyImageCarousal() {
