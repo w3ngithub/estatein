@@ -2,8 +2,6 @@
 
 import * as React from "react";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import {
   Carousel,
   CarouselApi,
@@ -50,61 +48,64 @@ export default function PropertyImageCarousal() {
   );
 
   return (
-    <div className="flex flex-col gap-4 p-4 bg-black">
-      {/* Thumbnails Carousel */}
-      <Carousel
-        setApi={setThumbApi}
-        className="w-full max-w-4xl mx-auto"
-        opts={{
-          align: "start",
-          dragFree: true,
-        }}
-      >
-        <CarouselContent className="-ml-2">
-          {images.map((src, index) => (
-            <CarouselItem key={index} className="pl-2 basis-20">
-              <div
-                className={`cursor-pointer transition-all ${
-                  selectedIndex === index ? "opacity-100" : "opacity-50"
-                }`}
-                onClick={() => handleThumbClick(index)}
-              >
-                <Image
-                  src={src}
-                  alt={`Property view ${index + 1}`}
-                  width={80}
-                  height={60}
-                  className="object-cover w-full h-16 rounded"
-                />
-              </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-      </Carousel>
+    <div className="container">
+      <div>title</div>
+      <div className="flex justify-center items-center">
+        <div className="flex flex-col gap-4 p-5 bg-grey-shade-10 border border-grey-shade-15 w-fit rounded-lg">
+          {/* Thumbnails Carousel */}
+          <Carousel
+            setApi={setThumbApi}
+            className="w-full max-w-4xl mx-auto"
+            opts={{
+              align: "start",
+              dragFree: true,
+            }}
+          >
+            <CarouselContent className="-ml-2">
+              {images.map((src, index) => (
+                <CarouselItem key={index} className="pl-2 basis-20">
+                  <div
+                    className={`cursor-pointer transition-all ${
+                      selectedIndex === index ? "opacity-100" : "opacity-50"
+                    }`}
+                    onClick={() => handleThumbClick(index)}
+                  >
+                    <Image
+                      src={src}
+                      alt={`Property view ${index + 1}`}
+                      width={80}
+                      height={60}
+                      className="object-cover w-full h-16 rounded"
+                    />
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
 
-      {/* Main Carousel */}
-      <Carousel
-        setApi={setMainApi}
-        className="w-full max-w-4xl mx-auto"
-        opts={{
-          align: "start",
-        }}
-      >
-        <CarouselContent className="-ml-2">
-          {images.map((src, index) => (
-            <CarouselItem key={index} className="pl-2 basis-1/2">
-              <Image
-                src={src}
-                alt={`Property view ${index + 1}`}
-                width={600}
-                height={400}
-                className="object-cover w-full h-[400px] rounded"
-              />
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <div className="flex justify-center items-center gap-2 mt-4">
-          {/* <Button
+          {/* Main Carousel */}
+          <Carousel
+            setApi={setMainApi}
+            className="w-full max-w-4xl mx-auto"
+            opts={{
+              align: "start",
+            }}
+          >
+            <CarouselContent className="-ml-2">
+              {images.map((src, index) => (
+                <CarouselItem key={index} className="pl-2 basis-1/2">
+                  <Image
+                    src={src}
+                    alt={`Property view ${index + 1}`}
+                    width={600}
+                    height={400}
+                    className="object-cover w-full h-[400px] rounded"
+                  />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <div className="flex justify-center items-center gap-2 mt-4">
+              {/* <Button
             variant="outline"
             size="icon"
             className="bg-white/10 hover:bg-white/20"
@@ -112,21 +113,21 @@ export default function PropertyImageCarousal() {
           >
             <ChevronLeft className="w-4 h-4 text-white" />
           </Button> */}
-          <CarouselPrevious />
-          <div className="flex gap-1">
-            {images.map((_, index) => (
-              <div
-                key={index}
-                className={`w-4 h-[2px] rounded-none transition-all ${
-                  Math.floor(selectedIndex / 2) === Math.floor(index / 2)
-                    ? "bg-purple-shade-60"
-                    : "bg-grey-shade-30"
-                }`}
-              />
-            ))}
-          </div>
-          <CarouselNext />
-          {/* <Button
+              <CarouselPrevious />
+              <div className="flex gap-1">
+                {images.map((_, index) => (
+                  <div
+                    key={index}
+                    className={`w-4 h-[2px] rounded-none transition-all ${
+                      Math.floor(selectedIndex / 2) === Math.floor(index / 2)
+                        ? "bg-purple-shade-60"
+                        : "bg-grey-shade-30"
+                    }`}
+                  />
+                ))}
+              </div>
+              <CarouselNext />
+              {/* <Button
             variant="outline"
             size="icon"
             className="bg-white/10 hover:bg-white/20"
@@ -134,8 +135,10 @@ export default function PropertyImageCarousal() {
           >
             <ChevronRight className="w-4 h-4 text-white" />
           </Button> */}
+            </div>
+          </Carousel>
         </div>
-      </Carousel>
+      </div>
     </div>
   );
 }
