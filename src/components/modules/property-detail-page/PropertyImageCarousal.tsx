@@ -49,9 +49,21 @@ export default function PropertyImageCarousal() {
 
   return (
     <div className="container">
-      <div>title</div>
+      <div className="flex flex-row items-center justify-between">
+        <div className="flex flex-row gap-4">
+          <h1 className="font-semibold text-2xl">Seaside Serenity Villa</h1>
+          <div className="flex flex-row gap-2">
+            <div>Image</div>
+            <p className="font-medium text-sm">Malibu, California</p>
+          </div>
+        </div>
+        <div className="flex flex-col gap-3">
+          <p className="font-medium text-sm">Price</p>
+          <h1 className="font-semibold text-xl">$1,250,000</h1>
+        </div>
+      </div>
       <div className="flex justify-center items-center">
-        <div className="flex flex-col gap-4 p-5 bg-grey-shade-10 border border-grey-shade-15 w-fit rounded-lg">
+        <div className="flex flex-col-reverse gap-4 p-5 bg-grey-shade-10 border border-grey-shade-15 w-fit rounded-lg">
           {/* Thumbnails Carousel */}
           <Carousel
             setApi={setThumbApi}
