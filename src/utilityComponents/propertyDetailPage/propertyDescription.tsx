@@ -1,6 +1,19 @@
 import { AreaIcon, BedIcon, ShowerIcon } from "@/svgs/PropertyDetailPageSvg";
+import { JSX } from "react";
 
-export const propertyDescription = [
+export interface PropertyDetail {
+  icon: JSX.Element;
+  label: string;
+  value: string;
+}
+
+export interface PropertyDescriptionData {
+  description: string;
+  details: PropertyDetail[];
+  features: { id: number; features: string }[];
+}
+
+export const propertyDescription: PropertyDescriptionData[] = [
   {
     description:
       "Discover your own piece of paradise with the Seaside Serenity Villa. T With an open floor plan, breathtaking ocean views from every room, and direct access to a pristine sandy beach, this property is the epitome of coastal living.",
