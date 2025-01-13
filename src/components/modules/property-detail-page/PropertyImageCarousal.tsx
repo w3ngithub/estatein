@@ -61,7 +61,7 @@ export default function PropertyImageCarousal() {
               dragFree: true,
             }}
           >
-            <CarouselContent className="-ml-2">
+            <CarouselContent className="-ml-2 p-2 bg-grey-shade-8 border border-grey-shade-15">
               {images.map((src, index) => (
                 <CarouselItem key={index} className="pl-2 basis-20">
                   <div
