@@ -93,13 +93,13 @@ export default function PropertyImageCarousal() {
           >
             <CarouselContent className="-ml-2">
               {images.map((src, index) => (
-                <CarouselItem key={index} className="pl-2 basis-1/2">
+                <CarouselItem key={index} className="pl-2 mobile-lg:basis-1/2">
                   <Image
                     src={src}
                     alt={`Property view ${index + 1}`}
                     width={600}
                     height={400}
-                    className="object-cover w-full h-[400px] rounded"
+                    className="object-cover w-full h-[400px] rounded-lg"
                   />
                 </CarouselItem>
               ))}
