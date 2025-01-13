@@ -16,7 +16,7 @@ const formSchema = z.object({
   firstName: z.string().min(1, "First Name is required"),
   lastName: z.string().min(1, "Last Name is required"),
   email: z.string().email("Invalid email address").min(1, "Email is required"),
-  phone: z.string().regex(/^[0-9]{10}$/, "Invalid phone number"),
+  phoneNumber: z.string().regex(/^[0-9]{10}$/, "Invalid phone number"),
   preferredLocation: z.string().min(1, "Preferred Location is required"),
   propertyType: z.string().min(1, "Property Type is required"),
   noOfBathrooms: z.string().min(1, "Number of Bathrooms is required"),
@@ -40,6 +40,20 @@ const ContactForm = () => {
     reset,
   } = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      phoneNumber: "",
+      preferredLocation: "",
+      propertyType: "",
+      noOfBathrooms: "",
+      noOfBedrooms: "",
+      budget: "",
+      preferredContactMethod: "option-one",
+      message: "",
+      terms: true,
+    },
   });
 
   const onSubmit = (data: FormSchema) => {
@@ -161,22 +175,22 @@ const ContactForm = () => {
           </div>
           <div className="flex flex-col gap-3">
             <Label
-              htmlFor="phone"
+              htmlFor="phoneNumber"
               className="font-semibold text-xl max-desktop-lg:text-base"
             >
               Phone
             </Label>
             <Input
-              id="phone"
-              {...register("phone")}
+              id="phoneNumber"
+              {...register("phoneNumber")}
               type="number"
               placeholder="Enter Phone Number"
               className="h-16 max-desktop-lg:h-14 border border-grey-15 dark:bg-grey-shade-10"
             />
-            {errors.phone?.message && (
+            {errors.phoneNumber?.message && (
               <span className="text-red-500">
-                {typeof errors.phone.message === "string" &&
-                  errors.phone.message}
+                {typeof errors.phoneNumber.message === "string" &&
+                  errors.phoneNumber.message}
               </span>
             )}
           </div>
@@ -367,6 +381,7 @@ const ContactForm = () => {
                     type="number"
                     placeholder="Enter Your Number"
                     className="flex-1 bg-transparent dark:text-white dark:placeholder:text-gray-400 focus:outline-none text-sm"
+                    disabled
                   />
 
                   <div className="p-2 rounded-full max-mobile-extra-md:pl-0">
@@ -396,6 +411,7 @@ const ContactForm = () => {
                     type="email"
                     placeholder="Enter Your Email"
                     className="flex-1 bg-transparent dark:text-white dark:placeholder:text-gray-400 focus:outline-none text-sm"
+                    disabled
                   />
 
                   <div className="p-2 rounded-full max-mobile-extra-md:pl-0">
