@@ -49,12 +49,12 @@ const PropertyDescription = () => {
     <div className="container">
       <div className="grid tablet-md:grid-cols-2 gap-4 py-10">
         {/* first section */}
-        <div className="flex flex-col gap-10 border border-grey-shade-15 p-8 rounded-lg h-fit">
+        <div className="flex flex-col gap-10 border border-white-d1 dark:border-grey-shade-15 p-8 rounded-lg h-fit">
           <div className="flex flex-col gap-4">
-            <h2 className="font-semibold text-2xl text-white max-desktop-lg:text-xl">
+            <h2 className="font-semibold text-2xl dark:text-white max-desktop-lg:text-xl">
               Description
             </h2>
-            <p className="font-medium text-lg text-grey-shade-60 max-desktop-lg:text-base">
+            <p className="font-medium text-lg dark:text-grey-shade-60 max-desktop-lg:text-base">
               Discover your own piece of paradise with the Seaside Serenity
               Villa. T With an open floor plan, breathtaking ocean views from
               every room, and direct access to a pristine sandy beach, this
@@ -67,7 +67,7 @@ const PropertyDescription = () => {
                 <div>
                   <BedIcon />
                 </div>
-                <p className="font-medium text-lg text-grey-shade-60 max-desktop-lg:text-sm">
+                <p className="font-medium text-lg dark:text-grey-shade-60 max-desktop-lg:text-sm">
                   Bedrooms
                 </p>
               </div>
@@ -80,7 +80,7 @@ const PropertyDescription = () => {
                 <div>
                   <ShowerIcon />
                 </div>
-                <p className="font-medium text-lg text-grey-shade-60 max-desktop-lg:text-sm">
+                <p className="font-medium text-lg dark:text-grey-shade-60 max-desktop-lg:text-sm">
                   Bathrooms
                 </p>
               </div>
@@ -93,7 +93,7 @@ const PropertyDescription = () => {
                 <div>
                   <AreaIcon />
                 </div>
-                <p className="font-medium text-lg text-grey-shade-60 max-desktop-lg:text-sm">
+                <p className="font-medium text-lg dark:text-grey-shade-60 max-desktop-lg:text-sm">
                   Area
                 </p>
               </div>
@@ -104,13 +104,13 @@ const PropertyDescription = () => {
           </div>
         </div>
         {/* second section */}
-        <div className="border border-grey-shade-15 p-8 rounded-lg">
+        <div className="border border-white-d1 dark:border-grey-shade-15 p-8 rounded-lg">
           <div className="flex flex-col gap-5">
             <h1 className="font-semibold text-2xl max-desktop-lg:text-xl">
               Key Features and Amenities
             </h1>
             {/* first feature */}
-            <div className="border-l-[1.5px] border-purple-shade-60 flex flex-row items-center gap-2 pl-5 py-3 dark:bg-gradient-to-r from-[#1D1D1D] via-black to-black max-mobile-xl:gap-3">
+            <div className="border-l-[1.5px] border-purple-shade-60 flex flex-row items-center gap-2 pl-5 py-3 bg-gradient-to-r from-[#1D1D1D] via-black to-black max-mobile-xl:gap-3">
               <div>
                 <ThunderIcon />
               </div>
@@ -118,7 +118,7 @@ const PropertyDescription = () => {
                 Expansive oceanfront terrace for outdoor entertaining
               </p>
             </div>
-            <div className="border-l-[1.5px] border-purple-shade-60 flex flex-row items-center gap-2 pl-5 py-3 dark:bg-gradient-to-r from-[#1D1D1D] via-black to-black max-mobile-xl:gap-3">
+            <div className="border-l-[1.5px] border-purple-shade-60 flex flex-row items-center gap-2 pl-5 py-3 bg-gradient-to-r from-[#1D1D1D] via-black to-black max-mobile-xl:gap-3">
               <div>
                 <ThunderIcon />
               </div>
@@ -126,7 +126,7 @@ const PropertyDescription = () => {
                 Gourmet kitchen with top-of-the-line appliances
               </p>
             </div>
-            <div className="border-l-[1.5px] border-purple-shade-60 flex flex-row items-center gap-2 pl-5 py-3 dark:bg-gradient-to-r from-[#1D1D1D] via-black to-black max-mobile-xl:gap-3">
+            <div className="border-l-[1.5px] border-purple-shade-60 flex flex-row items-center gap-2 pl-5 py-3 bg-gradient-to-r from-[#1D1D1D] via-black to-black max-mobile-xl:gap-3">
               <div>
                 <ThunderIcon />
               </div>
@@ -134,7 +134,7 @@ const PropertyDescription = () => {
                 Private beach access for morning strolls and sunset views
               </p>
             </div>
-            <div className="border-l-[1.5px] border-purple-shade-60 items-center flex flex-row gap-2 pl-5 py-3 dark:bg-gradient-to-r from-[#1D1D1D] via-black to-black max-mobile-xl:gap-3">
+            <div className="border-l-[1.5px] border-purple-shade-60 items-center flex flex-row gap-2 pl-5 py-3 bg-gradient-to-r from-[#1D1D1D] via-black to-black max-mobile-xl:gap-3">
               <div>
                 <ThunderIcon />
               </div>
@@ -143,7 +143,7 @@ const PropertyDescription = () => {
                 balcony
               </p>
             </div>
-            <div className="border-l-[1.5px] border-purple-shade-60 items-center flex flex-row gap-2 pl-5 py-3 dark:bg-gradient-to-r from-[#1D1D1D] via-black to-black max-mobile-xl:gap-3">
+            <div className="border-l-[1.5px] border-purple-shade-60 items-center flex flex-row gap-2 pl-5 py-3 bg-gradient-to-r from-[#1D1D1D] via-black to-black max-mobile-xl:gap-3">
               <div>
                 <ThunderIcon />
               </div>
