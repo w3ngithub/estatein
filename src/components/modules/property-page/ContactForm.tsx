@@ -8,30 +8,37 @@ import SelectField from "../common/SelectField";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { z } from "zod";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-
-const formSchema = z.object({
-  firstName: z.string().min(1, "First Name is required"),
-  lastName: z.string().min(1, "Last Name is required"),
-  email: z.string().email("Invalid email address").min(1, "Email is required"),
-  phoneNumber: z.string().regex(/^[0-9]{10}$/, "Invalid phone number"),
-  preferredLocation: z.string().min(1, "Preferred Location is required"),
-  propertyType: z.string().min(1, "Property Type is required"),
-  noOfBathrooms: z.string().min(1, "Number of Bathrooms is required"),
-  noOfBedrooms: z.string().min(1, "Number of Bedrooms is required"),
-  budget: z.string().min(1, "Budget is required"),
-  preferredContactMethod: z.enum(["number", "email"]),
-  message: z.string().optional(),
-  terms: z.literal(true, {
-    errorMap: () => ({ message: "You must accept the terms & conditions" }),
-  }),
-});
-
-type FormSchema = z.infer<typeof formSchema>;
+import { formSchema, FormSchema } from "@/schema/contact-form-schema";
+import { MessageIcon, PhoneIcon } from "@/svgs/PropertyPageSvg";
 
 const ContactForm = () => {
+  const preferredLocation = [
+    { value: "ktm", selectFieldData: "Kathmandu" },
+    { value: "bkt", selectFieldData: "Bhaktapur" },
+    { value: "lalit", selectFieldData: "Lalitpur" },
+  ];
+  const propertyType = [
+    { value: "rental", selectFieldData: "Rental" },
+    { value: "own", selectFieldData: "Owned" },
+  ];
+  const noOfBathrooms = [
+    { value: "1", selectFieldData: "One" },
+    { value: "2", selectFieldData: "Two" },
+    { value: "3", selectFieldData: "Three" },
+  ];
+  const noOfBedrooms = [
+    { value: "1", selectFieldData: "One" },
+    { value: "2", selectFieldData: "Two" },
+    { value: "3", selectFieldData: "Three" },
+  ];
+  const budget = [
+    { value: "1000", selectFieldData: "10000" },
+    { value: "2000", selectFieldData: "20000" },
+    { value: "3000", selectFieldData: "30000" },
+  ];
+
   const {
     register,
     handleSubmit,
@@ -74,30 +81,6 @@ const ContactForm = () => {
     });
   };
 
-  const preferredLocation = [
-    { value: "ktm", selectFieldData: "Kathmandu" },
-    { value: "bkt", selectFieldData: "Bhaktapur" },
-    { value: "lalit", selectFieldData: "Lalitpur" },
-  ];
-  const propertyType = [
-    { value: "rental", selectFieldData: "Rental" },
-    { value: "own", selectFieldData: "Owned" },
-  ];
-  const noOfBathrooms = [
-    { value: "1", selectFieldData: "One" },
-    { value: "2", selectFieldData: "Two" },
-    { value: "3", selectFieldData: "Three" },
-  ];
-  const noOfBedrooms = [
-    { value: "1", selectFieldData: "One" },
-    { value: "2", selectFieldData: "Two" },
-    { value: "3", selectFieldData: "Three" },
-  ];
-  const budget = [
-    { value: "1000", selectFieldData: "10000" },
-    { value: "2000", selectFieldData: "20000" },
-    { value: "3000", selectFieldData: "30000" },
-  ];
   return (
     <section className="container flex flex-col gap-10 pt-5 max-mobile-md:gap-5 max-mobile-md:pb-8">
       <div className="flex flex-row justify-between items-end">
@@ -356,20 +339,7 @@ const ContactForm = () => {
                   >
                     <div className="flex items-center gap-3 w-full px-4 py-3 rounded-lg bg-[#E4E4E7] dark:bg-[#1C1C1C]">
                       <div>
-                        <svg
-                          width="21"
-                          height="22"
-                          viewBox="0 0 21 22"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            clipRule="evenodd"
-                            d="M0 3.5C0 1.84315 1.34315 0.5 3 0.5H4.37163C5.232 0.5 5.98197 1.08556 6.19064 1.92025L7.29644 6.34343C7.47941 7.0753 7.20594 7.84555 6.60242 8.29818L5.3088 9.2684C5.17447 9.36915 5.14527 9.51668 5.183 9.61969C6.31851 12.7195 8.78051 15.1815 11.8803 16.317C11.9833 16.3547 12.1309 16.3255 12.2316 16.1912L13.2018 14.8976C13.6545 14.2941 14.4247 14.0206 15.1566 14.2036L19.5798 15.3094C20.4144 15.518 21 16.268 21 17.1284V18.5C21 20.1569 19.6569 21.5 18 21.5H15.75C7.05151 21.5 0 14.4485 0 5.75V3.5Z"
-                            fill="white"
-                          />
-                        </svg>
+                        <PhoneIcon />
                       </div>
 
                       <input
@@ -385,22 +355,7 @@ const ContactForm = () => {
                     </div>
                     <div className="flex items-center gap-3 w-full px-4 py-3 bg-[#E4E4E7] dark:bg-[#1C1C1C] rounded-lg">
                       <div>
-                        <svg
-                          width="22"
-                          height="18"
-                          viewBox="0 0 22 18"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M0.75 5.6691V14.25C0.75 15.9069 2.09315 17.25 3.75 17.25H18.75C20.4069 17.25 21.75 15.9069 21.75 14.25V5.6691L12.8223 11.1631C11.8581 11.7564 10.6419 11.7564 9.67771 11.1631L0.75 5.6691Z"
-                            fill="white"
-                          />
-                          <path
-                            d="M21.75 3.90783V3.75C21.75 2.09315 20.4069 0.75 18.75 0.75H3.75C2.09315 0.75 0.75 2.09315 0.75 3.75V3.90783L10.4639 9.88558C10.946 10.1823 11.554 10.1823 12.0361 9.88558L21.75 3.90783Z"
-                            fill="white"
-                          />
-                        </svg>
+                        <MessageIcon />
                       </div>
                       <input
                         type="email"
