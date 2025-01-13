@@ -55,7 +55,7 @@ const InquiryForm = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col gap-5 border border-grey-shade-15 rounded-lg p-5"
+      className="flex flex-col gap-5 border border-white-d1 dark:border-grey-shade-15 rounded-lg p-5"
     >
       <div className="grid mobile-lg:grid-cols-2 gap-3">
         <div className="flex flex-col gap-3">
@@ -70,7 +70,7 @@ const InquiryForm = () => {
             {...register("firstName")}
             type="text"
             placeholder="Enter First Name"
-            className="h-16 max-desktop-lg:h-14 border border-grey-shade-15 dark:bg-grey-shade-10"
+            className="h-16 max-desktop-lg:h-14 border dark:border-grey-shade-15 dark:bg-grey-shade-10"
           />
           {errors.firstName && (
             <p className="text-red-500">{errors.firstName.message}</p>
@@ -88,7 +88,7 @@ const InquiryForm = () => {
             {...register("lastName")}
             type="text"
             placeholder="Enter Last Name"
-            className="h-16 max-desktop-lg:h-14 border border-grey-shade-15 dark:bg-grey-shade-10"
+            className="h-16 max-desktop-lg:h-14 border dark:border-grey-shade-15 dark:bg-grey-shade-10"
           />
           {errors.lastName && (
             <p className="text-red-500">{errors.lastName.message}</p>
@@ -108,7 +108,7 @@ const InquiryForm = () => {
             {...register("email")}
             type="email"
             placeholder="Enter your Email"
-            className="h-16 max-desktop-lg:h-14 border border-grey-shade-15 dark:bg-grey-shade-10"
+            className="h-16 max-desktop-lg:h-14 border dark:border-grey-shade-15 dark:bg-grey-shade-10"
           />
           {errors.email && (
             <p className="text-red-500">{errors.email.message}</p>
@@ -126,7 +126,7 @@ const InquiryForm = () => {
             {...register("phoneNumber")}
             type="number"
             placeholder="Enter phone Number"
-            className="h-16 max-desktop-lg:h-14 border border-grey-shade-15 dark:bg-grey-shade-10"
+            className="h-16 max-desktop-lg:h-14 border dark:border-grey-shade-15 dark:bg-grey-shade-10"
           />
           {errors.phoneNumber && (
             <p className="text-red-500">{errors.phoneNumber.message}</p>
