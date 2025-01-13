@@ -4,13 +4,14 @@ import PricingDetails from "@/components/modules/property-detail-page/pricing-de
 import PropertyDescription from "@/components/modules/property-detail-page/PropertyDescription";
 import { propertyDescription } from "@/utilityComponents/propertyDetailPage/propertyDescription";
 import React from "react";
+import { pricingDetails } from "@/utilityComponents/propertyDetailPage/pricingDetails";
 
 const page = () => {
   return (
     <div className="bg-white-95 dark:bg-grey-shade-8">
       <PropertyDescription propertyDescription={propertyDescription} />
       <InquiryProperty />
-      <PricingDetails />
+      <PricingDetails pricingDetails={pricingDetails[0]} />
       <Faq />
     </div>
   );

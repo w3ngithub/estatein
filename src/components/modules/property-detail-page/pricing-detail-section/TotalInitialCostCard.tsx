@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import React from "react";
 
-const TotalInitialCostCard = () => {
+const TotalInitialCostCard = ({ totalInitialCostData }) => {
   return (
     <div className="p-5 border border-grey-shade-15 rounded-lg">
       <div className="flex flex-row items-center justify-between gap-2 py-5">
@@ -19,7 +19,7 @@ const TotalInitialCostCard = () => {
           </p>
           <div className="flex flex-row items-center gap-3">
             <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
-              $1,250,000
+              ${totalInitialCostData.listingPrice}
             </h1>
             {/* pills */}
             {/* <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-15 bg-grey-shade-10 px-3 py-2 rounded-full max-mobile-md:rounded-lg">
@@ -35,7 +35,7 @@ const TotalInitialCostCard = () => {
           </p>
           <div className="flex flex-row items-center gap-3">
             <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
-              $29,700
+              ${totalInitialCostData.additionalFees}
             </h1>
             <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-15 bg-grey-shade-10 px-3 py-2 rounded-full max-mobile-md:rounded-lg">
               <p className="text-grey-shade-60 text-lg max-desktop-lg:text-sm">
@@ -52,7 +52,7 @@ const TotalInitialCostCard = () => {
           </p>
           <div className="flex flex-row items-center gap-3">
             <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
-              $250,000
+              ${totalInitialCostData.downPayment}
             </h1>
             <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-15 bg-grey-shade-10 px-3 py-2 rounded-full">
               <p className="text-grey-shade-60 text-lg max-desktop-lg:text-sm">
@@ -67,7 +67,7 @@ const TotalInitialCostCard = () => {
           </p>
           <div className="flex flex-row items-center gap-3">
             <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
-              $1,000,000
+              ${totalInitialCostData.mortgageAmount}
             </h1>
             <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-15 bg-grey-shade-10 px-3 py-2 rounded-full max-mobile-md:rounded-lg">
               <p className="text-grey-shade-60 text-lg max-desktop-lg:text-sm">

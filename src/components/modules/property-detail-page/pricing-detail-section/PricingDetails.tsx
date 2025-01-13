@@ -3,10 +3,10 @@ import React from "react";
 import AdditionalFeeCard from "./AdditionalFeeCard";
 import MonthlyCostsCard from "./MonthlyCostsCard";
 import TotalInitialCostCard from "./TotalInitialCostCard";
-import { Button } from "@/components/ui/button";
 import MonthlyExpenseCard from "./MonthlyExpenseCard";
 
-const PricingDetails = () => {
+const PricingDetails = ({ pricingDetails }) => {
+  console.log(pricingDetails, "111111111111");
   return (
     <div className="container py-10">
       <div className="flex flex-col gap-10">
@@ -45,17 +45,23 @@ const PricingDetails = () => {
               Listing Price
             </p>
             <h1 className="font-semibold text-4xl max-desktop-lg:text-3xl max-tablet-sm:text-2xl">
-              $1,250,000
+              ${pricingDetails.listingPrice}
             </h1>
           </div>
           {/* 2nd section */}
           <div className="col-span-10">
             <div className="flex flex-col gap-10">
               {/* 1st 2nd 3rd 4th card */}
-              <AdditionalFeeCard />
-              <MonthlyCostsCard />
-              <TotalInitialCostCard />
-              <MonthlyExpenseCard />
+              <AdditionalFeeCard
+                additionalFeeData={pricingDetails.additionalFees}
+              />
+              <MonthlyCostsCard monthlyCostData={pricingDetails.monthlyCosts} />
+              <TotalInitialCostCard
+                totalInitialCostData={pricingDetails.totalInitialCosts}
+              />
+              <MonthlyExpenseCard
+                monthlyExpensesData={pricingDetails.monthlyExpenses}
+              />
             </div>
           </div>
         </div>

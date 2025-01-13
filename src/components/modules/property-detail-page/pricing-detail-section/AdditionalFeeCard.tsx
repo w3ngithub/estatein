@@ -1,7 +1,16 @@
 import { Button } from "@/components/ui/button";
 import React from "react";
 
-const AdditionalFeeCard = () => {
+// interface AdditionalFeeDataProps {
+//   propertyTransferTax: string
+//   legalFees:string
+//   homeInspection: string
+//   propertyInsurance: string
+//   mortgageFees: string
+// }
+
+const AdditionalFeeCard = ({ additionalFeeData }) => {
+  console.log(additionalFeeData, "xxxxxxxxx");
   return (
     <div className="p-5 border border-grey-shade-15 rounded-lg">
       {/* 1st card: first row */}
@@ -21,7 +30,7 @@ const AdditionalFeeCard = () => {
           </p>
           <div className="flex flex-row items-center gap-3">
             <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
-              $25,000
+              ${additionalFeeData.propertyTransferTax}
             </h1>
             <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-15 bg-grey-shade-10 px-3 py-2 rounded-full max-mobile-md:rounded-lg">
               <p className="text-grey-shade-60 text-lg max-desktop-lg:text-sm">
@@ -36,7 +45,7 @@ const AdditionalFeeCard = () => {
           </p>
           <div className="flex flex-row items-center gap-3">
             <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
-              $3,000
+              ${additionalFeeData.legalFees}
             </h1>
             <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-15 bg-grey-shade-10 px-3 py-2 rounded-full max-mobile-md:rounded-lg">
               <p className="text-grey-shade-60 text-lg max-desktop-lg:text-sm">
@@ -54,7 +63,7 @@ const AdditionalFeeCard = () => {
           </p>
           <div className="flex flex-row items-center gap-3">
             <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
-              $500
+              ${additionalFeeData.homeInspection}
             </h1>
             <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-15 bg-grey-shade-10 px-3 py-2 rounded-full">
               <p className="text-grey-shade-60 text-lg max-desktop-lg:text-sm">
@@ -69,7 +78,7 @@ const AdditionalFeeCard = () => {
           </p>
           <div className="flex flex-row items-center gap-3">
             <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
-              $1,200
+              ${additionalFeeData.propertyInsurance}
             </h1>
             <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-15 bg-grey-shade-10 px-3 py-2 rounded-full max-mobile-md:rounded-lg">
               <p className="text-grey-shade-60 text-lg max-desktop-lg:text-sm">
@@ -87,7 +96,7 @@ const AdditionalFeeCard = () => {
           </p>
           <div className="flex flex-row items-center gap-3">
             <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
-              Varies
+              {additionalFeeData.mortgageFees}
             </h1>
             <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-15 bg-grey-shade-10 px-3 py-2 rounded-full max-mobile-md:rounded-lg">
               <p className="text-grey-shade-60 text-lg max-desktop-lg:text-sm">
