@@ -4,9 +4,13 @@ import AdditionalFeeCard from "./AdditionalFeeCard";
 import MonthlyCostsCard from "./MonthlyCostsCard";
 import TotalInitialCostCard from "./TotalInitialCostCard";
 import MonthlyExpenseCard from "./MonthlyExpenseCard";
+import { PricingDetail } from "@/utilityComponents/propertyDetailPage/pricingDetails";
 
-const PricingDetails = ({ pricingDetails }) => {
-  console.log(pricingDetails, "111111111111");
+interface PricingDetailsProps {
+  pricingDetails: PricingDetail;
+}
+
+const PricingDetails = ({ pricingDetails }: PricingDetailsProps) => {
   return (
     <div className="container py-10">
       <div className="flex flex-col gap-10">

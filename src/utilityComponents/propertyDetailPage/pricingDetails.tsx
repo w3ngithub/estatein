@@ -1,4 +1,39 @@
-export const pricingDetails = [
+export interface AdditionalFees {
+  propertyTransferTax: string;
+  legalFees: string;
+  homeInspection: string;
+  propertyInsurance: string;
+  mortgageFees: string;
+}
+
+export interface MonthlyCosts {
+  propertyTax: string;
+  homeOwnerAssociationFee: string;
+}
+
+export interface TotalInitialCosts {
+  listingPrice: string;
+  additionalFees: string;
+  downPayment: string;
+  mortgageAmount: string;
+}
+
+export interface MonthlyExpenses {
+  propertyTaxes: string;
+  homeOwnerAssociationFee: string;
+  mortgagePayment: string;
+  propertyInsurance: string;
+}
+
+export interface PricingDetail {
+  listingPrice: string;
+  additionalFees: AdditionalFees;
+  monthlyCosts: MonthlyCosts;
+  totalInitialCosts: TotalInitialCosts;
+  monthlyExpenses: MonthlyExpenses;
+}
+
+export const pricingDetails: PricingDetail[] = [
   {
     listingPrice: "1,250,000",
     additionalFees: {

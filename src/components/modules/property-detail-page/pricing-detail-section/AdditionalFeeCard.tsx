@@ -1,16 +1,13 @@
 import { Button } from "@/components/ui/button";
+import { AdditionalFees } from "@/utilityComponents/propertyDetailPage/pricingDetails";
+
 import React from "react";
 
-// interface AdditionalFeeDataProps {
-//   propertyTransferTax: string
-//   legalFees:string
-//   homeInspection: string
-//   propertyInsurance: string
-//   mortgageFees: string
-// }
+interface AdditionalFeeCardProps {
+  additionalFeeData: AdditionalFees;
+}
 
-const AdditionalFeeCard = ({ additionalFeeData }) => {
-  console.log(additionalFeeData, "xxxxxxxxx");
+const AdditionalFeeCard = ({ additionalFeeData }: AdditionalFeeCardProps) => {
   return (
     <div className="p-5 border border-grey-shade-15 rounded-lg">
       {/* 1st card: first row */}

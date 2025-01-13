@@ -1,7 +1,14 @@
 import { Button } from "@/components/ui/button";
+import { TotalInitialCosts } from "@/utilityComponents/propertyDetailPage/pricingDetails";
 import React from "react";
 
-const TotalInitialCostCard = ({ totalInitialCostData }) => {
+interface TotalInitialCostCardProps {
+  totalInitialCostData: TotalInitialCosts;
+}
+
+const TotalInitialCostCard = ({
+  totalInitialCostData,
+}: TotalInitialCostCardProps) => {
   return (
     <div className="p-5 border border-grey-shade-15 rounded-lg">
       <div className="flex flex-row items-center justify-between gap-2 py-5">

@@ -1,7 +1,14 @@
 import { Button } from "@/components/ui/button";
+import { MonthlyExpenses } from "@/utilityComponents/propertyDetailPage/pricingDetails";
 import React from "react";
 
-const MonthlyExpenseCard = ({ monthlyExpensesData }) => {
+interface MonthlyExpenseCardProps {
+  monthlyExpensesData: MonthlyExpenses;
+}
+
+const MonthlyExpenseCard = ({
+  monthlyExpensesData,
+}: MonthlyExpenseCardProps) => {
   return (
     <div className="p-5 border border-grey-shade-15 rounded-lg">
       <div className="flex flex-row items-center justify-between gap-2 py-5">
