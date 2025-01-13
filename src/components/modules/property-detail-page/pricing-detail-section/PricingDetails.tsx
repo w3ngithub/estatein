@@ -26,7 +26,7 @@ const PricingDetails = () => {
           </p>
         </div>
         {/* second row */}
-        <div className="border border-grey-shade-15 dark:bg-grey-shade-10 p-5 rounded-lg">
+        <div className="border border-white-d1 dark:border-grey-shade-15 dark:bg-grey-shade-10 p-5 rounded-lg">
           <div className="flex flex-row items-center gap-4 max-mobile-md:gap-2 max-mobile-md:flex-col">
             <h2 className="text-2xl font-semibold max-desktop-lg:text-xl max-tablet-sm:text-lg mobile-md:border-r max-mobile-md:text-left max-mobile-md:w-full border-grey-shade-15 pr-5">
               Note
