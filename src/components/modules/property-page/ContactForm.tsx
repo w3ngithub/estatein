@@ -24,8 +24,8 @@ const formSchema = z.object({
   budget: z.string().min(1, "Budget is required"),
   preferredContactMethod: z.enum(["option-one", "option-two"]),
   message: z.string().optional(),
-  agreeToTerms: z.boolean().refine((value) => value, {
-    message: "You must agree to the terms and conditions",
+  terms: z.literal(true, {
+    errorMap: () => ({ message: "You must accept the terms & conditions" }),
   }),
 });
 
@@ -432,7 +432,18 @@ const ContactForm = () => {
         <div className="flex flex-row justify-between items-center max-mobile-xl:flex-col max-mobile-xl:gap-5">
           <div className="flex flex-row items-center gap-2">
             <div className="flex items-center">
-              <Checkbox className="border border-grey-shade-15 dark:bg-grey-shade-10 data-[state=checked]:text-white" />
+              <Controller
+                name="terms"
+                control={control}
+                render={({ field }) => (
+                  <Checkbox
+                    id="terms"
+                    className="border border-grey-shade-15 dark:bg-grey-shade-10 data-[state=checked]:text-white"
+                    checked={field.value || false}
+                    onCheckedChange={field.onChange}
+                  />
+                )}
+              />
             </div>
             <p className="text-lg text-grey-shade-60 max-desktop-lg:text-base max-mobile-xl:text-sm">
               I agree with<span className="underline px-2">Terms of Use</span>
