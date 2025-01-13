@@ -1,0 +1,136 @@
+"use client";
+
+import * as React from "react";
+import Image from "next/image";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  Carousel,
+  CarouselApi,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+
+const images = [
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/carousel.JPG-XxpXqFIYNFMzdhT5ka10Am47y3wYpv.jpeg",
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/carousel.JPG-XxpXqFIYNFMzdhT5ka10Am47y3wYpv.jpeg",
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/carousel.JPG-XxpXqFIYNFMzdhT5ka10Am47y3wYpv.jpeg",
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/carousel.JPG-XxpXqFIYNFMzdhT5ka10Am47y3wYpv.jpeg",
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/carousel.JPG-XxpXqFIYNFMzdhT5ka10Am47y3wYpv.jpeg",
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/carousel.JPG-XxpXqFIYNFMzdhT5ka10Am47y3wYpv.jpeg",
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/carousel.JPG-XxpXqFIYNFMzdhT5ka10Am47y3wYpv.jpeg",
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/carousel.JPG-XxpXqFIYNFMzdhT5ka10Am47y3wYpv.jpeg",
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/carousel.JPG-XxpXqFIYNFMzdhT5ka10Am47y3wYpv.jpeg",
+];
+
+export default function PropertyImageCarousal() {
+  const [selectedIndex, setSelectedIndex] = React.useState(0);
+  const [mainApi, setMainApi] = React.useState<CarouselApi>();
+  const [thumbApi, setThumbApi] = React.useState<CarouselApi>();
+
+  React.useEffect(() => {
+    if (!mainApi || !thumbApi) return;
+
+    mainApi.on("select", () => {
+      setSelectedIndex(mainApi.selectedScrollSnap());
+    });
+  }, [mainApi, thumbApi]);
+
+  const handleThumbClick = React.useCallback(
+    (index: number) => {
+      mainApi?.scrollTo(index);
+      setSelectedIndex(index);
+    },
+    [mainApi]
+  );
+
+  return (
+    <div className="flex flex-col gap-4 p-4 bg-black">
+      {/* Thumbnails Carousel */}
+      <Carousel
+        setApi={setThumbApi}
+        className="w-full max-w-4xl mx-auto"
+        opts={{
+          align: "start",
+          dragFree: true,
+        }}
+      >
+        <CarouselContent className="-ml-2">
+          {images.map((src, index) => (
+            <CarouselItem key={index} className="pl-2 basis-20">
+              <div
+                className={`cursor-pointer transition-all ${
+                  selectedIndex === index ? "opacity-100" : "opacity-50"
+                }`}
+                onClick={() => handleThumbClick(index)}
+              >
+                <Image
+                  src={src}
+                  alt={`Property view ${index + 1}`}
+                  width={80}
+                  height={60}
+                  className="object-cover w-full h-16 rounded"
+                />
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+      </Carousel>
+
+      {/* Main Carousel */}
+      <Carousel
+        setApi={setMainApi}
+        className="w-full max-w-4xl mx-auto"
+        opts={{
+          align: "start",
+        }}
+      >
+        <CarouselContent className="-ml-2">
+          {images.map((src, index) => (
+            <CarouselItem key={index} className="pl-2 basis-1/2">
+              <Image
+                src={src}
+                alt={`Property view ${index + 1}`}
+                width={600}
+                height={400}
+                className="object-cover w-full h-[400px] rounded"
+              />
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        {/* <div className="flex justify-center gap-2 mt-4">
+          <Button
+            variant="outline"
+            size="icon"
+            className="bg-white/10 hover:bg-white/20"
+            onClick={() => mainApi?.prev()}
+          >
+            <ChevronLeft className="w-4 h-4 text-white" />
+          </Button>
+          <div className="flex gap-1">
+            {images.map((_, index) => (
+              <div
+                key={index}
+                className={`w-2 h-2 rounded-full transition-all ${
+                  Math.floor(selectedIndex / 2) === Math.floor(index / 2)
+                    ? "bg-white"
+                    : "bg-white/30"
+                }`}
+              />
+            ))}
+          </div>
+          <Button
+            variant="outline"
+            size="icon"
+            className="bg-white/10 hover:bg-white/20"
+            onClick={() => mainApi?.next()}
+          >
+            <ChevronRight className="w-4 h-4 text-white" />
+          </Button>
+        </div> */}
+      </Carousel>
+    </div>
+  );
+}

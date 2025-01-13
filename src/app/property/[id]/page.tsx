@@ -5,10 +5,12 @@ import PropertyDescription from "@/components/modules/property-detail-page/Prope
 import { propertyDescription } from "@/utilityComponents/propertyDetailPage/propertyDescription";
 import React from "react";
 import { pricingDetails } from "@/utilityComponents/propertyDetailPage/pricingDetails";
+import PropertyImageCarousal from "@/components/modules/property-detail-page/PropertyImageCarousal";
 
 const page = () => {
   return (
     <div className="bg-white-95 dark:bg-grey-shade-8">
+      <PropertyImageCarousal />
       <PropertyDescription propertyDescription={propertyDescription} />
       <InquiryProperty />
       <PricingDetails pricingDetails={pricingDetails[0]} />
