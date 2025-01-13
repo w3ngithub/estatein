@@ -117,10 +117,10 @@ export default function PropertyImageCarousal() {
             {images.map((_, index) => (
               <div
                 key={index}
-                className={`w-2 h-2 rounded-full transition-all ${
+                className={`w-4 h-[2px] rounded-none transition-all ${
                   Math.floor(selectedIndex / 2) === Math.floor(index / 2)
-                    ? "bg-white"
-                    : "bg-white/30"
+                    ? "bg-purple-shade-60"
+                    : "bg-grey-shade-30"
                 }`}
               />
             ))}
