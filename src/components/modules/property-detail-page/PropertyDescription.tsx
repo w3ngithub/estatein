@@ -1,8 +1,14 @@
 import { ThunderIcon } from "@/svgs/PropertyDetailPageSvg";
+import { PropertyDescriptionData } from "@/utilityComponents/propertyDetailPage/propertyDescription";
 import React from "react";
-import { propertyDescription } from "@/utilityComponents/propertyDetailPage/propertyDescription";
 
-const PropertyDescription = () => {
+interface PropertyDescriptionProps {
+  propertyDescription: PropertyDescriptionData[];
+}
+
+const PropertyDescription = ({
+  propertyDescription,
+}: PropertyDescriptionProps) => {
   return (
     <div className="container">
       <div className="grid tablet-md:grid-cols-2 gap-4 py-10">
