@@ -37,6 +37,7 @@ const ContactForm = () => {
     handleSubmit,
     control,
     formState: { errors },
+    reset,
   } = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
   });
@@ -168,7 +169,7 @@ const ContactForm = () => {
             <Input
               id="phone"
               {...register("phone")}
-              type="text"
+              type="number"
               placeholder="Enter Phone Number"
               className="h-16 max-desktop-lg:h-14 border border-grey-15 dark:bg-grey-shade-10"
             />
@@ -189,10 +190,6 @@ const ContactForm = () => {
             >
               Preferred Location
             </Label>
-            {/* <SelectField
-              placeholder="Select Location"
-              data={preferredLocation}
-            /> */}
             <Controller
               name="preferredLocation"
               control={control}
@@ -200,7 +197,7 @@ const ContactForm = () => {
                 <SelectField
                   placeholder="Select Location"
                   data={preferredLocation}
-                  value={field.value}
+                  value={field.value || ""}
                   onChange={field.onChange}
                 />
               )}
@@ -211,18 +208,19 @@ const ContactForm = () => {
                   errors.preferredLocation.message}
               </span>
             )} */}
+            {errors.preferredLocation && (
+              <span className="text-red-500">
+                {errors.preferredLocation.message}
+              </span>
+            )}
           </div>
           <div className="flex flex-col gap-3">
             <Label
-              htmlFor="lastName"
+              htmlFor="propertyType"
               className="font-semibold text-xl max-desktop-lg:text-base"
             >
               Property Type
             </Label>
-            {/* <SelectField
-              placeholder="Select Property Type"
-              data={propertyType}
-            /> */}
             <Controller
               name="propertyType"
               control={control}
@@ -241,18 +239,19 @@ const ContactForm = () => {
                   errors.propertyType.message}
               </span>
             )} */}
+            {errors.propertyType && (
+              <span className="text-red-500">
+                {errors.propertyType.message}
+              </span>
+            )}
           </div>
           <div className="flex flex-col gap-3">
             <Label
-              htmlFor="email"
+              htmlFor="noOfBathrooms"
               className="font-semibold text-xl max-desktop-lg:text-base"
             >
               No. of Bathrooms
             </Label>
-            {/* <SelectField
-              placeholder="Select no. of Bathrooms"
-              data={noOfBathrooms}
-            /> */}
             <Controller
               name="noOfBathrooms"
               control={control}
@@ -265,24 +264,19 @@ const ContactForm = () => {
                 />
               )}
             />
-            {errors.noOfBathrooms?.message && (
+            {errors.noOfBathrooms && (
               <span className="text-red-500">
-                {typeof errors.noOfBathrooms.message === "string" &&
-                  errors.noOfBathrooms.message}
+                {errors.noOfBathrooms.message}
               </span>
             )}
           </div>
           <div className="flex flex-col gap-3">
             <Label
-              htmlFor="email"
+              htmlFor="noOfBedrooms"
               className="font-semibold text-xl max-desktop-lg:text-base"
             >
               No. of Bedrooms
             </Label>
-            {/* <SelectField
-              placeholder="Select no. of Bedrooms"
-              data={noOfBedrooms}
-            /> */}
             <Controller
               name="noOfBedrooms"
               control={control}
@@ -301,6 +295,11 @@ const ContactForm = () => {
                   errors.noOfBedrooms.message}
               </span>
             )} */}
+            {errors.noOfBedrooms && (
+              <span className="text-red-500">
+                {errors.noOfBedrooms.message}
+              </span>
+            )}
           </div>
         </div>
         {/* third row */}
@@ -312,7 +311,6 @@ const ContactForm = () => {
             >
               Budget
             </Label>
-            {/* <SelectField placeholder="Select Budget" data={budget} /> */}
             <Controller
               name="budget"
               control={control}
@@ -331,6 +329,9 @@ const ContactForm = () => {
                   errors.budget.message}
               </span>
             )} */}
+            {errors.budget && (
+              <span className="text-red-500">{errors.budget.message}</span>
+            )}
           </div>
           <div className="flex flex-col gap-3">
             <Label
