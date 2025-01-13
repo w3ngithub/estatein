@@ -103,15 +103,16 @@ export default function PropertyImageCarousal() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        {/* <div className="flex justify-center gap-2 mt-4">
-          <Button
+        <div className="flex justify-center items-center gap-2 mt-4">
+          {/* <Button
             variant="outline"
             size="icon"
             className="bg-white/10 hover:bg-white/20"
-            onClick={() => mainApi?.prev()}
+            onClick={() => mainApi?.scrollPrev()}
           >
             <ChevronLeft className="w-4 h-4 text-white" />
-          </Button>
+          </Button> */}
+          <CarouselPrevious />
           <div className="flex gap-1">
             {images.map((_, index) => (
               <div
@@ -124,15 +125,16 @@ export default function PropertyImageCarousal() {
               />
             ))}
           </div>
-          <Button
+          <CarouselNext />
+          {/* <Button
             variant="outline"
             size="icon"
             className="bg-white/10 hover:bg-white/20"
-            onClick={() => mainApi?.next()}
+            onClick={() => mainApi?.scrollNext()}
           >
             <ChevronRight className="w-4 h-4 text-white" />
-          </Button>
-        </div> */}
+          </Button> */}
+        </div>
       </Carousel>
     </div>
   );
