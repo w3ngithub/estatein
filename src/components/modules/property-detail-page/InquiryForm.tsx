@@ -8,7 +8,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 import {
   InquiryFormData,
   inquiryFormSchema,
@@ -41,7 +40,7 @@ const InquiryForm = () => {
   });
 
   const onSubmit = (data: InquiryFormData) => {
-    console.log("Form submitted successfully:", data);
+    // console.log("Form submitted successfully:", data);
     reset({
       firstName: "",
       lastName: "",
