@@ -63,7 +63,7 @@ const ClientsReview = () => {
             {carouselDataClientReview.map((item, index) => {
               return (
                 <CarouselItem key={index} className="tablet-sm:basis-1/3">
-                  <div className="border border-[#E4E4E7] dark:border-grey-shade-15 dark:bg-grey-shade-8 rounded-md px-4 py-5 h-full">
+                  <div className="border border-white-d1 dark:border-grey-shade-15 dark:bg-grey-shade-8 rounded-md px-4 py-5 h-full">
                     <div className="flex flex-col gap-9 p-2">
                       {/* star logo */}
                       <div className="flex flex-row gap-3">

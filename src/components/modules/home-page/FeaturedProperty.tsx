@@ -72,7 +72,7 @@ const FeaturedProperty = () => {
                 key={index}
                 className="mobile-lg:basis-1/2 tablet-lg:basis-1/3"
               >
-                <div className="border border-[#E4E4E7] dark:border-grey-shade-15 dark:bg-grey-shade-8 rounded-md px-4 py-5">
+                <div className="border border-white-d1 dark:border-grey-shade-15 dark:bg-grey-shade-8 rounded-md px-4 py-5">
                   <div className="flex flex-col gap-8">
                     <div>
                       <Image

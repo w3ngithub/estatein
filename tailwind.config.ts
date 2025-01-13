@@ -50,6 +50,7 @@ export default {
           95: "#F1F1F3",
           97: "#F7F7F8",
           99: "#FCFCFD",
+          d1: "#E4E4E7",
         },
         "grey-shade": {
           8: "#141414",

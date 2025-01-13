@@ -103,7 +103,7 @@ const ContactForm = () => {
       {/* second section */}
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="space-y-7 border border-grey-shade-15 p-10 rounded-md max-mobile-md:p-5"
+        className="space-y-7 border border-white-d1 dark:border-grey-shade-15 p-10 rounded-md max-mobile-md:p-5"
       >
         {/* first row */}
         <div className="grid grid-cols-1 max-mobile-xl:space-y-3 mobile-xl:grid-cols-2 tablet-lg:grid-cols-4 gap-3">
