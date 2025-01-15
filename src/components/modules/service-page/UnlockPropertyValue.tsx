@@ -59,7 +59,7 @@ const UnlockPropertyValue = () => {
             </div>
             <div className="col-span-2">
               <div
-                className="flex flex-col gap-5 p-8 rounded-lg border border-grey-shade-15 h-full"
+                className="flex flex-col gap-5 p-8 rounded-lg border dark:border-grey-shade-15 h-full border-white-d1"
                 style={{
                   backgroundImage: `url(${process.env.NEXT_PUBLIC_BASE_PATH}/images/service-page-unlock-property-banner.png)`,
                   backgroundSize: "cover",
@@ -74,7 +74,7 @@ const UnlockPropertyValue = () => {
                     Learn More
                   </Button>
                 </div>
-                <p className="text-grey-shade-60 font-medium text-lg max-desktop-lg:text-base max-tablet-sm:text-sm">
+                <p className="dark:text-grey-shade-60 font-medium text-lg max-desktop-lg:text-base max-tablet-sm:text-sm">
                   Ready to unlock the true value of your property? Explore our
                   Property Selling Service categories and let us help you
                   achieve the best deal possible for your valuable asset.
