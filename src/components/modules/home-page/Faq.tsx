@@ -40,7 +40,7 @@ const Faq = () => {
             <h1 className="dark:text-white text-5xl font-semibold max-desktop-lg:text-4xl max-tablet-sm:text-[28px]">
               Frequently Asked Questions
             </h1>
-            <p className="max-w-[900px] dark:text-grey-shade-60 text-lg leading-6 max-desktop-lg:text-base max-tablet-sm:text-sm">
+            <p className="max-w-[900px] font-medium dark:text-grey-shade-60 text-lg leading-6 max-desktop-lg:text-base max-tablet-sm:text-sm">
               Find answers to common questions about Estatein&apos;s services,
               property listings, and the real estate process. We&apos;re here to
               provide clarity and assist you every step of the way.
@@ -60,7 +60,7 @@ const Faq = () => {
             {carouselDataFaq.map((item) => (
               <CarouselItem key={item.id} className="mobile-xl:basis-1/3">
                 <div className="h-full flex-grow">
-                  <div className="flex flex-col gap-5 justify-between border border-[#E4E4E7] dark:border-grey-shade-15 dark:bg-grey-shade-8 p-5 rounded-md max-mobile-md:p-5 h-full">
+                  <div className="flex flex-col gap-5 justify-between border border-white-d1 dark:border-grey-shade-15 dark:bg-grey-shade-8 p-5 rounded-md max-mobile-md:p-5 h-full">
                     <h2 className="font-semibold text-2xl dark:text-white max-desktop-lg:text-xl max-tablet-sm:text-lg">
                       {item.title}
                     </h2>
