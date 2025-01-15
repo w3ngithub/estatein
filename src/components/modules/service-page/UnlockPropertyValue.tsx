@@ -8,6 +8,7 @@ import {
   StackIcon,
 } from "@/svgs/ServicePageSvg";
 import { Button } from "@/components/ui/button";
+import UnlockPropertyBanner from "../common/UnlockPropertyBanner";
 
 const UnlockPropertyValue = () => {
   return (
@@ -58,28 +59,11 @@ const UnlockPropertyValue = () => {
               />
             </div>
             <div className="col-span-2">
-              <div
-                className="flex flex-col gap-5 p-8 rounded-lg border dark:border-grey-shade-15 h-full border-white-d1"
-                style={{
-                  backgroundImage: `url(${process.env.NEXT_PUBLIC_BASE_PATH}/images/service-page-unlock-property-banner.png)`,
-                  backgroundSize: "cover",
-                  backgroundRepeat: "no-repeat",
-                }}
-              >
-                <div className="flex flex-row justify-between items-center">
-                  <h1 className="font-bold text-3xl max-desktop-lg:text-xl max-tablet-sm:text-xl">
-                    Unlock the Value of Your Property Today
-                  </h1>
-                  <Button className="py-6 px-4 border-2 border-grey-shade-15 bg-grey-shade-10 rounded-md text-lg max-desktop-2xl:text-sm max-mobile-md:w-full hover:bg-grey-shade-15 dark:text-white">
-                    Learn More
-                  </Button>
-                </div>
-                <p className="dark:text-grey-shade-60 font-medium text-lg max-desktop-lg:text-base max-tablet-sm:text-sm">
-                  Ready to unlock the true value of your property? Explore our
-                  Property Selling Service categories and let us help you
-                  achieve the best deal possible for your valuable asset.
-                </p>
-              </div>
+              <UnlockPropertyBanner
+                title="Unlock the Value of Your Property Today"
+                description="Ready to unlock the true value of your property? Explore our Property Selling Service categories and let us help you achieve the best deal possible for your valuable asset."
+                url="/property"
+              />
             </div>
           </div>
         </div>
