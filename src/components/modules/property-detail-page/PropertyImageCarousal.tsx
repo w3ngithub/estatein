@@ -48,7 +48,7 @@ export default function PropertyImageCarousal() {
   );
 
   return (
-    <div className="container py-10 space-y-7">
+    <div className="container pt-10 space-y-7">
       <div className="flex flex-row items-center justify-between">
         <div className="flex flex-row items-center gap-4 max-mobile-xl:flex-col max-mobile-xl:items-start">
           <h1 className="font-semibold text-2xl max-desktop-lg:text-2xl max-mobile-lg:text-xl">
@@ -164,21 +164,21 @@ export default function PropertyImageCarousal() {
 
 {
   /* <Button
-                variant="outline"
-                size="icon"
-                className="bg-white/10 hover:bg-white/20"
-                onClick={() => mainApi?.scrollPrev()}
-            >
-                    <ChevronLeft className="w-4 h-4 text-white" />
-               </Button> */
+      variant="outline"
+      size="icon"
+      className="bg-white/10 hover:bg-white/20"
+      onClick={() => mainApi?.scrollPrev()}
+      >
+        <ChevronLeft className="w-4 h-4 text-white" />
+      </Button> */
 }
 {
   /* <Button
-                variant="outline"
-                size="icon"
-                className="bg-white/10 hover:bg-white/20"
-                onClick={() => mainApi?.scrollNext()}
-                >
-                    <ChevronRight className="w-4 h-4 text-white" />
-              </Button> */
+      variant="outline"
+      size="icon"
+      className="bg-white/10 hover:bg-white/20"
+      onClick={() => mainApi?.scrollNext()}
+        >
+          <ChevronRight className="w-4 h-4 text-white" />
+      </Button> */
 }
