@@ -55,7 +55,7 @@ export default function PropertyImageCarousal() {
           <h1 className="font-semibold text-2xl max-desktop-lg:text-2xl max-mobile-lg:text-xl">
             Seaside Serenity Villa
           </h1>
-          <div className="flex flex-row items-center justify-center gap-2 border border-grey-shade-15 rounded-lg px-3 py-3">
+          <div className="flex flex-row items-center justify-center gap-2 border border-white-d1 dark:border-grey-shade-15 rounded-lg px-3 py-3">
             <div>
               <LocationIcon />
             </div>
@@ -64,8 +64,8 @@ export default function PropertyImageCarousal() {
             </p>
           </div>
         </div>
-        <div className="flex flex-col gap-3 max-mobile-xl:flex-row  max-mobile-xl:items-center  max-mobile-md:mt-9">
-          <p className="text-grey-shade-60 font-medium text-sm">Price</p>
+        <div className="flex flex-col gap-3 max-mobile-xl:flex-row  max-mobile-xl:items-center max-mobile-md:mt-9">
+          <p className="dark:text-grey-shade-60 font-medium text-sm">Price</p>
           <h1 className="font-semibold text-xl max-mobile-lg:text-lg">
             $1,250,000
           </h1>
