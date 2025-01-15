@@ -35,7 +35,7 @@ const EffortlessPropertyManagement = () => {
         </div>
         {/* second row */}
         <div className="flex flex-col gap-4">
-          <div className="grid tablet-sm:grid-cols-3 gap-4">
+          <div className="grid tablet-lg:grid-cols-3 gap-4">
             <UnlockPropertyCard
               title="Tenant Harmony"
               description="Our Tenant Management services ensure that your tenants have a smooth and reducing vacancies."
@@ -52,15 +52,15 @@ const EffortlessPropertyManagement = () => {
               icon={<FinanceIcon />}
             />
           </div>
-          <div className="grid tablet-sm:grid-cols-3 gap-4">
-            <div className="tablet-sm:col-span-1">
+          <div className="grid tablet-lg:grid-cols-3 gap-4">
+            <div className="tablet-lg:col-span-1">
               <UnlockPropertyCard
                 title="Legal Guardian"
                 description="Stay compliant with property laws and regulations effortlessly."
                 icon={<LegalIcon />}
               />
             </div>
-            <div className="tablet-sm:col-span-2">
+            <div className="tablet-lg:col-span-2">
               <UnlockPropertyBanner
                 title="Experience Effortless Property Management"
                 description="Ready to experience hassle-free property management? Explore our Property Management Service categories and let us handle the complexities while you enjoy the benefits of property ownership."
