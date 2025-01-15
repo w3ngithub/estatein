@@ -58,7 +58,14 @@ const UnlockPropertyValue = () => {
               />
             </div>
             <div className="col-span-2">
-              <div className="flex flex-col gap-5 p-8 rounded-lg border border-grey-shade-15 h-full">
+              <div
+                className="flex flex-col gap-5 p-8 rounded-lg border border-grey-shade-15 h-full"
+                style={{
+                  backgroundImage: `url(${process.env.NEXT_PUBLIC_BASE_PATH}/images/service-page-unlock-property-banner.png)`,
+                  backgroundSize: "cover",
+                  backgroundRepeat: "no-repeat",
+                }}
+              >
                 <div className="flex flex-row justify-between items-center">
                   <h1 className="font-bold text-3xl max-desktop-lg:text-xl max-tablet-sm:text-xl">
                     Unlock the Value of Your Property Today
