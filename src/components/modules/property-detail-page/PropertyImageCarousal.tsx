@@ -84,7 +84,7 @@ export default function PropertyImageCarousal() {
         </div>
       </div>
       <div className="flex justify-center items-center">
-        <div className="flex flex-col-reverse gap-4 p-5 bg-grey-shade-10 border border-grey-shade-15 w-fit rounded-lg">
+        <div className="flex flex-col gap-4 p-5 bg-grey-shade-10 border border-grey-shade-15 w-fit rounded-lg max-mobile-lg:flex-col-reverse">
           {/* Thumbnails Carousel */}
           <Carousel
             setApi={setThumbApi}
