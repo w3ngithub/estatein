@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import {
   Carousel,
+  CarouselApi,
   CarouselContent,
   CarouselItem,
   CarouselNext,
@@ -11,10 +12,26 @@ import {
 import Image from "next/image";
 import { carouselDataFeaturedProperty } from "@/utilityComponents/homePage/featuredProperty";
 import { ThreeStars } from "@/svgs/HomePageSvg";
+import { useEffect, useState } from "react";
 
 const FeaturedProperty = () => {
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
+    setCount(api.scrollSnapList().length);
+    setCurrent(api.selectedScrollSnap());
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap());
+    });
+  }, [api]);
+
   return (
-    <Carousel>
+    <Carousel setApi={setApi}>
       <section className="container flex flex-col gap-10 pt-5 max-mobile-md:gap-5">
         <div className="flex flex-row justify-between items-end">
           <div className="flex flex-col gap-3">
@@ -65,7 +82,7 @@ const FeaturedProperty = () => {
                         {item.title}
                       </h2>
                       <div>
-                        <span className="text-lg dark:text-grey-shade-60 max-desktop-lg:text-base max-tablet-sm:text-sm">
+                        <span className="text-lg dark:text-grey-shade-60 max-desktop-lg:text-base max-tablet-sm:text-sm line-clamp-2">
                           {item.description}
                         </span>
                         <Link href="/">
@@ -80,7 +97,7 @@ const FeaturedProperty = () => {
                         return (
                           <div
                             key={idx}
-                            className="flex flex-row justify-center items-center gap-1 border border-grey-shade-15 bg-grey-shade-8 px-3 py-2 rounded-full"
+                            className="flex flex-row justify-center items-center gap-1 border border-grey-shade-10 bg-grey-shade-15 px-3 py-2 rounded-full"
                           >
                             <div>{detail.pillIcon}</div>
                             <p className="text-white text-lg max-desktop-lg:text-sm max-tablet-sm:text-sm">
@@ -97,7 +114,7 @@ const FeaturedProperty = () => {
                             Price
                           </p>
                           <h2 className="text-2xl font-semibold dark:text-white max-desktop-lg:text-xl max-tablet-sm:text-lg">
-                            $550.000
+                            ${item.price}
                           </h2>
                         </div>
                       </div>
@@ -116,8 +133,12 @@ const FeaturedProperty = () => {
         </div>
         <div className="flex flex-row justify-between mb-4 max-mobile-md:hidden border-t-[1px] border-t-[#E4E4E7] dark:border-t-grey-shade-15 dark:bg-grey-shade-8 pt-5">
           <div className="text-base font-medium">
-            <span className="dark:text-white">01</span>{" "}
-            <span className="dark:text-grey-shade-60">of 10</span>
+            <span className="dark:text-white">
+              {String(current + 1).padStart(2, "0")}
+            </span>{" "}
+            <span className="dark:text-grey-shade-60">
+              of {String(count).padStart(2, "0")}
+            </span>
           </div>
           <div className="flex flex-row gap-3">
             <CarouselPrevious />
@@ -133,8 +154,12 @@ const FeaturedProperty = () => {
             <div className="flex flex-row items-center justify-center gap-3">
               <CarouselPrevious />
               <div className="text-base font-medium">
-                <span className="text-white">01</span>{" "}
-                <span className="text-grey-shade-60">of 10</span>
+                <span className="text-white">
+                  {String(current + 1).padStart(2, "0")}
+                </span>{" "}
+                <span className="text-grey-shade-60">
+                  of {String(count).padStart(2, "0")}
+                </span>
               </div>
               <CarouselNext />
             </div>
