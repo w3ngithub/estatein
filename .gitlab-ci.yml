@@ -13,3 +13,4 @@ setup:
     - bash /home/gitlab-runner/reactProjects.sh $PROJECT_NAME $REPO_URL $GIT_HUB_REPO $PORT  # Run the script with project name and repo URL
   only:
     - main  # Specify which branch to trigger the pipeline on
+    
