@@ -107,7 +107,7 @@ export default function PropertyImageCarousal() {
           {/* Main Carousel */}
           <Carousel
             setApi={setMainApi}
-            className="w-full max-w-4xl mx-auto"
+            className="w-full max-w-full mx-auto"
             opts={{
               align: "start",
             }}
