@@ -18,7 +18,7 @@ const ExploreProperty = () => {
           backgroundRepeat: "no-repeat",
         }}
       >
-        <div className="container py-8">
+        <div className="container py-8 bg-white-95 dark:bg-transparent">
           <div className="flex flex-row justify-between items-center gap-2 max-mobile-lg:flex-col max-mobile-lg:gap-8">
             <div className="flex flex-col gap-4">
               <h1 className="dark:text-white text-5xl font-semibold max-desktop-lg:text-4xl max-tablet-sm:text-[28px]">
