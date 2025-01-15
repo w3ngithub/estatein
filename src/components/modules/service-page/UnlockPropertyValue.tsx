@@ -7,6 +7,7 @@ import {
   SpeakerIcon,
   StackIcon,
 } from "@/svgs/ServicePageSvg";
+import { Button } from "@/components/ui/button";
 
 const UnlockPropertyValue = () => {
   return (
@@ -47,7 +48,8 @@ const UnlockPropertyValue = () => {
               icon={<StackIcon />}
             />
           </div>
-          <div className="grid grid-cols-3">
+          {/* third row */}
+          <div className="grid grid-cols-3 gap-4">
             <div className="col-span-1">
               <UnlockPropertyCard
                 title="Closing Success"
@@ -55,7 +57,23 @@ const UnlockPropertyValue = () => {
                 icon={<SpeakerIcon />}
               />
             </div>
-            <div className="col-span-2"></div>
+            <div className="col-span-2">
+              <div className="flex flex-col gap-5 p-8 rounded-lg border border-grey-shade-15 h-full">
+                <div className="flex flex-row justify-between items-center">
+                  <h1 className="font-bold text-3xl max-desktop-lg:text-xl max-tablet-sm:text-xl">
+                    Unlock the Value of Your Property Today
+                  </h1>
+                  <Button className="py-6 px-4 border-2 border-grey-shade-15 bg-grey-shade-10 rounded-md text-lg max-desktop-2xl:text-sm max-mobile-md:w-full hover:bg-grey-shade-15 dark:text-white">
+                    Learn More
+                  </Button>
+                </div>
+                <p className="text-grey-shade-60 font-medium text-lg max-desktop-lg:text-base max-tablet-sm:text-sm">
+                  Ready to unlock the true value of your property? Explore our
+                  Property Selling Service categories and let us help you
+                  achieve the best deal possible for your valuable asset.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
