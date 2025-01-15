@@ -39,7 +39,8 @@ const InquiryForm = () => {
     },
   });
 
-  const onSubmit = (data: InquiryFormData) => {
+  // data: InquiryFormData
+  const onSubmit = () => {
     // console.log("Form submitted successfully:", data);
     reset({
       firstName: "",

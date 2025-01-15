@@ -63,7 +63,8 @@ const ContactForm = () => {
     },
   });
 
-  const onSubmit = (data: FormSchema) => {
+  // data: FormSchema
+  const onSubmit = () => {
     // console.log("Form Data:", data);
     reset({
       firstName: "",

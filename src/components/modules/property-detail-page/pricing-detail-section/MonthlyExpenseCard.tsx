@@ -32,7 +32,7 @@ const MonthlyExpenseCard = ({
         </div>
         <div className="flex flex-col gap-3 tablet-lg:border-l border-grey-shade-15 tablet-lg:pl-5 max-tablet-lg:border-t max-tablet-lg:pt-5">
           <p className="dark:text-grey-shade-60 font-medium text-lg leading-6 max-desktop-lg:text-sm">
-            Homeowners' Association Fee
+            Homeowners&apos; Association Fee
           </p>
           <div className="flex flex-row items-center gap-3">
             <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
