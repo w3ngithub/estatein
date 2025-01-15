@@ -31,7 +31,7 @@ const UnlockPropertyValue = () => {
         </div>
         {/* second row */}
         <div className="flex flex-col gap-4">
-          <div className="grid tablet-sm:grid-cols-3 gap-4">
+          <div className="grid tablet-lg:grid-cols-3 gap-4">
             <UnlockPropertyCard
               title="Valuation Mastery"
               description="Discover the true worth of your property with our expert valuation services."
@@ -48,15 +48,15 @@ const UnlockPropertyValue = () => {
               icon={<StackIcon />}
             />
           </div>
-          <div className="grid tablet-sm:grid-cols-3 gap-4">
-            <div className="tablet-sm:col-span-1">
+          <div className="grid tablet-lg:grid-cols-3 gap-4">
+            <div className="tablet-lg:col-span-1">
               <UnlockPropertyCard
                 title="Closing Success"
                 description="A successful sale is not complete until the closing. We guide you through the intricate closing process."
                 icon={<SpeakerIcon />}
               />
             </div>
-            <div className="tablet-sm:col-span-2">
+            <div className="tablet-lg:col-span-2">
               <UnlockPropertyBanner
                 title="Unlock the Value of Your Property Today"
                 description="Ready to unlock the true value of your property? Explore our Property Selling Service categories and let us help you achieve the best deal possible for your valuable asset."
