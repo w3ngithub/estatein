@@ -48,18 +48,39 @@ export default function PropertyImageCarousal() {
   );
 
   return (
-    <div className="container">
+    <div className="container py-10 space-y-7">
       <div className="flex flex-row items-center justify-between">
-        <div className="flex flex-row gap-4">
-          <h1 className="font-semibold text-2xl">Seaside Serenity Villa</h1>
-          <div className="flex flex-row gap-2">
-            <div>Image</div>
-            <p className="font-medium text-sm">Malibu, California</p>
+        <div className="flex flex-row items-center gap-4">
+          <h1 className="font-semibold text-2xl max-desktop-lg:text-2xl max-mobile-lg:text-xl">
+            Seaside Serenity Villa
+          </h1>
+          <div className="flex flex-row items-center justify-center gap-2 border border-grey-shade-15 rounded-lg px-3 py-3">
+            <div>
+              <svg
+                width="18"
+                height="21"
+                viewBox="0 0 18 21"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M8.53975 20.851C8.56995 20.8685 8.59369 20.8821 8.6105 20.8915L8.63843 20.9071C8.8613 21.0294 9.13776 21.0285 9.36084 20.9075L9.3895 20.8915C9.40631 20.8821 9.43005 20.8685 9.46025 20.851C9.52066 20.816 9.60697 20.765 9.7155 20.6982C9.93246 20.5646 10.2388 20.3676 10.6046 20.1091C11.3351 19.5931 12.3097 18.8274 13.2865 17.8273C15.2307 15.8368 17.25 12.8462 17.25 9C17.25 4.44365 13.5563 0.75 9 0.75C4.44365 0.75 0.75 4.44365 0.75 9C0.75 12.8462 2.76932 15.8368 4.71346 17.8273C5.69025 18.8274 6.66491 19.5931 7.39539 20.1091C7.76125 20.3676 8.06754 20.5646 8.2845 20.6982C8.39303 20.765 8.47934 20.816 8.53975 20.851ZM9 12C10.6569 12 12 10.6569 12 9C12 7.34315 10.6569 6 9 6C7.34315 6 6 7.34315 6 9C6 10.6569 7.34315 12 9 12Z"
+                  fill="white"
+                />
+              </svg>
+            </div>
+            <p className="font-medium text-sm max-desktop-lg:text-sm">
+              Malibu, California
+            </p>
           </div>
         </div>
         <div className="flex flex-col gap-3">
-          <p className="font-medium text-sm">Price</p>
-          <h1 className="font-semibold text-xl">$1,250,000</h1>
+          <p className="text-grey-shade-60 font-medium text-sm">Price</p>
+          <h1 className="font-semibold text-xl max-mobile-lg:text-lg">
+            $1,250,000
+          </h1>
         </div>
       </div>
       <div className="flex justify-center items-center">
