@@ -50,7 +50,7 @@ export default function PropertyImageCarousal() {
   return (
     <div className="container py-10 space-y-7">
       <div className="flex flex-row items-center justify-between">
-        <div className="flex flex-row items-center gap-4">
+        <div className="flex flex-row items-center gap-4 max-mobile-xl:flex-col max-mobile-xl:items-start">
           <h1 className="font-semibold text-2xl max-desktop-lg:text-2xl max-mobile-lg:text-xl">
             Seaside Serenity Villa
           </h1>
@@ -76,7 +76,7 @@ export default function PropertyImageCarousal() {
             </p>
           </div>
         </div>
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-3 max-mobile-xl:flex-row  max-mobile-xl:items-center  max-mobile-md:mt-9">
           <p className="text-grey-shade-60 font-medium text-sm">Price</p>
           <h1 className="font-semibold text-xl max-mobile-lg:text-lg">
             $1,250,000
