@@ -29,13 +29,13 @@ const UnlockPropertyBanner = ({
         backgroundRepeat: "no-repeat",
       }}
     >
-      <div className="flex flex-row justify-between items-center">
+      <div className="flex flex-row justify-between items-center gap-2 max-mobile-md:flex-col max-mobile-md:gap-4">
         <h1 className="font-bold text-3xl max-desktop-lg:text-xl max-tablet-sm:text-xl">
           {title}
         </h1>
         <Button
           onClick={handleNavigation}
-          className="py-6 px-4 border-2 border-grey-shade-15 bg-grey-shade-10 rounded-md text-lg max-desktop-2xl:text-sm max-mobile-md:w-full hover:bg-grey-shade-15 dark:text-white"
+          className="py-6 px-4 border-2 border-grey-shade-15 bg-grey-shade-8 rounded-md text-lg max-desktop-2xl:text-sm max-mobile-md:w-full hover:bg-grey-shade-15 dark:text-white"
         >
           Learn More
         </Button>
