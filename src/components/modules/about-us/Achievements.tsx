@@ -22,7 +22,7 @@ const Achievements = () => {
         {/* card */}
         <div className="grid grid-cols-3 space-x-4">
           <div className="p-2 bg-grey-shade-d61 rounded-lg">
-            <div className="bg-grey-shade-8 rounded-lg">
+            <div className="bg-grey-shade-8 rounded-lg h-full">
               <div className="flex flex-col gap-5 p-8">
                 <h2 className="font-semibold text-3xl dark:text-white max-desktop-lg:text-xl max-tablet-sm:text-lg">
                   3+ Years of Excellence
@@ -36,7 +36,7 @@ const Achievements = () => {
             </div>
           </div>
           <div className="p-2 bg-grey-shade-d61 rounded-lg">
-            <div className="bg-grey-shade-8 rounded-lg">
+            <div className="bg-grey-shade-8 rounded-lg h-full">
               <div className="flex flex-col gap-5 p-8">
                 <h2 className="font-semibold text-3xl dark:text-white max-desktop-lg:text-xl max-tablet-sm:text-lg">
                   Happy Clients
@@ -49,7 +49,7 @@ const Achievements = () => {
             </div>
           </div>
           <div className="p-2 bg-grey-shade-d61 rounded-lg">
-            <div className="bg-grey-shade-8 rounded-lg">
+            <div className="bg-grey-shade-8 rounded-lg h-full">
               <div className="flex flex-col gap-5 p-8">
                 <h2 className="font-semibold text-3xl dark:text-white max-desktop-lg:text-xl max-tablet-sm:text-lg">
                   Industry Recognition
