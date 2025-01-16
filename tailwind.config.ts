@@ -31,10 +31,6 @@ export default {
       },
     },
     extend: {
-      boxShadow: {
-        "lg-d61":
-          "0 10px 15px -3px rgba(25, 25, 25, 0.5), 0 4px 6px -2px rgba(25, 25, 25, 0.5)",
-      },
       textColor: {
         DEFAULT: "#FFFFFF",
       },
@@ -109,6 +105,10 @@ export default {
           "4": "hsl(var(--chart-4))",
           "5": "hsl(var(--chart-5))",
         },
+      },
+      backgroundImage: {
+        "custom-gradient-purple":
+          "linear-gradient(135deg, rgba(112, 59, 274, 0.75) 0%, rgba(0, 0, 0, 0.1) 12%)",
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -65,13 +65,7 @@ const NavigateExperience = () => {
               <h1 className="border-l border-purple-shade-60 pl-5 py-2 font-medium text-xl max-desktop-lg:text-base max-tablet-sm:text-base">
                 {step.step}
               </h1>
-              <div
-                className="p-8 flex flex-col gap-3 border border-grey-shade-15 rounded-lg rounded-tl-none h-full"
-                style={{
-                  background:
-                    "linear-gradient(135deg, rgba(112, 59, 274, 0.75) 0%, rgba(0, 0, 0, 0.1) 12%)",
-                }}
-              >
+              <div className="p-8 flex flex-col gap-3 border border-grey-shade-15 rounded-lg rounded-tl-none h-full bg-custom-gradient-purple">
                 <h2 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
                   {step.title}
                 </h2>
