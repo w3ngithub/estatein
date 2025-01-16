@@ -2,13 +2,9 @@ import { ThreeStars } from "@/svgs/HomePageSvg";
 import React from "react";
 import UnlockPropertyCard from "../common/UnlockPropertyCard";
 import {
-  BarIcon,
   FinanceIcon,
   LegalIcon,
   MaintenanceIcon,
-  PieIcon,
-  SpeakerIcon,
-  StackIcon,
   TenantIcon,
 } from "@/svgs/ServicePageSvg";
 import UnlockPropertyBanner from "../common/UnlockPropertyBanner";
@@ -26,11 +22,11 @@ const EffortlessPropertyManagement = () => {
             Effortless Property Management
           </h1>
           <p className="max-w-[900px] font-medium dark:text-grey-shade-60 text-lg leading-6 max-desktop-lg:text-base max-tablet-sm:text-sm">
-            Owning a property should be a pleasure, not a hassle. Estatein's
-            Property Management Service takes the stress out of property
-            ownership, offering comprehensive solutions tailored to your needs.
-            Explore the categories below to see how we can make property
-            management effortless for you
+            Owning a property should be a pleasure, not a hassle.
+            Estatein&apos;s Property Management Service takes the stress out of
+            property ownership, offering comprehensive solutions tailored to
+            your needs. Explore the categories below to see how we can make
+            property management effortless for you
           </p>
         </div>
         {/* second row */}

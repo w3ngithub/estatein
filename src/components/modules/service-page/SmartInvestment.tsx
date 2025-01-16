@@ -26,8 +26,8 @@ const SmartInvestment = () => {
             </h1>
             <p className="max-w-[900px] font-medium dark:text-grey-shade-60 text-lg leading-tight max-desktop-lg:text-base max-tablet-sm:text-sm mt-3">
               Building a real estate portfolio requires a strategic approach.
-              Estatein's Investment Advisory Service empowers you to make smart
-              investments and informed decisions.
+              Estatein&apos;s Investment Advisory Service empowers you to make
+              smart investments and informed decisions.
             </p>
           </div>
           <div className="pt-8">
