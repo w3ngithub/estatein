@@ -20,7 +20,7 @@ const Achievements = () => {
           </p>
         </div>
         {/* card */}
-        <div className="grid grid-cols-3 space-x-4">
+        <div className="grid mobile-xl:grid-cols-3 mobile-xl:space-x-4 max-mobile-xl:gap-5">
           <div className="p-2 bg-grey-shade-d61 rounded-lg">
             <div className="bg-grey-shade-8 rounded-lg h-full">
               <div className="flex flex-col gap-5 p-8">
