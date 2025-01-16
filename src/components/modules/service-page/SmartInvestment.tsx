@@ -19,6 +19,7 @@ const SmartInvestment = () => {
   const handleNavigation = () => {
     router.push("/property");
   };
+
   return (
     <div className="container py-10">
       <div className="pb-3">
@@ -63,9 +64,9 @@ const SmartInvestment = () => {
             </div>
           </div>
         </div>
-        <div className="col-span-8">
-          <div className="flex flex-col gap-3">
-            <div className="grid grid-cols-2 gap-3">
+        <div className="col-span-8 flex justify-center items-center">
+          <div className="flex flex-col gap-2  p-2 bg-grey-shade-d61 rounded-lg">
+            <div className="grid grid-cols-2 gap-2">
               <UnlockPropertyCard
                 title="Market Insight"
                 description="Stay ahead of market trends with our expert Market Analysis. We provide in-depth insights into real estate market conditions"
@@ -77,7 +78,7 @@ const SmartInvestment = () => {
                 icon={<FireIcon />}
               />
             </div>
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-2 gap-2">
               <UnlockPropertyCard
                 title="Customized Strategies"
                 description="Every investor is unique, and so are their goals. We develop Customized Investment Strategies tailored to your specific needs"
