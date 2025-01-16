@@ -10,40 +10,40 @@ const steps = [
   },
   {
     step: "Step 02",
-    title: "Tailored Recommendations",
+    title: "Narrowing Down Your Choices",
     description:
-      "Receive personalized property recommendations based on your preferences, ensuring you find the perfect match for your needs.",
+      "Once you've found properties that catch your eye, save them to your account or make a shortlist. This allows you to compare and revisit your favorites as you make your decision.",
   },
   {
     step: "Step 03",
-    title: "Connect with Experts",
+    title: "Personalized Guidance",
     description:
-      "Work with experienced agents who provide professional advice and guidance to help you make the best decisions.",
+      "Have questions about a property or need more information? Our dedicated team of real estate experts is just a call or message away.",
   },
   {
     step: "Step 04",
-    title: "Secure Your Future",
+    title: "See It for Yourself",
     description:
-      "Finalize your property decisions with confidence, backed by expert support and a seamless process.",
+      "Arrange viewings of the properties you're interested in. We'll coordinate with the property owners and accompany you to ensure you get a firsthand look at your potential new home.",
   },
   {
     step: "Step 05",
-    title: "Move in Hassle-Free",
+    title: "Making Informed Decisions",
     description:
-      "Experience a smooth transition as you move into your new home, with support every step of the way.",
+      "Before making an offer, our team will assist you with due diligence, including property inspections, legal checks, and market analysis. We want you to be fully informed and confident in your choice.",
   },
   {
     step: "Step 06",
-    title: "Ongoing Support",
+    title: "Getting the Best Deal",
     description:
-      "Even after your move, enjoy continued support for any property-related needs or inquiries.",
+      "We'll help you negotiate the best terms and prepare your offer. Our goal is to secure the property at the right price and on favorable terms.",
   },
 ];
 
 const NavigateExperience = () => {
   return (
     <section className="container py-10">
-      <div className="flex flex-col gap-10">
+      <div className="flex flex-col gap-16">
         <div className="flex flex-col gap-3">
           {/* 3 star logo */}
           <div>
@@ -59,16 +59,15 @@ const NavigateExperience = () => {
           </p>
         </div>
         {/* card */}
-        <div className="grid grid-cols-3 justify-center items-center gap-7 space-y-8">
+        <div className="grid grid-cols-3 justify-center items-center gap-x-7 gap-y-14">
           {steps.map((step, index) => (
             <div key={index} className="flex flex-col h-full">
-              <p className="border-l border-purple-shade-60 pl-5 py-2 font-medium text-xl max-desktop-lg:">
+              <h1 className="border-l border-purple-shade-60 pl-5 py-2 font-medium text-xl max-desktop-lg:">
                 {step.step}
-              </p>
+              </h1>
               <div
                 className="p-8 flex flex-col gap-3 border border-grey-shade-15 rounded-lg rounded-tl-none h-full"
                 style={{
-                  border: "1px solid #262626",
                   background:
                     "linear-gradient(135deg, rgba(112, 59, 274, 0.75) 0%, rgba(0, 0, 0, 0.1) 12%)",
                 }}
