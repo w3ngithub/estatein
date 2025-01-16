@@ -20,17 +20,17 @@ const NavigateExperience = () => {
           </p>
         </div>
         {/* card */}
-        <div className="grid grid-cols-3">
+        <div className="grid grid-cols-3 justify-center items-center">
           <div className="flex flex-col">
             <p className="border-l border-purple-shade-60 pl-5 py-2 font-medium text-xl max-desktop-lg:">
               Step 01
             </p>
             <div
-              className="p-5 flex flex-col gap-3 border border-grey-shade-15"
+              className="p-5 flex flex-col gap-3 border border-grey-shade-15 rounded-lg rounded-tl-none"
               style={{
                 border: "1px solid #262626",
                 background:
-                  "linear-gradient(135deg, rgba(112, 59, 274, 1) 2%, rgba(0, 0, 0, 1) 17%)",
+                  "linear-gradient(135deg, rgba(112, 59, 274, 0.75) 0%, rgba(0, 0, 0, 0.1) 12%)",
               }}
             >
               <h2 className="font-semibold text-2xl max-desktop-lg:">
