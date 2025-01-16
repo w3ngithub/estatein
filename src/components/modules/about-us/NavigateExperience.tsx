@@ -59,7 +59,7 @@ const NavigateExperience = () => {
           </p>
         </div>
         {/* card */}
-        <div className="grid grid-cols-3 justify-center items-center gap-x-7 gap-y-14">
+        <div className="grid tablet-lg:grid-cols-3 justify-center items-center gap-x-7 gap-y-14">
           {steps.map((step, index) => (
             <div key={index} className="flex flex-col h-full">
               <h1 className="border-l border-purple-shade-60 pl-5 py-2 font-medium text-xl max-desktop-lg:">
