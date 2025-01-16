@@ -21,9 +21,11 @@ const OurValues = () => {
             </p>
           </div>
         </div>
+        {/* second section */}
         <div className="desktop-md:col-span-8">
           <div className="p-2 bg-grey-shade-d61 rounded-lg">
             <div className="mobile-xl:divide-y-2 rounded-lg">
+              {/* first row */}
               <div className="grid mobile-xl:grid-cols-2">
                 {/* 1 */}
                 <div className="flex flex-col gap-5 p-8 mobile-xl:border-r-2 border-white-d1 dark:bg-grey-shade-8 dark:border-grey-shade-15">
@@ -56,6 +58,7 @@ const OurValues = () => {
                   </p>
                 </div>
               </div>
+              {/* second row */}
               <div className="grid mobile-xl:grid-cols-2">
                 {/* 3 */}
                 <div className="flex flex-col gap-5 p-8 mobile-xl:border-r-2 border-white-d1 dark:bg-grey-shade-8 dark:border-grey-shade-15">
