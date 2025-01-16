@@ -27,7 +27,7 @@ const SmartInvestment = () => {
       </div>
       <div className="grid desktop-md:grid-cols-12 gap-10">
         <div className="desktop-md:col-span-4">
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-5 max-mobile-md:gap-2">
             <h1 className="dark:text-white text-5xl font-semibold max-desktop-lg:text-4xl max-tablet-sm:text-[28px] leading-tight">
               Smart Investments, Informed Decisions
             </h1>
