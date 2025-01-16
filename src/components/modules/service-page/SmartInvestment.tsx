@@ -25,8 +25,8 @@ const SmartInvestment = () => {
       <div className="pb-3">
         <ThreeStars />
       </div>
-      <div className="grid grid-cols-12 gap-10">
-        <div className="col-span-4">
+      <div className="grid desktop-md:grid-cols-12 gap-10">
+        <div className="desktop-md:col-span-4">
           <div className="flex flex-col gap-5">
             <h1 className="dark:text-white text-5xl font-semibold max-desktop-lg:text-4xl max-tablet-sm:text-[28px] leading-tight">
               Smart Investments, Informed Decisions
@@ -64,9 +64,9 @@ const SmartInvestment = () => {
             </div>
           </div>
         </div>
-        <div className="col-span-8 flex justify-center items-center">
+        <div className="desktop-md:col-span-8 flex justify-center items-center">
           <div className="flex flex-col gap-2  p-2 bg-grey-shade-d61 rounded-lg">
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid mobile-xl:grid-cols-2 gap-2">
               <UnlockPropertyCard
                 title="Market Insight"
                 description="Stay ahead of market trends with our expert Market Analysis. We provide in-depth insights into real estate market conditions"
@@ -78,7 +78,7 @@ const SmartInvestment = () => {
                 icon={<FireIcon />}
               />
             </div>
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid mobile-xl:grid-cols-2 gap-2">
               <UnlockPropertyCard
                 title="Customized Strategies"
                 description="Every investor is unique, and so are their goals. We develop Customized Investment Strategies tailored to your specific needs"
