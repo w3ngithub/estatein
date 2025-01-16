@@ -2,22 +2,8 @@ import { Button } from "../../ui/button";
 
 const ExploreProperty = () => {
   return (
-    <div
-      style={{
-        backgroundImage: `url(${process.env.NEXT_PUBLIC_BASE_PATH}/images/footer-banner-background-second.png)`,
-        backgroundSize: "contain",
-        backgroundPosition: "right bottom",
-        backgroundRepeat: "no-repeat",
-      }}
-    >
-      <div
-        style={{
-          backgroundImage: `url(${process.env.NEXT_PUBLIC_BASE_PATH}/images/footer-banner-background-first.png)`,
-          backgroundSize: "contain",
-          backgroundPosition: "left bottom",
-          backgroundRepeat: "no-repeat",
-        }}
-      >
+    <div className="bg-contain bg-no-repeat bg-right-bottom bg-explore-right-img">
+      <div className="bg-contain bg-no-repeat bg-left-bottom bg-explore-left-img">
         <div className="container py-8 bg-white-95 dark:bg-transparent">
           <div className="flex flex-row justify-between items-center gap-2 max-mobile-lg:flex-col max-mobile-lg:gap-8">
             <div className="flex flex-col gap-4">
