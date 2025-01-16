@@ -24,71 +24,73 @@ const OurValues = () => {
         {/* second section */}
         <div className="desktop-md:col-span-8">
           <div className="p-2 bg-grey-shade-d61 rounded-lg">
-            <div className="mobile-xl:divide-y-2 rounded-lg">
-              {/* first row */}
-              <div className="grid mobile-xl:grid-cols-2">
-                {/* 1 */}
-                <div className="flex flex-col gap-5 p-8 mobile-xl:border-r-2 border-white-d1 dark:bg-grey-shade-8 dark:border-grey-shade-15">
-                  <div className="flex flex-row items-center gap-3">
-                    <div className="flex items-center justify-center max-desktop-lg:h-[60px] max-desktop-lg:w-[60px] max-desktop-lg:gap-4">
-                      <StarIcon />
+            <div className="p-2 bg-grey-shade-8 rounded-lg">
+              <div className="mobile-xl:divide-y-2 rounded-lg">
+                {/* first row */}
+                <div className="grid mobile-xl:grid-cols-2 pb-4">
+                  {/* 1 */}
+                  <div className="flex flex-col gap-5 p-8 mobile-xl:border-r-2 border-white-d1 dark:bg-grey-shade-8 dark:border-grey-shade-15">
+                    <div className="flex flex-row items-center gap-3">
+                      <div className="flex items-center justify-center max-desktop-lg:h-[60px] max-desktop-lg:w-[60px] max-desktop-lg:gap-4">
+                        <StarIcon />
+                      </div>
+                      <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
+                        Trust
+                      </h1>
                     </div>
-                    <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
-                      Trust
-                    </h1>
+                    <p className="dark:text-grey-shade-60 font-medium text-lg max-desktop-lg:text-base max-tablet-sm:text-sm">
+                      Trust is the cornerstone of every successful real estate
+                      transaction.
+                    </p>
                   </div>
-                  <p className="dark:text-grey-shade-60 font-medium text-lg max-desktop-lg:text-base max-tablet-sm:text-sm">
-                    Trust is the cornerstone of every successful real estate
-                    transaction.
-                  </p>
+                  {/* 2 */}
+                  <div className="flex flex-col gap-5 p-8 dark:bg-grey-shade-8">
+                    <div className="flex flex-row items-center gap-3">
+                      <div className="flex items-center justify-center max-desktop-lg:h-[60px] max-desktop-lg:w-[60px] max-desktop-lg:gap-4">
+                        <CapIcon />
+                      </div>
+                      <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
+                        Excellence
+                      </h1>
+                    </div>
+                    <p className="dark:text-grey-shade-60 font-medium text-lg max-desktop-lg:text-base max-tablet-sm:text-sm">
+                      We set the bar high for ourselves. From the properties we
+                      list to the services we provide.
+                    </p>
+                  </div>
                 </div>
-                {/* 2 */}
-                <div className="flex flex-col gap-5 p-8 dark:bg-grey-shade-8">
-                  <div className="flex flex-row items-center gap-3">
-                    <div className="flex items-center justify-center max-desktop-lg:h-[60px] max-desktop-lg:w-[60px] max-desktop-lg:gap-4">
-                      <CapIcon />
+                {/* second row */}
+                <div className="grid mobile-xl:grid-cols-2 pt-4">
+                  {/* 3 */}
+                  <div className="flex flex-col gap-5 p-8 mobile-xl:border-r-2 border-white-d1 dark:bg-grey-shade-8 dark:border-grey-shade-15">
+                    <div className="flex flex-row items-center gap-3">
+                      <div className="flex items-center justify-center max-desktop-lg:h-[60px] max-desktop-lg:w-[60px] max-desktop-lg:gap-4">
+                        <ClientIcon />
+                      </div>
+                      <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
+                        Client-Centric
+                      </h1>
                     </div>
-                    <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
-                      Excellence
-                    </h1>
+                    <p className="dark:text-grey-shade-60 font-medium text-lg max-desktop-lg:text-base max-tablet-sm:text-sm">
+                      Your dreams and needs are at the center of our universe.
+                      We listen, understand.
+                    </p>
                   </div>
-                  <p className="dark:text-grey-shade-60 font-medium text-lg max-desktop-lg:text-base max-tablet-sm:text-sm">
-                    We set the bar high for ourselves. From the properties we
-                    list to the services we provide.
-                  </p>
-                </div>
-              </div>
-              {/* second row */}
-              <div className="grid mobile-xl:grid-cols-2">
-                {/* 3 */}
-                <div className="flex flex-col gap-5 p-8 mobile-xl:border-r-2 border-white-d1 dark:bg-grey-shade-8 dark:border-grey-shade-15">
-                  <div className="flex flex-row items-center gap-3">
-                    <div className="flex items-center justify-center max-desktop-lg:h-[60px] max-desktop-lg:w-[60px] max-desktop-lg:gap-4">
-                      <ClientIcon />
+                  {/* 4 */}
+                  <div className="flex flex-col gap-5 p-8 dark:bg-grey-shade-8">
+                    <div className="flex flex-row items-center gap-3">
+                      <div className="flex items-center justify-center max-desktop-lg:h-[60px] max-desktop-lg:w-[60px] max-desktop-lg:gap-4">
+                        <StarIcon />
+                      </div>
+                      <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
+                        Our Commitment
+                      </h1>
                     </div>
-                    <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
-                      Client-Centric
-                    </h1>
+                    <p className="dark:text-grey-shade-60 font-medium text-lg max-desktop-lg:text-base max-tablet-sm:text-sm">
+                      We are dedicated to providing you with the highest level
+                      of service, professionalism, and support.
+                    </p>
                   </div>
-                  <p className="dark:text-grey-shade-60 font-medium text-lg max-desktop-lg:text-base max-tablet-sm:text-sm">
-                    Your dreams and needs are at the center of our universe. We
-                    listen, understand.
-                  </p>
-                </div>
-                {/* 4 */}
-                <div className="flex flex-col gap-5 p-8 dark:bg-grey-shade-8">
-                  <div className="flex flex-row items-center gap-3">
-                    <div className="flex items-center justify-center max-desktop-lg:h-[60px] max-desktop-lg:w-[60px] max-desktop-lg:gap-4">
-                      <StarIcon />
-                    </div>
-                    <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
-                      Our Commitment
-                    </h1>
-                  </div>
-                  <p className="dark:text-grey-shade-60 font-medium text-lg max-desktop-lg:text-base max-tablet-sm:text-sm">
-                    We are dedicated to providing you with the highest level of
-                    service, professionalism, and support.
-                  </p>
                 </div>
               </div>
             </div>
