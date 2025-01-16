@@ -58,7 +58,7 @@ const SmartInvestment = () => {
           </div>
         </div>
         <div className="desktop-md:col-span-8 flex justify-center items-center">
-          <div className="flex flex-col gap-2  p-2 dark:bg-grey-shade-d61 rounded-lg">
+          <div className="flex flex-col gap-2 p-2 dark:bg-grey-shade-d61 rounded-lg">
             <div className="grid mobile-xl:grid-cols-2 gap-2">
               <UnlockPropertyCard
                 title="Market Insight"
