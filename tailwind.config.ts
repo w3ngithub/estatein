@@ -109,6 +109,8 @@ export default {
       backgroundImage: {
         "custom-gradient-purple":
           "linear-gradient(135deg, rgba(112, 59, 274, 0.75) 0%, rgba(0, 0, 0, 0.1) 12%)",
+        "service-banner": `url(${process.env.NEXT_PUBLIC_BASE_PATH}/images/service-page-unlock-property-banner.png)`,
+        "smart-banner": `url(${process.env.NEXT_PUBLIC_BASE_PATH}/images/service-page-unlock-property-banner.png)`,
       },
       borderRadius: {
         lg: "var(--radius)",
