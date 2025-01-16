@@ -12,7 +12,7 @@ const UnlockPropertyCard = ({
   icon,
 }: UnlockPropertyCardProps) => {
   return (
-    <div className="flex flex-col gap-5 border border-white-d1 bg-grey-shade-8 dark:border-grey-shade-15 rounded-lg p-8">
+    <div className="flex flex-col gap-5 border border-white-d1 dark:bg-grey-shade-8 dark:border-grey-shade-15 rounded-lg p-8">
       <div className="flex flex-row items-center gap-3">
         <div className="flex items-center justify-center max-desktop-lg:h-[60px] max-desktop-lg:w-[60px] max-desktop-lg:gap-4">
           {icon}
