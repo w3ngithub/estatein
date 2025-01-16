@@ -25,6 +25,7 @@ const OurValues = () => {
           <div className="p-2 bg-grey-shade-d61 rounded-lg">
             <div className="mobile-xl:divide-y-2 rounded-lg">
               <div className="grid mobile-xl:grid-cols-2">
+                {/* 1 */}
                 <div className="flex flex-col gap-5 p-8 mobile-xl:border-r-2 border-white-d1 dark:bg-grey-shade-8 dark:border-grey-shade-15">
                   <div className="flex flex-row items-center gap-3">
                     <div className="flex items-center justify-center max-desktop-lg:h-[60px] max-desktop-lg:w-[60px] max-desktop-lg:gap-4">
@@ -56,6 +57,7 @@ const OurValues = () => {
                 </div>
               </div>
               <div className="grid mobile-xl:grid-cols-2">
+                {/* 3 */}
                 <div className="flex flex-col gap-5 p-8 mobile-xl:border-r-2 border-white-d1 dark:bg-grey-shade-8 dark:border-grey-shade-15">
                   <div className="flex flex-row items-center gap-3">
                     <div className="flex items-center justify-center max-desktop-lg:h-[60px] max-desktop-lg:w-[60px] max-desktop-lg:gap-4">
@@ -70,7 +72,7 @@ const OurValues = () => {
                     listen, understand.
                   </p>
                 </div>
-                {/* 2 */}
+                {/* 4 */}
                 <div className="flex flex-col gap-5 p-8 dark:bg-grey-shade-8">
                   <div className="flex flex-row items-center gap-3">
                     <div className="flex items-center justify-center max-desktop-lg:h-[60px] max-desktop-lg:w-[60px] max-desktop-lg:gap-4">
