@@ -61,12 +61,12 @@ const NavigateExperience = () => {
         {/* card */}
         <div className="grid grid-cols-3 justify-center items-center gap-7 space-y-8">
           {steps.map((step, index) => (
-            <div key={index} className="flex flex-col">
+            <div key={index} className="flex flex-col h-full">
               <p className="border-l border-purple-shade-60 pl-5 py-2 font-medium text-xl max-desktop-lg:">
                 {step.step}
               </p>
               <div
-                className="p-8 flex flex-col gap-3 border border-grey-shade-15 rounded-lg rounded-tl-none"
+                className="p-8 flex flex-col gap-3 border border-grey-shade-15 rounded-lg rounded-tl-none h-full"
                 style={{
                   border: "1px solid #262626",
                   background:
