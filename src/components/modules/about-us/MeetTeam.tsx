@@ -27,7 +27,119 @@ const MeetTeam = () => {
           </p>
         </div>
         {/* card */}
-        <div className="grid grid-cols-4">
+        <div className="grid grid-cols-4 gap-5">
+          {/* 1 */}
+          <div className="flex flex-col items-center justify-center p-5 border border-grey-shade-15 rounded-lg">
+            <div>
+              <Image
+                src={`${
+                  process.env.NEXT_PUBLIC_BASE_PATH +
+                  "/images/about-us-team-one.png"
+                }`}
+                width={317}
+                height={253}
+                alt="profile icon"
+                priority
+              />
+            </div>
+            <div className="flex flex-col gap-5 justify-center items-center mt-[-25px]">
+              <div className="border-none bg-purple-shade-60 py-3 px-5 rounded-full cursor-pointer">
+                <TwitterIcon />
+              </div>
+              <div className="flex flex-col items-center justify-center gap-2">
+                <h2 className="font-semibold text-2xl">Max Mitchell</h2>
+                <p className="text-grey-shade-60 font-medium text-lg">
+                  Founder
+                </p>
+              </div>
+            </div>
+            {/* input container */}
+            <div className="flex items-center gap-3 w-[85%] max-w-sm px-4 py-3 bg-[#E4E4E7] border border-grey-shade-15 dark:bg-grey-shade-8 max-mobile-md:w-full mt-5 rounded-full">
+              <input
+                type="text"
+                placeholder="Say Hello 👋"
+                className="flex-1 bg-transparent dark:text-white dark:placeholder:text-gray-400 placeholder:text-lg focus:outline-none text-sm"
+              />
+
+              <div className="flex items-center justify-center p-2 rounded-full bg-purple-shade-60 cursor-pointer">
+                <SendSmallIcon />
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-col items-center justify-center p-5 border border-grey-shade-15 rounded-lg">
+            <div>
+              <Image
+                src={`${
+                  process.env.NEXT_PUBLIC_BASE_PATH +
+                  "/images/about-us-team-one.png"
+                }`}
+                width={317}
+                height={253}
+                alt="profile icon"
+                priority
+              />
+            </div>
+            <div className="flex flex-col gap-5 justify-center items-center mt-[-25px]">
+              <div className="border-none bg-purple-shade-60 py-3 px-5 rounded-full cursor-pointer">
+                <TwitterIcon />
+              </div>
+              <div className="flex flex-col items-center justify-center gap-2">
+                <h2 className="font-semibold text-2xl">Max Mitchell</h2>
+                <p className="text-grey-shade-60 font-medium text-lg">
+                  Founder
+                </p>
+              </div>
+            </div>
+            {/* input container */}
+            <div className="flex items-center gap-3 w-[85%] max-w-sm px-4 py-3 bg-[#E4E4E7] border border-grey-shade-15 dark:bg-grey-shade-8 max-mobile-md:w-full mt-5 rounded-full">
+              <input
+                type="text"
+                placeholder="Say Hello 👋"
+                className="flex-1 bg-transparent dark:text-white dark:placeholder:text-gray-400 placeholder:text-lg focus:outline-none text-sm"
+              />
+
+              <div className="flex items-center justify-center p-2 rounded-full bg-purple-shade-60 cursor-pointer">
+                <SendSmallIcon />
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-col items-center justify-center p-5 border border-grey-shade-15 rounded-lg">
+            <div>
+              <Image
+                src={`${
+                  process.env.NEXT_PUBLIC_BASE_PATH +
+                  "/images/about-us-team-one.png"
+                }`}
+                width={317}
+                height={253}
+                alt="profile icon"
+                priority
+              />
+            </div>
+            <div className="flex flex-col gap-5 justify-center items-center mt-[-25px]">
+              <div className="border-none bg-purple-shade-60 py-3 px-5 rounded-full cursor-pointer">
+                <TwitterIcon />
+              </div>
+              <div className="flex flex-col items-center justify-center gap-2">
+                <h2 className="font-semibold text-2xl">Max Mitchell</h2>
+                <p className="text-grey-shade-60 font-medium text-lg">
+                  Founder
+                </p>
+              </div>
+            </div>
+            {/* input container */}
+            <div className="flex items-center gap-3 w-[85%] max-w-sm px-4 py-3 bg-[#E4E4E7] border border-grey-shade-15 dark:bg-grey-shade-8 max-mobile-md:w-full mt-5 rounded-full">
+              <input
+                type="text"
+                placeholder="Say Hello 👋"
+                className="flex-1 bg-transparent dark:text-white dark:placeholder:text-gray-400 placeholder:text-lg focus:outline-none text-sm"
+              />
+
+              <div className="flex items-center justify-center p-2 rounded-full bg-purple-shade-60 cursor-pointer">
+                <SendSmallIcon />
+              </div>
+            </div>
+          </div>
           <div className="flex flex-col items-center justify-center p-5 border border-grey-shade-15 rounded-lg">
             <div>
               <Image
