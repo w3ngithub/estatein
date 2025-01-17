@@ -54,14 +54,14 @@ const MeetTeam = () => {
               </div>
             </div>
             {/* input container */}
-            <div className="flex items-center gap-3 w-[85%] max-w-sm px-4 py-3 bg-[#E4E4E7] border border-grey-shade-15 dark:bg-grey-shade-8 max-mobile-md:w-full mt-5 rounded-full">
+            <div className="relative w-[85%] max-w-sm px-4 py-3 bg-[#E4E4E7] border border-grey-shade-15 dark:bg-grey-shade-8 max-mobile-md:w-full mt-5 rounded-full">
               <input
                 type="text"
                 placeholder="Say Hello 👋"
-                className="flex-1 bg-transparent dark:text-white dark:placeholder:text-gray-400 placeholder:text-lg focus:outline-none text-sm"
+                className="w-full pr-10 bg-transparent dark:text-white dark:placeholder:text-gray-400 placeholder:text-lg focus:outline-none text-sm"
               />
 
-              <div className="flex items-center justify-center p-2 rounded-full bg-purple-shade-60 cursor-pointer">
+              <div className="absolute top-1/2 right-2 transform -translate-y-1/2 p-2 rounded-full bg-purple-shade-60 cursor-pointer">
                 <SendSmallIcon />
               </div>
             </div>
@@ -91,14 +91,14 @@ const MeetTeam = () => {
               </div>
             </div>
             {/* input container */}
-            <div className="flex items-center gap-3 w-[85%] max-w-sm px-4 py-3 bg-[#E4E4E7] border border-grey-shade-15 dark:bg-grey-shade-8 max-mobile-md:w-full mt-5 rounded-full">
+            <div className="relative w-[85%] max-w-sm px-4 py-3 bg-[#E4E4E7] border border-grey-shade-15 dark:bg-grey-shade-8 max-mobile-md:w-full mt-5 rounded-full">
               <input
                 type="text"
                 placeholder="Say Hello 👋"
-                className="flex-1 bg-transparent dark:text-white dark:placeholder:text-gray-400 placeholder:text-lg focus:outline-none text-sm"
+                className="w-full pr-10 bg-transparent dark:text-white dark:placeholder:text-gray-400 placeholder:text-lg focus:outline-none text-sm"
               />
 
-              <div className="flex items-center justify-center p-2 rounded-full bg-purple-shade-60 cursor-pointer">
+              <div className="absolute top-1/2 right-2 transform -translate-y-1/2 p-2 rounded-full bg-purple-shade-60 cursor-pointer">
                 <SendSmallIcon />
               </div>
             </div>
@@ -128,14 +128,14 @@ const MeetTeam = () => {
               </div>
             </div>
             {/* input container */}
-            <div className="flex items-center gap-3 w-[85%] max-w-sm px-4 py-3 bg-[#E4E4E7] border border-grey-shade-15 dark:bg-grey-shade-8 max-mobile-md:w-full mt-5 rounded-full">
+            <div className="relative w-[85%] max-w-sm px-4 py-3 bg-[#E4E4E7] border border-grey-shade-15 dark:bg-grey-shade-8 max-mobile-md:w-full mt-5 rounded-full">
               <input
                 type="text"
                 placeholder="Say Hello 👋"
-                className="flex-1 bg-transparent dark:text-white dark:placeholder:text-gray-400 placeholder:text-lg focus:outline-none text-sm"
+                className="w-full pr-10 bg-transparent dark:text-white dark:placeholder:text-gray-400 placeholder:text-lg focus:outline-none text-sm"
               />
 
-              <div className="flex items-center justify-center p-2 rounded-full bg-purple-shade-60 cursor-pointer">
+              <div className="absolute top-1/2 right-2 transform -translate-y-1/2 p-2 rounded-full bg-purple-shade-60 cursor-pointer">
                 <SendSmallIcon />
               </div>
             </div>
@@ -165,14 +165,14 @@ const MeetTeam = () => {
               </div>
             </div>
             {/* input container */}
-            <div className="flex items-center gap-3 w-[85%] max-w-sm px-4 py-3 bg-[#E4E4E7] border border-grey-shade-15 dark:bg-grey-shade-8 max-mobile-md:w-full mt-5 rounded-full">
+            <div className="relative w-[85%] max-w-sm px-4 py-3 bg-[#E4E4E7] border border-grey-shade-15 dark:bg-grey-shade-8 max-mobile-md:w-full mt-5 rounded-full">
               <input
                 type="text"
                 placeholder="Say Hello 👋"
-                className="flex-1 bg-transparent dark:text-white dark:placeholder:text-gray-400 placeholder:text-lg focus:outline-none text-sm"
+                className="w-full pr-10 bg-transparent dark:text-white dark:placeholder:text-gray-400 placeholder:text-lg focus:outline-none text-sm"
               />
 
-              <div className="flex items-center justify-center p-2 rounded-full bg-purple-shade-60 cursor-pointer">
+              <div className="absolute top-1/2 right-2 transform -translate-y-1/2 p-2 rounded-full bg-purple-shade-60 cursor-pointer">
                 <SendSmallIcon />
               </div>
             </div>
