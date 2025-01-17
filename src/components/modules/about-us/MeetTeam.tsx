@@ -1,4 +1,9 @@
-import { MessagePlusLogo, SendIcon, ThreeStars } from "@/svgs/HomePageSvg";
+import {
+  MessagePlusLogo,
+  SendIcon,
+  SendSmallIcon,
+  ThreeStars,
+} from "@/svgs/HomePageSvg";
 import { TwitterIcon } from "@/svgs/TermsAndConditionSvg";
 import Image from "next/image";
 import React from "react";
@@ -40,7 +45,7 @@ const MeetTeam = () => {
               <div className="border-none bg-purple-shade-60 py-3 px-5 rounded-full cursor-pointer">
                 <TwitterIcon />
               </div>
-              <div className="flex flex-col items-center justify-center gap-3">
+              <div className="flex flex-col items-center justify-center gap-2">
                 <h2 className="font-semibold text-2xl">Max Mitchell</h2>
                 <p className="text-grey-shade-60 font-medium text-lg">
                   Founder
@@ -56,7 +61,7 @@ const MeetTeam = () => {
               />
 
               <div className="flex items-center justify-center p-2 rounded-full bg-purple-shade-60 cursor-pointer">
-                <SendIcon />
+                <SendSmallIcon />
               </div>
             </div>
           </div>
