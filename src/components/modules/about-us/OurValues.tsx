@@ -29,7 +29,7 @@ const OurValues = () => {
                 {/* first row */}
                 <div className="grid mobile-xl:grid-cols-2 pb-4">
                   {/* 1 */}
-                  <div className="flex flex-col gap-5 p-8 mobile-xl:border-r-2 border-white-d1 dark:bg-grey-shade-8 dark:border-grey-shade-15">
+                  <div className="flex flex-col gap-5 p-8 mobile-xl:border-r-2 border-white-d1 dark:bg-grey-shade-8 dark:border-grey-shade-15 max-mobile-md:border-b">
                     <div className="flex flex-row items-center gap-3">
                       <div className="flex items-center justify-center max-desktop-lg:h-[60px] max-desktop-lg:w-[60px] max-desktop-lg:gap-4">
                         <StarIcon />
@@ -44,7 +44,7 @@ const OurValues = () => {
                     </p>
                   </div>
                   {/* 2 */}
-                  <div className="flex flex-col gap-5 p-8 dark:bg-grey-shade-8">
+                  <div className="flex flex-col gap-5 p-8 dark:bg-grey-shade-8 max-mobile-md:border-b">
                     <div className="flex flex-row items-center gap-3">
                       <div className="flex items-center justify-center max-desktop-lg:h-[60px] max-desktop-lg:w-[60px] max-desktop-lg:gap-4">
                         <CapIcon />
@@ -62,7 +62,7 @@ const OurValues = () => {
                 {/* second row */}
                 <div className="grid mobile-xl:grid-cols-2 pt-4">
                   {/* 3 */}
-                  <div className="flex flex-col gap-5 p-8 mobile-xl:border-r-2 border-white-d1 dark:bg-grey-shade-8 dark:border-grey-shade-15">
+                  <div className="flex flex-col gap-5 p-8 mobile-xl:border-r-2 border-white-d1 dark:bg-grey-shade-8 dark:border-grey-shade-15 max-mobile-md:border-b">
                     <div className="flex flex-row items-center gap-3">
                       <div className="flex items-center justify-center max-desktop-lg:h-[60px] max-desktop-lg:w-[60px] max-desktop-lg:gap-4">
                         <ClientIcon />
