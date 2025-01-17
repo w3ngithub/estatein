@@ -18,17 +18,17 @@ const MeetTeam = () => {
     {
       name: "Sarah Johnson",
       role: "Chief Real Estate Officer",
-      imageSrc: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/about-us-team-one.png`,
+      imageSrc: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/about-us-team-two.png`,
     },
     {
       name: "David Brown",
       role: "Head of Property Management",
-      imageSrc: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/about-us-team-one.png`,
+      imageSrc: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/about-us-team-three.png`,
     },
     {
       name: "Michael Turner",
       role: "Legal Counsel",
-      imageSrc: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/about-us-team-one.png`,
+      imageSrc: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/about-us-team-four.png`,
     },
   ];
 
