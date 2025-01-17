@@ -5,10 +5,10 @@ import Image from "next/image";
 
 const OurJourney = () => {
   return (
-    <div className="container pt-10">
+    <div className="container py-10 h-[80vh]">
       <div className="grid grid-cols-2">
         {/* first section */}
-        <div className="flex flex-col gap-10">
+        <div className="flex flex-col gap-20">
           <div className="flex flex-col gap-2">
             <div>
               <ThreeStars />
@@ -38,7 +38,7 @@ const OurJourney = () => {
             width={1920} // Large width to ensure high-quality scaling
             height={814} // Proportional height
             className="object-cover max-mobile-md:rounded-lg"
-            alt="Hero icon"
+            alt="Journey image"
             priority
           />
         </div>
