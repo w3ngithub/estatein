@@ -23,7 +23,7 @@ const MeetTeam = () => {
         </div>
         {/* card */}
         <div className="grid grid-cols-4">
-          <div className="flex flex-col p-5 border border-grey-shade-15 rounded-lg">
+          <div className="flex flex-col items-center justify-center p-5 border border-grey-shade-15 rounded-lg">
             <div>
               <Image
                 src={`${
@@ -36,8 +36,8 @@ const MeetTeam = () => {
                 priority
               />
             </div>
-            <div className="flex flex-col justify-center items-center">
-              <div className="border border-red-500 py-3 px-5 rounded-full">
+            <div className="flex flex-col gap-5 justify-center items-center mt-[-25px]">
+              <div className="border-none bg-purple-shade-60 py-3 px-5 rounded-full cursor-pointer">
                 <TwitterIcon />
               </div>
               <div className="flex flex-col items-center justify-center gap-3">
@@ -48,7 +48,7 @@ const MeetTeam = () => {
               </div>
             </div>
             {/* input container */}
-            <div className="flex items-center gap-3 w-[85%] max-w-sm px-4 py-3 bg-[#E4E4E7] border border-grey-shade-15 dark:bg-grey-shade-8 rounded-lg max-mobile-md:w-full">
+            <div className="flex items-center gap-3 w-[85%] max-w-sm px-4 py-3 bg-[#E4E4E7] border border-grey-shade-15 dark:bg-grey-shade-8 rounded-lg max-mobile-md:w-full mt-5">
               <div>
                 <MessagePlusLogo />
               </div>
