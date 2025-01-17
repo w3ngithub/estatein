@@ -48,18 +48,14 @@ const MeetTeam = () => {
               </div>
             </div>
             {/* input container */}
-            <div className="flex items-center gap-3 w-[85%] max-w-sm px-4 py-3 bg-[#E4E4E7] border border-grey-shade-15 dark:bg-grey-shade-8 rounded-lg max-mobile-md:w-full mt-5">
-              <div>
-                <MessagePlusLogo />
-              </div>
-
+            <div className="flex items-center gap-3 w-[85%] max-w-sm px-4 py-3 bg-[#E4E4E7] border border-grey-shade-15 dark:bg-grey-shade-8 max-mobile-md:w-full mt-5 rounded-full">
               <input
-                type="email"
-                placeholder="Enter Your Email"
+                type="text"
+                placeholder="Enter Message"
                 className="flex-1 bg-transparent dark:text-white dark:placeholder:text-gray-400 focus:outline-none text-sm"
               />
 
-              <div className="p-2 rounded-full">
+              <div className="flex items-center justify-center p-2 rounded-full bg-purple-shade-60 cursor-pointer">
                 <SendIcon />
               </div>
             </div>
