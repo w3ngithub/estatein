@@ -54,7 +54,7 @@ const MeetTeam = () => {
           {teamMembers.map((member, index) => (
             <div
               key={index}
-              className="flex flex-col items-center justify-center p-5 border border-grey-shade-15 rounded-lg"
+              className="flex flex-col items-center justify-center p-5 border dark:border-grey-shade-15 rounded-lg"
             >
               <div>
                 <Image
@@ -85,7 +85,7 @@ const MeetTeam = () => {
                   className="w-full pr-10 bg-transparent dark:text-white dark:placeholder:text-gray-400 placeholder:text-lg max-desktop-lg:placeholder:text-base max-mobile-md:placeholder:text-sm focus:outline-none text-sm"
                 />
 
-                <div className="absolute top-1/2 right-2 transform -translate-y-1/2 p-2 rounded-full bg-purple-shade-60 cursor-pointer">
+                <div className="absolute top-1/2 right-2 transform -translate-y-1/2 p-2 rounded-full dark:bg-purple-shade-60 cursor-pointer">
                   <SendSmallIcon />
                 </div>
               </div>

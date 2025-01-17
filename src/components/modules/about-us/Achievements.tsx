@@ -43,8 +43,11 @@ const Achievements = () => {
         {/* card */}
         <div className="grid mobile-xl:grid-cols-3 mobile-xl:space-x-4 max-mobile-xl:gap-5">
           {cardItems.map((item) => (
-            <div key={item.id} className="p-2 bg-grey-shade-d61 rounded-lg">
-              <div className="bg-grey-shade-8 rounded-lg h-full">
+            <div
+              key={item.id}
+              className="p-2 border border-white-d1 dark:bg-grey-shade-d61 rounded-lg"
+            >
+              <div className="dark:bg-grey-shade-8 rounded-lg h-full">
                 <div className="flex flex-col gap-5 p-8">
                   <h2 className="font-semibold text-3xl dark:text-white max-desktop-lg:text-xl max-tablet-sm:text-lg">
                     {item.title}
