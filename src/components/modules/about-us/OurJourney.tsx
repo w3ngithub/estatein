@@ -8,7 +8,7 @@ const OurJourney = () => {
     <div className="container py-10 h-[80vh]">
       <div className="grid grid-cols-2">
         {/* first section */}
-        <div className="flex flex-col gap-20">
+        <div className="flex flex-col justify-center gap-20">
           <div className="flex flex-col gap-2">
             <div>
               <ThreeStars />
