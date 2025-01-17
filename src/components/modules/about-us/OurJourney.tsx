@@ -5,10 +5,10 @@ import Image from "next/image";
 
 const OurJourney = () => {
   return (
-    <div className="container py-10 h-[80vh]">
-      <div className="grid grid-cols-2">
+    <div className="container py-10 min-h-[80vh]">
+      <div className="grid desktop-md:grid-cols-2">
         {/* first section */}
-        <div className="flex flex-col justify-center gap-20">
+        <div className="flex flex-col justify-center gap-20 max-mobile-xl:gap-10">
           <div className="flex flex-col gap-2">
             <div>
               <ThreeStars />
