@@ -45,7 +45,7 @@ const Achievements = () => {
           {cardItems.map((item) => (
             <div
               key={item.id}
-              className="p-2 border border-white-d1 dark:bg-grey-shade-d61 rounded-lg"
+              className="p-2 dark:bg-grey-shade-d61 rounded-lg"
             >
               <div className="dark:bg-grey-shade-8 rounded-lg h-full">
                 <div className="flex flex-col gap-5 p-8">

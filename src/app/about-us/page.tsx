@@ -1,6 +1,7 @@
 import Achievements from "@/components/modules/about-us/Achievements";
 import MeetTeam from "@/components/modules/about-us/MeetTeam";
 import NavigateExperience from "@/components/modules/about-us/NavigateExperience";
+import OurClients from "@/components/modules/about-us/OurClients";
 import OurJourney from "@/components/modules/about-us/OurJourney";
 import OurValues from "@/components/modules/about-us/OurValues";
 import React from "react";
@@ -13,6 +14,7 @@ const page = () => {
       <Achievements />
       <NavigateExperience />
       <MeetTeam />
+      <OurClients />
     </div>
   );
 };

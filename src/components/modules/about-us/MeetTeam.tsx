@@ -1,9 +1,4 @@
-import {
-  MessagePlusLogo,
-  SendIcon,
-  SendSmallIcon,
-  ThreeStars,
-} from "@/svgs/HomePageSvg";
+import { SendSmallIcon, ThreeStars } from "@/svgs/HomePageSvg";
 import { TwitterIcon } from "@/svgs/TermsAndConditionSvg";
 import Image from "next/image";
 import React from "react";
