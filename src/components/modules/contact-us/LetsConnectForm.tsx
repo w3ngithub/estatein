@@ -75,7 +75,7 @@ const LetsConnectForm = () => {
         className="space-y-7 border border-white-d1 dark:border-grey-shade-15 p-10 rounded-md max-mobile-md:p-5"
       >
         {/* first and second row */}
-        <div className="grid grid-cols-3 gap-5">
+        <div className="grid tablet-md:grid-cols-3 gap-5">
           <div className="flex flex-col gap-3">
             <Label
               htmlFor="firstName"
