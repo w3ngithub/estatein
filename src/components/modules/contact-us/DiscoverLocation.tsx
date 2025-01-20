@@ -26,19 +26,27 @@ const DiscoverLocation = () => {
         </div>
       </div>
       {/* second section */}
-      <div className="bg-grey-shade-d61 w-fit p-2 rounded-lg">
-        <div className="flex flex-row gap-2">
-          <Button className="py-6 px-10 border-2 border-grey-shade-15 bg-grey-shade-10 rounded-md text-lg max-desktop-2xl:text-sm hover:bg-grey-shade-15 dark:text-white">
+      <Tabs defaultValue="all" className="w-full">
+        <TabsList className="bg-grey-shade-d61 grid grid-cols-3 w-fit h-full">
+          <TabsTrigger value="all" className="bg-grey-shade-d61 text-lg">
             All
-          </Button>
-          <Button className="py-6 px-8 border-2 border-grey-shade-15 bg-grey-shade-10 rounded-md text-lg max-desktop-2xl:text-sm hover:bg-grey-shade-15 dark:text-white">
+          </TabsTrigger>
+          <TabsTrigger value="regional" className="bg-grey-shade-d61 text-lg">
             Regional
-          </Button>
-          <Button className="py-6 px-8 border-2 border-grey-shade-15 bg-grey-shade-10 rounded-md text-lg max-desktop-2xl:text-sm hover:bg-grey-shade-15 dark:text-white">
+          </TabsTrigger>
+          <TabsTrigger
+            value="international"
+            className="bg-grey-shade-d61 text-lg"
+          >
             International
-          </Button>
-        </div>
-      </div>
+          </TabsTrigger>
+        </TabsList>
+        <TabsContent value="all">
+          Make changes to your account here.
+        </TabsContent>
+        <TabsContent value="regional">Change your password here.</TabsContent>
+        <TabsContent value="international">international here.</TabsContent>
+      </Tabs>
     </section>
   );
 };
