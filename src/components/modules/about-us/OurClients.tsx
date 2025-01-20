@@ -54,9 +54,9 @@ const OurClients = () => {
           <CarouselContent>
             {carouselDataOurValuedClients.map((item) => (
               <CarouselItem className="mobile-xl:basis-1/2">
-                <div className="p-2 dark:bg-grey-shade-d61 rounded-lg">
-                  <div className="dark:bg-grey-shade-8 rounded-lg">
-                    <div className="h-full flex-grow">
+                <div className="h-full flex-grow p-2 dark:bg-grey-shade-d61 rounded-lg">
+                  <div className="dark:bg-grey-shade-8 rounded-lg h-full">
+                    <div className="">
                       <div className="flex flex-col gap-10 p-5">
                         <div className="flex flex-row justify-between items-center gap-2">
                           <div className="flex flex-col gap-2">
