@@ -40,7 +40,7 @@ const GetInTouchCard = ({ data }: GetInTouchCardProps) => {
 
               {/* Social Media Section (if present) */}
               {card.socialMedia && (
-                <div className="flex flex-row gap-3">
+                <div className="flex flex-row gap-3 max-desktop-md:flex-wrap max-desktop-md:justify-center">
                   {card.socialMedia.map((social, idx) => (
                     <p
                       key={idx}
