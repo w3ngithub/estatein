@@ -1,12 +1,20 @@
 import { GoToArrowLogo } from "@/svgs/HomePageSvg";
-import { heroCard } from "@/utilityComponents/homePage/heroCard";
 import Link from "next/link";
 
-const HeroCard = () => {
+interface HeroCardData {
+  icon: React.ReactNode;
+  title: string;
+}
+
+interface HeroCardProps {
+  data: HeroCardData[];
+}
+
+const HeroCard = ({ data }: HeroCardProps) => {
   return (
     <section className="p-4">
       <div className="grid grid-cols-2 gap-4 tablet-sm:grid-cols-4">
-        {heroCard.map((card, index) => (
+        {data.map((card, index) => (
           <div
             key={index}
             className="border-2 border-white-d1 dark:border-grey-shade-15 dark:bg-grey-shade-10 rounded-md flex flex-col"
