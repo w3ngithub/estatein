@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Button } from "../../ui/button";
 
 const ExploreProperty = () => {
@@ -20,9 +21,11 @@ const ExploreProperty = () => {
               </p>
             </div>
             <div className="max-mobile-lg:w-full">
-              <Button className="bg-purple-shade-60 hover:bg-purple-shade-d60 py-6 px-4 font-medium rounded-md max-desktop-lg:text-sm max-mobile-lg:w-full dark:text-white">
-                Explore Properties
-              </Button>
+              <Link href="/property">
+                <Button className="bg-purple-shade-60 hover:bg-purple-shade-d60 py-6 px-4 font-medium rounded-md max-desktop-lg:text-sm max-mobile-lg:w-full dark:text-white">
+                  Explore Properties
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
