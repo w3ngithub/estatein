@@ -19,7 +19,7 @@ const OurJourney = () => {
             <p className="max-w-[900px] font-medium dark:text-grey-shade-60 text-lg leading-tight max-desktop-lg:text-base max-tablet-sm:text-sm mt-3">
               Our story is one of continuous growth and evolution. We started as
               a small team with big dreams, determined to create a real estate
-              platform that transcended the ordinary. Over the years, we've
+              platform that transcended the ordinary. Over the years, we&apos;ve
               expanded our reach, forged valuable partnerships, and gained the
               trust of countless clients.
             </p>

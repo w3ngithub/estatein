@@ -45,7 +45,7 @@ const OurClients = () => {
             <p className="max-w-[900px] font-medium dark:text-grey-shade-60 text-lg leading-6 max-desktop-lg:text-base max-tablet-sm:text-sm">
               At Estatein, we have had the privilege of working with a diverse
               range of clients across various industries. Here are some of the
-              clients we've had the pleasure of serving
+              clients we&apos;ve had the pleasure of serving
             </p>
           </div>
         </div>

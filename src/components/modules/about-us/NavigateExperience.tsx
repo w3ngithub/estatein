@@ -53,8 +53,8 @@ const NavigateExperience = () => {
             Navigating the Estatein Experience
           </h1>
           <p className="max-w-[900px] font-medium dark:text-grey-shade-60 text-lg leading-6 max-desktop-lg:text-base max-tablet-sm:text-sm">
-            At Estatein, we've designed a straightforward process to help you
-            find and purchase your dream property with ease. Here's a
+            At Estatein, we&apos;ve designed a straightforward process to help
+            you find and purchase your dream property with ease. Here&apos;s a
             step-by-step guide to how it all works.
           </p>
         </div>
