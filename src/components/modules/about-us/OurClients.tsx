@@ -40,12 +40,12 @@ const OurClients = () => {
               <ThreeStars />
             </div>
             <h1 className="dark:text-white text-5xl font-semibold max-desktop-lg:text-4xl max-tablet-sm:text-[28px]">
-              Frequently Asked Questions
+              Our Valued Clients
             </h1>
             <p className="max-w-[900px] font-medium dark:text-grey-shade-60 text-lg leading-6 max-desktop-lg:text-base max-tablet-sm:text-sm">
-              Find answers to common questions about Estatein&apos;s services,
-              property listings, and the real estate process. We&apos;re here to
-              provide clarity and assist you every step of the way.
+              At Estatein, we have had the privilege of working with a diverse
+              range of clients across various industries. Here are some of the
+              clients we've had the pleasure of serving
             </p>
           </div>
         </div>
