@@ -13,7 +13,6 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
-import { FormSchema } from "@/schema/contact-form-schema";
 
 const LetsConnectForm = () => {
   const inquiryType = [
@@ -22,9 +21,9 @@ const LetsConnectForm = () => {
     { value: "auction", selectFieldData: "About Auction" },
   ];
   const hearAboutUs = [
-    { value: "price", selectFieldData: "About Price" },
-    { value: "location", selectFieldData: "About Location" },
-    { value: "auction", selectFieldData: "About Auction" },
+    { value: "facebook", selectFieldData: "Facebook" },
+    { value: "instagram", selectFieldData: "Instagram" },
+    { value: "newspaper", selectFieldData: "Newspaper" },
   ];
   const {
     register,
@@ -50,7 +49,8 @@ const LetsConnectForm = () => {
     console.log("Form Data:", data);
   };
   return (
-    <section className="container flex flex-col gap-10 pt-5 max-mobile-md:gap-5 max-mobile-md:pb-8">
+    <section className="container flex flex-col gap-10 py-10 max-mobile-md:gap-5 max-mobile-md:pb-8">
+      {/* first section */}
       <div className="flex flex-row justify-between items-end">
         <div className="flex flex-col gap-3">
           {/* 3 star logo */}
@@ -58,13 +58,14 @@ const LetsConnectForm = () => {
             <ThreeStars />
           </div>
           <h1 className="dark:text-white text-5xl font-semibold max-desktop-lg:text-4xl max-tablet-sm:text-[28px]">
-            Let&apos;s Make it Happen
+            Let&apos;s Connect
           </h1>
           <p className="max-w-[900px] dark:text-grey-shade-60 text-lg leading-6 max-desktop-lg:text-base max-tablet-sm:text-sm">
-            Ready to take the first step toward your dream property? Fill out
-            the form below, and our real estate wizards will work their magic to
-            find your perfect match. Don&apos;t wait; let&apos;s embark on this
-            exciting journey together.
+            We're excited to connect with you and learn more about your real
+            estate goals. Use the form below to get in touch with Estatein.
+            Whether you're a prospective client, partner, or simply curious
+            about our services, we're here to answer your questions and provide
+            the assistance you need.
           </p>
         </div>
       </div>
