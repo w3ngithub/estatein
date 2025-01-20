@@ -67,9 +67,11 @@ const Faq = () => {
                     <p className="dark:text-grey-shade-60 text-lg leading-6 max-desktop-lg:text-base max-tablet-sm:text-sm">
                       {item.description}
                     </p>
-                    <Button className="border-2 border-grey-shade-15 bg-grey-shade-8 rounded-md py-5 px-3 w-fit text-lg font-medium max-desktop-lg:text-sm max-mobile-md:w-full hover:bg-grey-shade-15 text-white">
-                      Read More
-                    </Button>
+                    <Link href={`${item.url}`}>
+                      <Button className="border-2 border-grey-shade-15 bg-grey-shade-8 rounded-md py-5 px-3 w-fit text-lg font-medium max-desktop-lg:text-sm max-mobile-md:w-full hover:bg-grey-shade-15 text-white">
+                        Read More
+                      </Button>
+                    </Link>
                   </div>
                 </div>
               </CarouselItem>
