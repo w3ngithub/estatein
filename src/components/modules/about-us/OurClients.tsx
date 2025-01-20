@@ -136,7 +136,7 @@ const OurClients = () => {
         {/* for mobile screen */}
         <div className="hidden max-mobile-md:block">
           <div className="flex flex-row justify-between mb-3 border-t-[1px] border-t-[#E4E4E7] dark:border-t-grey-shade-15 dark:bg-grey-shade-8 pt-5">
-            <div className="flex flex-row items-center justify-center gap-3">
+            <div className="flex flex-row items-center justify-between gap-3 w-full">
               <CarouselPrevious />
               <div className="text-base font-medium">
                 <span className="text-white">
