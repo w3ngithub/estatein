@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { AdditionalFees } from "@/utilityComponents/propertyDetailPage/pricingDetails";
+import Link from "next/link";
 
 import React from "react";
 
@@ -15,9 +16,11 @@ const AdditionalFeeCard = ({ additionalFeeData }: AdditionalFeeCardProps) => {
         <h2 className="text-2xl font-semibold max-desktop-lg:text-xl max-tablet-sm:text-lg">
           Additional Fees
         </h2>
-        <Button className="py-6 px-4 border-2 border-grey-shade-15 bg-grey-shade-10 rounded-md text-lg max-desktop-2xl:text-sm hover:bg-grey-shade-15 dark:text-white">
-          Learn More
-        </Button>
+        <Link href="/">
+          <Button className="py-6 px-4 border-2 border-grey-shade-15 bg-grey-shade-10 rounded-md text-lg max-desktop-2xl:text-sm hover:bg-grey-shade-15 dark:text-white">
+            Learn More
+          </Button>
+        </Link>
       </div>
       {/* 1st card: second row */}
       <div className="grid tablet-lg:grid-cols-2 border-t border-grey-shade-15 py-5">
