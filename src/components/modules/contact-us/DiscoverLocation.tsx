@@ -2,6 +2,11 @@ import { ThreeStars } from "@/svgs/HomePageSvg";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import React from "react";
 import { Button } from "@/components/ui/button";
+import {
+  DiscoverLocationIcon,
+  DiscoverMsgIcon,
+  DiscoverPhoneIcon,
+} from "@/svgs/ContactUsSvg";
 
 const DiscoverLocation = () => {
   return (
@@ -27,6 +32,7 @@ const DiscoverLocation = () => {
       </div>
       {/* second section */}
       <Tabs defaultValue="all" className="w-full">
+        {/* tabs list */}
         <TabsList className="bg-grey-shade-d61 grid grid-cols-3 w-fit h-full">
           <TabsTrigger value="all" className="bg-grey-shade-d61 text-lg">
             All
@@ -41,8 +47,56 @@ const DiscoverLocation = () => {
             International
           </TabsTrigger>
         </TabsList>
+
+        {/* tabs content */}
         <TabsContent value="all">
-          Make changes to your account here.
+          <div className="grid grid-cols-2 gap-3">
+            <div className="flex flex-col gap-3">
+              <p>Main Headquarters</p>
+              <h1 className="">123 Estatein Plaza, City Center, Metropolis</h1>
+              <p>
+                Our main headquarters serve as the heart of Estatein. Located in
+                the bustling city center, this is where our core team of experts
+                operates, driving the excellence and innovation that define us.
+              </p>
+              <div className="flex flex-row gap-2">
+                {/* 1st pill */}
+                <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-10 bg-grey-shade-15 px-3 py-2 rounded-full">
+                  <div className="flex flex-row gap-1 items-center">
+                    <div>
+                      <DiscoverMsgIcon />
+                    </div>
+                    <p className="text-white text-lg max-desktop-lg:text-sm max-tablet-sm:text-sm">
+                      info@estatein.com
+                    </p>
+                  </div>
+                </div>
+                {/* 2 */}
+                <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-10 bg-grey-shade-15 px-3 py-2 rounded-full">
+                  <div className="flex flex-row gap-1 items-center">
+                    <div>
+                      <DiscoverPhoneIcon />
+                    </div>
+                    <p className="text-white text-lg max-desktop-lg:text-sm max-tablet-sm:text-sm">
+                      info@estatein.com
+                    </p>
+                  </div>
+                </div>
+                {/* 3 */}
+                <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-10 bg-grey-shade-15 px-3 py-2 rounded-full">
+                  <div className="flex flex-row gap-1 items-center">
+                    <div>
+                      <DiscoverLocationIcon />
+                    </div>
+                    <p className="text-white text-lg max-desktop-lg:text-sm max-tablet-sm:text-sm">
+                      info@estatein.com
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <Button>Get Direction</Button>
+            </div>
+          </div>
         </TabsContent>
         <TabsContent value="regional">Change your password here.</TabsContent>
         <TabsContent value="international">international here.</TabsContent>
