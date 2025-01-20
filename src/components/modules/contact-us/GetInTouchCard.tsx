@@ -20,7 +20,6 @@ const GetInTouchCard = ({ data }: GetInTouchCardProps) => {
             key={index}
             className="border-2 border-white-d1 dark:border-grey-shade-15 dark:bg-grey-shade-10 rounded-md flex flex-col"
           >
-            {/* Top Right Arrow */}
             <div className="flex justify-end items-center pt-4 pr-4 hover:cursor-pointer">
               <Link href={card.link}>
                 <GoToArrowLogo />
