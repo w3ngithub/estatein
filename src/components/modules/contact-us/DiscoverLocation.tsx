@@ -52,9 +52,13 @@ const DiscoverLocation = () => {
         <TabsContent value="all">
           <div className="grid grid-cols-2 gap-3">
             <div className="flex flex-col gap-3">
-              <p>Main Headquarters</p>
-              <h1 className="">123 Estatein Plaza, City Center, Metropolis</h1>
-              <p>
+              <p className="font-medium text-lg max-desktop-lg:">
+                Main Headquarters
+              </p>
+              <h1 className="font-semibold text-3xl">
+                123 Estatein Plaza, City Center, Metropolis
+              </h1>
+              <p className="text-grey-shade-60 font-medium text-lg">
                 Our main headquarters serve as the heart of Estatein. Located in
                 the bustling city center, this is where our core team of experts
                 operates, driving the excellence and innovation that define us.
@@ -62,7 +66,7 @@ const DiscoverLocation = () => {
               <div className="flex flex-row gap-2">
                 {/* 1st pill */}
                 <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-10 bg-grey-shade-15 px-3 py-2 rounded-full">
-                  <div className="flex flex-row gap-1 items-center">
+                  <div className="flex flex-row justify-center gap-1 items-center">
                     <div>
                       <DiscoverMsgIcon />
                     </div>
@@ -73,7 +77,7 @@ const DiscoverLocation = () => {
                 </div>
                 {/* 2 */}
                 <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-10 bg-grey-shade-15 px-3 py-2 rounded-full">
-                  <div className="flex flex-row gap-1 items-center">
+                  <div className="flex flex-row justify-center gap-1 items-center">
                     <div>
                       <DiscoverPhoneIcon />
                     </div>
@@ -84,7 +88,7 @@ const DiscoverLocation = () => {
                 </div>
                 {/* 3 */}
                 <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-10 bg-grey-shade-15 px-3 py-2 rounded-full">
-                  <div className="flex flex-row gap-1 items-center">
+                  <div className="flex flex-row justify-center gap-1 items-center">
                     <div>
                       <DiscoverLocationIcon />
                     </div>
@@ -94,11 +98,13 @@ const DiscoverLocation = () => {
                   </div>
                 </div>
               </div>
-              <Button>Get Direction</Button>
+              <Button className="bg-purple-shade-60 rounded-md hover:bg-purple-shade-d60 dark:text-white py-6">
+                Get Direction
+              </Button>
             </div>
           </div>
         </TabsContent>
-        <TabsContent value="regional">Change your password here.</TabsContent>
+        <TabsContent value="regional">Regional content here</TabsContent>
         <TabsContent value="international">international here.</TabsContent>
       </Tabs>
     </section>
