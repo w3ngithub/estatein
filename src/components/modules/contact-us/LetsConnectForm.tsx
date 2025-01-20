@@ -1,9 +1,18 @@
+"use client";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ThreeStars } from "@/svgs/HomePageSvg";
 import React from "react";
-import { Controller } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import SelectField from "../common/SelectField";
+import { zodResolver } from "@hookform/resolvers/zod";
+import {
+  letsConnectSchema,
+  LetsConnectSchema,
+} from "@/schema/lets-connect-form-schema";
+import { Textarea } from "@/components/ui/textarea";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Button } from "@/components/ui/button";
 
 const LetsConnectForm = () => {
   const inquiryType = [
@@ -11,6 +20,30 @@ const LetsConnectForm = () => {
     { value: "location", selectFieldData: "About Location" },
     { value: "auction", selectFieldData: "About Auction" },
   ];
+  const hearAboutUs = [
+    { value: "price", selectFieldData: "About Price" },
+    { value: "location", selectFieldData: "About Location" },
+    { value: "auction", selectFieldData: "About Auction" },
+  ];
+  const {
+    register,
+    handleSubmit,
+    control,
+    formState: { errors },
+    reset,
+  } = useForm<LetsConnectSchema>({
+    resolver: zodResolver(letsConnectSchema),
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      phoneNumber: "",
+      inquiryType: "",
+      hearAboutUs: "",
+      message: "",
+      terms: true,
+    },
+  });
   return (
     <section className="container flex flex-col gap-10 pt-5 max-mobile-md:gap-5 max-mobile-md:pb-8">
       <div className="flex flex-row justify-between items-end">
@@ -36,7 +69,7 @@ const LetsConnectForm = () => {
         className="space-y-7 border border-white-d1 dark:border-grey-shade-15 p-10 rounded-md max-mobile-md:p-5"
       >
         {/* first row */}
-        <div className="grid grid-cols-3 gap-3">
+        <div className="grid grid-cols-3 gap-5">
           <div className="flex flex-col gap-3">
             <Label
               htmlFor="firstName"
@@ -123,14 +156,14 @@ const LetsConnectForm = () => {
           </div>
           <div className="flex flex-col gap-3">
             <Label
-              htmlFor="preferredLocation"
+              htmlFor="inquiryType"
               className="font-semibold text-xl max-desktop-lg:text-base"
             >
               Inquiry Type
             </Label>
             <Controller
               name="inquiryType"
-              //   control={control}
+              control={control}
               render={({ field }) => (
                 <SelectField
                   placeholder="Select Inquiry Type"
@@ -146,7 +179,81 @@ const LetsConnectForm = () => {
               </span>
             )} */}
           </div>
+          <div className="flex flex-col gap-3">
+            <Label
+              htmlFor="hearAboutUs"
+              className="font-semibold text-xl max-desktop-lg:text-base"
+            >
+              How Did You Hear About Us?
+            </Label>
+            <Controller
+              name="hearAboutUs"
+              control={control}
+              render={({ field }) => (
+                <SelectField
+                  placeholder="Select"
+                  data={hearAboutUs}
+                  value={field.value || ""}
+                  onChange={field.onChange}
+                />
+              )}
+            />
+            {errors.hearAboutUs && (
+              <span className="text-red-500">{errors.hearAboutUs.message}</span>
+            )}
+          </div>
         </div>
+        {/* message and terms */}
+        <div className="col-span-1 flex flex-col gap-3">
+          <Label
+            htmlFor="message"
+            className="font-semibold text-xl max-desktop-lg:text-base"
+          >
+            Message
+          </Label>
+          <Textarea
+            id="message"
+            {...register("message")}
+            placeholder="Enter your Message here.."
+            className="h-44 max-desktop-lg:h-28 max-mobile-xl:h-20 border border-grey-15 dark:bg-grey-shade-10"
+          />
+          {errors.message?.message && (
+            <span className="text-red-500">
+              {typeof errors.message.message === "string" &&
+                errors.message.message}
+            </span>
+          )}
+        </div>
+
+        <div className="flex flex-row justify-between items-center max-mobile-xl:flex-col max-mobile-xl:gap-5">
+          <div className="flex flex-row items-center gap-2">
+            <div className="flex items-center">
+              <Controller
+                name="terms"
+                control={control}
+                render={({ field }) => (
+                  <Checkbox
+                    id="terms"
+                    className="border border-grey-shade-15 dark:bg-grey-shade-10 data-[state=checked]:text-white"
+                    checked={field.value || false}
+                    onCheckedChange={field.onChange}
+                  />
+                )}
+              />
+            </div>
+            <p className="text-lg text-grey-shade-60 max-desktop-lg:text-base max-mobile-xl:text-sm">
+              I agree with<span className="underline px-2">Terms of Use</span>
+              and
+              <span className="underline px-2">Privacy Policy</span>
+            </p>
+          </div>
+          <div className="max-mobile-md:w-full">
+            <Button className="bg-purple-shade-60 hover:bg-purple-shade-d60 py-6 px-4 font-medium rounded-md max-desktop-lg:text-sm max-mobile-lg:w-full dark:text-white">
+              Send Your Message
+            </Button>
+          </div>
+        </div>
+        {errors.terms && <p className="text-red-500">{errors.terms.message}</p>}
       </form>
     </section>
   );
