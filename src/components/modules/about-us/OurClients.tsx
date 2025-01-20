@@ -55,62 +55,60 @@ const OurClients = () => {
             {carouselDataOurValuedClients.map((item, index) => (
               <CarouselItem key={index} className="mobile-xl:basis-1/2">
                 <div className="h-full flex-grow p-2 dark:bg-grey-shade-d61 rounded-lg">
-                  <div className="dark:bg-grey-shade-8 rounded-lg h-full">
-                    <div className="">
-                      <div className="flex flex-col gap-10 p-5">
-                        <div className="flex flex-col mobile-md:flex-row mobile-md:justify-between mobile-md:items-center gap-2">
-                          <div className="flex flex-col gap-2">
-                            <p className="text-grey-shade-60 font-medium text-lg max-desktop-lg:text-base max-tablet-sm:text-sm">
-                              Since {item.established}
+                  <div className="dark:bg-grey-shade-8 rounded-lg h-full bg-white-90">
+                    <div className="flex flex-col gap-10 p-5">
+                      <div className="flex flex-col mobile-md:flex-row mobile-md:justify-between mobile-md:items-center gap-2">
+                        <div className="flex flex-col gap-2">
+                          <p className="dark:text-grey-shade-60 font-medium text-lg max-desktop-lg:text-base max-tablet-sm:text-sm">
+                            Since {item.established}
+                          </p>
+                          <h1 className="font-semibold text-3xl max-desktop-lg:text-2xl max-tablet-sm:text-xl">
+                            {item.companyName}
+                          </h1>
+                        </div>
+                        <Link href={`${item.companyUrl}`}>
+                          <Button className="py-6 px-4 border-2 border-grey-shade-15 bg-grey-shade-10 rounded-lg text-lg max-desktop-2xl:text-sm max-mobile-md:w-full hover:bg-grey-shade-15 dark:text-white">
+                            Visit Website
+                          </Button>
+                        </Link>
+                      </div>
+                      <div className="grid grid-cols-2 gap-3">
+                        {/* first  */}
+                        <div className="flex flex-col gap-3 border-r dark:border-grey-shade-15">
+                          <div className="flex flex-row gap-2 items-center max-desktop-lg:text-sm">
+                            <div>
+                              <SudokuIcon />
+                            </div>
+                            <p className="text-grey-shade-60 font-medium text-lg max-desktop-lg:text-sm max-tablet-sm:text-xs">
+                              Domain
                             </p>
-                            <h1 className="font-semibold text-3xl max-desktop-lg:text-2xl max-tablet-sm:text-xl">
-                              {item.companyName}
-                            </h1>
                           </div>
-                          <Link href={`${item.companyUrl}`}>
-                            <Button className="py-6 px-4 border-2 border-grey-shade-15 bg-grey-shade-10 rounded-lg text-lg max-desktop-2xl:text-sm max-mobile-md:w-full hover:bg-grey-shade-15 dark:text-white">
-                              Visit Website
-                            </Button>
-                          </Link>
+                          <h1 className="font-medium text-xl max-desktop-lg:text-base max-tablet-sm:text-sm">
+                            {item.domain}
+                          </h1>
                         </div>
-                        <div className="grid grid-cols-2 gap-3">
-                          {/* first  */}
-                          <div className="flex flex-col gap-3 border-r border-grey-shade-15">
-                            <div className="flex flex-row gap-2 items-center max-desktop-lg:text-sm">
-                              <div>
-                                <SudokuIcon />
-                              </div>
-                              <p className="text-grey-shade-60 font-medium text-lg max-desktop-lg:text-sm max-tablet-sm:text-xs">
-                                Domain
-                              </p>
+                        {/* second */}
+                        <div className="flex flex-col gap-3">
+                          <div className="flex flex-row gap-2 items-center max-desktop-lg:text-sm">
+                            <div>
+                              <ClientThunderIcon />
                             </div>
-                            <h1 className="font-medium text-xl max-desktop-lg:text-base max-tablet-sm:text-sm">
-                              {item.domain}
-                            </h1>
+                            <p className="text-grey-shade-60 font-medium text-lg max-desktop-lg:text-sm max-tablet-sm:text-xs">
+                              Category
+                            </p>
                           </div>
-                          {/* second */}
-                          <div className="flex flex-col gap-3">
-                            <div className="flex flex-row gap-2 items-center max-desktop-lg:text-sm">
-                              <div>
-                                <ClientThunderIcon />
-                              </div>
-                              <p className="text-grey-shade-60 font-medium text-lg max-desktop-lg:text-sm max-tablet-sm:text-xs">
-                                Category
-                              </p>
-                            </div>
-                            <h1 className="font-medium text-xl max-desktop-lg:text-base max-tablet-sm:text-sm">
-                              {item.category}
-                            </h1>
-                          </div>
+                          <h1 className="font-medium text-xl max-desktop-lg:text-base max-tablet-sm:text-sm">
+                            {item.category}
+                          </h1>
                         </div>
-                        <div className="flex flex-col gap-3 border border-grey-shade-15 p-5 rounded-lg">
-                          <p className="text-grey-shade-60 text-lg font-medium max-desktop-lg:text-base max-tablet-sm:text-sm">
-                            What They Said 🤗
-                          </p>
-                          <p className="font-medium text-lg max-desktop-lg:text-base max-tablet-sm:text-sm">
-                            {item.description}
-                          </p>
-                        </div>
+                      </div>
+                      <div className="flex flex-col gap-3 border dark:border-grey-shade-15 p-5 rounded-lg">
+                        <p className="text-grey-shade-60 text-lg font-medium max-desktop-lg:text-base max-tablet-sm:text-sm">
+                          What They Said 🤗
+                        </p>
+                        <p className="font-medium text-lg max-desktop-lg:text-base max-tablet-sm:text-sm">
+                          {item.description}
+                        </p>
                       </div>
                     </div>
                   </div>
