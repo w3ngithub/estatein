@@ -54,60 +54,64 @@ const OurClients = () => {
           <CarouselContent>
             {carouselDataOurValuedClients.map((item) => (
               <CarouselItem className="mobile-xl:basis-1/2">
-                <div className="h-full flex-grow">
-                  <div className="flex flex-col gap-10 p-5">
-                    <div className="flex flex-row justify-between items-center gap-2">
-                      <div className="flex flex-col gap-2">
-                        <p className="text-grey-shade-60 font-medium text-lg max-desktop-lg:text-base max-tablet-sm:text-sm">
-                          Since {item.established}
-                        </p>
-                        <h1 className="font-semibold text-3xl max-desktop-lg:text-2xl max-tablet-sm:text-xl">
-                          {item.companyName}
-                        </h1>
-                      </div>
-                      <Link href={`${item.companyUrl}`}>
-                        <Button className="py-6 px-4 border-2 border-grey-shade-15 bg-grey-shade-10 rounded-lg text-lg max-desktop-2xl:text-sm max-mobile-md:w-full hover:bg-grey-shade-15 dark:text-white">
-                          Visit Website
-                        </Button>
-                      </Link>
-                    </div>
-                    <div className="grid grid-cols-2 gap-3">
-                      {/* first  */}
-                      <div className="flex flex-col gap-3 border-r border-grey-shade-15">
-                        <div className="flex flex-row gap-2 items-center max-desktop-lg:text-sm">
-                          <div>
-                            <SudokuIcon />
+                <div className="p-2 dark:bg-grey-shade-d61 rounded-lg">
+                  <div className="dark:bg-grey-shade-8 rounded-lg">
+                    <div className="h-full flex-grow">
+                      <div className="flex flex-col gap-10 p-5">
+                        <div className="flex flex-row justify-between items-center gap-2">
+                          <div className="flex flex-col gap-2">
+                            <p className="text-grey-shade-60 font-medium text-lg max-desktop-lg:text-base max-tablet-sm:text-sm">
+                              Since {item.established}
+                            </p>
+                            <h1 className="font-semibold text-3xl max-desktop-lg:text-2xl max-tablet-sm:text-xl">
+                              {item.companyName}
+                            </h1>
                           </div>
-                          <p className="text-grey-shade-60 font-medium text-lg max-desktop-lg:text-sm max-tablet-sm:text-xs">
-                            Domain
+                          <Link href={`${item.companyUrl}`}>
+                            <Button className="py-6 px-4 border-2 border-grey-shade-15 bg-grey-shade-10 rounded-lg text-lg max-desktop-2xl:text-sm max-mobile-md:w-full hover:bg-grey-shade-15 dark:text-white">
+                              Visit Website
+                            </Button>
+                          </Link>
+                        </div>
+                        <div className="grid grid-cols-2 gap-3">
+                          {/* first  */}
+                          <div className="flex flex-col gap-3 border-r border-grey-shade-15">
+                            <div className="flex flex-row gap-2 items-center max-desktop-lg:text-sm">
+                              <div>
+                                <SudokuIcon />
+                              </div>
+                              <p className="text-grey-shade-60 font-medium text-lg max-desktop-lg:text-sm max-tablet-sm:text-xs">
+                                Domain
+                              </p>
+                            </div>
+                            <h1 className="font-medium text-xl max-desktop-lg:text-base max-tablet-sm:text-sm">
+                              {item.domain}
+                            </h1>
+                          </div>
+                          {/* second */}
+                          <div className="flex flex-col gap-3">
+                            <div className="flex flex-row gap-2 items-center max-desktop-lg:text-sm">
+                              <div>
+                                <ClientThunderIcon />
+                              </div>
+                              <p className="text-grey-shade-60 font-medium text-lg max-desktop-lg:text-sm max-tablet-sm:text-xs">
+                                Category
+                              </p>
+                            </div>
+                            <h1 className="font-medium text-xl max-desktop-lg:text-base max-tablet-sm:text-sm">
+                              {item.category}
+                            </h1>
+                          </div>
+                        </div>
+                        <div className="flex flex-col gap-3 border border-grey-shade-15 p-5 rounded-lg">
+                          <p className="text-grey-shade-60 text-lg font-medium max-desktop-lg:text-base max-tablet-sm:text-sm">
+                            What They Said 🤗
+                          </p>
+                          <p className="font-medium text-lg max-desktop-lg:text-base max-tablet-sm:text-sm">
+                            {item.description}
                           </p>
                         </div>
-                        <h1 className="font-medium text-xl max-desktop-lg:text-base max-tablet-sm:text-sm">
-                          {item.domain}
-                        </h1>
                       </div>
-                      {/* second */}
-                      <div className="flex flex-col gap-3">
-                        <div className="flex flex-row gap-2 items-center max-desktop-lg:text-sm">
-                          <div>
-                            <ClientThunderIcon />
-                          </div>
-                          <p className="text-grey-shade-60 font-medium text-lg max-desktop-lg:text-sm max-tablet-sm:text-xs">
-                            Category
-                          </p>
-                        </div>
-                        <h1 className="font-medium text-xl max-desktop-lg:text-base max-tablet-sm:text-sm">
-                          {item.category}
-                        </h1>
-                      </div>
-                    </div>
-                    <div className="flex flex-col gap-3 border border-grey-shade-15 p-5 rounded-lg">
-                      <p className="text-grey-shade-60 text-lg font-medium max-desktop-lg:text-base max-tablet-sm:text-sm">
-                        What They Said 🤗
-                      </p>
-                      <p className="font-medium text-lg max-desktop-lg:text-base max-tablet-sm:text-sm">
-                        {item.description}
-                      </p>
                     </div>
                   </div>
                 </div>

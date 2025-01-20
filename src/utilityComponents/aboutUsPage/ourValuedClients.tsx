@@ -15,7 +15,7 @@ export const carouselDataOurValuedClients = [
     companyName: "GreenTech Enterprises",
     companyUrl: "/",
     domain: "Commercial Real Estate",
-    category: "retail Space",
+    category: "Retail Space",
     description:
       "Estatein's ability to identify prime retail locations helped us expand our brand presence. They are a trusted partner in our growth.",
   },
