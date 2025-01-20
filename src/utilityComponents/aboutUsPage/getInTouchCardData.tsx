@@ -1,6 +1,8 @@
 export const getInTouchCardData = [
   {
-    title: "info@estatein.com",
+    text: "info@estatein.com",
+    link: "/property",
+    socialMedia: undefined,
     icon: (
       <svg
         width="83"
@@ -99,7 +101,9 @@ export const getInTouchCardData = [
     ),
   },
   {
-    title: "+1 (123) 456-7890",
+    text: "+1 (123) 456-7890",
+    link: "/property",
+    socialMedia: undefined,
     icon: (
       <svg
         width="83"
@@ -204,7 +208,9 @@ export const getInTouchCardData = [
     ),
   },
   {
-    title: "Main Headquarters",
+    text: "Main Headquarters",
+    link: "/property",
+    socialMedia: undefined,
     icon: (
       <svg
         width="83"
@@ -307,7 +313,9 @@ export const getInTouchCardData = [
     ),
   },
   {
-    title: "Instagram LinkedIn Facebook",
+    text: null,
+    socialMedia: ["Instagram", "LinkedIn", "Facebook"],
+    link: "/property",
     icon: (
       <svg
         width="83"
