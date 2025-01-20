@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import CustomersCard from "../common/CustomersCard";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -18,12 +19,17 @@ const Hero = () => {
                 Explore our listings to find the home that matches your dreams.
               </p>
               <div className="flex flex-row items-center gap-4 max-mobile-md:flex-col max-mobile-md:w-full">
-                <Button className="py-6 px-4 border-2 border-grey-shade-15 bg-grey-shade-10 rounded-md text-lg max-desktop-2xl:text-sm max-mobile-md:w-full hover:bg-grey-shade-15 dark:text-white">
-                  Learn More
-                </Button>
-                <Button className="py-3 px-4 text-lg bg-purple-shade-60 rounded-md hover:bg-purple-shade-d60 max-desktop-2xl:text-sm h-full max-mobile-md:w-full max-mobile-md:py-4 dark:text-white">
-                  Browse Properties
-                </Button>
+                <Link href="/about-us">
+                  {" "}
+                  <Button className="py-6 px-4 border-2 border-grey-shade-15 bg-grey-shade-10 rounded-md text-lg max-desktop-2xl:text-sm max-mobile-md:w-full hover:bg-grey-shade-15 dark:text-white">
+                    Learn More
+                  </Button>
+                </Link>
+                <Link href="/property">
+                  <Button className="py-3 px-4 text-lg bg-purple-shade-60 rounded-md hover:bg-purple-shade-d60 max-desktop-2xl:text-sm h-full max-mobile-md:w-full max-mobile-md:py-4 dark:text-white">
+                    Browse Properties
+                  </Button>
+                </Link>
               </div>
               <div className="max-mobile-extra-md:w-full">
                 <CustomersCard />
