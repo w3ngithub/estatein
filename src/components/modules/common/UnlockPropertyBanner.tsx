@@ -21,14 +21,7 @@ const UnlockPropertyBanner = ({
   };
 
   return (
-    <div
-      className="flex flex-col gap-5 p-8 rounded-lg border dark:border-grey-shade-15 h-full border-white-d1"
-      style={{
-        backgroundImage: `url(${process.env.NEXT_PUBLIC_BASE_PATH}/images/service-page-unlock-property-banner.png)`,
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-      }}
-    >
+    <div className="flex flex-col gap-5 p-8 rounded-lg border dark:border-grey-shade-15 h-full border-white-d1 bg-cover bg-no-repeat bg-service-banner">
       <div className="flex flex-row justify-between items-center gap-2 max-mobile-md:flex-col max-mobile-md:gap-4">
         <h1 className="font-bold text-3xl max-desktop-lg:text-xl max-tablet-sm:text-xl">
           {title}

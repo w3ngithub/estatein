@@ -183,7 +183,7 @@ const DiscoveredProperty = () => {
                           <span className="text-lg dark:text-grey-shade-60 max-desktop-lg:text-base max-tablet-sm:text-sm line-clamp-2">
                             {item.description}
                           </span>
-                          <Link href="/">
+                          <Link href={`/property/${item.id}`}>
                             <span className="underline font-medium dark:text-white text-base p-[0.5px] max-tablet-sm:text-sm">
                               Read More
                             </span>

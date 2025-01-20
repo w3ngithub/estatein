@@ -32,14 +32,7 @@ const SmartInvestment = () => {
           </div>
           <div className="pt-8">
             {/* second card */}
-            <div
-              className="flex flex-col gap-5 p-8 rounded-lg border dark:border-grey-shade-15 h-full border-white-d1"
-              style={{
-                backgroundImage: `url(${process.env.NEXT_PUBLIC_BASE_PATH}/images/service-page-unlock-property-banner.png)`,
-                backgroundSize: "cover",
-                backgroundRepeat: "no-repeat",
-              }}
-            >
+            <div className="flex flex-col gap-5 p-8 rounded-lg border dark:border-grey-shade-15 h-full border-white-d1 bg-cover bg-no-repeat bg-smart-banner">
               <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-xl">
                 Unlock Your Investment Potential
               </h1>
@@ -58,7 +51,7 @@ const SmartInvestment = () => {
           </div>
         </div>
         <div className="desktop-md:col-span-8 flex justify-center items-center">
-          <div className="flex flex-col gap-2  p-2 dark:bg-grey-shade-d61 rounded-lg">
+          <div className="flex flex-col gap-2 p-2 dark:bg-grey-shade-d61 rounded-lg">
             <div className="grid mobile-xl:grid-cols-2 gap-2">
               <UnlockPropertyCard
                 title="Market Insight"

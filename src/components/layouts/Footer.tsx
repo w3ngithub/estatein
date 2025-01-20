@@ -28,7 +28,7 @@ const Footer = () => {
                 className="flex-1 bg-transparent dark:text-white dark:placeholder:text-gray-400 focus:outline-none text-sm"
               />
 
-              <div className="p-2 rounded-full">
+              <div className="p-2 rounded-full cursor-pointer">
                 <SendIcon />
               </div>
             </div>
