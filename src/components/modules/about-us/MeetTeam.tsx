@@ -1,6 +1,7 @@
 import { SendSmallIcon, ThreeStars } from "@/svgs/HomePageSvg";
 import { TwitterIcon } from "@/svgs/TermsAndConditionSvg";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const MeetTeam = () => {
@@ -9,21 +10,25 @@ const MeetTeam = () => {
       name: "Max Mitchell",
       role: "Founder",
       imageSrc: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/about-us-team-one.png`,
+      twitterUrl: "/twitter",
     },
     {
       name: "Sarah Johnson",
       role: "Chief Real Estate Officer",
       imageSrc: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/about-us-team-two.png`,
+      twitterUrl: "/twitter",
     },
     {
       name: "David Brown",
       role: "Head of Property Management",
       imageSrc: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/about-us-team-three.png`,
+      twitterUrl: "/twitter",
     },
     {
       name: "Michael Turner",
       role: "Legal Counsel",
       imageSrc: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/about-us-team-four.png`,
+      twitterUrl: "/twitter",
     },
   ];
 
@@ -61,7 +66,9 @@ const MeetTeam = () => {
               </div>
               <div className="flex flex-col gap-5 justify-center items-center mt-[-25px]">
                 <div className="border-none bg-purple-shade-60 py-3 px-5 rounded-full cursor-pointer">
-                  <TwitterIcon />
+                  <Link href={`${member.twitterUrl}`}>
+                    <TwitterIcon />
+                  </Link>
                 </div>
                 <div className="flex flex-col items-center justify-center gap-2">
                   <h2 className="font-semibold text-2xl max-desktop-lg:text-xl max-mobile-md:text-lg">
