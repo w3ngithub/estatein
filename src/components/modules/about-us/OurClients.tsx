@@ -58,7 +58,7 @@ const OurClients = () => {
                   <div className="dark:bg-grey-shade-8 rounded-lg h-full">
                     <div className="">
                       <div className="flex flex-col gap-10 p-5">
-                        <div className="flex flex-row justify-between items-center gap-2">
+                        <div className="flex flex-col mobile-md:flex-row mobile-md:justify-between mobile-md:items-center gap-2">
                           <div className="flex flex-col gap-2">
                             <p className="text-grey-shade-60 font-medium text-lg max-desktop-lg:text-base max-tablet-sm:text-sm">
                               Since {item.established}
