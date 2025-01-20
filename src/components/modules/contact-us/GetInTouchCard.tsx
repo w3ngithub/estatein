@@ -1,7 +1,17 @@
 import { GoToArrowLogo } from "@/svgs/HomePageSvg";
 import Link from "next/link";
 
-const GetInTouchCard = ({ data }) => {
+interface GetInTouchCardData {
+  text?: string | null;
+  link: string;
+  socialMedia?: string[] | undefined;
+  icon: React.ReactNode;
+}
+interface GetInTouchCardProps {
+  data: GetInTouchCardData[];
+}
+
+const GetInTouchCard = ({ data }: GetInTouchCardProps) => {
   return (
     <section className="p-4">
       <div className="grid grid-cols-2 gap-4 tablet-sm:grid-cols-4">
