@@ -52,8 +52,8 @@ const OurClients = () => {
         {/* Carousel section */}
         <div className="flex justify-center items-center my-2 h-full">
           <CarouselContent>
-            {carouselDataOurValuedClients.map((item) => (
-              <CarouselItem className="mobile-xl:basis-1/2">
+            {carouselDataOurValuedClients.map((item, index) => (
+              <CarouselItem key={index} className="mobile-xl:basis-1/2">
                 <div className="h-full flex-grow p-2 dark:bg-grey-shade-d61 rounded-lg">
                   <div className="dark:bg-grey-shade-8 rounded-lg h-full">
                     <div className="">
