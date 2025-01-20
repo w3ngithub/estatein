@@ -56,7 +56,7 @@ const OurClients = () => {
               <CarouselItem key={index} className="mobile-xl:basis-1/2">
                 <div className="h-full flex-grow p-2 dark:bg-grey-shade-d61 rounded-lg">
                   <div className="dark:bg-grey-shade-8 rounded-lg h-full bg-white-90">
-                    <div className="flex flex-col gap-10 p-5">
+                    <div className="flex flex-col gap-10 p-8 max-tablet-sm:p-5">
                       <div className="flex flex-col mobile-md:flex-row mobile-md:justify-between mobile-md:items-center gap-2">
                         <div className="flex flex-col gap-2">
                           <p className="dark:text-grey-shade-60 font-medium text-lg max-desktop-lg:text-base max-tablet-sm:text-sm">
