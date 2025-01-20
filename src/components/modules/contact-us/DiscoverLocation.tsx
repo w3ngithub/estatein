@@ -1,5 +1,7 @@
 import { ThreeStars } from "@/svgs/HomePageSvg";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import React from "react";
+import { Button } from "@/components/ui/button";
 
 const DiscoverLocation = () => {
   return (
@@ -24,6 +26,19 @@ const DiscoverLocation = () => {
         </div>
       </div>
       {/* second section */}
+      <div className="bg-grey-shade-d61 w-fit p-2 rounded-lg">
+        <div className="flex flex-row gap-2">
+          <Button className="py-6 px-10 border-2 border-grey-shade-15 bg-grey-shade-10 rounded-md text-lg max-desktop-2xl:text-sm hover:bg-grey-shade-15 dark:text-white">
+            All
+          </Button>
+          <Button className="py-6 px-8 border-2 border-grey-shade-15 bg-grey-shade-10 rounded-md text-lg max-desktop-2xl:text-sm hover:bg-grey-shade-15 dark:text-white">
+            Regional
+          </Button>
+          <Button className="py-6 px-8 border-2 border-grey-shade-15 bg-grey-shade-10 rounded-md text-lg max-desktop-2xl:text-sm hover:bg-grey-shade-15 dark:text-white">
+            International
+          </Button>
+        </div>
+      </div>
     </section>
   );
 };
