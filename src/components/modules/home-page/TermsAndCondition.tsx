@@ -20,24 +20,24 @@ const TermsAndCondition = () => {
           </p>
         </div>
         <div className="flex flex-row gap-5">
-          <Link href="/">
+          <Link href="/facebook">
             <div className="bg-grey-shade-8 rounded-full px-4 py-3">
               <FacebookIcon />
             </div>
           </Link>
-          <Link href="/">
+          <Link href="/linkedin">
             <div className="bg-grey-shade-8 rounded-full px-3 py-3">
               <LinkedInIcon />
             </div>
           </Link>
 
-          <Link href="/">
+          <Link href="/twitter">
             <div className="bg-grey-shade-8 rounded-full px-4 py-4">
               <TwitterIcon />
             </div>
           </Link>
 
-          <Link href="/">
+          <Link href="/youtube">
             <div className="bg-grey-shade-8 rounded-full px-3 py-4">
               <YoutubeIcon />
             </div>
