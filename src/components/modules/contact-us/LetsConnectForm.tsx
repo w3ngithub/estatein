@@ -45,8 +45,10 @@ const LetsConnectForm = () => {
     },
   });
 
-  const onSubmit = (data: LetsConnectSchema) => {
-    console.log("Form Data:", data);
+  //   data: LetsConnectSchema
+  const onSubmit = () => {
+    // console.log("Form Data:", data);
+    reset();
   };
   return (
     <section className="container flex flex-col gap-10 py-10 max-mobile-md:gap-5 max-mobile-md:pb-8">
