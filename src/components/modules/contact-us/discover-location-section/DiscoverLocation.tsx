@@ -36,19 +36,19 @@ const DiscoverLocation = () => {
         <TabsList className="dark:bg-grey-shade-d61 grid grid-cols-3 w-fit h-full">
           <TabsTrigger
             value="all"
-            className="dark:bg-grey-shade-d61 text-lg max-desktop-lg:text-sm"
+            className="dark:bg-grey-shade-d61 text-lg max-desktop-lg:text-sm dark:data-[state=active]:bg-grey-shade-8"
           >
             All
           </TabsTrigger>
           <TabsTrigger
             value="regional"
-            className="dark:bg-grey-shade-d61 text-lg max-desktop-lg:text-sm"
+            className="dark:bg-grey-shade-d61 text-lg max-desktop-lg:text-sm dark:data-[state=active]:bg-grey-shade-8"
           >
             Regional
           </TabsTrigger>
           <TabsTrigger
             value="international"
-            className="dark:bg-grey-shade-d61 text-lg max-desktop-lg:text-sm"
+            className="dark:bg-grey-shade-d61 text-lg max-desktop-lg:text-sm dark:data-[state=active]:bg-grey-shade-8"
           >
             International
           </TabsTrigger>
