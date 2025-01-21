@@ -32,7 +32,7 @@ const DiscoverLocation = () => {
         </div>
       </div>
       {/* second section */}
-      <Tabs defaultValue="all" className="w-full">
+      <Tabs defaultValue="all" className="w-full flex flex-col gap-10">
         {/* tabs list */}
         <TabsList className="bg-grey-shade-d61 grid grid-cols-3 w-fit h-full">
           <TabsTrigger value="all" className="bg-grey-shade-d61 text-lg">
@@ -52,7 +52,7 @@ const DiscoverLocation = () => {
         {/* tabs content */}
         <TabsContent value="all">
           <div className="grid grid-cols-2 gap-3">
-            <div className="flex flex-col gap-3 border border-grey-shade-15 rounded-lg p-8">
+            <div className="flex flex-col gap-6 border border-grey-shade-15 rounded-lg p-8">
               <p className="font-medium text-lg max-desktop-lg:text-sm">
                 Main Headquarters
               </p>
@@ -64,7 +64,7 @@ const DiscoverLocation = () => {
                 the bustling city center, this is where our core team of experts
                 operates, driving the excellence and innovation that define us.
               </p>
-              <div className="flex flex-row gap-2">
+              <div className="flex flex-row gap-2 mt-3">
                 {/* 1st pill */}
                 <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-10 bg-grey-shade-15 px-3 py-2 rounded-full">
                   <div className="flex flex-row justify-center gap-1 items-center">
@@ -100,7 +100,7 @@ const DiscoverLocation = () => {
                 </div>
               </div>
               <Link href="/">
-                <Button className="bg-purple-shade-60 rounded-md hover:bg-purple-shade-d60 dark:text-white py-6 w-full">
+                <Button className="bg-purple-shade-60 rounded-lg hover:bg-purple-shade-d60 dark:text-white py-6 w-full mt-3">
                   Get Direction
                 </Button>
               </Link>
