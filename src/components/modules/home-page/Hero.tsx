@@ -21,7 +21,7 @@ const Hero = () => {
               <div className="flex flex-row items-center gap-4 max-mobile-md:flex-col max-mobile-md:w-full">
                 <Link href="/about-us">
                   {" "}
-                  <Button className="py-6 px-4 border-2 border-grey-shade-15 bg-grey-shade-10 rounded-md text-lg max-desktop-2xl:text-sm max-mobile-md:w-full hover:bg-grey-shade-15 dark:text-white">
+                  <Button className="py-6 px-4 border-2 bg-purple-shade-60 hover:bg-purple-shade-d60 dark:border-grey-shade-15 dark:bg-grey-shade-10 rounded-md text-lg max-desktop-2xl:text-sm max-mobile-md:w-full dark:hover:bg-grey-shade-15 dark:text-white">
                     Learn More
                   </Button>
                 </Link>
