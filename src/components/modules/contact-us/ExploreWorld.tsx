@@ -4,8 +4,8 @@ import React from "react";
 
 const ExploreWorld = () => {
   return (
-    <div className="container">
-      <div className="p-8 bg-cover bg-no-repeat bg-explore-world h-full rounded-lg">
+    <div className="container py-10">
+      <div className="p-8 bg-cover bg-no-repeat bg-explore-world h-full border border-grey-shade-15 rounded-lg">
         <div className="flex flex-col gap-3">
           {/* 1st row */}
           <div className="grid grid-cols-2 gap-3">
@@ -19,7 +19,7 @@ const ExploreWorld = () => {
                 width={1920}
                 height={814}
                 alt="desk"
-                className="object-cover"
+                className="object-cover rounded-lg"
               />
             </div>
             {/* 2 */}
@@ -32,7 +32,7 @@ const ExploreWorld = () => {
                 width={1920}
                 height={814}
                 alt="team"
-                className="object-cover"
+                className="object-cover rounded-lg"
               />
             </div>
           </div>
@@ -48,7 +48,7 @@ const ExploreWorld = () => {
                 width={1920}
                 height={814}
                 alt="team"
-                className="object-cover"
+                className="object-cover rounded-lg"
               />
             </div>
             <div className="col-span-6">
@@ -63,7 +63,7 @@ const ExploreWorld = () => {
                     width={1920}
                     height={814}
                     alt="team"
-                    className="object-cover"
+                    className="object-cover rounded-lg"
                   />
                 </div>
                 {/* 5 */}
@@ -76,14 +76,14 @@ const ExploreWorld = () => {
                     width={1920}
                     height={814}
                     alt="team"
-                    className="object-cover"
+                    className="object-cover rounded-lg"
                   />
                 </div>
               </div>
             </div>
           </div>
           {/* 3rd row */}
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid tablet-lg:grid-cols-2 gap-3 max-tablet-lg:gap-10">
             <div className="pt-5">
               <div className="flex flex-col gap-3">
                 {/* 3 star logo */}
@@ -109,8 +109,8 @@ const ExploreWorld = () => {
                 }`}
                 width={1920}
                 height={814}
-                alt="desk"
-                className="object-cover"
+                alt="team"
+                className="object-cover rounded-lg"
               />
             </div>
           </div>
