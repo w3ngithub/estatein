@@ -9,11 +9,12 @@ const GetInTouch = () => {
             Get in Touch with Estatein
           </h1>
           <p className="max-w-[900px] dark:text-grey-shade-60 text-lg leading-6 max-desktop-lg:text-base max-tablet-sm:text-sm">
-            Welcome to Estatein's Contact Us page. We're here to assist you with
-            any inquiries, requests, or feedback you may have. Whether you're
-            looking to buy or sell a property, explore investment opportunities,
-            or simply want to connect, we're just a message away. Reach out to
-            us, and let's start a conversation.
+            Welcome to Estatein&apos;s Contact Us page. We&apos;re here to
+            assist you with any inquiries, requests, or feedback you may have.
+            Whether you&apos;re looking to buy or sell a property, explore
+            investment opportunities, or simply want to connect, we&apos;re just
+            a message away. Reach out to us, and let&apos;s start a
+            conversation.
           </p>
         </div>
       </div>

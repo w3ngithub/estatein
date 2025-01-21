@@ -101,6 +101,7 @@ const ExploreWorld = () => {
                 </p>
               </div>
             </div>
+            {/* 6 */}
             <div>
               <Image
                 src={`${

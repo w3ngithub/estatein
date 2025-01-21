@@ -23,10 +23,10 @@ const DiscoverLocation = () => {
           </h1>
           <p className="max-w-[900px] dark:text-grey-shade-60 text-lg leading-6 max-desktop-lg:text-base max-tablet-sm:text-sm">
             Estatein is here to serve you across multiple locations. Whether
-            you're looking to meet our team, discuss real estate opportunities,
-            or simply drop by for a chat, we have offices conveniently located
-            to serve your needs. Explore the categories below to find the
-            Estatein office nearest to you
+            you&apos;re looking to meet our team, discuss real estate
+            opportunities, or simply drop by for a chat, we have offices
+            conveniently located to serve your needs. Explore the categories
+            below to find the Estatein office nearest to you
           </p>
         </div>
       </div>

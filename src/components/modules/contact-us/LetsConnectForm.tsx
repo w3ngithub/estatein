@@ -63,11 +63,11 @@ const LetsConnectForm = () => {
             Let&apos;s Connect
           </h1>
           <p className="max-w-[900px] dark:text-grey-shade-60 text-lg leading-6 max-desktop-lg:text-base max-tablet-sm:text-sm">
-            We're excited to connect with you and learn more about your real
-            estate goals. Use the form below to get in touch with Estatein.
-            Whether you're a prospective client, partner, or simply curious
-            about our services, we're here to answer your questions and provide
-            the assistance you need.
+            We&apos;re excited to connect with you and learn more about your
+            real estate goals. Use the form below to get in touch with Estatein.
+            Whether you&apos;re a prospective client, partner, or simply curious
+            about our services, we&apos;re here to answer your questions and
+            provide the assistance you need.
           </p>
         </div>
       </div>
