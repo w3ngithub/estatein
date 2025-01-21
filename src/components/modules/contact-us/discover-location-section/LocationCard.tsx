@@ -60,7 +60,7 @@ const LocationCard = ({ data }: LocationCardProps) => {
                 );
               })}
             </div>
-            <Link href="/">
+            <Link href={item.link}>
               <Button className="bg-purple-shade-60 rounded-lg hover:bg-purple-shade-d60 dark:text-white py-6 w-full mt-3">
                 Get Direction
               </Button>
