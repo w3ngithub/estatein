@@ -26,7 +26,7 @@ const LocationCard = ({ data }: LocationCardProps) => {
         return (
           <div
             key={index}
-            className="flex flex-col gap-6 border border-grey-shade-15 rounded-lg p-8 max-mobile-lg:p-5"
+            className="flex flex-col gap-6 border dark:border-grey-shade-15 rounded-lg p-8 max-mobile-lg:p-5"
           >
             <p className="font-medium text-lg max-desktop-lg:text-sm">
               {item.title}
