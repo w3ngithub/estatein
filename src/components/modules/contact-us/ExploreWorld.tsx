@@ -5,7 +5,7 @@ import React from "react";
 const ExploreWorld = () => {
   return (
     <div className="container py-10">
-      <div className="p-8 bg-cover bg-no-repeat bg-explore-world h-full border border-grey-shade-15 rounded-lg">
+      <div className="p-8 bg-cover bg-no-repeat bg-explore-world h-full border border-grey-shade-15 rounded-lg max-mobile-lg:p-5">
         <div className="flex flex-col gap-3">
           {/* 1st row */}
           <div className="grid grid-cols-2 gap-3">
