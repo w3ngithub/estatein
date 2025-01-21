@@ -19,7 +19,7 @@ const ExploreWorld = () => {
                 width={1920}
                 height={814}
                 alt="desk"
-                className="object-cover rounded-lg"
+                className="object-cover rounded-lg max-mobile-md:h-[100px]"
               />
             </div>
             {/* 2 */}
@@ -32,7 +32,7 @@ const ExploreWorld = () => {
                 width={1920}
                 height={814}
                 alt="team"
-                className="object-cover rounded-lg"
+                className="object-cover rounded-lg max-mobile-md:h-[100px]"
               />
             </div>
           </div>
@@ -48,7 +48,7 @@ const ExploreWorld = () => {
                 width={1920}
                 height={814}
                 alt="team"
-                className="object-cover rounded-lg"
+                className="object-cover rounded-lg max-mobile-md:h-[100px]"
               />
             </div>
             <div className="col-span-6">
@@ -63,7 +63,7 @@ const ExploreWorld = () => {
                     width={1920}
                     height={814}
                     alt="team"
-                    className="object-cover rounded-lg"
+                    className="object-cover rounded-lg max-mobile-md:h-[100px]"
                   />
                 </div>
                 {/* 5 */}
@@ -76,7 +76,7 @@ const ExploreWorld = () => {
                     width={1920}
                     height={814}
                     alt="team"
-                    className="object-cover rounded-lg"
+                    className="object-cover rounded-lg max-mobile-md:h-[100px]"
                   />
                 </div>
               </div>
