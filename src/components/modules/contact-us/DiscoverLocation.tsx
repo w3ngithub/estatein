@@ -7,6 +7,7 @@ import {
   DiscoverMsgIcon,
   DiscoverPhoneIcon,
 } from "@/svgs/ContactUsSvg";
+import Link from "next/link";
 
 const DiscoverLocation = () => {
   return (
@@ -51,14 +52,14 @@ const DiscoverLocation = () => {
         {/* tabs content */}
         <TabsContent value="all">
           <div className="grid grid-cols-2 gap-3">
-            <div className="flex flex-col gap-3">
-              <p className="font-medium text-lg max-desktop-lg:">
+            <div className="flex flex-col gap-3 border border-grey-shade-15 rounded-lg p-8">
+              <p className="font-medium text-lg max-desktop-lg:text-sm">
                 Main Headquarters
               </p>
-              <h1 className="font-semibold text-3xl">
+              <h1 className="font-semibold text-3xl max-desktop-lg:text-2xl max-tablet-sm:text-xl">
                 123 Estatein Plaza, City Center, Metropolis
               </h1>
-              <p className="text-grey-shade-60 font-medium text-lg">
+              <p className="text-grey-shade-60 font-medium text-lg max-desktop-lg:text-base max-tablet-sm:text-sm">
                 Our main headquarters serve as the heart of Estatein. Located in
                 the bustling city center, this is where our core team of experts
                 operates, driving the excellence and innovation that define us.
@@ -70,7 +71,7 @@ const DiscoverLocation = () => {
                     <div>
                       <DiscoverMsgIcon />
                     </div>
-                    <p className="text-white text-lg max-desktop-lg:text-sm max-tablet-sm:text-sm">
+                    <p className="text-white text-lg max-desktop-lg:text-sm">
                       info@estatein.com
                     </p>
                   </div>
@@ -81,8 +82,8 @@ const DiscoverLocation = () => {
                     <div>
                       <DiscoverPhoneIcon />
                     </div>
-                    <p className="text-white text-lg max-desktop-lg:text-sm max-tablet-sm:text-sm">
-                      info@estatein.com
+                    <p className="text-white text-lg max-desktop-lg:text-sm">
+                      +1 (123) 456-7890
                     </p>
                   </div>
                 </div>
@@ -92,15 +93,17 @@ const DiscoverLocation = () => {
                     <div>
                       <DiscoverLocationIcon />
                     </div>
-                    <p className="text-white text-lg max-desktop-lg:text-sm max-tablet-sm:text-sm">
-                      info@estatein.com
+                    <p className="text-white text-lg max-desktop-lg:text-sm">
+                      Metropolis
                     </p>
                   </div>
                 </div>
               </div>
-              <Button className="bg-purple-shade-60 rounded-md hover:bg-purple-shade-d60 dark:text-white py-6">
-                Get Direction
-              </Button>
+              <Link href="/">
+                <Button className="bg-purple-shade-60 rounded-md hover:bg-purple-shade-d60 dark:text-white py-6 w-full">
+                  Get Direction
+                </Button>
+              </Link>
             </div>
           </div>
         </TabsContent>
