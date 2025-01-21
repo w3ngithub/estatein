@@ -34,15 +34,21 @@ const DiscoverLocation = () => {
       <Tabs defaultValue="all" className="w-full flex flex-col gap-10">
         {/* tabs list */}
         <TabsList className="bg-grey-shade-d61 grid grid-cols-3 w-fit h-full">
-          <TabsTrigger value="all" className="bg-grey-shade-d61 text-lg">
+          <TabsTrigger
+            value="all"
+            className="bg-grey-shade-d61 text-lg max-desktop-lg:text-sm"
+          >
             All
           </TabsTrigger>
-          <TabsTrigger value="regional" className="bg-grey-shade-d61 text-lg">
+          <TabsTrigger
+            value="regional"
+            className="bg-grey-shade-d61 text-lg max-desktop-lg:text-sm"
+          >
             Regional
           </TabsTrigger>
           <TabsTrigger
             value="international"
-            className="bg-grey-shade-d61 text-lg"
+            className="bg-grey-shade-d61 text-lg max-desktop-lg:text-sm"
           >
             International
           </TabsTrigger>

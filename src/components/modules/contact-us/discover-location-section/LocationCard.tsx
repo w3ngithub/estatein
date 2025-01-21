@@ -1,9 +1,4 @@
 import { Button } from "@/components/ui/button";
-import {
-  DiscoverLocationIcon,
-  DiscoverMsgIcon,
-  DiscoverPhoneIcon,
-} from "@/svgs/ContactUsSvg";
 import Link from "next/link";
 import React from "react";
 
