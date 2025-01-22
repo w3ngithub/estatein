@@ -37,7 +37,7 @@ const DiscoveredProperty = () => {
   );
 
   const onSearch = (search: string) => {
-    console.log("first", search);
+    // console.log("first", search);
     setSearchTerm(search);
   };
 
