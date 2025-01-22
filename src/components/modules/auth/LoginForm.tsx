@@ -14,7 +14,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 const LoginForm = () => {
   const [errorMsg, setErrorMsg] = useState("");
@@ -24,16 +24,16 @@ const LoginForm = () => {
     userName: z.string().min(1, {
       message: "User Name is required",
     }),
-    password: z.string().min(4, {
-      message: "Password must be at least 4 characters",
+    password: z.string().min(5, {
+      message: "Password must be at least 5 characters",
     }),
   });
 
-  const predefinedUser = {
-    userName: "dipesh",
-    password: "123456789",
-    role: "Admin",
-  };
+  const predefinedUsers = [
+    { userName: "dipesh", password: "123456789", role: "Admin" },
+    { userName: "admin", password: "admin", role: "Admin" },
+    { userName: "shyam", password: "123456789", role: "Admin" },
+  ];
 
   const form = useForm<z.infer<typeof LoginSchema>>({
     resolver: zodResolver(LoginSchema),
@@ -44,17 +44,17 @@ const LoginForm = () => {
   });
 
   const onSubmit = (values: z.infer<typeof LoginSchema>) => {
-    // console.log(values);
     const { userName, password } = values;
 
-    // Validate credentials
-    if (
-      userName === predefinedUser.userName &&
-      password === predefinedUser.password
-    ) {
-      //   alert(`Welcome, ${predefinedUser.role} ${predefinedUser.userName}!`);
-      router.push("/admin/dashboard");
-      //   console.log("Login successful:", predefinedUser);
+    // Validate credentials for predefined users
+    const user = predefinedUsers.find(
+      (user) => user.userName === userName && user.password === password
+    );
+    if (user) {
+      // Store in localStorage on successful login
+      localStorage.setItem("userName", values.userName);
+      localStorage.setItem("password", values.password);
+      router.push(`/admin/dashboard`);
     } else {
       setErrorMsg("Invalid credentials. Please try again.");
     }
