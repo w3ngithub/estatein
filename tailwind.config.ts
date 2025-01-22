@@ -113,6 +113,7 @@ export default {
         "smart-banner": `url(${process.env.NEXT_PUBLIC_BASE_PATH}/images/service-page-unlock-property-banner.png)`,
         "explore-right-img": `url(${process.env.NEXT_PUBLIC_BASE_PATH}/images/footer-banner-background-second.png)`,
         "explore-left-img": `url(${process.env.NEXT_PUBLIC_BASE_PATH}/images/footer-banner-background-first.png)`,
+        "explore-world": `url(${process.env.NEXT_PUBLIC_BASE_PATH}/images/contact-us-explore-world-banner.png)`,
       },
       borderRadius: {
         lg: "var(--radius)",

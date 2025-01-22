@@ -70,7 +70,7 @@ const FeaturedProperty = () => {
             {carouselDataFeaturedProperty.map((item, index) => (
               <CarouselItem
                 key={index}
-                className="mobile-lg:basis-1/2 tablet-lg:basis-1/3"
+                className="mobile-xl:basis-1/2 tablet-lg:basis-1/3"
               >
                 <div className="border border-white-d1 dark:border-grey-shade-15 dark:bg-grey-shade-8 rounded-md px-4 py-5">
                   <div className="flex flex-col gap-8">
@@ -82,6 +82,7 @@ const FeaturedProperty = () => {
                         width={432}
                         height={318}
                         alt="house image"
+                        className="max-mobile-xl:w-full"
                       />
                     </div>
                     <div className="flex flex-col gap-2">

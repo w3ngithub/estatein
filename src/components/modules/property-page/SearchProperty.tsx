@@ -1,8 +1,26 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import React from "react";
+import React, { useState } from "react";
+import { type KeyboardEvent } from "react";
 
-const SearchProperty = () => {
+interface SearchPropertyProps {
+  onSearch: (search: string) => void;
+}
+
+const SearchProperty = ({ onSearch }: SearchPropertyProps) => {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleSearch = () => {
+    onSearch(searchTerm);
+  };
+
+  const handleKeyPress = (event: KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter") {
+      handleSearch();
+    }
+  };
+
   return (
     <div className="bg-grey-shade-8 border border-grey-15 px-2 py-3 shadow-[#191919] rounded-t-lg max-mobile-xl:rounded-lg">
       <div className="flex w-full mx-auto gap-2">
@@ -10,8 +28,14 @@ const SearchProperty = () => {
           type="text"
           placeholder="Search For A Property"
           className="flex-1 bg-transparent border-0 text-gray-300 placeholder:text-gray-500 focus-visible:ring-0 focus-visible:ring-offset-0"
+          value={searchTerm || ""}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          onKeyDown={handleKeyPress}
         />
-        <Button className="py-3 px-4 text-lg bg-purple-shade-60 rounded-md hover:bg-purple-shade-d60 max-desktop-2xl:text-sm h-full dark:text-white">
+        <Button
+          onClick={handleSearch}
+          className="py-3 px-4 text-lg bg-purple-shade-60 rounded-md hover:bg-purple-shade-d60 max-desktop-2xl:text-sm h-full dark:text-white"
+        >
           <div className="">
             <svg
               width="20"

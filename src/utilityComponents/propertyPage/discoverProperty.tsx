@@ -2,7 +2,7 @@ export const carouselDataDiscoverProperty = [
   {
     id: 1,
     imageSrc: "/images/featured-property-first.png",
-    title: "Seaside Serenity Villa",
+    title: "Aeaside Serenity Villa",
     description:
       "A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood.A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood.A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood.A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood.",
     price: "1250.000",
@@ -15,7 +15,7 @@ export const carouselDataDiscoverProperty = [
   {
     id: 2,
     imageSrc: "/images/featured-property-first.png",
-    title: "Seaside Serenity Villa",
+    title: "Aeaside Serenity Villa",
     description:
       "A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood...",
     price: "650.000",
@@ -28,7 +28,7 @@ export const carouselDataDiscoverProperty = [
   {
     id: 3,
     imageSrc: "/images/featured-property-first.png",
-    title: "Seaside Serenity Villa",
+    title: "Zeaside Serenity Villa",
     description:
       "A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood...",
     price: "350.000",
@@ -41,7 +41,7 @@ export const carouselDataDiscoverProperty = [
   {
     id: 4,
     imageSrc: "/images/featured-property-first.png",
-    title: "Seaside Serenity Villa",
+    title: "Zeaside Serenity Villa",
     description:
       "A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood...",
     price: "650.000",
@@ -55,7 +55,7 @@ export const carouselDataDiscoverProperty = [
   {
     id: 5,
     imageSrc: "/images/featured-property-first.png",
-    title: "Seaside Serenity Villa",
+    title: "Zeaside Serenity Villa",
     description:
       "A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood...",
     price: "650.000",
@@ -69,7 +69,7 @@ export const carouselDataDiscoverProperty = [
   {
     id: 6,
     imageSrc: "/images/featured-property-first.png",
-    title: "Seaside Serenity Villa",
+    title: "Zeaside Serenity Villa",
     description:
       "A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood...",
     price: "650.000",
@@ -83,7 +83,7 @@ export const carouselDataDiscoverProperty = [
   {
     id: 7,
     imageSrc: "/images/featured-property-first.png",
-    title: "Seaside Serenity Villa",
+    title: "Zeaside Serenity Villa",
     description:
       "A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood...",
     price: "650.000",

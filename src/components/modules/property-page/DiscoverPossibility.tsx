@@ -30,6 +30,28 @@ const DiscoveredProperty = () => {
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
 
+  //for search
+  const [searchItem, setSearchTerm] = useState<string>("");
+  const [filteredProperties, setFilteredProperties] = useState(
+    carouselDataDiscoverProperty
+  );
+
+  const onSearch = (search: string) => {
+    // console.log("first", search);
+    setSearchTerm(search);
+  };
+
+  useEffect(() => {
+    if (searchItem.trim() === "") {
+      setFilteredProperties(carouselDataDiscoverProperty);
+    } else {
+      const filtered = carouselDataDiscoverProperty.filter((property) =>
+        property.title.toLowerCase().includes(searchItem.toLowerCase())
+      );
+      setFilteredProperties(filtered);
+    }
+  }, [searchItem]);
+
   const router = useRouter();
 
   useEffect(() => {
@@ -74,7 +96,7 @@ const DiscoveredProperty = () => {
         {/* search property field */}
         <div className="container flex flex-col justify-center items-center">
           <div className="w-[80%] max-mobile-md:w-full max-mobile-md:p-1 p-2 dark:bg-grey-shade-10 rounded-lg">
-            <SearchProperty />
+            <SearchProperty onSearch={onSearch} />
           </div>
         </div>
         {/* select fields */}
@@ -142,11 +164,27 @@ const DiscoveredProperty = () => {
           </div>
           {/* Carousel section */}
           <div className="flex justify-center items-center my-2">
-            <CarouselContent>
-              {carouselDataDiscoverProperty.map((item, index) => (
+            {filteredProperties.length === 0 && (
+              <div className="text-center py-10">
+                <p className="text-lg dark:text-white">
+                  No properties found matching your search criteria:{" "}
+                  {searchItem}
+                </p>
+              </div>
+            )}
+            <CarouselContent
+              className={`flex ${
+                filteredProperties.length === 1 ? "justify-center" : ""
+              }`}
+            >
+              {filteredProperties.map((item, index) => (
                 <CarouselItem
                   key={index}
-                  className="mobile-lg:basis-1/2 tablet-lg:basis-1/3"
+                  className={`${
+                    filteredProperties.length === 1
+                      ? "basis-[70%] max-mobile-lg:basis-full"
+                      : "mobile-xl:basis-1/2 tablet-lg:basis-1/3"
+                  }`}
                 >
                   <div className="border border-white-d1 dark:border-grey-shade-15 dark:bg-grey-shade-8 rounded-md px-4 py-5">
                     <div className="flex flex-col gap-8">
@@ -159,6 +197,7 @@ const DiscoveredProperty = () => {
                           width={432}
                           height={318}
                           alt="house image"
+                          className="max-mobile-xl:w-full"
                         />
                       </div>
                       <div className="flex flex-col gap-2">
