@@ -23,12 +23,17 @@ import {
 } from "@/svgs/PropertyPageSvg";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { DualRangeSlider } from "@/components/ui/dual-range-slider";
+import DoubleSlider from "../common/DoubleSlider";
 
 const DiscoveredProperty = () => {
   //for carousal
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
+
+  //for two way slider
+  const [values, setValues] = useState([10, 900]);
 
   //for search
   const [searchItem, setSearchTerm] = useState<string>("");
@@ -79,8 +84,8 @@ const DiscoveredProperty = () => {
     { value: "20", selectFieldData: "30k to 40k" },
   ];
   const propertySize = [
-    { value: "1", selectFieldData: "1 BHK" },
-    { value: "2", selectFieldData: "2 BHK" },
+    { value: "1", selectFieldData: "1 Aana" },
+    { value: "2", selectFieldData: "2 Dhur" },
   ];
   const buildYear = [
     { value: "1999", selectFieldData: "1999" },
@@ -119,9 +124,8 @@ const DiscoveredProperty = () => {
             </div>
             <div>
               {" "}
-              <SelectFieldWithIcon
+              <DoubleSlider
                 placeholder="Pricing Range"
-                data={pricingrange}
                 svgIcon={<CameraIcon />}
               />
             </div>
