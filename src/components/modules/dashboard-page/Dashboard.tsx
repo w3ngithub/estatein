@@ -1,9 +1,26 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import { Building2, Home, Settings, LogOut } from "lucide-react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { useRouter } from "next/navigation";
 
 const Dashboard = () => {
+  const [userName, setUserName] = useState("");
+  const router = useRouter();
+
+  useEffect(() => {
+    const storedUserName = localStorage.getItem("userName");
+    if (storedUserName) {
+      setUserName(storedUserName);
+    }
+  }, []);
+
+  const handleLogOut = () => {
+    localStorage.clear();
+    router.push("/");
+  };
+
   return (
     <div className="grid grid-cols-12 border border-red-500 min-h-screen">
       <div className="col-span-3 border border-green-500">
@@ -35,9 +52,15 @@ const Dashboard = () => {
 
           <div className="flex flex-row gap-2 p-4">
             <Avatar>
-              <AvatarFallback>CN</AvatarFallback>
+              <AvatarFallback>
+                {userName.charAt(0).toUpperCase()}
+              </AvatarFallback>
             </Avatar>
-            <Button variant="ghost" className="w-full justify-start gap-2">
+            <Button
+              onClick={handleLogOut}
+              variant="ghost"
+              className="w-full justify-start gap-2"
+            >
               Logout
               <LogOut className="h-4 w-4" />
             </Button>
