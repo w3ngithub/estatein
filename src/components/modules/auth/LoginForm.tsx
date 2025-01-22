@@ -39,7 +39,7 @@ const LoginForm = () => {
 
   return (
     <div className="flex flex-row justify-center items-center py-10">
-      <Card className="w-[400px] shadow-md">
+      <Card className="w-[400px] max-mobile-md:w-[350px] shadow-md">
         <CardHeader>
           <div className="flex items-center justify-center">
             <h1 className="text-3xl font-semibold">Login</h1>
