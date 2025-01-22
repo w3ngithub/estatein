@@ -9,34 +9,25 @@ import { z } from "zod";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import {
-  CalenderIcon,
-  CameraIcon,
-  CubeIcon,
-  HouseIcon,
-  LocationIcon,
-} from "@/svgs/PropertyPageSvg";
+import { CalenderIcon } from "@/svgs/PropertyPageSvg";
 import { useState } from "react";
+
+interface CustomCalendarProps {
+  value: string | null;
+  onChange: (newDate: string | null) => void;
+}
 
 const FormSchema = z.object({
   buildDate: z.string().optional(),
 });
 
-export function CustomCalendar() {
+export function CustomCalendar({ value, onChange }: CustomCalendarProps) {
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
   //   console.log(selectedDate, "fffffffff");
 
@@ -45,7 +36,7 @@ export function CustomCalendar() {
   });
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
-    console.log(data, "dddddddddd");
+    // console.log(data, "data");
   }
 
   return (
