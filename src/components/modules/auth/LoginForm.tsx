@@ -10,31 +10,54 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { useRouter } from "next/navigation";
 
 const LoginForm = () => {
+  const [errorMsg, setErrorMsg] = useState("");
+  const router = useRouter();
+
   const LoginSchema = z.object({
-    email: z.string().email({
-      message: "Email is required",
+    userName: z.string().min(1, {
+      message: "User Name is required",
     }),
     password: z.string().min(4, {
-      message: "Password is required",
+      message: "Password must be at least 4 characters",
     }),
   });
+
+  const predefinedUser = {
+    userName: "dipesh",
+    password: "123456789",
+    role: "Admin",
+  };
 
   const form = useForm<z.infer<typeof LoginSchema>>({
     resolver: zodResolver(LoginSchema),
     defaultValues: {
-      email: "",
+      userName: "",
       password: "",
     },
   });
 
   const onSubmit = (values: z.infer<typeof LoginSchema>) => {
     // console.log(values);
+    const { userName, password } = values;
+
+    // Validate credentials
+    if (
+      userName === predefinedUser.userName &&
+      password === predefinedUser.password
+    ) {
+      //   alert(`Welcome, ${predefinedUser.role} ${predefinedUser.userName}!`);
+      router.push("/admin/dashboard");
+      //   console.log("Login successful:", predefinedUser);
+    } else {
+      setErrorMsg("Invalid credentials. Please try again.");
+    }
   };
 
   return (
@@ -50,7 +73,7 @@ const LoginForm = () => {
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
               <FormField
                 control={form.control}
-                name="email"
+                name="userName"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>User Name</FormLabel>
@@ -80,6 +103,7 @@ const LoginForm = () => {
                   </FormItem>
                 )}
               />
+              <h3 className="text-red-500">{errorMsg}</h3>
               <Button
                 type="submit"
                 className="w-full border-2 bg-purple-shade-60 hover:bg-purple-shade-d60 text-white"
