@@ -24,7 +24,9 @@ import {
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { DualRangeSlider } from "@/components/ui/dual-range-slider";
+import { Calendar } from "@/components/ui/calendar";
 import DoubleSlider from "../common/DoubleSlider";
+import { CustomCalendar } from "../common/CustomCalender";
 
 const DiscoveredProperty = () => {
   //for carousal
@@ -34,6 +36,10 @@ const DiscoveredProperty = () => {
 
   //for two way slider
   const [values, setValues] = useState([10, 900]);
+
+  //for calender
+  const [date, setDate] = useState<Date | undefined>(new Date());
+  const [buildDate, setBuildDate] = useState("");
 
   //for search
   const [searchItem, setSearchTerm] = useState<string>("");
@@ -139,10 +145,22 @@ const DiscoveredProperty = () => {
             </div>
             <div>
               {" "}
-              <SelectFieldWithIcon
+              {/* <SelectFieldWithIcon
                 placeholder="Build Year"
                 data={buildYear}
                 svgIcon={<CalenderIcon />}
+              /> */}
+              {/* <Calendar
+                mode="single"
+                selected={date}
+                onSelect={setDate}
+                className="rounded-md border"
+              /> */}
+              <CustomCalendar
+                // placeholder="Build Year"
+                // svgIcon={<CalenderIcon />}
+                value={buildDate} // or whatever state you're using
+                onChange={(newDate) => setBuildDate(newDate)} // handle state updates
               />
             </div>
           </div>
