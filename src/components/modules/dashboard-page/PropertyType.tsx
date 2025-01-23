@@ -120,7 +120,7 @@ const PropertyType = () => {
 
       {/*Edit Modal: Property Type */}
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-        <DialogContent className="space-y-5">
+        <DialogContent className="space-y-5 rounded-lg">
           <DialogHeader>
             <DialogTitle>Edit Property Type</DialogTitle>
             <DialogDescription> </DialogDescription>
