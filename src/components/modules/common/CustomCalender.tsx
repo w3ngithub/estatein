@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/popover";
 import { CalenderIcon } from "@/svgs/PropertyPageSvg";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 interface CustomCalendarProps {
   value: string | null;
@@ -30,7 +31,7 @@ const FormSchema = z.object({
 export function CustomCalendar({ value, onChange }: CustomCalendarProps) {
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
-  //   console.log(selectedDate, "fffffffff");
+  const router = useRouter();
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -38,6 +39,22 @@ export function CustomCalendar({ value, onChange }: CustomCalendarProps) {
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
     // console.log(data, "data");
+  }
+
+  function handleDateSelection(date: Date | undefined) {
+    const isoDate = date ? date.toISOString() : null;
+    onChange(isoDate); // Notify parent
+    form.setValue("buildDate", isoDate || ""); // Update form value
+    setIsPopoverOpen(false); // Close popover
+
+    // Update the URL with the selected date
+    const query = new URLSearchParams(window.location.search);
+    if (isoDate) {
+      query.set("buildDate", isoDate);
+    } else {
+      query.delete("buildDate");
+    }
+    router.replace(`?${query.toString()}`);
   }
 
   return (
@@ -84,12 +101,13 @@ export function CustomCalendar({ value, onChange }: CustomCalendarProps) {
                   <Calendar
                     mode="single"
                     selected={field.value ? new Date(field.value) : undefined}
-                    onSelect={(date) => {
-                      const isoDate = date ? date.toISOString() : "";
-                      setSelectedDate(isoDate); // Update state
-                      field.onChange(isoDate); // Update form field value
-                      setIsPopoverOpen(false); // Close the popover
-                    }}
+                    // onSelect={(date) => {
+                    //   const isoDate = date ? date.toISOString() : "";
+                    //   setSelectedDate(isoDate); // Update state
+                    //   field.onChange(isoDate); // Update form field value
+                    //   setIsPopoverOpen(false); // Close the popover
+                    // }}
+                    onSelect={handleDateSelection}
                     initialFocus
                   />
                 </PopoverContent>
