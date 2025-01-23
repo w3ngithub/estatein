@@ -38,8 +38,7 @@ const DiscoveredProperty = () => {
   const [values, setValues] = useState([10, 900]);
 
   //for calender
-  const [date, setDate] = useState<Date | undefined>(new Date());
-  const [buildDate, setBuildDate] = useState("");
+  const [buildDate, setBuildDate] = useState<string | null>("");
 
   //for search
   const [searchItem, setSearchTerm] = useState<string>("");
@@ -145,22 +144,11 @@ const DiscoveredProperty = () => {
             </div>
             <div>
               {" "}
-              {/* <SelectFieldWithIcon
-                placeholder="Build Year"
-                data={buildYear}
-                svgIcon={<CalenderIcon />}
-              /> */}
-              {/* <Calendar
-                mode="single"
-                selected={date}
-                onSelect={setDate}
-                className="rounded-md border"
-              /> */}
               <CustomCalendar
                 // placeholder="Build Year"
                 // svgIcon={<CalenderIcon />}
-                value={buildDate} // or whatever state you're using
-                onChange={(newDate) => setBuildDate(newDate)} // handle state updates
+                value={buildDate}
+                onChange={(newDate) => setBuildDate(newDate)}
               />
             </div>
           </div>

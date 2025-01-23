@@ -29,6 +29,7 @@ const FormSchema = z.object({
 
 export function CustomCalendar({ value, onChange }: CustomCalendarProps) {
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
+  const [isPopoverOpen, setIsPopoverOpen] = useState(false);
   //   console.log(selectedDate, "fffffffff");
 
   const form = useForm<z.infer<typeof FormSchema>>({
@@ -47,7 +48,10 @@ export function CustomCalendar({ value, onChange }: CustomCalendarProps) {
           name="buildDate"
           render={({ field }) => (
             <FormItem className="flex flex-col">
-              <Popover>
+              <Popover
+                open={isPopoverOpen}
+                onOpenChange={(open) => setIsPopoverOpen(open)}
+              >
                 <PopoverTrigger
                   className="h-16 max-desktop-lg:h-14 border border-grey-15 dark:bg-grey-shade-8"
                   asChild
@@ -67,7 +71,7 @@ export function CustomCalendar({ value, onChange }: CustomCalendarProps) {
                           <div className="border-r border-grey-shade-15 pr-3">
                             <CalenderIcon />
                           </div>
-                          <span className="flex flex-row justify-center items-center w-full dark:first-line:text-white">
+                          <span className="flex flex-row justify-center items-center w-full dark:text-white">
                             Build Year
                           </span>
                         </div>
@@ -84,6 +88,7 @@ export function CustomCalendar({ value, onChange }: CustomCalendarProps) {
                       const isoDate = date ? date.toISOString() : "";
                       setSelectedDate(isoDate); // Update state
                       field.onChange(isoDate); // Update form field value
+                      setIsPopoverOpen(false); // Close the popover
                     }}
                     initialFocus
                   />
