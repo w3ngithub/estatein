@@ -78,20 +78,22 @@ const PropertySizeType = () => {
             <TableHeader>
               <TableRow>
                 <TableHead className="w-[100px]">ID</TableHead>
-                <TableHead>Aana</TableHead>
-                <TableHead>Dhur</TableHead>
-                <TableHead>Action</TableHead>
+                <TableHead className="w-[400px] text-center">Aana</TableHead>
+                <TableHead className="w-[400px] text-center">Dhur</TableHead>
+                <TableHead className="w-[100px] text-center">Action</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {propertyTypeData.map((propertyType) => (
                 <TableRow key={propertyType.id}>
-                  <TableCell className="font-medium">
-                    {propertyType.id}
+                  <TableCell className="w-[100px]">{propertyType.id}</TableCell>
+                  <TableCell className="w-[400px] text-center">
+                    {propertyType.aana}
                   </TableCell>
-                  <TableCell>{propertyType.aana}</TableCell>
-                  <TableCell>{propertyType.dhur}</TableCell>
-                  <TableCell>
+                  <TableCell className="w-[400px] text-center">
+                    {propertyType.dhur}
+                  </TableCell>
+                  <TableCell className="w-[100px] text-center">
                     <div className="flex items-center gap-2">
                       <Button
                         variant="ghost"

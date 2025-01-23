@@ -66,22 +66,24 @@ const PropertyType = () => {
       <div className="space-y-5">
         <h1 className="text-lg">Property Type</h1>
         <div>
-          <Table>
+          <Table className="w-[600px]">
             <TableHeader>
               <TableRow>
                 <TableHead className="w-[100px]">ID</TableHead>
-                <TableHead>Name</TableHead>
-                <TableHead>Action</TableHead>
+                <TableHead className="w-[400px] text-center">Name</TableHead>
+                <TableHead className="w-[100px] text-center">Action</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {propertyTypeData.map((propertyType) => (
                 <TableRow key={propertyType.id}>
-                  <TableCell className="font-medium">
+                  <TableCell className="w-[100px] font-medium">
                     {propertyType.id}
                   </TableCell>
-                  <TableCell>{propertyType.name}</TableCell>
-                  <TableCell>
+                  <TableCell className="w-[400px] text-center">
+                    {propertyType.name}
+                  </TableCell>
+                  <TableCell className="w-[100px] text-center">
                     <div className="flex items-center gap-2">
                       <Button
                         variant="ghost"
