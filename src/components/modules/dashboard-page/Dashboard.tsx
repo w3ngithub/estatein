@@ -57,11 +57,13 @@ const Dashboard = () => {
     <div className="grid tablet-sm:grid-cols-12 min-h-screen">
       <div className="tablet-sm:col-span-3">
         {/* sidenav */}
-        <div className="flex flex-col justify-between bg-zinc-900 border-r border-zinc-800 p-4 h-full">
+        <div className="flex flex-col justify-between dark:bg-zinc-900 border-r dark:border-zinc-800 p-4 h-full">
           <div>
             <div className="flex items-center gap-2 mb-8">
               <Building2 className="h-8 w-8 text-blue-500" />
-              <h1 className="text-xl font-bold">Estatein Admin</h1>
+              <h1 className="text-xl font-bold dark:text-white">
+                Estatein Admin
+              </h1>
             </div>
 
             <nav className="space-y-2">
@@ -88,7 +90,7 @@ const Dashboard = () => {
             <Button
               onClick={handleLogOut}
               variant="ghost"
-              className="w-full justify-start gap-2"
+              className="w-full justify-start gap-2 dark:text-white"
             >
               Logout
               <LogOut className="h-4 w-4" />
