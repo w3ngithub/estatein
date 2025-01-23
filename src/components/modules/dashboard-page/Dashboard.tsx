@@ -54,8 +54,8 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="grid grid-cols-12 border border-red-500 min-h-screen">
-      <div className="col-span-3 border border-green-500">
+    <div className="grid grid-cols-12 min-h-screen">
+      <div className="col-span-3">
         {/* sidenav */}
         <div className="flex flex-col justify-between bg-zinc-900 border-r border-zinc-800 p-4 h-full">
           <div>
