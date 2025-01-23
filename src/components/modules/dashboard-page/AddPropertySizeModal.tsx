@@ -54,7 +54,7 @@ const AddPropertySizeModal = ({
       open={isModalOpenPropertySize}
       onOpenChange={setIsModalOpenPropertySize}
     >
-      <DialogContent>
+      <DialogContent className="rounded-lg">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
             <DialogHeader>
