@@ -40,13 +40,15 @@ const propertyTypeData = [
 ];
 
 const PropertyType = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [currentProperty, setCurrentProperty] = useState({ id: "", name: "" });
+  const [propertyToDelete, setPropertyToDelete] = useState("");
 
   const handleEdit = (id: string, name: string) => {
     setCurrentProperty({ id, name });
     console.log(`Editing property type with ID: ${id}`);
-    setIsModalOpen(true);
+    setIsEditModalOpen(true);
   };
 
   const handleSave = () => {
@@ -54,11 +56,17 @@ const PropertyType = () => {
       `Saving changes for ID: ${currentProperty.id}, Name: ${currentProperty.name}`
     );
     // Add your logic to save the updated property type here
-    setIsModalOpen(false);
+    setIsEditModalOpen(false);
   };
 
   const handleDelete = (id: string) => {
-    console.log(`Deleting property type with ID: ${id}`);
+    setPropertyToDelete(id);
+    setIsDeleteModalOpen(true);
+  };
+
+  const confirmDelete = () => {
+    console.log(`Deleting property type with ID: ${propertyToDelete}`);
+    setIsDeleteModalOpen(false);
   };
 
   return (
@@ -119,7 +127,7 @@ const PropertyType = () => {
       </div>
 
       {/*Edit Modal: Property Type */}
-      <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+      <Dialog open={isEditModalOpen} onOpenChange={setIsEditModalOpen}>
         <DialogContent className="space-y-5 rounded-lg">
           <DialogHeader>
             <DialogTitle>Edit Property Type</DialogTitle>
@@ -138,7 +146,7 @@ const PropertyType = () => {
           <DialogFooter>
             <div className="flex flex-row justify-between items-center">
               <Button
-                onClick={() => setIsModalOpen(false)}
+                onClick={() => setIsEditModalOpen(false)}
                 variant="destructive"
                 className="px-6"
               >
@@ -149,6 +157,36 @@ const PropertyType = () => {
                 className="bg-purple-shade-60 hover:bg-purple-shade-d60 text-white px-7"
               >
                 Save
+              </Button>
+            </div>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
+      {/* Delete Modal */}
+      <Dialog open={isDeleteModalOpen} onOpenChange={setIsDeleteModalOpen}>
+        <DialogContent className="flex flex-col gap-10 rounded-lg">
+          <DialogHeader>
+            <DialogTitle>Confirm Deletion</DialogTitle>
+            <DialogDescription className="">
+              Are you sure you want to delete this property type?
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter>
+            <div className="flex flex-row justify-between items-center w-full">
+              <Button
+                onClick={() => setIsDeleteModalOpen(false)}
+                variant="outline"
+                className="px-6"
+              >
+                Cancel
+              </Button>
+              <Button
+                onClick={confirmDelete}
+                variant="destructive"
+                className="px-7"
+              >
+                Delete
               </Button>
             </div>
           </DialogFooter>
