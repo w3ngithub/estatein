@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import {
   Dialog,
   DialogContent,
@@ -22,10 +22,15 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 
+interface AddPropertySizeModalProps {
+  isModalOpenPropertySize: boolean;
+  setIsModalOpenPropertySize: Dispatch<SetStateAction<boolean>>;
+}
+
 const AddPropertySizeModal = ({
   isModalOpenPropertySize,
   setIsModalOpenPropertySize,
-}: any) => {
+}: AddPropertySizeModalProps) => {
   const AddPropertySizeSchema = z.object({
     aana: z
       .number({ invalid_type_error: "Aana must be a number" })

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import {
   Dialog,
   DialogContent,
@@ -6,7 +6,6 @@ import {
   DialogTitle,
   DialogFooter,
   DialogDescription,
-  DialogTrigger,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -18,14 +17,17 @@ import {
   FormControl,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+interface AddPropertyTypeModalProps {
+  isModalOpenPropertyType: boolean;
+  setIsModalOpenPropertyType: Dispatch<SetStateAction<boolean>>;
+}
 
 const AddPropertyTypeModal = ({
   isModalOpenPropertyType,
   setIsModalOpenPropertyType,
-}: any) => {
+}: AddPropertyTypeModalProps) => {
   const AddPropertyTypeSchema = z.object({
     propertyType: z.string().min(1, {
       message: "Property Type is required",

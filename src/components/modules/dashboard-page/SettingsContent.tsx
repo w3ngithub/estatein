@@ -2,15 +2,6 @@
 import { Button } from "@/components/ui/button";
 import PropertyType from "./PropertyType";
 import PropertySizeType from "./PropertySizeType";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogFooter,
-  DialogDescription,
-} from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import AddPropertySizeModal from "./AddPropertySizeModal";
 import AddPropertyTypeModal from "./AddPropertyTypeModal";
@@ -50,13 +41,13 @@ const SettingsContent = () => {
       <div>
         <PropertySizeType />
       </div>
-      {/* Add Modal: Property Type */}
+      {/* Add Property Type Modal */}
       <AddPropertyTypeModal
         isModalOpenPropertyType={isModalOpenPropertyType}
         setIsModalOpenPropertyType={setIsModalOpenPropertyType}
       />
 
-      {/* Add Modal: Property Size Type */}
+      {/* Add Property Size Type Modal */}
       <AddPropertySizeModal
         isModalOpenPropertySize={isModalOpenPropertySize}
         setIsModalOpenPropertySize={setIsModalOpenPropertySize}
