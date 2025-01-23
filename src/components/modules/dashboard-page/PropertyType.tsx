@@ -15,6 +15,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogFooter,
+  DialogDescription,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -43,6 +44,7 @@ const PropertyType = () => {
   const [currentProperty, setCurrentProperty] = useState({ id: "", name: "" });
 
   const handleEdit = (id: string, name: string) => {
+    setCurrentProperty({ id, name });
     console.log(`Editing property type with ID: ${id}`);
     setIsModalOpen(true);
   };
@@ -113,6 +115,7 @@ const PropertyType = () => {
         <DialogContent className="space-y-5">
           <DialogHeader>
             <DialogTitle>Edit Property Type</DialogTitle>
+            <DialogDescription> </DialogDescription>
           </DialogHeader>
           <div className="space-y-4">
             <Input
