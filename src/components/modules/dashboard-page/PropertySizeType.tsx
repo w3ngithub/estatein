@@ -124,7 +124,7 @@ const PropertySizeType = () => {
         </div>
       </div>
 
-      {/*Edit Modal: Property Type */}
+      {/*Edit Modal: Property Size Type */}
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
         <DialogContent className="space-y-5">
           <DialogHeader>

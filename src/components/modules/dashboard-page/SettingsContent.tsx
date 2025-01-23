@@ -1,8 +1,26 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import PropertyType from "./PropertyType";
 import PropertySizeType from "./PropertySizeType";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogFooter,
+  DialogDescription,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { useState } from "react";
+import AddPropertySizeModal from "./AddPropertySizeModal";
 
 const SettingsContent = () => {
+  const [isModalOpenPropertySize, setIsModalOpenPropertySize] = useState(false);
+
+  const handleAddPropertySize = () => {
+    setIsModalOpenPropertySize(true);
+  };
+
   return (
     <div className="p-8 space-y-7">
       <h1 className="text-2xl">Settings</h1>
@@ -10,7 +28,10 @@ const SettingsContent = () => {
         <Button className="bg-purple-shade-60 hover:bg-purple-shade-d60 text-white">
           Add Property Type
         </Button>
-        <Button className="bg-purple-shade-60 hover:bg-purple-shade-d60 text-white">
+        <Button
+          onClick={handleAddPropertySize}
+          className="bg-purple-shade-60 hover:bg-purple-shade-d60 text-white"
+        >
           Add Property Size Type
         </Button>
       </div>
@@ -20,6 +41,12 @@ const SettingsContent = () => {
       <div>
         <PropertySizeType />
       </div>
+      {/* Add Modal: Property Size Type */}
+      <AddPropertySizeModal
+        isModalOpenPropertySize={isModalOpenPropertySize}
+        setIsModalOpenPropertySize={setIsModalOpenPropertySize}
+      />
+
       <div></div>
     </div>
   );
