@@ -4,9 +4,32 @@ import { Building2, Home, Settings, LogOut } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { useRouter } from "next/navigation";
+import DashboardContent from "./DashboardContent";
+import PropertiesContent from "./PropertiesContent";
+import SettingsContent from "./SettingsContent";
+import Link from "next/link";
+
+const sidNavData = [
+  {
+    icon: <Home />,
+    label: "Dashboard",
+    content: <DashboardContent />,
+  },
+  {
+    icon: <Building2 />,
+    label: "Properties",
+    content: <PropertiesContent />,
+  },
+  {
+    icon: <Settings />,
+    label: "Settings",
+    content: <SettingsContent />,
+  },
+];
 
 const Dashboard = () => {
   const [userName, setUserName] = useState("");
+  const [activeItem, setActiveItem] = useState(sidNavData[0].label); // Set default active item
   const router = useRouter();
 
   useEffect(() => {
@@ -21,6 +44,15 @@ const Dashboard = () => {
     router.push("/");
   };
 
+  const handleNavClick = (label: string) => {
+    setActiveItem(label); // Update active item
+  };
+
+  const renderContent = () => {
+    const activeContent = sidNavData.find((item) => item.label === activeItem);
+    return activeContent?.content || null;
+  };
+
   return (
     <div className="grid grid-cols-12 border border-red-500 min-h-screen">
       <div className="col-span-3 border border-green-500">
@@ -33,15 +65,12 @@ const Dashboard = () => {
             </div>
 
             <nav className="space-y-2">
-              {[
-                { icon: <Home />, label: "Dashboard", active: true },
-                { icon: <Building2 />, label: "Properties" },
-                { icon: <Settings />, label: "Settings" },
-              ].map((item) => (
+              {sidNavData.map((item, index) => (
                 <Button
-                  key={item.label}
-                  variant={item.active ? "secondary" : "ghost"}
+                  key={index}
+                  variant={activeItem ? "secondary" : "ghost"}
                   className="w-full justify-start gap-2"
+                  onClick={() => handleNavClick(item.label)}
                 >
                   <div className="h-4 w-4">{item.icon}</div>
                   {item.label}
@@ -67,7 +96,7 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-      <div className="col-span-9"></div>
+      <div className="col-span-9">{renderContent()}</div>
     </div>
   );
 };
