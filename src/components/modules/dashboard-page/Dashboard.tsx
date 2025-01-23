@@ -71,11 +71,11 @@ const Dashboard = () => {
                 <Button
                   key={index}
                   variant={activeItem ? "secondary" : "ghost"}
-                  className="w-full justify-start gap-2 desktop-lg:gap-4"
+                  className="w-full justify-start gap-2 desktop-lg:gap-4 desktop-lg:py-8"
                   onClick={() => handleNavClick(item.label)}
                 >
                   <div className="h-4 w-4">{item.icon}</div>
-                  <h1 className=" desktop-lg:text-lg">{item.label}</h1>
+                  <h1 className="desktop-lg:text-lg">{item.label}</h1>
                 </Button>
               ))}
             </nav>
