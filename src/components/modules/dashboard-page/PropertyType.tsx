@@ -66,7 +66,7 @@ const PropertyType = () => {
       <div className="space-y-5">
         <h1 className="desktop-lg:text-xl">Property Type</h1>
         <div>
-          <Table className="w-[600px]">
+          <Table className="max-w-[600px] max-mobile-md:overflow-y-auto">
             <TableHeader>
               <TableRow>
                 <TableHead className="w-[100px] desktop-lg:text-lg">

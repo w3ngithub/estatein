@@ -74,7 +74,7 @@ const PropertySizeType = () => {
       <div className="space-y-5">
         <h1 className="desktop-lg:text-lg">Property Size Type</h1>
         <div>
-          <Table>
+          <Table className="max-w-[1000px] max-mobile-md:overflow-y-auto">
             <TableHeader>
               <TableRow>
                 <TableHead className="w-[100px] desktop-lg:text-lg">

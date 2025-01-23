@@ -54,8 +54,8 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="grid grid-cols-12 min-h-screen">
-      <div className="col-span-3">
+    <div className="grid tablet-sm:grid-cols-12 min-h-screen">
+      <div className="tablet-sm:col-span-3">
         {/* sidenav */}
         <div className="flex flex-col justify-between bg-zinc-900 border-r border-zinc-800 p-4 h-full">
           <div>
@@ -69,11 +69,11 @@ const Dashboard = () => {
                 <Button
                   key={index}
                   variant={activeItem ? "secondary" : "ghost"}
-                  className="w-full justify-start gap-2"
+                  className="w-full justify-start gap-2 desktop-lg:gap-4"
                   onClick={() => handleNavClick(item.label)}
                 >
                   <div className="h-4 w-4">{item.icon}</div>
-                  {item.label}
+                  <h1 className=" desktop-lg:text-lg">{item.label}</h1>
                 </Button>
               ))}
             </nav>
@@ -96,7 +96,7 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-      <div className="col-span-9">{renderContent()}</div>
+      <div className="tablet-sm:col-span-9">{renderContent()}</div>
     </div>
   );
 };
