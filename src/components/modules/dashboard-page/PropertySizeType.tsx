@@ -72,25 +72,35 @@ const PropertySizeType = () => {
   return (
     <>
       <div className="space-y-5">
-        <h1 className="text-lg">Property Size Type</h1>
+        <h1 className="desktop-lg:text-lg">Property Size Type</h1>
         <div>
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead className="w-[100px]">ID</TableHead>
-                <TableHead className="w-[400px] text-center">Aana</TableHead>
-                <TableHead className="w-[400px] text-center">Dhur</TableHead>
-                <TableHead className="w-[100px] text-center">Action</TableHead>
+                <TableHead className="w-[100px] desktop-lg:text-lg">
+                  ID
+                </TableHead>
+                <TableHead className="w-[400px] text-center desktop-lg:text-lg">
+                  Aana
+                </TableHead>
+                <TableHead className="w-[400px] text-center desktop-lg:text-lg">
+                  Dhur
+                </TableHead>
+                <TableHead className="w-[100px] text-center desktop-lg:text-lg">
+                  Action
+                </TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {propertyTypeData.map((propertyType) => (
                 <TableRow key={propertyType.id}>
-                  <TableCell className="w-[100px]">{propertyType.id}</TableCell>
-                  <TableCell className="w-[400px] text-center">
+                  <TableCell className="w-[100px] desktop-lg:text-lg">
+                    {propertyType.id}
+                  </TableCell>
+                  <TableCell className="w-[400px] text-center desktop-lg:text-lg">
                     {propertyType.aana}
                   </TableCell>
-                  <TableCell className="w-[400px] text-center">
+                  <TableCell className="w-[400px] text-center desktop-lg:text-lg">
                     {propertyType.dhur}
                   </TableCell>
                   <TableCell className="w-[100px] text-center">

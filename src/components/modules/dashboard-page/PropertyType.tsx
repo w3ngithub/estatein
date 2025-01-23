@@ -64,26 +64,32 @@ const PropertyType = () => {
   return (
     <>
       <div className="space-y-5">
-        <h1 className="text-lg">Property Type</h1>
+        <h1 className="desktop-lg:text-xl">Property Type</h1>
         <div>
           <Table className="w-[600px]">
             <TableHeader>
               <TableRow>
-                <TableHead className="w-[100px]">ID</TableHead>
-                <TableHead className="w-[400px] text-center">Name</TableHead>
-                <TableHead className="w-[100px] text-center">Action</TableHead>
+                <TableHead className="w-[100px] desktop-lg:text-lg">
+                  ID
+                </TableHead>
+                <TableHead className="w-[400px] text-center desktop-lg:text-lg">
+                  Name
+                </TableHead>
+                <TableHead className="w-[100px] text-center desktop-lg:text-lg">
+                  Action
+                </TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {propertyTypeData.map((propertyType) => (
                 <TableRow key={propertyType.id}>
-                  <TableCell className="w-[100px] font-medium">
+                  <TableCell className="w-[100px] desktop-lg:text-lg">
                     {propertyType.id}
                   </TableCell>
-                  <TableCell className="w-[400px] text-center">
+                  <TableCell className="w-[400px] text-center desktop-lg:text-lg">
                     {propertyType.name}
                   </TableCell>
-                  <TableCell className="w-[100px] text-center">
+                  <TableCell className="w-[100px] text-center desktop-lg:text-lg">
                     <div className="flex items-center gap-2">
                       <Button
                         variant="ghost"
