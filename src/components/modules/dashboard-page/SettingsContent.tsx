@@ -19,7 +19,7 @@ const SettingsContent = () => {
   };
 
   return (
-    <div className="p-8 space-y-7">
+    <div className="p-8 space-y-7 max-mobile-md:p-1">
       <h1 className="text-2xl">Settings</h1>
       <div className="flex flex-row items-center justify-end gap-5">
         <Button
