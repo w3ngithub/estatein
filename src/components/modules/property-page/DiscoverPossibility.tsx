@@ -24,6 +24,7 @@ import { useEffect, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import DoubleSlider from "../common/DoubleSlider";
 import { CustomCalendar } from "../common/CustomCalender";
+import { format } from "date-fns";
 
 const DiscoveredProperty = () => {
   //filtering properties
@@ -59,7 +60,7 @@ const DiscoveredProperty = () => {
   );
 
   //for calender
-  const [buildDate, setBuildDate] = useState<string | null>("");
+  // const [buildDate, setBuildDate] = useState<string | null>("");
 
   // Function to update URL with selected filters
   const updateUrlParams = (filterKey: string, value: string) => {
@@ -117,11 +118,20 @@ const DiscoveredProperty = () => {
       });
     }
 
+    // Apply build date filter
+    if (buildDateFilter) {
+      const filterYear = new Date(buildDateFilter).getFullYear();
+      result = result.filter((property) => {
+        // Assuming you have a buildYear property in your property data
+        const propertyBuildYear = property.buildYear;
+        return propertyBuildYear === filterYear;
+      });
+    }
+
     // Ensure some results are always shown if no specific filters are applied
     setFilteredProperties(
       result.length > 0 ? result : carouselDataDiscoverProperty
     );
-    console.log(filteredProperties, "aaaaaaaaaaaaaaaa");
   }, [searchItemFilter, locationFilter, propertyTypeFilter]);
 
   const router = useRouter();
@@ -228,10 +238,14 @@ const DiscoveredProperty = () => {
             <div>
               {" "}
               <CustomCalendar
-                // placeholder="Build Year"
-                // svgIcon={<CalenderIcon />}
-                value={buildDate}
-                onChange={(newDate) => setBuildDate(newDate)}
+                value={buildDateFilter}
+                onChange={(newDate) => {
+                  const formattedDate = newDate
+                    ? format(new Date(newDate), "yyyy-MM-dd")
+                    : "";
+                  setBuildDateFilter(formattedDate || "");
+                  updateUrlParams("buildDate", formattedDate || ""); // Update the URL
+                }}
               />
             </div>
           </div>

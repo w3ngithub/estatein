@@ -6,6 +6,7 @@ export const carouselDataDiscoverProperty = [
     description:
       "A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood.A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood.A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood.A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood.",
     price: "1250.000",
+    buildYear: 2025,
     details: [
       {
         pillName: "Coastal Escapes - Where Waves Beckon",

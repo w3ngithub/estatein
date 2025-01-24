@@ -29,37 +29,22 @@ const FormSchema = z.object({
 });
 
 export function CustomCalendar({ value, onChange }: CustomCalendarProps) {
-  const [selectedDate, setSelectedDate] = useState<string | null>(null);
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
-  const router = useRouter();
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
   });
-
-  function onSubmit(data: z.infer<typeof FormSchema>) {
-    // console.log(data, "data");
-  }
 
   function handleDateSelection(date: Date | undefined) {
     const isoDate = date ? date.toISOString() : null;
     onChange(isoDate); // Notify parent
     form.setValue("buildDate", isoDate || ""); // Update form value
     setIsPopoverOpen(false); // Close popover
-
-    // Update the URL with the selected date
-    const query = new URLSearchParams(window.location.search);
-    if (isoDate) {
-      query.set("buildDate", isoDate);
-    } else {
-      query.delete("buildDate");
-    }
-    router.replace(`?${query.toString()}`);
   }
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <form onSubmit={form.handleSubmit(() => {})} className="space-y-8">
         <FormField
           control={form.control}
           name="buildDate"
@@ -107,7 +92,9 @@ export function CustomCalendar({ value, onChange }: CustomCalendarProps) {
                     //   field.onChange(isoDate); // Update form field value
                     //   setIsPopoverOpen(false); // Close the popover
                     // }}
-                    onSelect={handleDateSelection}
+                    onSelect={(date) => {
+                      handleDateSelection(date);
+                    }}
                     initialFocus
                   />
                 </PopoverContent>
