@@ -24,7 +24,6 @@ import { useEffect, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import DoubleSlider from "../common/DoubleSlider";
 import { CustomCalendar } from "../common/CustomCalender";
-import { format } from "date-fns";
 
 const DiscoveredProperty = () => {
   //filtering properties
@@ -58,9 +57,6 @@ const DiscoveredProperty = () => {
   const [buildDateFilter, setBuildDateFilter] = useState(
     searchParams.get("buildDate") || ""
   );
-
-  //for calender
-  // const [buildDate, setBuildDate] = useState<string | null>("");
 
   // Function to update URL with selected filters
   const updateUrlParams = (filterKey: string, value: string) => {
@@ -122,16 +118,17 @@ const DiscoveredProperty = () => {
     if (buildDateFilter) {
       const filterYear = new Date(buildDateFilter).getFullYear();
       result = result.filter((property) => {
-        // Assuming you have a buildYear property in your property data
+        // Assuming we have a buildYear property in your property data
         const propertyBuildYear = property.buildYear;
         return propertyBuildYear === filterYear;
       });
     }
 
     // Ensure some results are always shown if no specific filters are applied
-    setFilteredProperties(
-      result.length > 0 ? result : carouselDataDiscoverProperty
-    );
+    // setFilteredProperties(
+    //   result.length > 0 ? result : carouselDataDiscoverProperty
+    // );
+    setFilteredProperties(result);
   }, [searchItemFilter, locationFilter, propertyTypeFilter, buildDateFilter]);
 
   const router = useRouter();
@@ -272,10 +269,15 @@ const DiscoveredProperty = () => {
           {/* Carousel section */}
           <div className="flex justify-center items-center my-2">
             {filteredProperties.length === 0 && (
-              <div className="text-center py-10">
-                <p className="text-lg dark:text-white">
-                  No properties found matching your search criteria:{" "}
-                  {searchItemFilter}
+              // <div className="text-center py-10">
+              //   <p className="text-lg dark:text-white">
+              //     No properties found matching your search criteria:{" "}
+              //     {searchItemFilter}
+              //   </p>
+              // </div>
+              <div className="text-center py-10 w-full">
+                <p className="text-base text-red-500">
+                  No Data Found Matching Your Requirement
                 </p>
               </div>
             )}
