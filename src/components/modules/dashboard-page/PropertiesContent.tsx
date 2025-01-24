@@ -101,10 +101,10 @@ const PropertiesContent = () => {
               name="title"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Title</FormLabel>
+                  <FormLabel>Villa Name</FormLabel>
                   <FormControl>
                     <Input
-                      placeholder="Enter Title"
+                      placeholder="Enter Villa Name"
                       {...field}
                       className="h-16 max-desktop-lg:h-14"
                     />
@@ -176,8 +176,8 @@ const PropertiesContent = () => {
                       fileRejections.length !== 0 && "text-destructive"
                     }`}
                   >
-                    <h2 className="text-xl font-semibold tracking-tight">
-                      Upload your image
+                    <h2 className="tracking-tight">
+                      Upload Cover Image
                       <span
                         className={
                           form.formState.errors.image ||
@@ -228,6 +228,76 @@ const PropertiesContent = () => {
                       </p>
                     )}
                   </FormMessage>
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="location"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Location</FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder="Enter Location"
+                      {...field}
+                      className="h-16 max-desktop-lg:h-14"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="totalBedRoom"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Total Bedroom</FormLabel>
+                  <FormControl>
+                    <Input
+                      type="number"
+                      placeholder="Enter total number of Bedroom"
+                      {...field}
+                      className="h-16 max-desktop-lg:h-14"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="totalBathRoom"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Total Bathroom</FormLabel>
+                  <FormControl>
+                    <Input
+                      type="number"
+                      placeholder="Enter total number of Bathroom"
+                      {...field}
+                      className="h-16 max-desktop-lg:h-14"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="totalBathRoom"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Total Bathroom</FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder="Enter total number of Bathroom"
+                      {...field}
+                      className="h-16 max-desktop-lg:h-14"
+                    />
+                  </FormControl>
+                  <FormMessage />
                 </FormItem>
               )}
             />
