@@ -197,6 +197,11 @@ const DiscoveredProperty = () => {
                 placeholder="Location"
                 data={preferredLocation}
                 svgIcon={<LocationIcon />}
+                value={locationFilter}
+                onChange={(value) => {
+                  setLocationFilter(value);
+                  updateUrlParams("location", value);
+                }}
               />
             </div>
             <div>
@@ -205,6 +210,11 @@ const DiscoveredProperty = () => {
                 placeholder="Property Type"
                 data={propertyType}
                 svgIcon={<HouseIcon />}
+                value={propertyTypeFilter}
+                onChange={(value) => {
+                  setPropertyTypeFilter(value);
+                  updateUrlParams("propertyType", value);
+                }}
               />
             </div>
             <div>
@@ -220,6 +230,11 @@ const DiscoveredProperty = () => {
                 placeholder="Property Size"
                 data={propertySize}
                 svgIcon={<CubeIcon />}
+                value={propertySizeFilter}
+                onChange={(value) => {
+                  setPropertySizeFilter(value);
+                  updateUrlParams("propertySize", value);
+                }}
               />
             </div>
             <div>
