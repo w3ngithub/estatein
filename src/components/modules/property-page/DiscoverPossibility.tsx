@@ -15,7 +15,6 @@ import { ThreeStars } from "@/svgs/HomePageSvg";
 import SearchProperty from "./SearchProperty";
 import SelectFieldWithIcon from "../common/SelectFieldWithIcon";
 import {
-  CalenderIcon,
   CameraIcon,
   CubeIcon,
   HouseIcon,
@@ -23,12 +22,16 @@ import {
 } from "@/svgs/PropertyPageSvg";
 import { useEffect, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { DualRangeSlider } from "@/components/ui/dual-range-slider";
-import { Calendar } from "@/components/ui/calendar";
 import DoubleSlider from "../common/DoubleSlider";
 import { CustomCalendar } from "../common/CustomCalender";
 
 const DiscoveredProperty = () => {
+  //filtering properties
+  // const [searchItem, setSearchTerm] = useState<string>("");
+  const [filteredProperties, setFilteredProperties] = useState(
+    carouselDataDiscoverProperty
+  );
+
   //for carousal
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
@@ -37,6 +40,9 @@ const DiscoveredProperty = () => {
   const searchParams = useSearchParams();
 
   // State for filters
+  const [searchItemFilter, setSearchTermFilter] = useState(
+    searchParams.get("search") || ""
+  );
   const [locationFilter, setLocationFilter] = useState(
     searchParams.get("location") || ""
   );
@@ -52,21 +58,12 @@ const DiscoveredProperty = () => {
   const [buildDateFilter, setBuildDateFilter] = useState(
     searchParams.get("buildDate") || ""
   );
-  const [searchItemFilter, setSearchTermFilter] = useState(
-    searchParams.get("search") || ""
-  );
 
   //for two way slider
   const [values, setValues] = useState([10, 900]);
 
   //for calender
   const [buildDate, setBuildDate] = useState<string | null>("");
-
-  //filtering properties
-  // const [searchItem, setSearchTerm] = useState<string>("");
-  const [filteredProperties, setFilteredProperties] = useState(
-    carouselDataDiscoverProperty
-  );
 
   // const onSearch = (search: string) => {
   //   // console.log("first", search);
@@ -101,7 +98,7 @@ const DiscoveredProperty = () => {
     }
 
     // Apply location filter
-    if (location) {
+    if (locationFilter) {
       result = result.filter((property) =>
         property.details.some(
           (detail) =>
@@ -111,7 +108,7 @@ const DiscoveredProperty = () => {
     }
 
     // Apply property type filter
-    if (propertyType) {
+    if (propertyTypeFilter) {
       result = result.filter((property) =>
         property.details.some(
           (detail) =>
@@ -120,7 +117,11 @@ const DiscoveredProperty = () => {
       );
     }
 
-    setFilteredProperties(result);
+    // Ensure some results are always shown if no specific filters are applied
+    setFilteredProperties(
+      result.length > 0 ? result : carouselDataDiscoverProperty
+    );
+    console.log(filteredProperties, "aaaaaaaaaaaaaaaa");
   }, [searchItemFilter, locationFilter, propertyTypeFilter]);
 
   // useEffect(() => {
@@ -168,6 +169,8 @@ const DiscoveredProperty = () => {
     { value: "1999", selectFieldData: "1999" },
     { value: "2000", selectFieldData: "2000" },
   ];
+
+  console.log(filteredProperties, "ddddddddddddddddd");
 
   const handleNavigation = (id: number) => {
     router.push(`/property/${id}`);
@@ -255,7 +258,7 @@ const DiscoveredProperty = () => {
               <div className="text-center py-10">
                 <p className="text-lg dark:text-white">
                   No properties found matching your search criteria:{" "}
-                  {/* {searchItem} */}
+                  {searchItemFilter}
                 </p>
               </div>
             )}
