@@ -269,12 +269,6 @@ const DiscoveredProperty = () => {
           {/* Carousel section */}
           <div className="flex justify-center items-center my-2">
             {filteredProperties.length === 0 && (
-              // <div className="text-center py-10">
-              //   <p className="text-lg dark:text-white">
-              //     No properties found matching your search criteria:{" "}
-              //     {searchItemFilter}
-              //   </p>
-              // </div>
               <div className="text-center py-10 w-full">
                 <p className="text-base text-red-500">
                   No Data Found Matching Your Requirement
