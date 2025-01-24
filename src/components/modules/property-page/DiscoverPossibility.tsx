@@ -27,7 +27,6 @@ import { CustomCalendar } from "../common/CustomCalender";
 
 const DiscoveredProperty = () => {
   //filtering properties
-  // const [searchItem, setSearchTerm] = useState<string>("");
   const [filteredProperties, setFilteredProperties] = useState(
     carouselDataDiscoverProperty
   );
@@ -59,16 +58,8 @@ const DiscoveredProperty = () => {
     searchParams.get("buildDate") || ""
   );
 
-  //for two way slider
-  const [values, setValues] = useState([10, 900]);
-
   //for calender
   const [buildDate, setBuildDate] = useState<string | null>("");
-
-  // const onSearch = (search: string) => {
-  //   // console.log("first", search);
-  //   setSearchTerm(search);
-  // };
 
   // Function to update URL with selected filters
   const updateUrlParams = (filterKey: string, value: string) => {
@@ -117,23 +108,21 @@ const DiscoveredProperty = () => {
       );
     }
 
+    // Apply price range filter
+    if (priceRange) {
+      const [minPrice, maxPrice] = priceRange.split("-").map(Number);
+      result = result.filter((property) => {
+        const price = parseFloat(property.price.replace("$", ""));
+        return price >= minPrice && price <= maxPrice;
+      });
+    }
+
     // Ensure some results are always shown if no specific filters are applied
     setFilteredProperties(
       result.length > 0 ? result : carouselDataDiscoverProperty
     );
     console.log(filteredProperties, "aaaaaaaaaaaaaaaa");
   }, [searchItemFilter, locationFilter, propertyTypeFilter]);
-
-  // useEffect(() => {
-  //   if (searchItem.trim() === "") {
-  //     setFilteredProperties(carouselDataDiscoverProperty);
-  //   } else {
-  //     const filtered = carouselDataDiscoverProperty.filter((property) =>
-  //       property.title.toLowerCase().includes(searchItem.toLowerCase())
-  //     );
-  //     setFilteredProperties(filtered);
-  //   }
-  // }, [searchItem]);
 
   const router = useRouter();
 
@@ -165,12 +154,6 @@ const DiscoveredProperty = () => {
     { value: "1", selectFieldData: "1 Aana" },
     { value: "2", selectFieldData: "2 Dhur" },
   ];
-  const buildYear = [
-    { value: "1999", selectFieldData: "1999" },
-    { value: "2000", selectFieldData: "2000" },
-  ];
-
-  console.log(filteredProperties, "ddddddddddddddddd");
 
   const handleNavigation = (id: number) => {
     router.push(`/property/${id}`);
@@ -222,6 +205,11 @@ const DiscoveredProperty = () => {
               <DoubleSlider
                 placeholder="Pricing Range"
                 svgIcon={<CameraIcon />}
+                value={priceRange}
+                onChange={(value) => {
+                  setPriceRange(value);
+                  updateUrlParams("priceRange", value);
+                }}
               />
             </div>
             <div>
