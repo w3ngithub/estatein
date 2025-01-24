@@ -132,7 +132,7 @@ const DiscoveredProperty = () => {
     setFilteredProperties(
       result.length > 0 ? result : carouselDataDiscoverProperty
     );
-  }, [searchItemFilter, locationFilter, propertyTypeFilter]);
+  }, [searchItemFilter, locationFilter, propertyTypeFilter, buildDateFilter]);
 
   const router = useRouter();
 
@@ -240,11 +240,11 @@ const DiscoveredProperty = () => {
               <CustomCalendar
                 value={buildDateFilter}
                 onChange={(newDate) => {
-                  const formattedDate = newDate
-                    ? format(new Date(newDate), "yyyy-MM-dd")
-                    : "";
-                  setBuildDateFilter(formattedDate || "");
-                  updateUrlParams("buildDate", formattedDate || ""); // Update the URL
+                  // const formattedDate = newDate
+                  //   ? format(new Date(newDate), "yyyy-MM-dd")
+                  //   : "";
+                  setBuildDateFilter(newDate || "");
+                  updateUrlParams("buildDate", newDate || ""); // Update the URL
                 }}
               />
             </div>
@@ -326,7 +326,7 @@ const DiscoveredProperty = () => {
                           {item.title}
                         </h2>
                         <div>
-                          <span className="text-lg dark:text-grey-shade-60 max-desktop-lg:text-base max-tablet-sm:text-sm line-clamp-2">
+                          <span className="text-lg dark:text-grey-shade-60 max-desktop-lg:text-base max-tablet-sm:text-sm line-clamp-2 max-w-[600px] border-border-red-500">
                             {item.description}
                           </span>
                           <Link href={`/property/${item.id}`}>

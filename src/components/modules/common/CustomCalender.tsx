@@ -17,7 +17,6 @@ import {
 } from "@/components/ui/popover";
 import { CalenderIcon } from "@/svgs/PropertyPageSvg";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 
 interface CustomCalendarProps {
   value: string | null;
@@ -30,16 +29,32 @@ const FormSchema = z.object({
 
 export function CustomCalendar({ value, onChange }: CustomCalendarProps) {
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
+  const [date, setDate] = useState<Date | undefined>(
+    value ? new Date(value) : undefined
+  );
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
   });
 
-  function handleDateSelection(date: Date | undefined) {
-    const isoDate = date ? date.toISOString() : null;
-    onChange(isoDate); // Notify parent
-    form.setValue("buildDate", isoDate || ""); // Update form value
-    setIsPopoverOpen(false); // Close popover
+  // function handleDateSelection(date: Date | undefined) {
+  //   const isoDate = date ? date.toISOString() : null;
+  //   onChange(isoDate); // Notify parent
+  //   form.setValue("buildDate", isoDate || ""); // Update form value
+  //   setIsPopoverOpen(false); // Close popover
+  // }
+
+  function handleDateSelection(selectedDate: Date | undefined) {
+    // Convert to year for consistent URL parameter
+    const yearString = selectedDate
+      ? selectedDate.getFullYear().toString()
+      : "";
+
+    // Update parent component and form
+    onChange(yearString);
+    form.setValue("buildDate", yearString);
+    setDate(selectedDate);
+    setIsPopoverOpen(false);
   }
 
   return (
@@ -66,8 +81,9 @@ export function CustomCalendar({ value, onChange }: CustomCalendarProps) {
                         !field.value && "text-muted-foreground"
                       )}
                     >
-                      {field.value ? (
-                        format(new Date(field.value), "PPP")
+                      {date ? (
+                        // format(date, "PPP")
+                        date.getFullYear()
                       ) : (
                         <div className="flex flex-row w-full">
                           <div className="border-r border-grey-shade-15 pr-3">
@@ -85,16 +101,17 @@ export function CustomCalendar({ value, onChange }: CustomCalendarProps) {
                 <PopoverContent className="w-auto p-0" align="start">
                   <Calendar
                     mode="single"
-                    selected={field.value ? new Date(field.value) : undefined}
+                    selected={date}
                     // onSelect={(date) => {
                     //   const isoDate = date ? date.toISOString() : "";
                     //   setSelectedDate(isoDate); // Update state
                     //   field.onChange(isoDate); // Update form field value
                     //   setIsPopoverOpen(false); // Close the popover
                     // }}
-                    onSelect={(date) => {
-                      handleDateSelection(date);
-                    }}
+                    // onSelect={(date) => {
+                    //   setDate(date), setIsPopoverOpen(false);
+                    // }}
+                    onSelect={handleDateSelection}
                     initialFocus
                   />
                 </PopoverContent>
