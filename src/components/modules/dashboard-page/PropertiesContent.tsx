@@ -19,6 +19,7 @@ import { useDropzone } from "react-dropzone";
 import { ImagePlus, X } from "lucide-react";
 
 const PropertiesContent = () => {
+  //for image
   const [preview, setPreview] = useState<string | ArrayBuffer | null>("");
 
   const formSchema = z.object({
@@ -77,6 +78,9 @@ const PropertiesContent = () => {
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
     console.log(`Image uploaded successfully 🎉 ${values.image.name}`);
+    form.reset();
+    setPreview(null);
+    form.resetField("image");
   }
 
   const handleRemoveImage = (e: any) => {
