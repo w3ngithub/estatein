@@ -22,7 +22,7 @@ import {
   LocationIcon,
 } from "@/svgs/PropertyPageSvg";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { DualRangeSlider } from "@/components/ui/dual-range-slider";
 import { Calendar } from "@/components/ui/calendar";
 import DoubleSlider from "../common/DoubleSlider";
@@ -33,6 +33,28 @@ const DiscoveredProperty = () => {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  // State for filters
+  const [locationFilter, setLocationFilter] = useState(
+    searchParams.get("location") || ""
+  );
+  const [propertyTypeFilter, setPropertyTypeFilter] = useState(
+    searchParams.get("propertyType") || ""
+  );
+  const [priceRange, setPriceRange] = useState(
+    searchParams.get("priceRange") || ""
+  );
+  const [propertySizeFilter, setPropertySizeFilter] = useState(
+    searchParams.get("propertySize") || ""
+  );
+  const [buildDateFilter, setBuildDateFilter] = useState(
+    searchParams.get("buildDate") || ""
+  );
+  const [searchItemFilter, setSearchTermFilter] = useState(
+    searchParams.get("search") || ""
+  );
 
   //for two way slider
   const [values, setValues] = useState([10, 900]);
@@ -40,27 +62,77 @@ const DiscoveredProperty = () => {
   //for calender
   const [buildDate, setBuildDate] = useState<string | null>("");
 
-  //for search
-  const [searchItem, setSearchTerm] = useState<string>("");
+  //filtering properties
+  // const [searchItem, setSearchTerm] = useState<string>("");
   const [filteredProperties, setFilteredProperties] = useState(
     carouselDataDiscoverProperty
   );
 
-  const onSearch = (search: string) => {
-    // console.log("first", search);
-    setSearchTerm(search);
+  // const onSearch = (search: string) => {
+  //   // console.log("first", search);
+  //   setSearchTerm(search);
+  // };
+
+  // Function to update URL with selected filters
+  const updateUrlParams = (filterKey: string, value: string) => {
+    const current = new URLSearchParams(Array.from(searchParams.entries()));
+
+    if (value) {
+      current.set(filterKey, value);
+    } else {
+      current.delete(filterKey);
+    }
+
+    const search = current.toString();
+    const query = search ? `?${search}` : "";
+
+    router.push(`${pathname}${query}`, { scroll: false });
   };
 
+  // Filter effect
   useEffect(() => {
-    if (searchItem.trim() === "") {
-      setFilteredProperties(carouselDataDiscoverProperty);
-    } else {
-      const filtered = carouselDataDiscoverProperty.filter((property) =>
-        property.title.toLowerCase().includes(searchItem.toLowerCase())
+    let result = carouselDataDiscoverProperty;
+
+    // Apply search filter
+    if (searchItemFilter.trim()) {
+      result = result.filter((property) =>
+        property.title.toLowerCase().includes(searchItemFilter.toLowerCase())
       );
-      setFilteredProperties(filtered);
     }
-  }, [searchItem]);
+
+    // Apply location filter
+    if (location) {
+      result = result.filter((property) =>
+        property.details.some(
+          (detail) =>
+            detail.pillName.toLowerCase() === locationFilter.toLowerCase()
+        )
+      );
+    }
+
+    // Apply property type filter
+    if (propertyType) {
+      result = result.filter((property) =>
+        property.details.some(
+          (detail) =>
+            detail.pillName.toLowerCase() === propertyTypeFilter.toLowerCase()
+        )
+      );
+    }
+
+    setFilteredProperties(result);
+  }, [searchItemFilter, locationFilter, propertyTypeFilter]);
+
+  // useEffect(() => {
+  //   if (searchItem.trim() === "") {
+  //     setFilteredProperties(carouselDataDiscoverProperty);
+  //   } else {
+  //     const filtered = carouselDataDiscoverProperty.filter((property) =>
+  //       property.title.toLowerCase().includes(searchItem.toLowerCase())
+  //     );
+  //     setFilteredProperties(filtered);
+  //   }
+  // }, [searchItem]);
 
   const router = useRouter();
 
@@ -106,7 +178,12 @@ const DiscoveredProperty = () => {
         {/* search property field */}
         <div className="container flex flex-col justify-center items-center">
           <div className="w-[80%] max-mobile-md:w-full max-mobile-md:p-1 p-2 dark:bg-grey-shade-10 rounded-lg">
-            <SearchProperty onSearch={onSearch} />
+            <SearchProperty
+              onSearch={(search) => {
+                setSearchTermFilter(search);
+                updateUrlParams("search", search);
+              }}
+            />
           </div>
         </div>
         {/* select fields */}
@@ -178,7 +255,7 @@ const DiscoveredProperty = () => {
               <div className="text-center py-10">
                 <p className="text-lg dark:text-white">
                   No properties found matching your search criteria:{" "}
-                  {searchItem}
+                  {/* {searchItem} */}
                 </p>
               </div>
             )}
