@@ -16,7 +16,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
-import { ImagePlus } from "lucide-react";
+import { ImagePlus, X } from "lucide-react";
 
 const PropertiesContent = () => {
   const [preview, setPreview] = useState<string | ArrayBuffer | null>("");
@@ -78,6 +78,12 @@ const PropertiesContent = () => {
     console.log(values);
     console.log(`Image uploaded successfully 🎉 ${values.image.name}`);
   }
+
+  const handleRemoveImage = (e: any) => {
+    e.stopPropagation();
+    setPreview(null);
+    form.resetField("image");
+  };
 
   return (
     <div className="p-8 space-y-10">
@@ -184,15 +190,24 @@ const PropertiesContent = () => {
                       className="mx-auto flex cursor-pointer flex-col items-center justify-center gap-y-2 rounded-lg border border-foreground p-8 shadow-sm shadow-foreground"
                     >
                       {preview && (
-                        <img
-                          src={preview as string}
-                          alt="Uploaded image"
-                          className="max-h-[400px] rounded-lg"
-                        />
+                        <div className="relative">
+                          <img
+                            src={preview as string}
+                            alt="Uploaded image"
+                            className="max-h-[400px] rounded-lg"
+                          />
+                          {/* Cross Button */}
+                          <button
+                            type="button"
+                            onClick={handleRemoveImage}
+                            className="absolute top-2 right-2 flex h-8 w-8 items-center justify-center rounded-full bg-destructive text-white hover:bg-destructive-light"
+                            aria-label="Remove image"
+                          >
+                            <X size={16} />
+                          </button>
+                        </div>
                       )}
-                      <ImagePlus
-                        className={`size-40 ${preview ? "hidden" : "block"}`}
-                      />
+                      {!preview && <ImagePlus className="size-40" />}
                       <Input {...getInputProps()} type="file" />
                       {isDragActive ? (
                         <p>Drop the image!</p>
