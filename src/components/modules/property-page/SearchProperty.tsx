@@ -1,7 +1,8 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import React, { useState } from "react";
+import { useSearchParams } from "next/navigation";
+import React, { useEffect, useState } from "react";
 import { type KeyboardEvent } from "react";
 
 interface SearchPropertyProps {
@@ -9,7 +10,14 @@ interface SearchPropertyProps {
 }
 
 const SearchProperty = ({ onSearch }: SearchPropertyProps) => {
+  const searchParams = useSearchParams();
   const [searchTerm, setSearchTerm] = useState("");
+
+  // Initialize the search term from URL query
+  useEffect(() => {
+    const searchFromUrl = searchParams.get("search") || "";
+    setSearchTerm(searchFromUrl);
+  }, [searchParams]);
 
   const handleSearch = () => {
     onSearch(searchTerm);
