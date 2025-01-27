@@ -292,6 +292,7 @@ const PropertiesContent = () => {
                   <FormLabel>Total Bathroom</FormLabel>
                   <FormControl>
                     <Input
+                      type="number"
                       placeholder="Enter total number of Bathroom"
                       {...field}
                       className="h-16 max-desktop-lg:h-14"
@@ -301,6 +302,245 @@ const PropertiesContent = () => {
                 </FormItem>
               )}
             />
+            <FormField
+              control={form.control}
+              name="totalBathRoom"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Total Area</FormLabel>
+                  <FormControl>
+                    <Input
+                      type="number"
+                      placeholder="Enter total number of area"
+                      {...field}
+                      className="h-16 max-desktop-lg:h-14"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            {/* <FormField
+              control={form.control}
+              name="totalBathRoom"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Key Features</FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder="Enter key features"
+                      {...field}
+                      className="h-16 max-desktop-lg:h-14"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            /> */}
+            <FormField
+              control={form.control}
+              name="propertyTransferTax"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Enter Property Transfer Tax</FormLabel>
+                  <FormControl>
+                    <Input
+                      type="number"
+                      placeholder="Enter total number of area"
+                      {...field}
+                      className="h-16 max-desktop-lg:h-14"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="legalFees"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Enter Legal Fee</FormLabel>
+                  <FormControl>
+                    <Input
+                      type="number"
+                      placeholder="Enter Legal Fee"
+                      {...field}
+                      className="h-16 max-desktop-lg:h-14"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="homeInspectionFee"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Enter Home Inspection Fee</FormLabel>
+                  <FormControl>
+                    <Input
+                      type="number"
+                      placeholder="Enter Home Inspection Fee"
+                      {...field}
+                      className="h-16 max-desktop-lg:h-14"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="propertyInsurance"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Enter Property Insurance</FormLabel>
+                  <FormControl>
+                    <Input
+                      type="number"
+                      placeholder="Enter Property Insurance Fee"
+                      {...field}
+                      className="h-16 max-desktop-lg:h-14"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="mortgageFee"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Enter Mortgage Fee</FormLabel>
+                  <FormControl>
+                    <Input
+                      type="number"
+                      placeholder="Enter Mortgage Fee"
+                      {...field}
+                      type={
+                        field.value && isNaN(Number(field.value))
+                          ? "text"
+                          : "number"
+                      }
+                      className="h-16 max-desktop-lg:h-14"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="propertyTax"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Enter Property Tax</FormLabel>
+                  <FormControl>
+                    <Input
+                      type="number"
+                      placeholder="Enter Property Tax"
+                      {...field}
+                      className="h-16 max-desktop-lg:h-14"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="homeOwnersAssociationFee"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Enter Homeowner's Association Fee</FormLabel>
+                  <FormControl>
+                    <Input
+                      type="number"
+                      placeholder="Enter Homeowner's Association Fee"
+                      {...field}
+                      className="h-16 max-desktop-lg:h-14"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="additionalFee"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Enter Additional Fee</FormLabel>
+                  <FormControl>
+                    <Input
+                      type="number"
+                      placeholder="Enter Additional Fee"
+                      {...field}
+                      className="h-16 max-desktop-lg:h-14"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="downPayment"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Enter Down Payment</FormLabel>
+                  <FormControl>
+                    <Input
+                      type="number"
+                      placeholder="Enter Down Payment"
+                      {...field}
+                      className="h-16 max-desktop-lg:h-14"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="downPayment"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Enter Down Payment</FormLabel>
+                  <FormControl>
+                    <Input
+                      type="number"
+                      placeholder="Enter Down Payment"
+                      {...field}
+                      className="h-16 max-desktop-lg:h-14"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="monthlyPropertyInsurance"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Enter Monthly Property Insurance</FormLabel>
+                  <FormControl>
+                    <Input
+                      type="number"
+                      placeholder="Enter Monthly Property Insurance"
+                      {...field}
+                      className="h-16 max-desktop-lg:h-14"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
             <div className="w-full flex justify-end">
               <Button
                 className=" bg-purple-shade-60 hover:bg-purple-shade-d60 text-white py-6 px-4"
