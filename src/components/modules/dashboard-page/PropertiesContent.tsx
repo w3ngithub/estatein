@@ -14,15 +14,15 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { ImagePlus, X } from "lucide-react";
 import { nanoid } from "nanoid";
+import "react-dropzone-uploader/dist/styles.css";
+import SingleImageUpload from "@/components/elements/SingleImageUpload";
+import MultipleImageUpload from "@/components/elements/MultipleImageUpload";
 
 const PropertiesContent = () => {
-  //for image
-  const [preview, setPreview] = useState<string | ArrayBuffer | null>("");
-
   // for adding multiple features
   const [newFeature, setNewFeature] = useState("");
 
@@ -30,6 +30,20 @@ const PropertiesContent = () => {
     villaName: z.string().min(1, {
       message: "Villa Name is required",
     }),
+
+    coverImage: z
+      //Rest of validations done via react dropzone
+      .instanceof(File)
+      .refine((file) => file.size !== 0, "Please upload an image"),
+
+    multipleImages: z
+      .array(z.instanceof(File))
+      .min(1, "Please upload at least one image")
+      .refine(
+        (files) => files.every((file) => file.size <= 1000000),
+        "All images must be less than 1MB"
+      ),
+
     keyFeatures: z
       .array(
         z.object({
@@ -50,10 +64,6 @@ const PropertiesContent = () => {
     pillName: z.string().min(1, {
       message: "Pill Name is required",
     }),
-    coverImage: z
-      //Rest of validations done via react dropzone
-      .instanceof(File)
-      .refine((file) => file.size !== 0, "Please upload an image"),
 
     location: z.string().min(1, {
       message: "Location is required",
@@ -162,6 +172,7 @@ const PropertiesContent = () => {
       price: "",
       pillName: "",
       coverImage: new File([""], "filename"),
+      multipleImages: [],
       location: "",
       totalBedRoom: 0,
       totalBathRoom: 0,
@@ -178,43 +189,14 @@ const PropertiesContent = () => {
       monthlyPropertyInsurance: 0,
     },
   });
-  const onDrop = useCallback(
-    (acceptedFiles: File[]) => {
-      const reader = new FileReader();
-      try {
-        reader.onload = () => setPreview(reader.result);
-        reader.readAsDataURL(acceptedFiles[0]);
-        form.setValue("coverImage", acceptedFiles[0]);
-        form.clearErrors("coverImage");
-      } catch (error) {
-        setPreview(null);
-        form.resetField("coverImage");
-      }
-    },
-    [form]
-  );
-
-  const { getRootProps, getInputProps, isDragActive, fileRejections } =
-    useDropzone({
-      onDrop,
-      maxFiles: 1,
-      maxSize: 1000000,
-      accept: { "image/png": [], "image/jpg": [], "image/jpeg": [] },
-    });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
-    console.log(`Image uploaded successfully 🎉 ${values.coverImage.name}`);
+    // console.log(`Image uploaded successfully 🎉 ${values.coverImage.name}`);
     form.reset();
-    setPreview(null);
-    form.resetField("coverImage");
+    // setPreview(null);
+    // form.resetField("coverImage");
   }
-
-  const handleRemoveImage = (e: any) => {
-    e.stopPropagation();
-    setPreview(null);
-    form.resetField("coverImage");
-  };
 
   return (
     <div className="p-8 space-y-10">
@@ -292,72 +274,11 @@ const PropertiesContent = () => {
                 </FormItem>
               )}
             />
-            {/* image upload */}
-            <FormField
-              control={form.control}
-              name="coverImage"
-              render={() => (
-                <FormItem className="mx-auto md:w-1/2">
-                  <FormLabel
-                    className={`${
-                      fileRejections.length !== 0 && "text-destructive"
-                    }`}
-                  >
-                    <h2 className="tracking-tight">
-                      Upload Cover Image
-                      <span
-                        className={
-                          form.formState.errors.coverImage ||
-                          fileRejections.length !== 0
-                            ? "text-destructive"
-                            : "text-muted-foreground"
-                        }
-                      ></span>
-                    </h2>
-                  </FormLabel>
-                  <FormControl>
-                    <div
-                      {...getRootProps()}
-                      className="mx-auto flex cursor-pointer flex-col items-center justify-center gap-y-2 rounded-lg border border-foreground p-8 shadow-sm shadow-foreground"
-                    >
-                      {preview && (
-                        <div className="relative">
-                          <img
-                            src={preview as string}
-                            alt="Uploaded image"
-                            className="max-h-[400px] rounded-lg"
-                          />
-                          {/* Cross Button */}
-                          <button
-                            type="button"
-                            onClick={handleRemoveImage}
-                            className="absolute top-2 right-2 flex h-8 w-8 items-center justify-center rounded-full bg-destructive text-white hover:bg-destructive-light"
-                            aria-label="Remove image"
-                          >
-                            <X size={16} />
-                          </button>
-                        </div>
-                      )}
-                      {!preview && <ImagePlus className="size-40" />}
-                      <Input {...getInputProps()} type="file" />
-                      {isDragActive ? (
-                        <p>Drop the image!</p>
-                      ) : (
-                        <p>Click here or drag an image to upload it</p>
-                      )}
-                    </div>
-                  </FormControl>
-                  <FormMessage>
-                    {fileRejections.length !== 0 && (
-                      <p>
-                        Image must be less than 1MB and of type png, jpg, or
-                        jpeg
-                      </p>
-                    )}
-                  </FormMessage>
-                </FormItem>
-              )}
-            />
+            {/*single image upload */}
+            <SingleImageUpload form={form} name="coverImage" />
+            {/* Multiple Image Upload */}
+            <MultipleImageUpload form={form} name="multipleImages" />
+
             <FormField
               control={form.control}
               name="location"
