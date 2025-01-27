@@ -17,19 +17,26 @@ import { Textarea } from "@/components/ui/textarea";
 import { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { ImagePlus, X } from "lucide-react";
+import { nanoid } from "nanoid";
 
 const PropertiesContent = () => {
   //for image
   const [preview, setPreview] = useState<string | ArrayBuffer | null>("");
 
-  const [newFeature, setNewFeature] = useState(""); // Local state for input
+  // for adding multiple features
+  const [newFeature, setNewFeature] = useState("");
 
   const formSchema = z.object({
     villaName: z.string().min(1, {
       message: "Villa Name is required",
     }),
     keyFeatures: z
-      .array(z.string().min(1, "Feature cannot be empty"))
+      .array(
+        z.object({
+          id: z.string(), // ID for the feature
+          name: z.string().min(1, "Feature cannot be empty"), // Feature name
+        })
+      )
       .nonempty({
         message: "At least one key feature is required",
       }),
@@ -425,23 +432,6 @@ const PropertiesContent = () => {
                 </FormItem>
               )}
             />
-            {/* <FormField
-              control={form.control}
-              name="keyFeatures"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Key Features</FormLabel>
-                  <FormControl>
-                    <Input
-                      placeholder="Enter key features"
-                      {...field}
-                      className="h-16 max-desktop-lg:h-14"
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            /> */}
             <FormField
               control={form.control}
               name="keyFeatures"
@@ -450,7 +440,6 @@ const PropertiesContent = () => {
                   <FormLabel>Key Features</FormLabel>
                   <FormControl>
                     <div className="space-y-2">
-                      {/* Input for adding a new feature */}
                       <Input
                         placeholder="Enter a key feature"
                         value={newFeature}
@@ -461,7 +450,10 @@ const PropertiesContent = () => {
                         type="button"
                         onClick={() => {
                           if (newFeature.trim()) {
-                            field.onChange([...field.value, newFeature]); // Add to array
+                            field.onChange([
+                              ...field.value,
+                              { id: nanoid(), name: newFeature },
+                            ]);
                             setNewFeature(""); // Clear input
                           }
                         }}
@@ -472,21 +464,19 @@ const PropertiesContent = () => {
 
                       {/* List of added features */}
                       <ul className="space-y-1">
-                        {field.value.map((feature: string, index: number) => (
+                        {field.value.map((feature, index) => (
                           <li
-                            key={index}
-                            className="flex items-center justify-between p-2 bg-gray-100 rounded-lg"
+                            key={feature.id}
+                            className="flex items-center justify-between p-2 bg-gray-100 dark:bg-grey-shade-40 rounded-lg"
                           >
-                            <span>{feature}</span>
+                            <span>{feature.name}</span>
                             <button
                               type="button"
                               onClick={() => {
-                                field.onChange({
-                                  ...field.value,
-                                  features: field.value.filter(
-                                    (_: string, i: number) => i !== index
-                                  ),
-                                });
+                                const updatedFeatures = field.value.filter(
+                                  (_, i) => i !== index
+                                );
+                                field.onChange(updatedFeatures);
                               }}
                               className="text-red-500"
                             >
