@@ -22,10 +22,18 @@ const PropertiesContent = () => {
   //for image
   const [preview, setPreview] = useState<string | ArrayBuffer | null>("");
 
+  const [newFeature, setNewFeature] = useState(""); // Local state for input
+
   const formSchema = z.object({
     villaName: z.string().min(1, {
       message: "Villa Name is required",
     }),
+    keyFeatures: z
+      .array(z.string().min(1, "Feature cannot be empty"))
+      .nonempty({
+        message: "At least one key feature is required",
+      }),
+
     description: z.string().min(1, {
       message: "Description is required",
     }),
@@ -50,7 +58,7 @@ const PropertiesContent = () => {
       .min(1, {
         message: "Total Bedroom must be at least 1",
       })
-      .max(50, {
+      .max(100, {
         message: "Total Bedroom cannot exceed 100",
       }),
     totalBathRoom: z
@@ -60,7 +68,7 @@ const PropertiesContent = () => {
       .min(1, {
         message: "Total Bathroom must be at least 1",
       })
-      .max(50, {
+      .max(100, {
         message: "Total Bathroom cannot exceed 100",
       }),
     totalArea: z
@@ -142,6 +150,7 @@ const PropertiesContent = () => {
     resolver: zodResolver(formSchema),
     defaultValues: {
       villaName: "",
+      keyFeatures: [],
       description: "",
       price: "",
       pillName: "",
@@ -418,7 +427,7 @@ const PropertiesContent = () => {
             />
             {/* <FormField
               control={form.control}
-              name="totalBathRoom"
+              name="keyFeatures"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Key Features</FormLabel>
@@ -433,6 +442,65 @@ const PropertiesContent = () => {
                 </FormItem>
               )}
             /> */}
+            <FormField
+              control={form.control}
+              name="keyFeatures"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Key Features</FormLabel>
+                  <FormControl>
+                    <div className="space-y-2">
+                      {/* Input for adding a new feature */}
+                      <Input
+                        placeholder="Enter a key feature"
+                        value={newFeature}
+                        onChange={(e) => setNewFeature(e.target.value)}
+                        className="h-16 max-desktop-lg:h-14"
+                      />
+                      <button
+                        type="button"
+                        onClick={() => {
+                          if (newFeature.trim()) {
+                            field.onChange([...field.value, newFeature]); // Add to array
+                            setNewFeature(""); // Clear input
+                          }
+                        }}
+                        className="px-4 py-2 text-white bg-blue-600 rounded-lg"
+                      >
+                        Add Feature
+                      </button>
+
+                      {/* List of added features */}
+                      <ul className="space-y-1">
+                        {field.value.map((feature: string, index: number) => (
+                          <li
+                            key={index}
+                            className="flex items-center justify-between p-2 bg-gray-100 rounded-lg"
+                          >
+                            <span>{feature}</span>
+                            <button
+                              type="button"
+                              onClick={() => {
+                                field.onChange({
+                                  ...field.value,
+                                  features: field.value.filter(
+                                    (_: string, i: number) => i !== index
+                                  ),
+                                });
+                              }}
+                              className="text-red-500"
+                            >
+                              Remove
+                            </button>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
             <FormField
               control={form.control}
