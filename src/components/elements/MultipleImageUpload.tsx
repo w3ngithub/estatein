@@ -26,6 +26,19 @@ const MultipleImageUpload = ({
     Array<{ id: string; preview: string }>
   >([]);
 
+  // Watch for form resets
+  useEffect(() => {
+    const subscription = form.watch(() => {
+      const value = form.getValues(name);
+      if (!value || value.length === 0) {
+        // Cleanup existing preview URLs
+        previews.forEach((preview) => URL.revokeObjectURL(preview.preview));
+        setPreviews([]);
+      }
+    });
+    return () => subscription.unsubscribe();
+  }, [form, name, previews]);
+
   const onDrop = useCallback(
     (acceptedFiles: File[]) => {
       // Create preview URLs for all accepted files

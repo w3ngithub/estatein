@@ -35,8 +35,6 @@ const PropertiesContent = () => {
       description: "",
       price: "",
       pillName: "",
-      coverImage: new File([""], "filename"),
-      multipleImages: [],
       location: "",
       totalBedRoom: 0,
       totalBathRoom: 0,
@@ -51,6 +49,8 @@ const PropertiesContent = () => {
       homeOwnersAssociationFee: 0,
       downPayment: 0,
       monthlyPropertyInsurance: 0,
+      coverImage: new File([""], "filename"),
+      multipleImages: [],
     },
   });
 
@@ -59,7 +59,8 @@ const PropertiesContent = () => {
     // console.log(`Image uploaded successfully 🎉 ${values.coverImage.name}`);
     form.reset();
     // setPreview(null);
-    // form.resetField("coverImage");
+    form.resetField("coverImage");
+    form.resetField("multipleImages");
   }
 
   return (
@@ -137,10 +138,6 @@ const PropertiesContent = () => {
                 </FormItem>
               )}
             />
-            {/*single image upload */}
-            <SingleImageUpload form={form} name="coverImage" />
-            {/* Multiple Image Upload */}
-            <MultipleImageUpload form={form} name="multipleImages" />
 
             <FormField
               control={form.control}
@@ -483,6 +480,12 @@ const PropertiesContent = () => {
                 </FormItem>
               )}
             />
+
+            {/*single image upload */}
+            <SingleImageUpload form={form} name="coverImage" />
+
+            {/* Multiple Image Upload */}
+            <MultipleImageUpload form={form} name="multipleImages" />
 
             <div className="w-full flex justify-end">
               <Button

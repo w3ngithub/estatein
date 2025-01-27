@@ -1,5 +1,5 @@
 "use client";
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import {
   Form,
@@ -22,15 +22,44 @@ const SingleImageUpload = ({
   form,
   name = "coverImage",
 }: SingleImageUploadProps) => {
-  const [preview, setPreview] = useState<string | ArrayBuffer | null>("");
+  const [preview, setPreview] = useState<string | ArrayBuffer | null>(null);
+
+  // Watch for form resets and field changes
+  useEffect(() => {
+    // Watch for field changes
+    const subscription = form.watch(() => {
+      const fieldValue = form.getValues(name);
+      if (!fieldValue) {
+        setPreview(null);
+      }
+    });
+
+    // Watch for form state changes to detect resets
+    const resetSubscription = form.formState.submitCount;
+    if (form.formState.isSubmitSuccessful) {
+      setPreview(null);
+    }
+
+    return () => subscription.unsubscribe();
+  }, [
+    form,
+    name,
+    form.formState.submitCount,
+    form.formState.isSubmitSuccessful,
+  ]);
 
   const onDrop = useCallback(
     (acceptedFiles: File[]) => {
+      if (acceptedFiles.length === 0) return;
+
       const reader = new FileReader();
       try {
         reader.onload = () => setPreview(reader.result);
         reader.readAsDataURL(acceptedFiles[0]);
-        form.setValue(name, acceptedFiles[0]);
+        form.setValue(name, acceptedFiles[0], {
+          shouldValidate: true,
+          shouldDirty: true,
+        });
         form.clearErrors(name);
       } catch (error) {
         setPreview(null);
@@ -50,8 +79,8 @@ const SingleImageUpload = ({
 
   const handleRemoveImage = (e: React.MouseEvent) => {
     e.stopPropagation();
-    setPreview(null);
-    form.resetField(name); //"coverImage"
+    setPreview(null); // Changed from empty string to null
+    form.resetField(name);
   };
 
   return (
@@ -67,8 +96,7 @@ const SingleImageUpload = ({
               Upload Cover Image
               <span
                 className={
-                  form.formState.errors.coverImage ||
-                  fileRejections.length !== 0
+                  form.formState.errors[name] || fileRejections.length !== 0
                     ? "text-destructive"
                     : "text-muted-foreground"
                 }
@@ -87,7 +115,6 @@ const SingleImageUpload = ({
                     alt="Uploaded image"
                     className="max-h-[400px] rounded-lg"
                   />
-                  {/* Cross Button */}
                   <button
                     type="button"
                     onClick={handleRemoveImage}
