@@ -337,6 +337,7 @@ const PropertiesContent = () => {
                 </FormItem>
               )}
             /> */}
+
             <FormField
               control={form.control}
               name="propertyTransferTax"
