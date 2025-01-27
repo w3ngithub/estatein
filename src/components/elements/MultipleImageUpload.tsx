@@ -80,7 +80,7 @@ const MultipleImageUpload = ({
           <FormLabel
             className={fileRejections.length !== 0 ? "text-destructive" : ""}
           >
-            <h2 className="tracking-tight">Upload Images</h2>
+            <h2 className="tracking-tight">Upload Multiple Property Images</h2>
           </FormLabel>
           <FormControl>
             <div

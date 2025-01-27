@@ -14,157 +14,22 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { useCallback, useEffect, useState } from "react";
-import { useDropzone } from "react-dropzone";
-import { ImagePlus, X } from "lucide-react";
 import { nanoid } from "nanoid";
 import "react-dropzone-uploader/dist/styles.css";
 import SingleImageUpload from "@/components/elements/SingleImageUpload";
 import MultipleImageUpload from "@/components/elements/MultipleImageUpload";
+import { useState } from "react";
+import {
+  PropertyListingSchema,
+  propertySchema,
+} from "@/schema/property-listing-form";
 
 const PropertiesContent = () => {
   // for adding multiple features
   const [newFeature, setNewFeature] = useState("");
 
-  const formSchema = z.object({
-    villaName: z.string().min(1, {
-      message: "Villa Name is required",
-    }),
-
-    coverImage: z
-      //Rest of validations done via react dropzone
-      .instanceof(File)
-      .refine((file) => file.size !== 0, "Please upload an image"),
-
-    multipleImages: z
-      .array(z.instanceof(File))
-      .min(1, "Please upload at least one image")
-      .refine(
-        (files) => files.every((file) => file.size <= 1000000),
-        "All images must be less than 1MB"
-      ),
-
-    keyFeatures: z
-      .array(
-        z.object({
-          id: z.string(), // ID for the feature
-          name: z.string().min(1, "Feature cannot be empty"), // Feature name
-        })
-      )
-      .nonempty({
-        message: "At least one key feature is required",
-      }),
-
-    description: z.string().min(1, {
-      message: "Description is required",
-    }),
-    price: z.string().min(1, {
-      message: "Price is required",
-    }),
-    pillName: z.string().min(1, {
-      message: "Pill Name is required",
-    }),
-
-    location: z.string().min(1, {
-      message: "Location is required",
-    }),
-    totalBedRoom: z
-      .number({
-        invalid_type_error: "Total Bedroom must be a number",
-      })
-      .min(1, {
-        message: "Total Bedroom must be at least 1",
-      })
-      .max(100, {
-        message: "Total Bedroom cannot exceed 100",
-      }),
-    totalBathRoom: z
-      .number({
-        invalid_type_error: "Total Bathroom must be a number",
-      })
-      .min(1, {
-        message: "Total Bathroom must be at least 1",
-      })
-      .max(100, {
-        message: "Total Bathroom cannot exceed 100",
-      }),
-    totalArea: z
-      .number({
-        invalid_type_error: "Total Area must be a number",
-      })
-      .min(1, {
-        message: "Total Area is required",
-      }),
-    propertyTransferTax: z
-      .number({
-        invalid_type_error: "Property Transfer Tax must be a number",
-      })
-      .min(1, {
-        message: "Property Transfer Tax is required",
-      }),
-    legalFees: z
-      .number({
-        invalid_type_error: "Legal Fee must be a number",
-      })
-      .min(1, {
-        message: "Legal Fee is required",
-      }),
-    homeInspectionFee: z
-      .number({
-        invalid_type_error: "Home Inspection Fee must be a number",
-      })
-      .min(1, {
-        message: "Home Inspection Fee is required",
-      }),
-    propertyInsurance: z
-      .number({
-        invalid_type_error: "Property Insurance must be a number",
-      })
-      .min(1, {
-        message: "Property Insurance is required",
-      }),
-    mortgageFee: z.string().min(1, {
-      message: "Mortgage Fee is required",
-    }),
-    propertyTax: z
-      .number({
-        invalid_type_error: "Property Tax must be a number",
-      })
-      .min(1, {
-        message: "Property Tax is required",
-      }),
-    additionalFee: z
-      .number({
-        invalid_type_error: "Homeowner's Association Fee must be a number",
-      })
-      .min(1, {
-        message: "Homeowner's Association Fee is required",
-      }),
-    homeOwnersAssociationFee: z
-      .number({
-        invalid_type_error: "Homeowner's Association Fee must be a number",
-      })
-      .min(1, {
-        message: "Homeowner's Association Fee is required",
-      }),
-    downPayment: z
-      .number({
-        invalid_type_error: "Down Payment must be a number",
-      })
-      .min(1, {
-        message: "Down Payment is required",
-      }),
-    monthlyPropertyInsurance: z
-      .number({
-        invalid_type_error: "Monthly Property Insurance must be a number",
-      })
-      .min(1, {
-        message: "Monthly Property Insurance is required",
-      }),
-  });
-
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const form = useForm<PropertyListingSchema>({
+    resolver: zodResolver(propertySchema),
     defaultValues: {
       villaName: "",
       keyFeatures: [],
@@ -190,7 +55,7 @@ const PropertiesContent = () => {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  function onSubmit(values: PropertyListingSchema) {
     console.log(values);
     // console.log(`Image uploaded successfully 🎉 ${values.coverImage.name}`);
     form.reset();
