@@ -23,8 +23,8 @@ const PropertiesContent = () => {
   const [preview, setPreview] = useState<string | ArrayBuffer | null>("");
 
   const formSchema = z.object({
-    title: z.string().min(1, {
-      message: "Title is required",
+    villaName: z.string().min(1, {
+      message: "Villa Name is required",
     }),
     description: z.string().min(1, {
       message: "Description is required",
@@ -35,20 +35,131 @@ const PropertiesContent = () => {
     pillName: z.string().min(1, {
       message: "Pill Name is required",
     }),
-    image: z
+    coverImage: z
       //Rest of validations done via react dropzone
       .instanceof(File)
       .refine((file) => file.size !== 0, "Please upload an image"),
+
+    location: z.string().min(1, {
+      message: "Location is required",
+    }),
+    totalBedRoom: z
+      .number({
+        invalid_type_error: "Total Bedroom must be a number",
+      })
+      .min(1, {
+        message: "Total Bedroom must be at least 1",
+      })
+      .max(50, {
+        message: "Total Bedroom cannot exceed 100",
+      }),
+    totalBathRoom: z
+      .number({
+        invalid_type_error: "Total Bathroom must be a number",
+      })
+      .min(1, {
+        message: "Total Bathroom must be at least 1",
+      })
+      .max(50, {
+        message: "Total Bathroom cannot exceed 100",
+      }),
+    totalArea: z
+      .number({
+        invalid_type_error: "Total Area must be a number",
+      })
+      .min(1, {
+        message: "Total Area is required",
+      }),
+    propertyTransferTax: z
+      .number({
+        invalid_type_error: "Property Transfer Tax must be a number",
+      })
+      .min(1, {
+        message: "Property Transfer Tax is required",
+      }),
+    legalFees: z
+      .number({
+        invalid_type_error: "Legal Fee must be a number",
+      })
+      .min(1, {
+        message: "Legal Fee is required",
+      }),
+    homeInspectionFee: z
+      .number({
+        invalid_type_error: "Home Inspection Fee must be a number",
+      })
+      .min(1, {
+        message: "Home Inspection Fee is required",
+      }),
+    propertyInsurance: z
+      .number({
+        invalid_type_error: "Property Insurance must be a number",
+      })
+      .min(1, {
+        message: "Property Insurance is required",
+      }),
+    mortgageFee: z.string().min(1, {
+      message: "Mortgage Fee is required",
+    }),
+    propertyTax: z
+      .number({
+        invalid_type_error: "Property Tax must be a number",
+      })
+      .min(1, {
+        message: "Property Tax is required",
+      }),
+    additionalFee: z
+      .number({
+        invalid_type_error: "Homeowner's Association Fee must be a number",
+      })
+      .min(1, {
+        message: "Homeowner's Association Fee is required",
+      }),
+    homeOwnersAssociationFee: z
+      .number({
+        invalid_type_error: "Homeowner's Association Fee must be a number",
+      })
+      .min(1, {
+        message: "Homeowner's Association Fee is required",
+      }),
+    downPayment: z
+      .number({
+        invalid_type_error: "Down Payment must be a number",
+      })
+      .min(1, {
+        message: "Down Payment is required",
+      }),
+    monthlyPropertyInsurance: z
+      .number({
+        invalid_type_error: "Monthly Property Insurance must be a number",
+      })
+      .min(1, {
+        message: "Monthly Property Insurance is required",
+      }),
   });
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      title: "",
+      villaName: "",
       description: "",
       price: "",
       pillName: "",
-      image: new File([""], "filename"),
+      coverImage: new File([""], "filename"),
+      location: "",
+      totalBedRoom: 0,
+      totalBathRoom: 0,
+      totalArea: 0,
+      propertyTransferTax: 0,
+      legalFees: 0,
+      homeInspectionFee: 0,
+      propertyInsurance: 0,
+      mortgageFee: "",
+      propertyTax: 0,
+      additionalFee: 0,
+      homeOwnersAssociationFee: 0,
+      downPayment: 0,
+      monthlyPropertyInsurance: 0,
     },
   });
   const onDrop = useCallback(
@@ -57,11 +168,11 @@ const PropertiesContent = () => {
       try {
         reader.onload = () => setPreview(reader.result);
         reader.readAsDataURL(acceptedFiles[0]);
-        form.setValue("image", acceptedFiles[0]);
-        form.clearErrors("image");
+        form.setValue("coverImage", acceptedFiles[0]);
+        form.clearErrors("coverImage");
       } catch (error) {
         setPreview(null);
-        form.resetField("image");
+        form.resetField("coverImage");
       }
     },
     [form]
@@ -77,16 +188,16 @@ const PropertiesContent = () => {
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
-    console.log(`Image uploaded successfully 🎉 ${values.image.name}`);
+    console.log(`Image uploaded successfully 🎉 ${values.coverImage.name}`);
     form.reset();
     setPreview(null);
-    form.resetField("image");
+    form.resetField("coverImage");
   }
 
   const handleRemoveImage = (e: any) => {
     e.stopPropagation();
     setPreview(null);
-    form.resetField("image");
+    form.resetField("coverImage");
   };
 
   return (
@@ -98,7 +209,7 @@ const PropertiesContent = () => {
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             <FormField
               control={form.control}
-              name="title"
+              name="villaName"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Villa Name</FormLabel>
@@ -168,7 +279,7 @@ const PropertiesContent = () => {
             {/* image upload */}
             <FormField
               control={form.control}
-              name="image"
+              name="coverImage"
               render={() => (
                 <FormItem className="mx-auto md:w-1/2">
                   <FormLabel
@@ -180,7 +291,7 @@ const PropertiesContent = () => {
                       Upload Cover Image
                       <span
                         className={
-                          form.formState.errors.image ||
+                          form.formState.errors.coverImage ||
                           fileRejections.length !== 0
                             ? "text-destructive"
                             : "text-muted-foreground"
@@ -259,6 +370,7 @@ const PropertiesContent = () => {
                       type="number"
                       placeholder="Enter total number of Bedroom"
                       {...field}
+                      onChange={(e) => field.onChange(Number(e.target.value))}
                       className="h-16 max-desktop-lg:h-14"
                     />
                   </FormControl>
@@ -277,6 +389,7 @@ const PropertiesContent = () => {
                       type="number"
                       placeholder="Enter total number of Bathroom"
                       {...field}
+                      onChange={(e) => field.onChange(Number(e.target.value))}
                       className="h-16 max-desktop-lg:h-14"
                     />
                   </FormControl>
@@ -286,25 +399,7 @@ const PropertiesContent = () => {
             />
             <FormField
               control={form.control}
-              name="totalBathRoom"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Total Bathroom</FormLabel>
-                  <FormControl>
-                    <Input
-                      type="number"
-                      placeholder="Enter total number of Bathroom"
-                      {...field}
-                      className="h-16 max-desktop-lg:h-14"
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="totalBathRoom"
+              name="totalArea"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Total Area</FormLabel>
@@ -313,6 +408,7 @@ const PropertiesContent = () => {
                       type="number"
                       placeholder="Enter total number of area"
                       {...field}
+                      onChange={(e) => field.onChange(Number(e.target.value))}
                       className="h-16 max-desktop-lg:h-14"
                     />
                   </FormControl>
@@ -349,6 +445,7 @@ const PropertiesContent = () => {
                       type="number"
                       placeholder="Enter total number of area"
                       {...field}
+                      onChange={(e) => field.onChange(Number(e.target.value))}
                       className="h-16 max-desktop-lg:h-14"
                     />
                   </FormControl>
@@ -367,6 +464,7 @@ const PropertiesContent = () => {
                       type="number"
                       placeholder="Enter Legal Fee"
                       {...field}
+                      onChange={(e) => field.onChange(Number(e.target.value))}
                       className="h-16 max-desktop-lg:h-14"
                     />
                   </FormControl>
@@ -385,6 +483,7 @@ const PropertiesContent = () => {
                       type="number"
                       placeholder="Enter Home Inspection Fee"
                       {...field}
+                      onChange={(e) => field.onChange(Number(e.target.value))}
                       className="h-16 max-desktop-lg:h-14"
                     />
                   </FormControl>
@@ -403,6 +502,7 @@ const PropertiesContent = () => {
                       type="number"
                       placeholder="Enter Property Insurance Fee"
                       {...field}
+                      onChange={(e) => field.onChange(Number(e.target.value))}
                       className="h-16 max-desktop-lg:h-14"
                     />
                   </FormControl>
@@ -418,14 +518,8 @@ const PropertiesContent = () => {
                   <FormLabel>Enter Mortgage Fee</FormLabel>
                   <FormControl>
                     <Input
-                      type="number"
                       placeholder="Enter Mortgage Fee"
                       {...field}
-                      type={
-                        field.value && isNaN(Number(field.value))
-                          ? "text"
-                          : "number"
-                      }
                       className="h-16 max-desktop-lg:h-14"
                     />
                   </FormControl>
@@ -444,6 +538,7 @@ const PropertiesContent = () => {
                       type="number"
                       placeholder="Enter Property Tax"
                       {...field}
+                      onChange={(e) => field.onChange(Number(e.target.value))}
                       className="h-16 max-desktop-lg:h-14"
                     />
                   </FormControl>
@@ -462,6 +557,7 @@ const PropertiesContent = () => {
                       type="number"
                       placeholder="Enter Homeowner's Association Fee"
                       {...field}
+                      onChange={(e) => field.onChange(Number(e.target.value))}
                       className="h-16 max-desktop-lg:h-14"
                     />
                   </FormControl>
@@ -480,6 +576,7 @@ const PropertiesContent = () => {
                       type="number"
                       placeholder="Enter Additional Fee"
                       {...field}
+                      onChange={(e) => field.onChange(Number(e.target.value))}
                       className="h-16 max-desktop-lg:h-14"
                     />
                   </FormControl>
@@ -498,6 +595,7 @@ const PropertiesContent = () => {
                       type="number"
                       placeholder="Enter Down Payment"
                       {...field}
+                      onChange={(e) => field.onChange(Number(e.target.value))}
                       className="h-16 max-desktop-lg:h-14"
                     />
                   </FormControl>
@@ -516,6 +614,7 @@ const PropertiesContent = () => {
                       type="number"
                       placeholder="Enter Down Payment"
                       {...field}
+                      onChange={(e) => field.onChange(Number(e.target.value))}
                       className="h-16 max-desktop-lg:h-14"
                     />
                   </FormControl>
@@ -534,6 +633,7 @@ const PropertiesContent = () => {
                       type="number"
                       placeholder="Enter Monthly Property Insurance"
                       {...field}
+                      onChange={(e) => field.onChange(Number(e.target.value))}
                       className="h-16 max-desktop-lg:h-14"
                     />
                   </FormControl>
