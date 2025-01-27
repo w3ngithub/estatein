@@ -2,7 +2,6 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 import {
   Form,
   FormControl,
@@ -66,7 +65,6 @@ const PropertiesContent = () => {
   return (
     <div className="p-8 space-y-10">
       <h1 className="text-2xl">Properties</h1>
-      {/* form */}
       <div>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
