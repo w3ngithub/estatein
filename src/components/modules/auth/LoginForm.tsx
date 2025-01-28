@@ -18,7 +18,7 @@ import { useRouter } from "next/navigation";
 import { handleCredentialsSignin } from "@/app/actions";
 
 const LoginForm = () => {
-  const [errorMsg, setErrorMsg] = useState("");
+  // const [errorMsg, setErrorMsg] = useState("");
   const [error, setError] = useState("");
 
   const LoginSchema = z.object({
@@ -51,7 +51,6 @@ const LoginForm = () => {
 
   return (
     <>
-      <div className="text-xl text-red-500">{error}</div>
       <div className="flex flex-row justify-center items-center py-10">
         <Card className="w-[400px] max-mobile-md:w-[350px] shadow-md">
           <CardHeader>
@@ -109,7 +108,7 @@ const LoginForm = () => {
                     </FormItem>
                   )}
                 />
-                <h3 className="text-red-500">{errorMsg}</h3>
+                <h3 className="text-red-500">{error}</h3>
                 <Button
                   type="submit"
                   className="w-full border-2 bg-purple-shade-60 hover:bg-purple-shade-d60 text-white"

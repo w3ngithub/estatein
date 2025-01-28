@@ -58,7 +58,6 @@ export const {
         //@ts-ignore
         session.user = token.user;
       }
-      console.log(session, "jjjjjjjjjjjjj");
       return session;
     },
   },
