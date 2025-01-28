@@ -16,11 +16,9 @@ import * as z from "zod";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { useRouter } from "next/navigation";
 import { handleCredentialsSignin } from "@/app/actions";
-// import { doCredentialLogin } from "@/app/actions";
 
 const LoginForm = () => {
   const [errorMsg, setErrorMsg] = useState("");
-  const router = useRouter();
   const [error, setError] = useState("");
 
   const LoginSchema = z.object({
@@ -32,12 +30,6 @@ const LoginForm = () => {
     }),
   });
 
-  // const predefinedUsers = [
-  //   { userName: "dipesh", password: "123456789", role: "Admin" },
-  //   { userName: "admin", password: "admin", role: "Admin" },
-  //   { userName: "shyam", password: "123456789", role: "Admin" },
-  // ];
-
   const form = useForm<z.infer<typeof LoginSchema>>({
     resolver: zodResolver(LoginSchema),
     defaultValues: {
@@ -46,60 +38,6 @@ const LoginForm = () => {
     },
   });
 
-  // const onSubmit = (values: z.infer<typeof LoginSchema>) => {
-  //   const { userName, password } = values;
-
-  //   // Validate credentials for predefined users
-  //   const user = predefinedUsers.find(
-  //     (user) => user.userName === userName && user.password === password
-  //   );
-  //   if (user) {
-  //     // Store in localStorage on successful login
-  //     localStorage.setItem("userName", values.userName);
-  //     localStorage.setItem("password", values.password);
-  //     router.push(`/admin/dashboard`);
-  //   } else {
-  //     setErrorMsg("Invalid credentials. Please try again.");
-  //   }
-  // };
-
-  // async function onSubmit(event) {
-  //   event.preventDefault();
-  //   try {
-  //     const formData = new FormData(event.currentTarget);
-
-  //     const response = await doCredentialLogin(formData);
-
-  //     if (!!response.error) {
-  //       console.error(response.error);
-  //       setError(response.error.message);
-  //     } else {
-  //       router.push("/admin/dashboard");
-  //     }
-  //   } catch (e) {
-  //     console.error(e);
-  //     setError("Check your Credentials");
-  //   }
-  // }
-  // const onSubmit = async (values: z.infer<typeof LoginSchema>) => {
-  //   try {
-  //     const formData = new FormData();
-  //     formData.append("userName", values.userName);
-  //     formData.append("password", values.password);
-
-  //     const response = await doCredentialLogin(formData);
-
-  //     if (!!response.error) {
-  //       console.error(response.error);
-  //       setError(response.error.message);
-  //     } else {
-  //       router.push("/admin/dashboard");
-  //     }
-  //   } catch (e) {
-  //     console.error(e);
-  //     setError("Check your Credentials");
-  //   }
-  // };
   const onSubmit = async (values: z.infer<typeof LoginSchema>) => {
     try {
       const result = await handleCredentialsSignin(values);
@@ -125,7 +63,6 @@ const LoginForm = () => {
             <Form {...form}>
               <form
                 onSubmit={form.handleSubmit(onSubmit)}
-                // onSubmit={onSubmit}
                 className="space-y-8"
               >
                 <FormField

@@ -18,7 +18,7 @@ const users: User[] = [
   },
 ];
 
-export const getUserByUserName = (userName: string) => {
+export const getUserByUserName = (userName: string): User | undefined => {
   const found = users.find((user) => user.userName === userName);
   return found;
 };

@@ -7,21 +7,6 @@ export async function doLogout() {
   await signOut({ redirectTo: "/estatein" });
 }
 
-// export async function doCredentialLogin(formData: FormData) {
-//   console.log("formData", formData);
-
-//   try {
-//     const response = await signIn("credentials", {
-//       userName: formData.get("userName"),
-//       password: formData.get("password"),
-//       redirect: false,
-//     });
-//     return response;
-//   } catch (err) {
-//     throw err;
-//   }
-// }
-
 export async function handleCredentialsSignin({
   userName,
   password,

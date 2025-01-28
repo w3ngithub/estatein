@@ -22,8 +22,8 @@ export const {
         if (credentials === null) return null;
 
         try {
-          const user = getUserByUserName(credentials?.userName);
-          console.log(user, "uuuuuuuuuuuuuu");
+          const userName = credentials.userName as string;
+          const user = getUserByUserName(userName);
           if (user) {
             const isMatch = user?.password === credentials.password;
 
@@ -55,6 +55,7 @@ export const {
     async session({ session, token }) {
       // Attach additional properties to the session
       if (token.user) {
+        //@ts-ignore
         session.user = token.user;
       }
       console.log(session, "jjjjjjjjjjjjj");

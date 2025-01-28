@@ -1,16 +1,11 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { Building2, Home, Settings, LogOut } from "lucide-react";
-import React, { useEffect, useState } from "react";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Building2, Home, Settings } from "lucide-react";
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import DashboardContent from "./DashboardContent";
 import PropertiesContent from "./PropertiesContent";
 import SettingsContent from "./SettingsContent";
-import Link from "next/link";
-import { doLogout } from "@/app/actions";
-import { redirect } from "next/navigation";
-import { auth } from "@/auth";
 import LogOutComp from "./LogOut";
 
 const sidNavData = [
@@ -32,21 +27,8 @@ const sidNavData = [
 ];
 
 const Dashboard = ({ userName }: { userName: string }) => {
-  // const [userName, setUserName] = useState("");
   const [activeItem, setActiveItem] = useState(sidNavData[0].label); // Set default active item
   const router = useRouter();
-
-  // useEffect(() => {
-  //   const storedUserName = localStorage.getItem("userName");
-  //   if (storedUserName) {
-  //     setUserName(storedUserName);
-  //   }
-  // }, []);
-
-  // const handleLogOut = () => {
-  //   // localStorage.clear();
-  //   // router.push("/");
-  // };
 
   const handleNavClick = (label: string) => {
     setActiveItem(label); // Update active item
