@@ -2,7 +2,6 @@
 import { Button } from "@/components/ui/button";
 import { Building2, Home, Settings } from "lucide-react";
 import React, { useState } from "react";
-import { useRouter } from "next/navigation";
 import DashboardContent from "./DashboardContent";
 import PropertiesContent from "./PropertiesContent";
 import SettingsContent from "./SettingsContent";

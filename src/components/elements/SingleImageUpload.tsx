@@ -10,7 +10,8 @@ import {
 } from "@/components/ui/form";
 import { ImagePlus, X } from "lucide-react";
 import { Input } from "../ui/input";
-import { FieldValues, UseFormReturn } from "react-hook-form";
+import { UseFormReturn } from "react-hook-form";
+import Image from "next/image";
 
 interface SingleImageUploadProps {
   form: UseFormReturn<any>;
@@ -61,6 +62,7 @@ const SingleImageUpload = ({
         });
         form.clearErrors(name);
       } catch (error) {
+        console.log(error);
         setPreview(null);
         form.resetField(name);
       }
@@ -109,7 +111,7 @@ const SingleImageUpload = ({
             >
               {preview && (
                 <div className="relative">
-                  <img
+                  <Image
                     src={preview as string}
                     alt="Uploaded image"
                     className="max-h-[400px] rounded-lg"
