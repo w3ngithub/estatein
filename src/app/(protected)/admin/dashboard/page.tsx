@@ -5,9 +5,11 @@ import React from "react";
 
 const page = async () => {
   const session = await auth();
+  console.log(session, "xxxxxxxxxx");
   // if (!session?.user) redirect("/");
 
-  console.log(session, "xxxxxxxxxx");
+  if (!session?.user?.userName) redirect("/");
+
   return (
     <div>
       <Dashboard userName={session?.user?.userName} />

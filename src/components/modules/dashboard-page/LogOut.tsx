@@ -8,11 +8,11 @@ import React from "react";
 
 const LogOutComp = ({ userName }: { userName: string }) => {
   // const session = await auth();
-  //   if (!session?.user) redirect("/");
+  // if (!userName) redirect("/");
 
   const handleLogout = async () => {
     try {
-      await doLogout(); // Ensure the function is invoked
+      await doLogout();
     } catch (error) {
       console.error("Logout failed:", error);
     }
@@ -20,7 +20,7 @@ const LogOutComp = ({ userName }: { userName: string }) => {
   return (
     <div className="flex flex-row gap-2 p-4">
       <Avatar>
-        <AvatarFallback>{userName.charAt(0).toUpperCase()}</AvatarFallback>
+        <AvatarFallback>{userName?.charAt(0).toUpperCase()}</AvatarFallback>
       </Avatar>
       <Button
         onClick={handleLogout}
