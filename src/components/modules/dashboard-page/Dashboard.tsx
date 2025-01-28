@@ -31,7 +31,7 @@ const sidNavData = [
   },
 ];
 
-const Dashboard = () => {
+const Dashboard = ({ userName }) => {
   // const [userName, setUserName] = useState("");
   const [activeItem, setActiveItem] = useState(sidNavData[0].label); // Set default active item
   const router = useRouter();
@@ -84,7 +84,7 @@ const Dashboard = () => {
               ))}
             </nav>
           </div>
-          {/* <LogOutComp /> */}
+          <LogOutComp userName={userName} />
         </div>
       </div>
       <div className="tablet-sm:col-span-9">{renderContent()}</div>

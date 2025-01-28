@@ -39,20 +39,9 @@ export const {
             throw new Error("User not found");
           }
         } catch (error) {
-          throw new Error(error);
+          throw new Error("Invalid credentials");
         }
       },
-      //   async authorize(credentials) {
-      //     if (credentials === null) return null;
-      //     // Validate credentials
-      //     const user = await getUserByUserName(credentials?.userName);
-      //     if (user) {
-      //       // Return user object
-      //       return { userName: user.userName, password: user.password };
-      //     } else {
-      //       throw new Error("Invalid credentials");
-      //     }
-      //   },
     }),
   ],
   callbacks: {

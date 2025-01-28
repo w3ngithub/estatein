@@ -6,18 +6,24 @@ import { LogOut } from "lucide-react";
 import { redirect } from "next/navigation";
 import React from "react";
 
-const LogOutComp = async () => {
-  const session = await auth();
+const LogOutComp = ({ userName }: { userName: string }) => {
+  // const session = await auth();
   //   if (!session?.user) redirect("/");
+
+  const handleLogout = async () => {
+    try {
+      await doLogout(); // Ensure the function is invoked
+    } catch (error) {
+      console.error("Logout failed:", error);
+    }
+  };
   return (
     <div className="flex flex-row gap-2 p-4">
       <Avatar>
-        <AvatarFallback>
-          {/* {userName.charAt(0).toUpperCase()} */}
-        </AvatarFallback>
+        <AvatarFallback>{userName.charAt(0).toUpperCase()}</AvatarFallback>
       </Avatar>
       <Button
-        onClick={() => doLogout}
+        onClick={handleLogout}
         variant="ghost"
         className="w-full justify-start gap-2 dark:text-white"
       >

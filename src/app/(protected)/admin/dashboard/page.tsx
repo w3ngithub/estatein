@@ -10,7 +10,7 @@ const page = async () => {
   console.log(session, "xxxxxxxxxx");
   return (
     <div>
-      <Dashboard />
+      <Dashboard userName={session?.user?.userName} />
     </div>
   );
 };

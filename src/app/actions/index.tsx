@@ -4,7 +4,7 @@ import { signIn, signOut } from "@/auth";
 import { AuthError } from "next-auth";
 
 export async function doLogout() {
-  await signOut({ redirectTo: "/" });
+  await signOut({ redirectTo: "/estatein" });
 }
 
 // export async function doCredentialLogin(formData: FormData) {
