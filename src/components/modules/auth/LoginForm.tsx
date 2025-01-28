@@ -14,11 +14,9 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { useRouter } from "next/navigation";
 import { handleCredentialsSignin } from "@/app/actions";
 
 const LoginForm = () => {
-  // const [errorMsg, setErrorMsg] = useState("");
   const [error, setError] = useState("");
 
   const LoginSchema = z.object({
