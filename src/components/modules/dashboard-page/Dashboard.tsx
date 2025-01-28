@@ -28,7 +28,6 @@ const sidNavData = [
 
 const Dashboard = ({ userName }: { userName: string }) => {
   const [activeItem, setActiveItem] = useState(sidNavData[0].label); // Set default active item
-  const router = useRouter();
 
   const handleNavClick = (label: string) => {
     setActiveItem(label); // Update active item

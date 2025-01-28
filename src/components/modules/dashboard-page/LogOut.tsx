@@ -1,5 +1,4 @@
 import { doLogout } from "@/app/actions";
-import { auth } from "@/auth";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { LogOut } from "lucide-react";

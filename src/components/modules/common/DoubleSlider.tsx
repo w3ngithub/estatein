@@ -51,11 +51,9 @@ const DoubleSlider = ({
     <Select>
       <SelectTrigger className="h-16 max-desktop-lg:h-14 border border-grey-15 dark:bg-grey-shade-8">
         <div className="border-r border-grey-shade-15 pr-3">{svgIcon}</div>
-        <SelectValue
-          placeholder={placeholder}
-          // Display selected price range
-          children={`$${values[0]}K - $${values[1]}K`}
-        />
+        <SelectValue placeholder={placeholder}>
+          {`$${values[0]}K - $${values[1]}K`}
+        </SelectValue>
       </SelectTrigger>
       <SelectContent>
         <div className="flex justify-center items-center h-36 p-5">

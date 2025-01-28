@@ -56,9 +56,7 @@ const PropertiesContent = () => {
 
   function onSubmit(values: PropertyListingSchema) {
     console.log(values);
-    // console.log(`Image uploaded successfully 🎉 ${values.coverImage.name}`);
     form.reset();
-    // setPreview(null);
     form.resetField("coverImage");
     form.resetField("multipleImages");
   }
@@ -390,7 +388,7 @@ const PropertiesContent = () => {
               name="homeOwnersAssociationFee"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Enter Homeowner's Association Fee</FormLabel>
+                  <FormLabel>Enter Homeowner&apos;s Association Fee</FormLabel>
                   <FormControl>
                     <Input
                       type="number"

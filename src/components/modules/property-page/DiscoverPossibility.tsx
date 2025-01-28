@@ -129,7 +129,13 @@ const DiscoveredProperty = () => {
     //   result.length > 0 ? result : carouselDataDiscoverProperty
     // );
     setFilteredProperties(result);
-  }, [searchItemFilter, locationFilter, propertyTypeFilter, buildDateFilter]);
+  }, [
+    searchItemFilter,
+    locationFilter,
+    propertyTypeFilter,
+    buildDateFilter,
+    priceRange,
+  ]);
 
   const router = useRouter();
 
@@ -153,10 +159,7 @@ const DiscoveredProperty = () => {
     { value: "rental", selectFieldData: "Rental" },
     { value: "own", selectFieldData: "Owned" },
   ];
-  const pricingrange = [
-    { value: "10", selectFieldData: "10k to 20k" },
-    { value: "20", selectFieldData: "30k to 40k" },
-  ];
+
   const propertySize = [
     { value: "1", selectFieldData: "1 Aana" },
     { value: "2", selectFieldData: "2 Dhur" },

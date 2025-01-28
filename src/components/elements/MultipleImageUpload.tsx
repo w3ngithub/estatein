@@ -2,7 +2,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import {
-  Form,
   FormControl,
   FormField,
   FormItem,
@@ -11,7 +10,9 @@ import {
 } from "@/components/ui/form";
 import { ImagePlus, X } from "lucide-react";
 import { Input } from "../ui/input";
-import { UseFormReturn } from "react-hook-form";
+import { UseFormReturn, FieldValues } from "react-hook-form";
+import Image from "next/image";
+import { PropertyListingSchema } from "@/schema/property-listing-form";
 
 interface MultipleImageUploadProps {
   form: UseFormReturn<any>;
@@ -54,7 +55,7 @@ const MultipleImageUpload = ({
       form.setValue(name, [...currentFiles, ...acceptedFiles]);
       form.clearErrors(name);
     },
-    [form]
+    [form, name]
   );
 
   const { getRootProps, getInputProps, isDragActive, fileRejections } =
@@ -73,7 +74,7 @@ const MultipleImageUpload = ({
     return () => {
       previews.forEach((preview) => URL.revokeObjectURL(preview.preview));
     };
-  }, []);
+  }, [previews]);
 
   const handleRemoveMultipleImage = (idToRemove: string) => {
     setPreviews((prev) => prev.filter((p) => p.id !== idToRemove));
@@ -103,7 +104,7 @@ const MultipleImageUpload = ({
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4 w-full">
                 {previews.map((preview) => (
                   <div key={preview.id} className="relative">
-                    <img
+                    <Image
                       src={preview.preview}
                       alt="Uploaded image"
                       className="w-full h-40 object-cover rounded-lg"

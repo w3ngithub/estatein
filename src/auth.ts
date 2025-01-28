@@ -39,6 +39,7 @@ export const {
             throw new Error("User not found");
           }
         } catch (error) {
+          console.log(error);
           throw new Error("Invalid credentials");
         }
       },
@@ -55,7 +56,7 @@ export const {
     async session({ session, token }) {
       // Attach additional properties to the session
       if (token.user) {
-        //@ts-ignore
+        // @ts-expect-error: `user` is not part of the default `session` type but is being extended here
         session.user = token.user;
       }
       return session;

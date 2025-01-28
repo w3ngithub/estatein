@@ -2,7 +2,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import {
-  Form,
   FormControl,
   FormField,
   FormItem,
@@ -11,7 +10,7 @@ import {
 } from "@/components/ui/form";
 import { ImagePlus, X } from "lucide-react";
 import { Input } from "../ui/input";
-import { UseFormReturn } from "react-hook-form";
+import { FieldValues, UseFormReturn } from "react-hook-form";
 
 interface SingleImageUploadProps {
   form: UseFormReturn<any>;
@@ -35,10 +34,10 @@ const SingleImageUpload = ({
     });
 
     // Watch for form state changes to detect resets
-    const resetSubscription = form.formState.submitCount;
-    if (form.formState.isSubmitSuccessful) {
-      setPreview(null);
-    }
+    // const resetSubscription = form.formState.submitCount;
+    // if (form.formState.isSubmitSuccessful) {
+    //   setPreview(null);
+    // }
 
     return () => subscription.unsubscribe();
   }, [
