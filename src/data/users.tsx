@@ -1,19 +1,24 @@
-const users = [
+interface User {
+  userName: string;
+  password: string;
+}
+
+const users: User[] = [
   {
     userName: "admin",
     password: "admin",
   },
   {
-    userName: "alex@email.com",
-    password: "password",
+    userName: "dipesh",
+    password: "dipesh",
   },
   {
-    userName: "bob@email.com",
-    password: "password",
+    userName: "mukesh",
+    password: "mukesh",
   },
 ];
 
-export const getUserByUserName = (userName) => {
+export const getUserByUserName = (userName: string) => {
   const found = users.find((user) => user.userName === userName);
   return found;
 };
