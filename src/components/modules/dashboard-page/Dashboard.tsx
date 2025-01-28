@@ -8,6 +8,10 @@ import DashboardContent from "./DashboardContent";
 import PropertiesContent from "./PropertiesContent";
 import SettingsContent from "./SettingsContent";
 import Link from "next/link";
+import { doLogout } from "@/app/actions";
+import { redirect } from "next/navigation";
+import { auth } from "@/auth";
+import LogOutComp from "./LogOut";
 
 const sidNavData = [
   {
@@ -28,21 +32,21 @@ const sidNavData = [
 ];
 
 const Dashboard = () => {
-  const [userName, setUserName] = useState("");
+  // const [userName, setUserName] = useState("");
   const [activeItem, setActiveItem] = useState(sidNavData[0].label); // Set default active item
   const router = useRouter();
 
-  useEffect(() => {
-    const storedUserName = localStorage.getItem("userName");
-    if (storedUserName) {
-      setUserName(storedUserName);
-    }
-  }, []);
+  // useEffect(() => {
+  //   const storedUserName = localStorage.getItem("userName");
+  //   if (storedUserName) {
+  //     setUserName(storedUserName);
+  //   }
+  // }, []);
 
-  const handleLogOut = () => {
-    localStorage.clear();
-    router.push("/");
-  };
+  // const handleLogOut = () => {
+  //   // localStorage.clear();
+  //   // router.push("/");
+  // };
 
   const handleNavClick = (label: string) => {
     setActiveItem(label); // Update active item
@@ -80,22 +84,7 @@ const Dashboard = () => {
               ))}
             </nav>
           </div>
-
-          <div className="flex flex-row gap-2 p-4">
-            <Avatar>
-              <AvatarFallback>
-                {userName.charAt(0).toUpperCase()}
-              </AvatarFallback>
-            </Avatar>
-            <Button
-              onClick={handleLogOut}
-              variant="ghost"
-              className="w-full justify-start gap-2 dark:text-white"
-            >
-              Logout
-              <LogOut className="h-4 w-4" />
-            </Button>
-          </div>
+          {/* <LogOutComp /> */}
         </div>
       </div>
       <div className="tablet-sm:col-span-9">{renderContent()}</div>
