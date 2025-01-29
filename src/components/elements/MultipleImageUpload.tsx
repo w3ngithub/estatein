@@ -106,7 +106,8 @@ const MultipleImageUpload = ({
                     <Image
                       src={preview.preview}
                       alt="Uploaded image"
-                      className="w-full h-40 object-cover rounded-lg"
+                      // className="w-full h-40 object-cover rounded-lg"
+                      className="max-h-[400px] w-full object-cover rounded-lg"
                       width={1920 / 5}
                       height={814 / 5}
                     />
