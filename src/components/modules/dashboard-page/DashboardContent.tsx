@@ -23,9 +23,6 @@ const DashboardContent = () => {
             <CardContent>
               <p className="text-green-500 font-bold">15</p>
             </CardContent>
-            {/* <CardFooter>
-              <p className="text-purple-shade-60">5 new properties added</p>
-            </CardFooter> */}
           </Card>
         </div>
         <div>
@@ -37,9 +34,6 @@ const DashboardContent = () => {
             <CardContent>
               <p className="text-green-500 font-bold">6</p>
             </CardContent>
-            {/* <CardFooter>
-              <p className="text-purple-shade-60">5 new properties added</p>
-            </CardFooter> */}
           </Card>
         </div>
         <div>
@@ -51,9 +45,6 @@ const DashboardContent = () => {
             <CardContent>
               <p className="text-green-500 font-bold">8</p>
             </CardContent>
-            {/* <CardFooter>
-              <p className="text-purple-shade-60">5 new properties added</p>
-            </CardFooter> */}
           </Card>
         </div>
       </div>

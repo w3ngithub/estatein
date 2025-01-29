@@ -58,8 +58,12 @@ const Dashboard = ({ userName }: { userName: string }) => {
               {sidNavData.map((item, index) => (
                 <Button
                   key={index}
-                  variant={activeItem ? "secondary" : "ghost"}
-                  className="w-full justify-start gap-2 desktop-lg:gap-4 desktop-lg:py-8"
+                  variant={activeItem === item.label ? "default" : "ghost"}
+                  className={`w-full justify-start gap-2 desktop-lg:gap-4 desktop-lg:py-6 ${
+                    activeItem === item.label
+                      ? "bg-purple-shade-60 text-white hover:bg-purple-shade-60"
+                      : ""
+                  }`}
                   onClick={() => handleNavClick(item.label)}
                 >
                   <div className="h-4 w-4">{item.icon}</div>
