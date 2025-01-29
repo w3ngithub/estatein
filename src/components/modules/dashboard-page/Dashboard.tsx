@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import DashboardContent from "./DashboardContent";
 import PropertiesContent from "./PropertiesContent";
 import SettingsContent from "./SettingsContent";
-import LogOutComp from "./LogOut";
+import LogOutComp from "../auth/LogOut";
 
 const sidNavData = [
   {
