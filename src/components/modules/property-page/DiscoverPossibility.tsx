@@ -15,42 +15,127 @@ import { ThreeStars } from "@/svgs/HomePageSvg";
 import SearchProperty from "./SearchProperty";
 import SelectFieldWithIcon from "../common/SelectFieldWithIcon";
 import {
-  CalenderIcon,
   CameraIcon,
   CubeIcon,
   HouseIcon,
   LocationIcon,
 } from "@/svgs/PropertyPageSvg";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import DoubleSlider from "../common/DoubleSlider";
+import { CustomCalendar } from "../common/CustomCalender";
 
 const DiscoveredProperty = () => {
-  //for carousal
-  const [api, setApi] = useState<CarouselApi>();
-  const [current, setCurrent] = useState(0);
-  const [count, setCount] = useState(0);
-
-  //for search
-  const [searchItem, setSearchTerm] = useState<string>("");
+  //filtering properties
   const [filteredProperties, setFilteredProperties] = useState(
     carouselDataDiscoverProperty
   );
 
-  const onSearch = (search: string) => {
-    // console.log("first", search);
-    setSearchTerm(search);
+  //for carousal
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+  const [count, setCount] = useState(0);
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  // State for filters
+  const [searchItemFilter, setSearchTermFilter] = useState(
+    searchParams.get("search") || ""
+  );
+  const [locationFilter, setLocationFilter] = useState(
+    searchParams.get("location") || ""
+  );
+  const [propertyTypeFilter, setPropertyTypeFilter] = useState(
+    searchParams.get("propertyType") || ""
+  );
+  const [priceRange, setPriceRange] = useState(
+    searchParams.get("priceRange") || ""
+  );
+  const [propertySizeFilter, setPropertySizeFilter] = useState(
+    searchParams.get("propertySize") || ""
+  );
+  const [buildDateFilter, setBuildDateFilter] = useState(
+    searchParams.get("buildDate") || ""
+  );
+
+  // Function to update URL with selected filters
+  const updateUrlParams = (filterKey: string, value: string) => {
+    const current = new URLSearchParams(Array.from(searchParams.entries()));
+
+    if (value) {
+      current.set(filterKey, value);
+    } else {
+      current.delete(filterKey);
+    }
+
+    const search = current.toString();
+    const query = search ? `?${search}` : "";
+
+    router.push(`${pathname}${query}`, { scroll: false });
   };
 
+  // Filter effect
   useEffect(() => {
-    if (searchItem.trim() === "") {
-      setFilteredProperties(carouselDataDiscoverProperty);
-    } else {
-      const filtered = carouselDataDiscoverProperty.filter((property) =>
-        property.title.toLowerCase().includes(searchItem.toLowerCase())
+    let result = carouselDataDiscoverProperty;
+
+    // Apply search filter
+    if (searchItemFilter.trim()) {
+      result = result.filter((property) =>
+        property.title.toLowerCase().includes(searchItemFilter.toLowerCase())
       );
-      setFilteredProperties(filtered);
     }
-  }, [searchItem]);
+
+    // Apply location filter
+    if (locationFilter) {
+      result = result.filter((property) =>
+        property.details.some(
+          (detail) =>
+            detail.pillName.toLowerCase() === locationFilter.toLowerCase()
+        )
+      );
+    }
+
+    // Apply property type filter
+    if (propertyTypeFilter) {
+      result = result.filter((property) =>
+        property.details.some(
+          (detail) =>
+            detail.pillName.toLowerCase() === propertyTypeFilter.toLowerCase()
+        )
+      );
+    }
+
+    // Apply price range filter
+    if (priceRange) {
+      const [minPrice, maxPrice] = priceRange.split("-").map(Number);
+      result = result.filter((property) => {
+        const price = parseFloat(property.price.replace("$", ""));
+        return price >= minPrice && price <= maxPrice;
+      });
+    }
+
+    // Apply build date filter
+    if (buildDateFilter) {
+      const filterYear = new Date(buildDateFilter).getFullYear();
+      result = result.filter((property) => {
+        // Assuming we have a buildYear property in your property data
+        const propertyBuildYear = property.buildYear;
+        return propertyBuildYear === filterYear;
+      });
+    }
+
+    // Ensure some results are always shown if no specific filters are applied
+    // setFilteredProperties(
+    //   result.length > 0 ? result : carouselDataDiscoverProperty
+    // );
+    setFilteredProperties(result);
+  }, [
+    searchItemFilter,
+    locationFilter,
+    propertyTypeFilter,
+    buildDateFilter,
+    priceRange,
+  ]);
 
   const router = useRouter();
 
@@ -74,17 +159,10 @@ const DiscoveredProperty = () => {
     { value: "rental", selectFieldData: "Rental" },
     { value: "own", selectFieldData: "Owned" },
   ];
-  const pricingrange = [
-    { value: "10", selectFieldData: "10k to 20k" },
-    { value: "20", selectFieldData: "30k to 40k" },
-  ];
+
   const propertySize = [
-    { value: "1", selectFieldData: "1 BHK" },
-    { value: "2", selectFieldData: "2 BHK" },
-  ];
-  const buildYear = [
-    { value: "1999", selectFieldData: "1999" },
-    { value: "2000", selectFieldData: "2000" },
+    { value: "1", selectFieldData: "1 Aana" },
+    { value: "2", selectFieldData: "2 Dhur" },
   ];
 
   const handleNavigation = (id: number) => {
@@ -96,7 +174,12 @@ const DiscoveredProperty = () => {
         {/* search property field */}
         <div className="container flex flex-col justify-center items-center">
           <div className="w-[80%] max-mobile-md:w-full max-mobile-md:p-1 p-2 dark:bg-grey-shade-10 rounded-lg">
-            <SearchProperty onSearch={onSearch} />
+            <SearchProperty
+              onSearch={(search) => {
+                setSearchTermFilter(search);
+                updateUrlParams("search", search);
+              }}
+            />
           </div>
         </div>
         {/* select fields */}
@@ -107,6 +190,11 @@ const DiscoveredProperty = () => {
                 placeholder="Location"
                 data={preferredLocation}
                 svgIcon={<LocationIcon />}
+                value={locationFilter}
+                onChange={(value) => {
+                  setLocationFilter(value);
+                  updateUrlParams("location", value);
+                }}
               />
             </div>
             <div>
@@ -115,14 +203,23 @@ const DiscoveredProperty = () => {
                 placeholder="Property Type"
                 data={propertyType}
                 svgIcon={<HouseIcon />}
+                value={propertyTypeFilter}
+                onChange={(value) => {
+                  setPropertyTypeFilter(value);
+                  updateUrlParams("propertyType", value);
+                }}
               />
             </div>
             <div>
               {" "}
-              <SelectFieldWithIcon
+              <DoubleSlider
                 placeholder="Pricing Range"
-                data={pricingrange}
                 svgIcon={<CameraIcon />}
+                value={priceRange}
+                onChange={(value) => {
+                  setPriceRange(value);
+                  updateUrlParams("priceRange", value);
+                }}
               />
             </div>
             <div>
@@ -131,14 +228,24 @@ const DiscoveredProperty = () => {
                 placeholder="Property Size"
                 data={propertySize}
                 svgIcon={<CubeIcon />}
+                value={propertySizeFilter}
+                onChange={(value) => {
+                  setPropertySizeFilter(value);
+                  updateUrlParams("propertySize", value);
+                }}
               />
             </div>
             <div>
               {" "}
-              <SelectFieldWithIcon
-                placeholder="Build Year"
-                data={buildYear}
-                svgIcon={<CalenderIcon />}
+              <CustomCalendar
+                value={buildDateFilter}
+                onChange={(newDate) => {
+                  // const formattedDate = newDate
+                  //   ? format(new Date(newDate), "yyyy-MM-dd")
+                  //   : "";
+                  setBuildDateFilter(newDate || "");
+                  updateUrlParams("buildDate", newDate || ""); // Update the URL
+                }}
               />
             </div>
           </div>
@@ -165,10 +272,9 @@ const DiscoveredProperty = () => {
           {/* Carousel section */}
           <div className="flex justify-center items-center my-2">
             {filteredProperties.length === 0 && (
-              <div className="text-center py-10">
-                <p className="text-lg dark:text-white">
-                  No properties found matching your search criteria:{" "}
-                  {searchItem}
+              <div className="text-center py-10 w-full">
+                <p className="text-base text-red-500">
+                  No Data Found Matching Your Requirement
                 </p>
               </div>
             )}
@@ -219,7 +325,7 @@ const DiscoveredProperty = () => {
                           {item.title}
                         </h2>
                         <div>
-                          <span className="text-lg dark:text-grey-shade-60 max-desktop-lg:text-base max-tablet-sm:text-sm line-clamp-2">
+                          <span className="text-lg dark:text-grey-shade-60 max-desktop-lg:text-base max-tablet-sm:text-sm line-clamp-2 max-w-[600px] border-border-red-500">
                             {item.description}
                           </span>
                           <Link href={`/property/${item.id}`}>

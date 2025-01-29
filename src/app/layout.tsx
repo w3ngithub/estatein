@@ -1,11 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Header from "@/components/layouts/Header";
-import HeaderBanner from "@/components/layouts/HeaderBanner";
-import Footer from "@/components/layouts/Footer";
-import TermsAndCondition from "@/components/modules/home-page/TermsAndCondition";
-import ExploreProperty from "@/components/modules/home-page/ExploreProperty";
+import MainLayout from "./MainLayout";
 
 const urbanist = localFont({
   src: "../../public/fonts/Urbanist-VariableFont_wght.ttf",
@@ -26,16 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${urbanist.className}`}>
-        <HeaderBanner />
-        <Header />
-        {children}
-        <div className="bg-white-95 dark:bg-grey-shade-8">
-          <ExploreProperty />
-          <Footer />
-        </div>
-        <div className="bg-white-95 dark:bg-grey-shade-10 py-5">
-          <TermsAndCondition />
-        </div>
+        <MainLayout>{children}</MainLayout>
       </body>
     </html>
   );
