@@ -5,6 +5,7 @@ import React from "react";
 
 const page = async () => {
   const session = await auth();
+  // console.log(session, "ssssssss");
 
   if (!session?.user?.userName) redirect("/");
 
