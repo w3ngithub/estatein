@@ -1,31 +1,10 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { Building2, Home, Settings } from "lucide-react";
 import React, { useState } from "react";
-import DashboardContent from "./DashboardContent";
-import PropertiesContent from "./PropertiesContent";
-import SettingsContent from "./SettingsContent";
 import LogOutComp from "../auth/LogOut";
 import ThemeToggle from "../common/ThemeToggle";
 import { HeaderLaptopLogo } from "@/svgs/HomePageSvg";
-
-const sidNavData = [
-  {
-    icon: <Home />,
-    label: "Dashboard",
-    content: <DashboardContent />,
-  },
-  {
-    icon: <Building2 />,
-    label: "Properties",
-    content: <PropertiesContent />,
-  },
-  {
-    icon: <Settings />,
-    label: "Settings",
-    content: <SettingsContent />,
-  },
-];
+import { sidNavData } from "@/utilityComponents/dashboardPage/sideNavData";
 
 const Dashboard = ({ userName }: { userName: string }) => {
   const [activeItem, setActiveItem] = useState(sidNavData[0].label); // Set default active item
