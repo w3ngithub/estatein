@@ -6,6 +6,8 @@ import DashboardContent from "./DashboardContent";
 import PropertiesContent from "./PropertiesContent";
 import SettingsContent from "./SettingsContent";
 import LogOutComp from "../auth/LogOut";
+import ThemeToggle from "../common/ThemeToggle";
+import { HeaderLaptopLogo } from "@/svgs/HomePageSvg";
 
 const sidNavData = [
   {
@@ -44,10 +46,12 @@ const Dashboard = ({ userName }: { userName: string }) => {
         <div className="flex flex-col justify-between dark:bg-zinc-900 border-r dark:border-zinc-800 p-4 h-full">
           <div>
             <div className="flex items-center gap-2 mb-8">
-              <Building2 className="h-8 w-8 text-blue-500" />
+              {/* <Building2 className="h-8 w-8 text-blue-500" /> */}
+              <HeaderLaptopLogo />
               <h1 className="text-xl font-bold dark:text-white">
                 Estatein Admin
               </h1>
+              <ThemeToggle />
             </div>
 
             <nav className="space-y-2">
