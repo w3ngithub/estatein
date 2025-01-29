@@ -14,45 +14,47 @@ const DashboardContent = () => {
       <h1 className="text-2xl">Dashboard</h1>
       <div className="grid grid-cols-1 mobile-xl:grid-cols-3 gap-5">
         <div>
-          <Card className="flex flex-col max-mobile-xl:justify-center max-mobile-xl:items-center">
+          <Card className="flex flex-col h-full max-mobile-xl:justify-center max-mobile-xl:items-center">
             <CardHeader>
-              <CardTitle>Properties</CardTitle>
-              <CardDescription>Properties Summary</CardDescription>
+              <CardTitle className="text-xl">Total Properties</CardTitle>
+              <CardDescription>
+                Total properties listed in website
+              </CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-green-500">15% growth</p>
+              <p className="text-green-500 font-bold">15</p>
             </CardContent>
-            <CardFooter>
+            {/* <CardFooter>
               <p className="text-purple-shade-60">5 new properties added</p>
-            </CardFooter>
+            </CardFooter> */}
           </Card>
         </div>
         <div>
           <Card className="flex flex-col gap-0 h-full">
             <CardHeader>
-              <CardTitle>Property Type</CardTitle>
+              <CardTitle className="text-xl">Property Type</CardTitle>
               <CardDescription>Total property type</CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-green-500">6</p>
+              <p className="text-green-500 font-bold">6</p>
             </CardContent>
-            <CardFooter>
+            {/* <CardFooter>
               <p className="text-purple-shade-60">5 new properties added</p>
-            </CardFooter>
+            </CardFooter> */}
           </Card>
         </div>
         <div>
           <Card className="flex flex-col gap-0 h-full">
             <CardHeader>
-              <CardTitle>Property Size Type</CardTitle>
+              <CardTitle className="text-xl">Property Size Type</CardTitle>
               <CardDescription>Different size property listed</CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-green-500">8</p>
+              <p className="text-green-500 font-bold">8</p>
             </CardContent>
-            <CardFooter>
+            {/* <CardFooter>
               <p className="text-purple-shade-60">5 new properties added</p>
-            </CardFooter>
+            </CardFooter> */}
           </Card>
         </div>
       </div>
