@@ -12,10 +12,11 @@ import { ImagePlus, X } from "lucide-react";
 import { Input } from "../ui/input";
 import { UseFormReturn } from "react-hook-form";
 import Image from "next/image";
+import { PropertyListingSchema } from "@/schema/property-listing-form";
 
 interface SingleImageUploadProps {
-  form: UseFormReturn<any>;
-  name?: string;
+  form: UseFormReturn<PropertyListingSchema>;
+  name: keyof PropertyListingSchema;
 }
 
 const SingleImageUpload = ({
