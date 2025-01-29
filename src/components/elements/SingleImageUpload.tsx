@@ -37,9 +37,9 @@ const SingleImageUpload = ({
 
     // Watch for form state changes to detect resets
     // const resetSubscription = form.formState.submitCount;
-    // if (form.formState.isSubmitSuccessful) {
-    //   setPreview(null);
-    // }
+    if (form.formState.isSubmitSuccessful) {
+      setPreview(null);
+    }
 
     return () => subscription.unsubscribe();
   }, [
