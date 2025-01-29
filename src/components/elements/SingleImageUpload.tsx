@@ -115,7 +115,7 @@ const SingleImageUpload = ({
                   <Image
                     src={preview as string}
                     alt="Uploaded image"
-                    className="max-h-[400px] rounded-lg"
+                    className="max-h-[400px] w-full object-cover rounded-lg"
                     width={1920 / 5}
                     height={814 / 5}
                   />
