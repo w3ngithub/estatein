@@ -107,6 +107,8 @@ const MultipleImageUpload = ({
                       src={preview.preview}
                       alt="Uploaded image"
                       className="w-full h-40 object-cover rounded-lg"
+                      width={1920 / 5}
+                      height={814 / 5}
                     />
                     <button
                       type="button"

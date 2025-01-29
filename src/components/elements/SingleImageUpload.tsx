@@ -115,6 +115,8 @@ const SingleImageUpload = ({
                     src={preview as string}
                     alt="Uploaded image"
                     className="max-h-[400px] rounded-lg"
+                    width={1920 / 5}
+                    height={814 / 5}
                   />
                   <button
                     type="button"
