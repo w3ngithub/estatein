@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/card";
 import { PureComponent } from "react";
 import { PieChart, Pie, Legend, Tooltip, ResponsiveContainer } from "recharts";
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid } from "recharts";
 
 const DashboardContent = () => {
   const data01 = [
@@ -18,6 +19,36 @@ const DashboardContent = () => {
     { propertyName: "Villa E", propertySize: 278 },
     { propertyName: "Villa F", propertySize: 189 },
   ];
+  const data = [
+    { propertyName: "Villa A", area: 1000, price: 4000 },
+    { propertyName: "Villa B", area: 1200, price: 3000 },
+    { propertyName: "Villa C", area: 1500, price: 2000 },
+    { propertyName: "Villa D", area: 1800, price: 2780 },
+    { propertyName: "Villa E", area: 2000, price: 1890 },
+    { propertyName: "Villa F", area: 2500, price: 2390 },
+    { propertyName: "Villa G", area: 3000, price: 3490 },
+  ];
+
+  // Custom Tooltip Component
+  const CustomTooltip = ({
+    active,
+    payload,
+  }: {
+    active?: boolean;
+    payload?: any[];
+  }) => {
+    if (active && payload && payload.length) {
+      const { propertyName, area, price } = payload[0].payload;
+      return (
+        <div className="bg-white p-2 border shadow-md rounded-md text-black">
+          <p className="font-bold">{propertyName}</p>
+          <p>Area: {area} sq ft</p>
+          <p>Price: ${price}</p>
+        </div>
+      );
+    }
+    return null;
+  };
 
   return (
     <div className="p-8 space-y-10">
@@ -89,6 +120,49 @@ const DashboardContent = () => {
         </CardContent>
       </Card>
       {/* Area Chart section */}
+      <div className="border border-red-500 h-[500px] p-8">
+        <ResponsiveContainer width="100%" height={400}>
+          <AreaChart
+            data={data}
+            margin={{
+              top: 10,
+              right: 30,
+              left: 0,
+              bottom: 20, // Adjusted for better visibility
+            }}
+          >
+            <CartesianGrid strokeDasharray="3 3" />
+            {/* X-Axis represents Area */}
+            <XAxis
+              dataKey="area"
+              label={{
+                value: "Area (sq ft)",
+                position: "bottom",
+                offset: -5, // Adjust position
+              }}
+            />
+            {/* Y-Axis represents Price */}
+            <YAxis
+              label={{ value: "Price ($)", angle: -90, position: "insideLeft" }}
+            />
+            <Tooltip
+              content={
+                <CustomTooltip
+                  content={({ active, payload }) => (
+                    <CustomTooltip active={active} payload={payload} />
+                  )}
+                />
+              }
+            />
+            <Area
+              type="monotone"
+              dataKey="price"
+              stroke="#8884d8"
+              fill="#8884d8"
+            />
+          </AreaChart>
+        </ResponsiveContainer>
+      </div>
     </div>
   );
 };
