@@ -17,7 +17,6 @@ const page = () => {
       <div id="location">
         <DiscoverLocation />
       </div>
-
       <ExploreWorld />
     </div>
   );
