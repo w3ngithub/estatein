@@ -55,13 +55,20 @@ const CustomTooltip = ({ active, payload }: CustomTooltipProps) => {
   return null;
 };
 
-const DashboardContent = () => {
+const DashboardContent = ({
+  onNavigateToSettings,
+}: {
+  onNavigateToSettings?: () => void;
+}) => {
   return (
     <div className="p-8 space-y-10">
       <h1 className="text-2xl">Dashboard</h1>
       <div className="grid grid-cols-1 mobile-xl:grid-cols-3 gap-5">
         {/* Three charts */}
-        <Card className="flex flex-col h-full">
+        <Card
+          className="flex flex-col h-full cursor-pointer"
+          onClick={onNavigateToSettings}
+        >
           <CardHeader>
             <CardTitle className="text-xl">Total Properties</CardTitle>
             <CardDescription className="font-semibold">
@@ -72,7 +79,10 @@ const DashboardContent = () => {
             <p className="text-green-500 font-bold">15</p>
           </CardContent>
         </Card>
-        <Card className="flex flex-col gap-0 h-full">
+        <Card
+          className="flex flex-col gap-0 h-full cursor-pointer"
+          onClick={onNavigateToSettings}
+        >
           <CardHeader>
             <CardTitle className="text-xl">Property Type</CardTitle>
             <CardDescription className="font-semibold">
@@ -83,7 +93,10 @@ const DashboardContent = () => {
             <p className="text-green-500 font-bold">6</p>
           </CardContent>
         </Card>
-        <Card className="flex flex-col gap-0 h-full">
+        <Card
+          className="flex flex-col gap-0 h-full cursor-pointer"
+          onClick={onNavigateToSettings}
+        >
           <CardHeader>
             <CardTitle className="text-xl">Property Size Type</CardTitle>
             <CardDescription className="font-semibold">

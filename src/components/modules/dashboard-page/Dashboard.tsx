@@ -5,6 +5,7 @@ import LogOutComp from "../auth/LogOut";
 import ThemeToggle from "../common/ThemeToggle";
 import { HeaderLaptopLogo } from "@/svgs/HomePageSvg";
 import { sidNavData } from "@/utilityComponents/dashboardPage/sideNavData";
+import DashboardContent from "./DashboardContent";
 
 const Dashboard = ({ userName }: { userName: string }) => {
   const [activeItem, setActiveItem] = useState(sidNavData[0].label); // Set default active item
@@ -13,8 +14,15 @@ const Dashboard = ({ userName }: { userName: string }) => {
     setActiveItem(label); // Update active item
   };
 
+  const navigateToSettings = () => {
+    setActiveItem("Settings");
+  };
+
   const renderContent = () => {
     const activeContent = sidNavData.find((item) => item.label === activeItem);
+    if (activeContent?.label === "Dashboard") {
+      return <DashboardContent onNavigateToSettings={navigateToSettings} />;
+    }
     return activeContent?.content || null;
   };
 
