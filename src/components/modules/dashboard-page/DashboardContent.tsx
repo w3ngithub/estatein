@@ -104,7 +104,7 @@ const DashboardContent = () => {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="h-80">
+          <div className="h-96">
             <ResponsiveContainer width="100%" height="100%">
               <PieChart width={400} height={400}>
                 <Pie
@@ -113,7 +113,7 @@ const DashboardContent = () => {
                   isAnimationActive={false}
                   data={data01}
                   cy="50%"
-                  outerRadius={80}
+                  outerRadius={120}
                   fill="#8884d8"
                   label={({ name }) => name}
                 />
