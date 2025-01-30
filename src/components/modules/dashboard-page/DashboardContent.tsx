@@ -6,8 +6,19 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { PureComponent } from "react";
+import { PieChart, Pie, Legend, Tooltip, ResponsiveContainer } from "recharts";
 
 const DashboardContent = () => {
+  const data01 = [
+    { propertyName: "Villa A", propertySize: 400 },
+    { propertyName: "Villa B", propertySize: 300 },
+    { propertyName: "Villa C", propertySize: 300 },
+    { propertyName: "Villa D", propertySize: 200 },
+    { propertyName: "Villa E", propertySize: 278 },
+    { propertyName: "Villa F", propertySize: 189 },
+  ];
+
   return (
     <div className="p-8 space-y-10">
       <h1 className="text-2xl">Dashboard</h1>
@@ -48,10 +59,36 @@ const DashboardContent = () => {
           </Card>
         </div>
       </div>
-      <div className="grid grid-cols-2">
-        <div>first area chart</div>
-        <div>second pie chart</div>
-      </div>
+      {/* Pie Chart section */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-xl">Pie Chart</CardTitle>
+          <CardDescription>
+            Shows Property Name and Property Size
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="h-80">
+            <ResponsiveContainer width="100%" height="100%">
+              <PieChart width={400} height={400}>
+                <Pie
+                  nameKey="propertyName"
+                  dataKey="propertySize"
+                  isAnimationActive={false}
+                  data={data01}
+                  cy="50%"
+                  outerRadius={80}
+                  fill="#8884d8"
+                  label={({ name }) => name}
+                />
+
+                <Tooltip formatter={(value) => `${value} sq ft`} />
+              </PieChart>
+            </ResponsiveContainer>
+          </div>
+        </CardContent>
+      </Card>
+      {/* Area Chart section */}
     </div>
   );
 };
