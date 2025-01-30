@@ -73,32 +73,32 @@ const Footer = () => {
             </div>
             <div className="tablet-sm:col-span-2">
               <ul className="flex flex-col gap-3 list-none">
-                <Link href="/">
+                <Link href="/about-us">
                   <li className="text-xl font-medium dark:text-grey-shade-60 mb-1 max-desktop-lg:text-lg max-tablet-sm:text-base">
                     About Us
                   </li>
                 </Link>
-                <Link href="/">
+                <Link href="/about-us/#journey">
                   <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
                     Our Story
                   </li>
                 </Link>
-                <Link href="/">
+                <Link href="/about-us/#ourValues">
                   <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
                     Our Works
                   </li>
                 </Link>
-                <Link href="/">
+                <Link href="/about-us/#experience">
                   <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
                     How It Works
                   </li>
                 </Link>
-                <Link href="/">
+                <Link href="/about-us/#team">
                   <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
                     Our Team
                   </li>
                 </Link>
-                <Link href="/">
+                <Link href="/about-us/#clients">
                   <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
                     Our Clients
                   </li>

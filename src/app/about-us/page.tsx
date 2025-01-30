@@ -9,12 +9,22 @@ import React from "react";
 const page = () => {
   return (
     <div className="bg-white-95 dark:bg-grey-shade-8">
-      <OurJourney />
-      <OurValues />
+      <div id="journey">
+        <OurJourney />
+      </div>
+      <div id="ourValues">
+        <OurValues />
+      </div>
       <Achievements />
-      <NavigateExperience />
-      <MeetTeam />
-      <OurClients />
+      <div id="experience">
+        <NavigateExperience />
+      </div>
+      <div id="team">
+        <MeetTeam />
+      </div>
+      <div id="clients">
+        <OurClients />
+      </div>
     </div>
   );
 };
