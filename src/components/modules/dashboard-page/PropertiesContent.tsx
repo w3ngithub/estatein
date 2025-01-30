@@ -55,7 +55,52 @@ const PropertiesContent = () => {
   });
 
   function onSubmit(values: PropertyListingSchema) {
-    console.log(values);
+    // console.log(values);
+
+    const formData = new FormData();
+
+    // Append regular form fields
+    formData.append("villaName", values.villaName);
+    formData.append("price", values.price.toString());
+    formData.append("pillName", values.pillName);
+    formData.append("location", values.location);
+    formData.append("totalBedRoom", values.totalBedRoom.toString());
+    formData.append("totalBathRoom", values.totalBathRoom.toString());
+    formData.append("totalArea", values.totalArea.toString());
+    formData.append(
+      "propertyTransferTax",
+      values.propertyTransferTax.toString()
+    );
+    formData.append("legalFees", values.legalFees.toString());
+    formData.append("homeInspectionFee", values.homeInspectionFee.toString());
+    formData.append("propertyInsurance", values.propertyInsurance.toString());
+    formData.append("mortgageFee", values.mortgageFee);
+    formData.append("propertyTax", values.propertyTax.toString());
+    formData.append("additionalFee", values.additionalFee.toString());
+    formData.append(
+      "homeOwnersAssociationFee",
+      values.homeOwnersAssociationFee.toString()
+    );
+    formData.append("downPayment", values.downPayment.toString());
+    formData.append(
+      "monthlyPropertyInsurance",
+      values.monthlyPropertyInsurance.toString()
+    );
+    formData.append("description", values.description);
+
+    formData.append("keyFeatures", JSON.stringify(values.keyFeatures));
+
+    formData.append("coverImage", values.coverImage);
+
+    values.multipleImages.forEach((image, index) => {
+      formData.append(`multipleImages[${index}]`, image);
+    });
+
+    // If you want to see the complete object structure
+    const formDataObject = Object.fromEntries(formData.entries());
+    console.log("Form Data as object:", formDataObject);
+
+    // Reset form after submission
     form.reset();
     form.resetField("coverImage");
     form.resetField("multipleImages");
@@ -463,18 +508,18 @@ const PropertiesContent = () => {
                               className="flex items-center justify-between p-2 bg-gray-100 dark:bg-grey-shade-40 rounded-lg"
                             >
                               <span>{feature.name}</span>
-                              <button
-                                type="button"
+                              <Button
+                                variant="destructive"
                                 onClick={() => {
                                   const updatedFeatures = field.value.filter(
                                     (_, i) => i !== index
                                   );
                                   field.onChange(updatedFeatures);
                                 }}
-                                className="text-red-500"
+                                className="text-white"
                               >
                                 Remove
-                              </button>
+                              </Button>
                             </li>
                           ))}
                         </ul>
