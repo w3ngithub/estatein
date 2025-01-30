@@ -18,7 +18,7 @@ const HeaderBanner = () => {
           <div className="flex justify-center items-center w-full">
             <div className="absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 flex flex-row gap-3 justify-center items-center dark:text-white text-lg font-medium max-desktop-2xl:text-sm max-mobile-lg:text-xs max-tablet-sm:w-full max-mobile-lg:justify-start max-mobile-lg:pl-2  max-mobile-md:gap-2">
               <p className="">✨Discover Your Dream Property with Estatein</p>
-              <Link href="/" className="underline">
+              <Link href="/property" className="underline">
                 Learn More
               </Link>
             </div>
