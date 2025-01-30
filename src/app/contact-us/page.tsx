@@ -11,8 +11,13 @@ const page = () => {
     <div className="bg-white-95 dark:bg-grey-shade-8">
       <GetInTouch />
       <GetInTouchCard data={getInTouchCardData} />
-      <LetsConnectForm />
-      <DiscoverLocation />
+      <div id="contactForm">
+        <LetsConnectForm />
+      </div>
+      <div id="location">
+        <DiscoverLocation />
+      </div>
+
       <ExploreWorld />
     </div>
   );

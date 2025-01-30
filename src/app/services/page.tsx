@@ -9,11 +9,21 @@ import { heroCard } from "@/utilityComponents/homePage/heroCard";
 const page = () => {
   return (
     <div className="bg-white-95 dark:bg-grey-shade-8">
-      <ElevateExperience />
-      <HeroCard data={heroCard} />
-      <UnlockPropertyValue />
-      <EffortlessPropertyManagement />
-      <SmartInvestment />
+      <div id="evaluate">
+        <ElevateExperience />
+      </div>
+      <div id="strategy">
+        <HeroCard data={heroCard} />
+      </div>
+      <div id="negotiation">
+        <UnlockPropertyValue />
+      </div>
+      <div id="management">
+        <EffortlessPropertyManagement />
+      </div>
+      <div id="investment">
+        <SmartInvestment />
+      </div>
     </div>
   );
 };
