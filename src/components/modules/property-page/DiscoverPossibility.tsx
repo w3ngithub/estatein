@@ -166,7 +166,8 @@ const DiscoveredProperty = () => {
   ];
 
   const handleNavigation = (id: number) => {
-    router.push(`/property/${id}`);
+    // router.push(`/property/${id}`);
+    window.open(`/estatein/property/${id}`, "_blank");
   };
   return (
     <div className="flex flex-col gap-10">
