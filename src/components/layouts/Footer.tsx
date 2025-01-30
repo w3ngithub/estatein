@@ -44,27 +44,27 @@ const Footer = () => {
                     Home
                   </li>
                 </Link>
-                <Link href="/">
+                <Link href="/#hero">
                   <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
                     Hero Section
                   </li>
                 </Link>
-                <Link href="/">
+                <Link href="/#features">
                   <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
                     Features
                   </li>
                 </Link>
-                <Link href="/">
+                <Link href="/#features">
                   <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
                     Properties
                   </li>
                 </Link>
-                <Link href="/">
+                <Link href="/#testimonials">
                   <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
                     Testimonials
                   </li>
                 </Link>
-                <Link href="/">
+                <Link href="/#faqs">
                   <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
                     FAQ&apos;s
                   </li>

@@ -8,12 +8,20 @@ import { heroCard } from "@/utilityComponents/homePage/heroCard";
 export default function Home() {
   return (
     <div className="bg-white-95 dark:bg-grey-shade-10">
-      <Hero />
+      <div id="hero">
+        <Hero />
+      </div>
       <HeroCard data={heroCard} />
       <div className="dark:bg-grey-shade-8">
-        <FeaturedProperty />
-        <ClientsReview />
-        <Faq />
+        <div id="features">
+          <FeaturedProperty />
+        </div>
+        <div id="testimonials">
+          <ClientsReview />
+        </div>
+        <div id="faqs">
+          <Faq />
+        </div>
       </div>
     </div>
   );
