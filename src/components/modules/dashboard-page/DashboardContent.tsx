@@ -6,8 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { PureComponent } from "react";
-import { PieChart, Pie, Legend, Tooltip, ResponsiveContainer } from "recharts";
+import { PieChart, Pie, Tooltip, ResponsiveContainer } from "recharts";
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid } from "recharts";
 
 interface PropertyPriceData {
@@ -65,7 +64,7 @@ const DashboardContent = () => {
         <Card className="flex flex-col h-full">
           <CardHeader>
             <CardTitle className="text-xl">Total Properties</CardTitle>
-            <CardDescription>
+            <CardDescription className="font-semibold">
               Total properties listed in website
             </CardDescription>
           </CardHeader>
@@ -76,7 +75,9 @@ const DashboardContent = () => {
         <Card className="flex flex-col gap-0 h-full">
           <CardHeader>
             <CardTitle className="text-xl">Property Type</CardTitle>
-            <CardDescription>Total property type</CardDescription>
+            <CardDescription className="font-semibold">
+              Total property type
+            </CardDescription>
           </CardHeader>
           <CardContent>
             <p className="text-green-500 font-bold">6</p>
@@ -85,7 +86,9 @@ const DashboardContent = () => {
         <Card className="flex flex-col gap-0 h-full">
           <CardHeader>
             <CardTitle className="text-xl">Property Size Type</CardTitle>
-            <CardDescription>Different size property listed</CardDescription>
+            <CardDescription className="font-semibold">
+              Different size property listed
+            </CardDescription>
           </CardHeader>
           <CardContent>
             <p className="text-green-500 font-bold">8</p>
@@ -96,7 +99,7 @@ const DashboardContent = () => {
       <Card>
         <CardHeader>
           <CardTitle className="text-xl">Pie Chart</CardTitle>
-          <CardDescription>
+          <CardDescription className="font-semibold">
             Shows Property Name and Property Size
           </CardDescription>
         </CardHeader>
@@ -125,7 +128,9 @@ const DashboardContent = () => {
       <Card>
         <CardHeader>
           <CardTitle className="text-xl">Area Chart</CardTitle>
-          <CardDescription>Shows Area, Price and Property Name</CardDescription>
+          <CardDescription className="font-semibold">
+            Shows Area, Price and Property Name
+          </CardDescription>
         </CardHeader>
         <CardContent>
           <div className="h-[500px] mobile-lg:p-8">
