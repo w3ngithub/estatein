@@ -23,12 +23,7 @@ import {
   propertySchema,
 } from "@/schema/property-listing-form";
 import SelectField from "../common/SelectField";
-
-const preferredAreaUnits = [
-  { value: "aana", selectFieldData: "Aana" },
-  { value: "dhur", selectFieldData: "Dhur" },
-  { value: "sq. feet", selectFieldData: "Sq. Feet" },
-];
+import { propertySizeType } from "@/utilityComponents/dashboardPage/propertySizeTypeData";
 
 const PropertiesContent = () => {
   // for adding multiple features
@@ -261,7 +256,7 @@ const PropertiesContent = () => {
                     <FormControl>
                       <SelectField
                         placeholder="Select Area Unit"
-                        data={preferredAreaUnits}
+                        data={propertySizeType}
                         value={field.value || ""}
                         onChange={field.onChange}
                       />

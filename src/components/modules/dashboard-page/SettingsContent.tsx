@@ -14,9 +14,9 @@ const SettingsContent = () => {
     setIsModalOpenPropertyType(true);
   };
 
-  const handleAddPropertySize = () => {
-    setIsModalOpenPropertySize(true);
-  };
+  // const handleAddPropertySize = () => {
+  //   setIsModalOpenPropertySize(true);
+  // };
 
   return (
     <div className="p-8 space-y-7 max-mobile-md:p-1">
@@ -28,12 +28,12 @@ const SettingsContent = () => {
         >
           Add Property Type
         </Button>
-        <Button
+        {/* <Button
           onClick={handleAddPropertySize}
           className="bg-purple-shade-60 hover:bg-purple-shade-d60 text-white"
         >
           Add Property Size Type
-        </Button>
+        </Button> */}
       </div>
       <div>
         <PropertyType />
@@ -48,12 +48,10 @@ const SettingsContent = () => {
       />
 
       {/* Add Property Size Type Modal */}
-      <AddPropertySizeModal
+      {/* <AddPropertySizeModal
         isModalOpenPropertySize={isModalOpenPropertySize}
         setIsModalOpenPropertySize={setIsModalOpenPropertySize}
-      />
-
-      <div></div>
+      /> */}
     </div>
   );
 };
