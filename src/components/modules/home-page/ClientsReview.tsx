@@ -85,7 +85,9 @@ const ClientsReview = () => {
                             width={60}
                             height={60}
                             alt="profile icon"
-                            priority
+                            sizes="(max-width: 768px) 100vw,
+                            (max-width: 1200px) 50vw,
+                            33vw"
                           />
                         </div>
                         <div className="flex-col gap-2">

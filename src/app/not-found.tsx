@@ -8,7 +8,7 @@ export default function NotFound() {
         Whooops!
       </h1>
       <h2 className="text-3xl font-medium text-gray-800 dark:text-gray-300 max-desktop-2xl:text-2xl max-mobile-lg:text-xl">
-        We couldn't find the page you were looking for
+        We couldn&apos;t find the page you were looking for
       </h2>
       <div>
         <Link href="/">
