@@ -24,6 +24,7 @@ import {
 } from "@/schema/property-listing-form";
 import SelectField from "../common/SelectField";
 import { propertySizeType } from "@/utilityComponents/dashboardPage/propertySizeTypeData";
+import { propertyType } from "@/utilityComponents/dashboardPage/propertyTypeData";
 
 const PropertiesContent = () => {
   // for adding multiple features
@@ -33,7 +34,6 @@ const PropertiesContent = () => {
     resolver: zodResolver(propertySchema),
     defaultValues: {
       villaName: "",
-
       keyFeatures: [],
       description: "",
       price: "",
@@ -43,6 +43,7 @@ const PropertiesContent = () => {
       totalBathRoom: 0,
       totalArea: 0,
       areaUnit: "",
+      propertyType: "",
       propertyTransferTax: 0,
       legalFees: 0,
       homeInspectionFee: 0,
@@ -72,6 +73,7 @@ const PropertiesContent = () => {
     formData.append("totalBathRoom", values.totalBathRoom.toString());
     formData.append("totalArea", values.totalArea.toString());
     formData.append("areaUnit", values.areaUnit.toString());
+    formData.append("propertyType", values.propertyType.toString());
 
     formData.append(
       "propertyTransferTax",
@@ -257,6 +259,24 @@ const PropertiesContent = () => {
                       <SelectField
                         placeholder="Select Area Unit"
                         data={propertySizeType}
+                        value={field.value || ""}
+                        onChange={field.onChange}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="propertyType"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Select Property Type</FormLabel>
+                    <FormControl>
+                      <SelectField
+                        placeholder="Select Property Type"
+                        data={propertyType}
                         value={field.value || ""}
                         onChange={field.onChange}
                       />
