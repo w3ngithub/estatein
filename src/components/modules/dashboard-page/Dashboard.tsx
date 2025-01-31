@@ -27,8 +27,8 @@ const Dashboard = ({ userName }: { userName: string }) => {
   };
 
   return (
-    <div className="grid tablet-sm:grid-cols-12 min-h-screen">
-      <div className="tablet-sm:col-span-3">
+    <div className="grid tablet-sm:grid-cols-10 min-h-screen">
+      <div className="tablet-sm:col-span-2">
         {/* sidenav */}
         <div className="flex flex-col justify-between dark:bg-zinc-900 border-r dark:border-zinc-800 p-4 h-full">
           <div>
@@ -62,7 +62,7 @@ const Dashboard = ({ userName }: { userName: string }) => {
           <LogOutComp userName={userName} />
         </div>
       </div>
-      <div className="tablet-sm:col-span-9">{renderContent()}</div>
+      <div className="tablet-sm:col-span-8">{renderContent()}</div>
     </div>
   );
 };
