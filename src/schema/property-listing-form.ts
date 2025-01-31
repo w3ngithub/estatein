@@ -69,6 +69,8 @@ export const propertySchema = z.object({
     .min(1, {
       message: "Total Area is required",
     }),
+  areaUnit: z.string().min(1, "Area Unit is required"),
+
   propertyTransferTax: z
     .number({
       invalid_type_error: "Property Transfer Tax must be a number",

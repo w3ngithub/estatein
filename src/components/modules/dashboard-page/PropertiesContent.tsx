@@ -22,6 +22,13 @@ import {
   PropertyListingSchema,
   propertySchema,
 } from "@/schema/property-listing-form";
+import SelectField from "../common/SelectField";
+
+const preferredAreaUnits = [
+  { value: "aana", selectFieldData: "Aana" },
+  { value: "dhur", selectFieldData: "Dhur" },
+  { value: "sq. feet", selectFieldData: "Sq. Feet" },
+];
 
 const PropertiesContent = () => {
   // for adding multiple features
@@ -31,6 +38,7 @@ const PropertiesContent = () => {
     resolver: zodResolver(propertySchema),
     defaultValues: {
       villaName: "",
+
       keyFeatures: [],
       description: "",
       price: "",
@@ -39,6 +47,7 @@ const PropertiesContent = () => {
       totalBedRoom: 0,
       totalBathRoom: 0,
       totalArea: 0,
+      areaUnit: "",
       propertyTransferTax: 0,
       legalFees: 0,
       homeInspectionFee: 0,
@@ -55,7 +64,7 @@ const PropertiesContent = () => {
   });
 
   function onSubmit(values: PropertyListingSchema) {
-    // console.log(values);
+    console.log(values);
 
     const formData = new FormData();
 
@@ -67,6 +76,8 @@ const PropertiesContent = () => {
     formData.append("totalBedRoom", values.totalBedRoom.toString());
     formData.append("totalBathRoom", values.totalBathRoom.toString());
     formData.append("totalArea", values.totalArea.toString());
+    formData.append("areaUnit", values.areaUnit.toString());
+
     formData.append(
       "propertyTransferTax",
       values.propertyTransferTax.toString()
@@ -235,6 +246,24 @@ const PropertiesContent = () => {
                         {...field}
                         onChange={(e) => field.onChange(Number(e.target.value))}
                         className="h-16 max-desktop-lg:h-14"
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="areaUnit"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Select Area Unit</FormLabel>
+                    <FormControl>
+                      <SelectField
+                        placeholder="Select Area Unit"
+                        data={preferredAreaUnits}
+                        value={field.value || ""}
+                        onChange={field.onChange}
                       />
                     </FormControl>
                     <FormMessage />
