@@ -108,84 +108,86 @@ const DashboardContent = ({
           </CardContent>
         </Card>
       </div>
-      {/* Pie Chart section */}
-      <Card>
-        <CardHeader>
-          <CardTitle className="text-xl">Pie Chart</CardTitle>
-          <CardDescription className="font-semibold">
-            Shows Property Name and Property Size
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="h-96">
-            <ResponsiveContainer width="100%" height="100%">
-              <PieChart width={400} height={400}>
-                <Pie
-                  nameKey="propertyName"
-                  dataKey="propertySize"
-                  isAnimationActive={false}
-                  data={data01}
-                  cy="50%"
-                  outerRadius={120}
-                  fill="#8884d8"
-                  label={({ name }) => name}
-                />
+      <div className="grid grid-cols-1 tablet-lg:grid-cols-2 gap-5">
+        {/* Pie Chart section */}
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-xl">Pie Chart</CardTitle>
+            <CardDescription className="font-semibold">
+              Shows Property Name and Property Size
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="h-96">
+              <ResponsiveContainer width="100%" height="100%">
+                <PieChart width={400} height={400}>
+                  <Pie
+                    nameKey="propertyName"
+                    dataKey="propertySize"
+                    isAnimationActive={false}
+                    data={data01}
+                    cy="50%"
+                    outerRadius={120}
+                    fill="#8884d8"
+                    label={({ name }) => name}
+                  />
 
-                <Tooltip formatter={(value) => `${value} sq ft`} />
-              </PieChart>
-            </ResponsiveContainer>
-          </div>
-        </CardContent>
-      </Card>
-      {/* Area Chart section */}
-      <Card>
-        <CardHeader>
-          <CardTitle className="text-xl">Area Chart</CardTitle>
-          <CardDescription className="font-semibold">
-            Shows Area, Price and Property Name
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="h-[500px] mobile-lg:p-8">
-            <ResponsiveContainer width="100%" height={400}>
-              <AreaChart
-                data={data}
-                margin={{
-                  top: 10,
-                  right: 30,
-                  left: 0,
-                  bottom: 20,
-                }}
-              >
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis
-                  dataKey="area"
-                  label={{
-                    value: "Area (sq ft)",
-                    position: "bottom",
-                    offset: -5,
+                  <Tooltip formatter={(value) => `${value} sq ft`} />
+                </PieChart>
+              </ResponsiveContainer>
+            </div>
+          </CardContent>
+        </Card>
+        {/* Area Chart section */}
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-xl">Area Chart</CardTitle>
+            <CardDescription className="font-semibold">
+              Shows Area, Price and Property Name
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="h-[500px] mobile-lg:p-8">
+              <ResponsiveContainer width="100%" height={400}>
+                <AreaChart
+                  data={data}
+                  margin={{
+                    top: 10,
+                    right: 30,
+                    left: 0,
+                    bottom: 20,
                   }}
-                />
-                <YAxis
-                  label={{
-                    value: "Price ($)",
-                    angle: -90,
-                    position: "insideLeft",
-                  }}
-                />
-                <Tooltip content={<CustomTooltip />} />
+                >
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis
+                    dataKey="area"
+                    label={{
+                      value: "Area (sq ft)",
+                      position: "bottom",
+                      offset: -5,
+                    }}
+                  />
+                  <YAxis
+                    label={{
+                      value: "Price ($)",
+                      angle: -90,
+                      position: "insideLeft",
+                    }}
+                  />
+                  <Tooltip content={<CustomTooltip />} />
 
-                <Area
-                  type="monotone"
-                  dataKey="price"
-                  stroke="#8884d8"
-                  fill="#8884d8"
-                />
-              </AreaChart>
-            </ResponsiveContainer>
-          </div>
-        </CardContent>
-      </Card>
+                  <Area
+                    type="monotone"
+                    dataKey="price"
+                    stroke="#8884d8"
+                    fill="#8884d8"
+                  />
+                </AreaChart>
+              </ResponsiveContainer>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
     </div>
   );
 };
