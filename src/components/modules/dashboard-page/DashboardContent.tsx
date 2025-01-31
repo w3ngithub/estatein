@@ -6,7 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { PieChart, Pie, Tooltip, ResponsiveContainer } from "recharts";
+import { PieChart, Pie, Tooltip, ResponsiveContainer, Cell } from "recharts";
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid } from "recharts";
 
 interface PropertyPriceData {
@@ -39,6 +39,7 @@ const data: PropertyPriceData[] = [
   { propertyName: "Villa F", area: 2500, price: 2390 },
   { propertyName: "Villa G", area: 3000, price: 3490 },
 ];
+const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "#A28DFF"];
 
 // Custom Tooltip Component
 const CustomTooltip = ({ active, payload }: CustomTooltipProps) => {
@@ -126,11 +127,18 @@ const DashboardContent = ({
                     dataKey="propertySize"
                     isAnimationActive={false}
                     data={data01}
+                    cx="50%"
                     cy="50%"
                     outerRadius={120}
-                    fill="#8884d8"
                     label={({ name }) => name}
-                  />
+                  >
+                    {data01.map((_, index) => (
+                      <Cell
+                        key={`cell-${index}`}
+                        fill={COLORS[index % COLORS.length]}
+                      />
+                    ))}
+                  </Pie>
 
                   <Tooltip formatter={(value) => `${value} sq ft`} />
                 </PieChart>
