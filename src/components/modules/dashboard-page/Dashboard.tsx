@@ -79,7 +79,7 @@ const Dashboard = ({ userName }: { userName: string }) => {
               ))}
             </nav>
           </div>
-          <LogOutComp userName={userName} />
+          <LogOutComp collapsed={collapsed} userName={userName} />
         </div>
       </div>
       <div className="tablet-md:col-span-8">{renderContent()}</div>
