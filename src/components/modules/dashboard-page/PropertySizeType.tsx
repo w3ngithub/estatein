@@ -19,7 +19,7 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { propertySizeType } from "@/utilityComponents/dashboardPage/propertySizeTypeData";
+import propertySizeType from "@/utilityComponents/dashboardPage/propertySizeTypeData.json";
 
 const PropertySizeType = () => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);

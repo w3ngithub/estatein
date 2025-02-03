@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction } from "react";
+import React, { Dispatch, SetStateAction, useState } from "react";
 import {
   Dialog,
   DialogContent,
@@ -19,6 +19,8 @@ import {
   FormItem,
   FormMessage,
 } from "@/components/ui/form";
+import { nanoid } from "nanoid";
+import propertySize from "@/utilityComponents/dashboardPage/propertySizeTypeData.json";
 interface AddPropertySizeTypeModalProps {
   isModalOpenPropertySize: boolean;
   setIsModalOpenPropertySize: Dispatch<SetStateAction<boolean>>;
@@ -28,6 +30,10 @@ const AddPropertySizeTypeModal = ({
   isModalOpenPropertySize,
   setIsModalOpenPropertySize,
 }: AddPropertySizeTypeModalProps) => {
+  const [propertyTypeSizeData, setPropertyTypeSizeData] = useState([
+    ...propertySize,
+  ]);
+
   const AddPropertyTypeSchema = z.object({
     propertySizeType: z.string().min(1, {
       message: "Property Size Type is required",
@@ -41,8 +47,37 @@ const AddPropertySizeTypeModal = ({
     },
   });
 
-  const onSubmit = (values: z.infer<typeof AddPropertyTypeSchema>) => {
-    console.log("property size type:", values);
+  const onSubmit = async (values: z.infer<typeof AddPropertyTypeSchema>) => {
+    // console.log("property size type:", values);
+    const newPropertySize = {
+      id: nanoid(),
+      value: values.propertySizeType,
+      selectFieldData:
+        values.propertySizeType.charAt(0).toUpperCase() +
+        values.propertySizeType.slice(1),
+    };
+    const patchOps = [
+      {
+        op: "add",
+        path: `/${propertyTypeSizeData.length}`,
+        value: newPropertySize,
+      },
+    ];
+
+    try {
+      const response = await fetch("/estatein/api/addPropertySizeType", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(patchOps),
+      });
+      if (response.ok) {
+        const result = await response.json();
+        setPropertyTypeSizeData(result.data);
+      }
+    } catch (error) {
+      console.error("Error updating property types:", error);
+    }
+
     setIsModalOpenPropertySize(false);
     form.reset();
   };

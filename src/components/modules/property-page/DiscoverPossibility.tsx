@@ -25,6 +25,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import DoubleSlider from "../common/DoubleSlider";
 import { CustomCalendar } from "../common/CustomCalender";
 import propertyType from "@/utilityComponents/dashboardPage/propertyTypeData.json";
+import propertySizeType from "@/utilityComponents/dashboardPage/propertySizeTypeData.json";
 
 const DiscoveredProperty = () => {
   //filtering properties
@@ -161,11 +162,6 @@ const DiscoveredProperty = () => {
   //   { value: "own", selectFieldData: "Owned" },
   // ];
 
-  const propertySize = [
-    { value: "1", selectFieldData: "1 Aana" },
-    { value: "2", selectFieldData: "2 Dhur" },
-  ];
-
   const handleNavigation = (id: number) => {
     // router.push(`/property/${id}`);
     window.open(`/estatein/property/${id}`, "_blank");
@@ -228,7 +224,7 @@ const DiscoveredProperty = () => {
               {" "}
               <SelectFieldWithIcon
                 placeholder="Property Size"
-                data={propertySize}
+                data={propertySizeType}
                 svgIcon={<CubeIcon />}
                 value={propertySizeFilter}
                 onChange={(value) => {

@@ -5,7 +5,7 @@ import jsonpatch from "fast-json-patch";
 
 const filePath = path.join(
   process.cwd(),
-  "src/utilityComponents/dashboardPage/propertyTypeData.json"
+  "src/utilityComponents/dashboardPage/propertySizeTypeData.json"
 );
 
 export async function PATCH(req: NextRequest) {
@@ -15,7 +15,7 @@ export async function PATCH(req: NextRequest) {
 
     // Parse patch operations from request body
     const patchOps = await req.json();
-    // console.log("Patch operations:", patchOps); // Log patch operations
+    console.log("Patch operations:", patchOps); // Log patch operations
 
     // Apply JSON Patch
     const updatedData = jsonpatch.applyPatch(currentData, patchOps).newDocument;

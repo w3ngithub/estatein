@@ -31,6 +31,7 @@ const AddPropertyTypeModal = ({
   setIsModalOpenPropertyType,
 }: AddPropertyTypeModalProps) => {
   const [propertyTypeData, setPropertyTypeData] = useState([...propertyType]);
+
   const AddPropertyTypeSchema = z.object({
     propertyType: z.string().min(1, {
       message: "Property Type is required",
@@ -46,7 +47,7 @@ const AddPropertyTypeModal = ({
 
   const onSubmit = async (values: z.infer<typeof AddPropertyTypeSchema>) => {
     // console.log("property size:", values);
-    const newProperty = {
+    const newPropertyType = {
       id: nanoid(),
       value: values.propertyType,
       selectFieldData:
@@ -57,7 +58,7 @@ const AddPropertyTypeModal = ({
       {
         op: "add",
         path: `/${propertyTypeData.length}`,
-        value: newProperty,
+        value: newPropertyType,
       },
     ];
 

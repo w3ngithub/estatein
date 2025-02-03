@@ -23,7 +23,7 @@ import {
   propertySchema,
 } from "@/schema/property-listing-form";
 import SelectField from "../common/SelectField";
-import { propertySizeType } from "@/utilityComponents/dashboardPage/propertySizeTypeData";
+import propertySizeType from "@/utilityComponents/dashboardPage/propertySizeTypeData.json";
 import propertyType from "@/utilityComponents/dashboardPage/propertyTypeData.json";
 import { YearCalendar } from "../common/YearCalender";
 
