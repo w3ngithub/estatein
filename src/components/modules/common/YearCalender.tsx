@@ -90,10 +90,10 @@ export function YearCalendar({ value, onChange }: YearCalendarProps) {
                     date.getFullYear()
                   ) : (
                     <div className="flex flex-row w-full">
-                      <div className="border-r border-grey-shade-15 pr-3">
+                      {/* <div className="border-r border-grey-shade-15 pr-3">
                         <CalenderIcon />
-                      </div>
-                      <span className="flex flex-row justify-center items-center w-full dark:text-white">
+                      </div> */}
+                      <span className="flex flex-row justify-start items-center w-full dark:text-white">
                         Build Year
                       </span>
                     </div>
