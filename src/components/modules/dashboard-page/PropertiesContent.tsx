@@ -115,6 +115,7 @@ const PropertiesContent = () => {
 
     // Reset form after submission
     form.reset();
+    form.resetField("buildYear");
     form.resetField("coverImage");
     form.resetField("multipleImages");
   }

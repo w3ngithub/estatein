@@ -15,7 +15,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { CalenderIcon } from "@/svgs/PropertyPageSvg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface YearCalendarProps {
   value: string | null;
@@ -35,6 +35,11 @@ export function YearCalendar({ value, onChange }: YearCalendarProps) {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
   });
+
+  // Add an effect to update the internal state when value changes
+  useEffect(() => {
+    setDate(value ? new Date(value) : undefined);
+  }, [value]);
 
   // function handleDateSelection(date: Date | undefined) {
   //   const isoDate = date ? date.toISOString() : null;
