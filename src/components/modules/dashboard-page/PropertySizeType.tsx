@@ -24,6 +24,7 @@ import propertySizeType from "@/utilityComponents/dashboardPage/propertySizeType
 const PropertySizeType = () => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  //for edit
   const [currentProperty, setCurrentProperty] = useState({ id: "", name: "" });
   const [propertyToDelete, setPropertyToDelete] = useState("");
   // for json patch
@@ -35,11 +36,35 @@ const PropertySizeType = () => {
     setIsEditModalOpen(true);
   };
 
-  const handleSave = () => {
-    console.log(
-      `Saving changes for ID: ${currentProperty.id}, Name: ${currentProperty.name}`
-    );
-    // Add your logic to save the updated property type here
+  const handleSave = async () => {
+    // console.log(
+    //   `Saving changes for ID: ${currentProperty.id}, Name: ${currentProperty.name}`
+    // );
+    try {
+      const response = await fetch("/estatein/api/addPropertySizeType", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          id: currentProperty.id,
+          name: currentProperty.name,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        console.log("Update successful:", result);
+        setIsEditModalOpen(false);
+        // Optionally, refresh state or fetch updated data
+      } else {
+        console.error("Update failed:", result.message);
+      }
+    } catch (error) {
+      console.error("Error updating property type:", error);
+    }
+
     setIsEditModalOpen(false);
   };
 
@@ -49,7 +74,6 @@ const PropertySizeType = () => {
   };
 
   const confirmDelete = async () => {
-    // console.log(`Deleting property type with ID: ${propertyToDelete}`);
     try {
       const response = await fetch("/estatein/api/addPropertySizeType", {
         method: "DELETE",
