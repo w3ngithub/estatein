@@ -115,7 +115,7 @@ const PropertySizeType = () => {
       <Dialog open={isEditModalOpen} onOpenChange={setIsEditModalOpen}>
         <DialogContent className="space-y-5 rounded-lg">
           <DialogHeader>
-            <DialogTitle>Edit Property Type</DialogTitle>
+            <DialogTitle>Edit Property Size Type</DialogTitle>
             <DialogDescription> </DialogDescription>
           </DialogHeader>
           <div className="space-y-4">

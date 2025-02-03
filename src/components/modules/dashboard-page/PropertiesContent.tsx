@@ -25,7 +25,6 @@ import {
 import SelectField from "../common/SelectField";
 import { propertySizeType } from "@/utilityComponents/dashboardPage/propertySizeTypeData";
 import { propertyType } from "@/utilityComponents/dashboardPage/propertyTypeData";
-import { CustomCalendar } from "../common/CustomCalender";
 import { YearCalendar } from "../common/YearCalender";
 
 const PropertiesContent = () => {
