@@ -19,8 +19,8 @@ import {
   FormItem,
   FormMessage,
 } from "@/components/ui/form";
-// import { propertyType } from "@/utilityComponents/dashboardPage/propertyTypeData";
 import propertyType from "@/utilityComponents/dashboardPage/propertyTypeData.json";
+import { nanoid } from "nanoid";
 interface AddPropertyTypeModalProps {
   isModalOpenPropertyType: boolean;
   setIsModalOpenPropertyType: Dispatch<SetStateAction<boolean>>;
@@ -47,7 +47,7 @@ const AddPropertyTypeModal = ({
   const onSubmit = async (values: z.infer<typeof AddPropertyTypeSchema>) => {
     // console.log("property size:", values);
     const newProperty = {
-      id: (propertyTypeData.length + 1).toString(),
+      id: nanoid(),
       value: values.propertyType,
       selectFieldData:
         values.propertyType.charAt(0).toUpperCase() +
