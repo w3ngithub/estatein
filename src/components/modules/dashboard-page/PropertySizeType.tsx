@@ -37,9 +37,6 @@ const PropertySizeType = () => {
   };
 
   const handleSave = async () => {
-    // console.log(
-    //   `Saving changes for ID: ${currentProperty.id}, Name: ${currentProperty.name}`
-    // );
     try {
       const response = await fetch("/estatein/api/addPropertySizeType", {
         method: "PUT",

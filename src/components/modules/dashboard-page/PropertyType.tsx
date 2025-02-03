@@ -24,8 +24,11 @@ import propertyType from "@/utilityComponents/dashboardPage/propertyTypeData.jso
 const PropertyType = () => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  //for edit
   const [currentProperty, setCurrentProperty] = useState({ id: "", name: "" });
   const [propertyToDelete, setPropertyToDelete] = useState("");
+  // for json patch
+  const [properties, setProperties] = useState(propertyType);
 
   const handleEdit = (id: string, name: string) => {
     setCurrentProperty({ id, name });
@@ -46,8 +49,32 @@ const PropertyType = () => {
     setIsDeleteModalOpen(true);
   };
 
-  const confirmDelete = () => {
-    console.log(`Deleting property type with ID: ${propertyToDelete}`);
+  const confirmDelete = async () => {
+    // console.log(`Deleting property type with ID: ${propertyToDelete}`);
+    try {
+      const response = await fetch("/estatein/api/addPropertyType", {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ id: propertyToDelete }),
+      });
+      const data = await response.json();
+      if (response.ok) {
+        console.log("Deleted successfully:", data);
+        setIsDeleteModalOpen(false);
+
+        // Optionally update the UI by removing the deleted item
+        setProperties((prev) =>
+          prev.filter((item) => item.id !== propertyToDelete)
+        );
+      } else {
+        console.error("Error deleting:", data.message);
+      }
+    } catch (error) {
+      console.error("Failed to delete property:", error);
+    }
+
     setIsDeleteModalOpen(false);
   };
 

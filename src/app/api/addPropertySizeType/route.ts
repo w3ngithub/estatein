@@ -8,6 +8,7 @@ const filePath = path.join(
   "src/utilityComponents/dashboardPage/propertySizeTypeData.json"
 );
 
+//for post operation
 export async function PATCH(req: NextRequest) {
   try {
     // Read current data from the file
@@ -15,7 +16,7 @@ export async function PATCH(req: NextRequest) {
 
     // Parse patch operations from request body
     const patchOps = await req.json();
-    console.log("Patch operations:", patchOps); // Log patch operations
+    // console.log("Patch operations:", patchOps);
 
     // Apply JSON Patch
     const updatedData = jsonpatch.applyPatch(currentData, patchOps).newDocument;
