@@ -24,7 +24,7 @@ import {
 } from "@/schema/property-listing-form";
 import SelectField from "../common/SelectField";
 import { propertySizeType } from "@/utilityComponents/dashboardPage/propertySizeTypeData";
-import { propertyType } from "@/utilityComponents/dashboardPage/propertyTypeData";
+import propertyType from "@/utilityComponents/dashboardPage/propertyTypeData.json";
 import { YearCalendar } from "../common/YearCalender";
 
 const PropertiesContent = () => {

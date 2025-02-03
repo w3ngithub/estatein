@@ -24,7 +24,7 @@ import { useEffect, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import DoubleSlider from "../common/DoubleSlider";
 import { CustomCalendar } from "../common/CustomCalender";
-import { propertyType } from "@/utilityComponents/dashboardPage/propertyTypeData";
+import propertyType from "@/utilityComponents/dashboardPage/propertyTypeData.json";
 
 const DiscoveredProperty = () => {
   //filtering properties
