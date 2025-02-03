@@ -42,6 +42,10 @@ export const propertySchema = z.object({
   location: z.string().min(1, {
     message: "Location is required",
   }),
+  buildYear: z.string().min(1, {
+    message: "Build year is required",
+  }),
+
   totalBedRoom: z
     .number({
       invalid_type_error: "Total Bedroom must be a number",

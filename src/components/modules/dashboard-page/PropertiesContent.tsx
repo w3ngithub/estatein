@@ -25,6 +25,8 @@ import {
 import SelectField from "../common/SelectField";
 import { propertySizeType } from "@/utilityComponents/dashboardPage/propertySizeTypeData";
 import { propertyType } from "@/utilityComponents/dashboardPage/propertyTypeData";
+import { CustomCalendar } from "../common/CustomCalender";
+import { YearCalendar } from "../common/YearCalender";
 
 const PropertiesContent = () => {
   // for adding multiple features
@@ -39,6 +41,7 @@ const PropertiesContent = () => {
       price: "",
       pillName: "",
       location: "",
+      buildYear: "",
       totalBedRoom: 0,
       totalBathRoom: 0,
       totalArea: 0,
@@ -69,6 +72,8 @@ const PropertiesContent = () => {
     formData.append("price", values.price.toString());
     formData.append("pillName", values.pillName);
     formData.append("location", values.location);
+    formData.append("buildYear", values.buildYear);
+
     formData.append("totalBedRoom", values.totalBedRoom.toString());
     formData.append("totalBathRoom", values.totalBathRoom.toString());
     formData.append("totalArea", values.totalArea.toString());
@@ -138,7 +143,6 @@ const PropertiesContent = () => {
                   </FormItem>
                 )}
               />
-
               <FormField
                 control={form.control}
                 name="price"
@@ -186,6 +190,22 @@ const PropertiesContent = () => {
                         placeholder="Enter Location"
                         {...field}
                         className="h-16 max-desktop-lg:h-14"
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="buildYear"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Select Build Year</FormLabel>
+                    <FormControl>
+                      <YearCalendar
+                        value={field.value || ""}
+                        onChange={field.onChange}
                       />
                     </FormControl>
                     <FormMessage />
