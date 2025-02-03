@@ -36,11 +36,31 @@ const PropertyType = () => {
     setIsEditModalOpen(true);
   };
 
-  const handleSave = () => {
-    console.log(
-      `Saving changes for ID: ${currentProperty.id}, Name: ${currentProperty.name}`
-    );
-    // Add your logic to save the updated property type here
+  const handleSave = async () => {
+    try {
+      const response = await fetch("/estatein/api/addPropertyType", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          id: currentProperty.id,
+          name: currentProperty.name,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        console.log("Update successful:", result);
+        setIsEditModalOpen(false);
+        // Optionally, refresh state or fetch updated data
+      } else {
+        console.error("Update failed:", result.message);
+      }
+    } catch (error) {
+      console.error("Error updating property type:", error);
+    }
     setIsEditModalOpen(false);
   };
 
