@@ -1,10 +1,5 @@
 [
   {
-    "id": "1",
-    "value": "aana",
-    "selectFieldData": "Aana"
-  },
-  {
     "id": "2",
     "value": "dhur",
     "selectFieldData": "Dhur"
@@ -18,10 +13,5 @@
     "id": "4",
     "value": "sq feet",
     "selectFieldData": "Square Feet"
-  },
-  {
-    "id": "zCIg7rrU6cCAibRtoDJA9",
-    "value": "ram shyam",
-    "selectFieldData": "Ram shyam"
   }
 ]

@@ -36,3 +36,29 @@ export async function PATCH(req: NextRequest) {
     );
   }
 }
+
+export async function DELETE(req: NextRequest) {
+  try {
+    const { id } = await req.json();
+
+    // Read existing data
+    const currentData = JSON.parse(fs.readFileSync(filePath, "utf-8"));
+
+    // Filter out the item to be deleted
+    const updatedData = currentData.filter((item: any) => item.id !== id);
+
+    // Write updated data back to the file
+    fs.writeFileSync(filePath, JSON.stringify(updatedData, null, 2));
+
+    return NextResponse.json(
+      { message: "Deleted successfully", data: updatedData },
+      { status: 200 }
+    );
+  } catch (error) {
+    console.error("Error deleting data:", error);
+    return NextResponse.json(
+      { message: "Error deleting data" },
+      { status: 500 }
+    );
+  }
+}
