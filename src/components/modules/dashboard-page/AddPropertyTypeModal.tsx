@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction } from "react";
+import React, { Dispatch, SetStateAction, useState } from "react";
 import {
   Dialog,
   DialogContent,
@@ -19,6 +19,8 @@ import {
   FormItem,
   FormMessage,
 } from "@/components/ui/form";
+// import { propertyType } from "@/utilityComponents/dashboardPage/propertyTypeData";
+import propertyType from "@/utilityComponents/dashboardPage/propertyTypeData.json";
 interface AddPropertyTypeModalProps {
   isModalOpenPropertyType: boolean;
   setIsModalOpenPropertyType: Dispatch<SetStateAction<boolean>>;
@@ -28,6 +30,7 @@ const AddPropertyTypeModal = ({
   isModalOpenPropertyType,
   setIsModalOpenPropertyType,
 }: AddPropertyTypeModalProps) => {
+  const [propertyTypeData, setPropertyTypeData] = useState([...propertyType]);
   const AddPropertyTypeSchema = z.object({
     propertyType: z.string().min(1, {
       message: "Property Type is required",
@@ -41,8 +44,38 @@ const AddPropertyTypeModal = ({
     },
   });
 
-  const onSubmit = (values: z.infer<typeof AddPropertyTypeSchema>) => {
-    console.log("property size:", values);
+  const onSubmit = async (values: z.infer<typeof AddPropertyTypeSchema>) => {
+    // console.log("property size:", values);
+    const newProperty = {
+      id: (propertyTypeData.length + 1).toString(),
+      value: values.propertyType,
+      selectFieldData:
+        values.propertyType.charAt(0).toUpperCase() +
+        values.propertyType.slice(1),
+    };
+    const patchOps = [
+      {
+        op: "add",
+        path: `/${propertyTypeData.length}`,
+        value: newProperty,
+      },
+    ];
+
+    try {
+      const response = await fetch("/estatein/api/addPropertyType", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(patchOps),
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        setPropertyTypeData(result.data); // Update state with new data
+      }
+    } catch (error) {
+      console.error("Error updating property types:", error);
+    }
+
     setIsModalOpenPropertyType(false);
     form.reset();
   };

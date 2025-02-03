@@ -1,0 +1,22 @@
+[
+  {
+    "id": "1",
+    "value": "rental",
+    "selectFieldData": "Rental"
+  },
+  {
+    "id": "2",
+    "value": "own",
+    "selectFieldData": "Owned"
+  },
+  {
+    "id": "4",
+    "value": "sandil",
+    "selectFieldData": "Sandil"
+  },
+  {
+    "id": "5",
+    "value": "dipesh",
+    "selectFieldData": "Dipesh"
+  }
+]
