@@ -143,17 +143,12 @@ const PropertiesContent = () => {
         coverImage: coverImageUrl,
         multipleImages: multipleImageUrls,
       };
-      console.log(
-        "Uploaded Multiple Image URLzzzzzzzzzzzzzzzzzzzzs:",
-        multipleImageUrls
-      );
 
       // Generate JSON Patch operations
-      // const patchOperations = compare(originalData || {}, newData);
       const patchOperations = [
         {
           op: "add",
-          path: `/${newData.id}`,
+          path: `/`,
           value: newData,
         },
       ];
@@ -161,9 +156,6 @@ const PropertiesContent = () => {
       // Send the patch operations to the API
       const response = await fetch("/estatein/api/addProperty", {
         method: "PATCH",
-        // headers: {
-        //   "Content-Type": "application/json-patch+json",
-        // },
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(patchOperations),
       });

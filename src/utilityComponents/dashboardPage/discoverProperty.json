@@ -1,243 +1,177 @@
-{
-  "properties": {
-    "carouselDataDiscoverProperty": [
+[
+  {
+    "id": "ze2DP5f6me_imf5LTIetj",
+    "villaName": "Rhona Finley",
+    "coverImage": "/uploads/1738650008450-featured-property-first.png",
+    "multipleImages": [
+      "/uploads/1738650008454-admin dashboard.JPG",
+      "/uploads/1738650008454-featured-property-first.png",
+      "/uploads/1738650008454-pic.JPG"
+    ],
+    "keyFeatures": [
       {
-        "id": 1,
-        "imageSrc": "/images/featured-property-first.png",
-        "title": "Appleeaside Serenity Villa",
-        "description": "A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood.A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood.A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood.A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood.",
-        "price": "1250.000",
-        "buildYear": 2025,
-        "details": [
-          {
-            "pillName": "Coastal Escapes - Where Waves Beckon"
-          }
-        ]
-      },
+        "id": "GDxAZ4vCJgh_WaHxN_R5N",
+        "name": "Dicta modi eos qui "
+      }
+    ],
+    "description": "Natus mollit quis qu",
+    "price": "594",
+    "pillName": "Gary Morgan",
+    "location": "Cum ullam ad natus i",
+    "buildYear": "2025",
+    "totalBedRoom": 11,
+    "totalBathRoom": 68,
+    "totalArea": 100,
+    "areaUnit": "dhur",
+    "propertyType": "own",
+    "propertyTransferTax": 74,
+    "legalFees": 59,
+    "homeInspectionFee": 84,
+    "propertyInsurance": 19,
+    "mortgageFee": "Sit ea officia ipsa",
+    "propertyTax": 1,
+    "additionalFee": 56,
+    "homeOwnersAssociationFee": 81,
+    "downPayment": 48,
+    "monthlyPropertyInsurance": 4
+  },
+  {
+    "id": 1,
+    "imageSrc": "/images/featured-property-first.png",
+    "title": "Appleeaside Serenity Villa",
+    "description": "A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood.A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood.A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood.A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood.",
+    "price": "1250.000",
+    "buildYear": 2025,
+    "details": [
       {
-        "id": 2,
-        "imageSrc": "/images/featured-property-first.png",
-        "title": "Aeaside Serenity Villa",
-        "description": "A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood...",
-        "price": "650.000",
-        "buildYear": 2024,
-        "details": [
-          {
-            "pillName": "Urban Oasis - Life in the Heart of the City"
-          }
-        ]
-      },
-      {
-        "id": 3,
-        "imageSrc": "/images/featured-property-first.png",
-        "title": "Zeaside Serenity Villa",
-        "description": "A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood...",
-        "price": "350.000",
-        "buildYear": 2024,
-        "details": [
-          {
-            "pillName": "Countryside Charm - Escape to Nature's Embrace"
-          }
-        ]
-      },
-      {
-        "id": 4,
-        "imageSrc": "/images/featured-property-first.png",
-        "title": "Zeaside Serenity Villa",
-        "description": "A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood...",
-        "price": "650.000",
-        "buildYear": 2023,
-        "details": [
-          {
-            "pillName": "Coastal Escapes - Where Waves Beckon"
-          }
-        ]
-      },
-      {
-        "id": 5,
-        "imageSrc": "/images/featured-property-first.png",
-        "title": "Zeaside Serenity Villa",
-        "description": "A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood...",
-        "price": "650.000",
-        "buildYear": 2023,
-        "details": [
-          {
-            "pillName": "Coastal Escapes - Where Waves Beckon"
-          }
-        ]
-      },
-      {
-        "id": 6,
-        "imageSrc": "/images/featured-property-first.png",
-        "title": "Zeaside Serenity Villa",
-        "description": "A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood...",
-        "price": "650.000",
-        "buildYear": 2023,
-        "details": [
-          {
-            "pillName": "Coastal Escapes - Where Waves Beckon"
-          }
-        ]
-      },
-      {
-        "id": 7,
-        "imageSrc": "/images/featured-property-first.png",
-        "title": "Zeaside Serenity Villa",
-        "description": "A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood...",
-        "price": "650.000",
-        "buildYear": 2023,
-        "details": [
-          {
-            "pillName": "Coastal Escapes - Where Waves Beckon"
-          }
-        ]
-      },
-      {
-        "id": 8,
-        "imageSrc": "/images/featured-property-first.png",
-        "title": "Seaside Serenity Villa",
-        "description": "A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood...",
-        "price": "650.000",
-        "details": [
-          {
-            "pillName": "Coastal Escapes - Where Waves Beckon"
-          }
-        ]
-      },
-      {
-        "id": 9,
-        "imageSrc": "/images/featured-property-first.png",
-        "title": "Seaside Serenity Villa",
-        "description": "A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood...",
-        "price": "650.000",
-        "details": [
-          {
-            "pillName": "Coastal Escapes - Where Waves Beckon"
-          }
-        ]
-      },
-      {
-        "id": 10,
-        "imageSrc": "/images/featured-property-first.png",
-        "title": "Seaside Serenity Villa",
-        "description": "A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood...",
-        "price": "650.000",
-        "details": [
-          {
-            "pillName": "Coastal Escapes - Where Waves Beckon"
-          }
-        ]
-      },
-      {
-        "id": 11,
-        "imageSrc": "/images/featured-property-first.png",
-        "title": "Seaside Serenity Villa",
-        "description": "A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood...",
-        "price": "650.000",
-        "details": [
-          {
-            "pillName": "Coastal Escapes - Where Waves Beckon"
-          }
-        ]
+        "pillName": "Coastal Escapes - Where Waves Beckon"
       }
     ]
   },
-  "NrACKpVCYmTt0-P2xgi8W": {
-    "id": "NrACKpVCYmTt0-P2xgi8W",
-    "villaName": "zzzzzzzzzzz",
-    "coverImage": "/uploads/1738644964418-pic.JPG",
-    "multipleImages": [],
-    "keyFeatures": [
+  {
+    "id": 2,
+    "imageSrc": "/images/featured-property-first.png",
+    "title": "Aeaside Serenity Villa",
+    "description": "A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood...",
+    "price": "650.000",
+    "buildYear": 2024,
+    "details": [
       {
-        "id": "p2OrXCUgL3Sr0wJhKai_A",
-        "name": "Et repellendus Offi"
+        "pillName": "Urban Oasis - Life in the Heart of the City"
       }
-    ],
-    "description": "Eius dolor id sit e",
-    "price": "830",
-    "pillName": "Sylvia Mosley",
-    "location": "Ab sed do minim cill",
-    "buildYear": "2025",
-    "totalBedRoom": 66,
-    "totalBathRoom": 74,
-    "totalArea": 28,
-    "areaUnit": "asdasd",
-    "propertyType": "own",
-    "propertyTransferTax": 94,
-    "legalFees": 29,
-    "homeInspectionFee": 55,
-    "propertyInsurance": 14,
-    "mortgageFee": "Optio sit est tota",
-    "propertyTax": 24,
-    "additionalFee": 67,
-    "homeOwnersAssociationFee": 39,
-    "downPayment": 64,
-    "monthlyPropertyInsurance": 4
+    ]
   },
-  "6xdvj8DqIJEi0GSoNfB3t": {
-    "id": "6xdvj8DqIJEi0GSoNfB3t",
-    "villaName": "Jessica Henson",
-    "coverImage": "/uploads/1738645100641-featured-property-first.png",
-    "multipleImages": [],
-    "keyFeatures": [
+  {
+    "id": 3,
+    "imageSrc": "/images/featured-property-first.png",
+    "title": "Zeaside Serenity Villa",
+    "description": "A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood...",
+    "price": "350.000",
+    "buildYear": 2024,
+    "details": [
       {
-        "id": "fmHg0bV8_k0ZSsFtqxa1W",
-        "name": "Dolorem explicabo V"
+        "pillName": "Countryside Charm - Escape to Nature's Embrace"
       }
-    ],
-    "description": "Voluptate rerum offi",
-    "price": "457",
-    "pillName": "Charles Gonzalez",
-    "location": "Aut consequatur ex v",
-    "buildYear": "2025",
-    "totalBedRoom": 63,
-    "totalBathRoom": 22,
-    "totalArea": 62,
-    "areaUnit": "dhur",
-    "propertyType": "t3",
-    "propertyTransferTax": 41,
-    "legalFees": 54,
-    "homeInspectionFee": 32,
-    "propertyInsurance": 8,
-    "mortgageFee": "Sint et cumque quis",
-    "propertyTax": 27,
-    "additionalFee": 75,
-    "homeOwnersAssociationFee": 3,
-    "downPayment": 30,
-    "monthlyPropertyInsurance": 12
+    ]
   },
-  "hHQgGX1Pmv_8RR3XAMh4Z": {
-    "id": "hHQgGX1Pmv_8RR3XAMh4Z",
-    "villaName": "David Walls",
-    "coverImage": "/uploads/1738645619359-pic.JPG",
-    "multipleImages": [
-      "/uploads/1738645619379-admin dashboard.JPG"
-    ],
-    "keyFeatures": [
+  {
+    "id": 4,
+    "imageSrc": "/images/featured-property-first.png",
+    "title": "Zeaside Serenity Villa",
+    "description": "A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood...",
+    "price": "650.000",
+    "buildYear": 2023,
+    "details": [
       {
-        "id": "-3n_LL3JT3eD3aqi1OQ40",
-        "name": "Aut et atque quibusd"
+        "pillName": "Coastal Escapes - Where Waves Beckon"
       }
-    ],
-    "description": "Deleniti exercitatio",
-    "price": "258",
-    "pillName": "Hanna Livingston",
-    "location": "Ea sint accusantium",
-    "buildYear": "2025",
-    "totalBedRoom": 54,
-    "totalBathRoom": 24,
-    "totalArea": 13,
-    "areaUnit": "asdasd",
-    "propertyType": "own",
-    "propertyTransferTax": 38,
-    "legalFees": 41,
-    "homeInspectionFee": 50,
-    "propertyInsurance": 95,
-    "mortgageFee": "Qui architecto magna",
-    "propertyTax": 1,
-    "additionalFee": 39,
-    "homeOwnersAssociationFee": 23,
-    "downPayment": 70,
-    "monthlyPropertyInsurance": 9
+    ]
+  },
+  {
+    "id": 5,
+    "imageSrc": "/images/featured-property-first.png",
+    "title": "Zeaside Serenity Villa",
+    "description": "A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood...",
+    "price": "650.000",
+    "buildYear": 2023,
+    "details": [
+      {
+        "pillName": "Coastal Escapes - Where Waves Beckon"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "imageSrc": "/images/featured-property-first.png",
+    "title": "Zeaside Serenity Villa",
+    "description": "A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood...",
+    "price": "650.000",
+    "buildYear": 2023,
+    "details": [
+      {
+        "pillName": "Coastal Escapes - Where Waves Beckon"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "imageSrc": "/images/featured-property-first.png",
+    "title": "Zeaside Serenity Villa",
+    "description": "A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood...",
+    "price": "650.000",
+    "buildYear": 2023,
+    "details": [
+      {
+        "pillName": "Coastal Escapes - Where Waves Beckon"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "imageSrc": "/images/featured-property-first.png",
+    "title": "Seaside Serenity Villa",
+    "description": "A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood...",
+    "price": "650.000",
+    "details": [
+      {
+        "pillName": "Coastal Escapes - Where Waves Beckon"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "imageSrc": "/images/featured-property-first.png",
+    "title": "Seaside Serenity Villa",
+    "description": "A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood...",
+    "price": "650.000",
+    "details": [
+      {
+        "pillName": "Coastal Escapes - Where Waves Beckon"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "imageSrc": "/images/featured-property-first.png",
+    "title": "Seaside Serenity Villa",
+    "description": "A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood...",
+    "price": "650.000",
+    "details": [
+      {
+        "pillName": "Coastal Escapes - Where Waves Beckon"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "imageSrc": "/images/featured-property-first.png",
+    "title": "Seaside Serenity Villa",
+    "description": "A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood...",
+    "price": "650.000",
+    "details": [
+      {
+        "pillName": "Coastal Escapes - Where Waves Beckon"
+      }
+    ]
   }
-}
+]
