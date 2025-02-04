@@ -142,33 +142,68 @@
       }
     ]
   },
-  "villaName": "April Hughes",
-  "coverImage": "/uploads/1738643454612-pic.JPG",
-  "multipleImages": [],
-  "keyFeatures": [
-    {
-      "id": "-ppDXNHIpM6Vk4VPvaK2P",
-      "name": "Nulla in facilis et "
-    }
-  ],
-  "description": "Illum qui dolor ea ",
-  "price": "779",
-  "pillName": "Ross Little",
-  "location": "Consectetur explicab",
-  "buildYear": "2025",
-  "totalBedRoom": 26,
-  "totalBathRoom": 88,
-  "totalArea": 76,
-  "areaUnit": "sq feet",
-  "propertyType": "old old",
-  "propertyTransferTax": 16,
-  "legalFees": 33,
-  "homeInspectionFee": 74,
-  "propertyInsurance": 85,
-  "mortgageFee": "Sunt magna voluptas ",
-  "propertyTax": 23,
-  "additionalFee": 61,
-  "homeOwnersAssociationFee": 50,
-  "downPayment": 10,
-  "monthlyPropertyInsurance": 4
+  "NrACKpVCYmTt0-P2xgi8W": {
+    "id": "NrACKpVCYmTt0-P2xgi8W",
+    "villaName": "zzzzzzzzzzz",
+    "coverImage": "/uploads/1738644964418-pic.JPG",
+    "multipleImages": [],
+    "keyFeatures": [
+      {
+        "id": "p2OrXCUgL3Sr0wJhKai_A",
+        "name": "Et repellendus Offi"
+      }
+    ],
+    "description": "Eius dolor id sit e",
+    "price": "830",
+    "pillName": "Sylvia Mosley",
+    "location": "Ab sed do minim cill",
+    "buildYear": "2025",
+    "totalBedRoom": 66,
+    "totalBathRoom": 74,
+    "totalArea": 28,
+    "areaUnit": "asdasd",
+    "propertyType": "own",
+    "propertyTransferTax": 94,
+    "legalFees": 29,
+    "homeInspectionFee": 55,
+    "propertyInsurance": 14,
+    "mortgageFee": "Optio sit est tota",
+    "propertyTax": 24,
+    "additionalFee": 67,
+    "homeOwnersAssociationFee": 39,
+    "downPayment": 64,
+    "monthlyPropertyInsurance": 4
+  },
+  "6xdvj8DqIJEi0GSoNfB3t": {
+    "id": "6xdvj8DqIJEi0GSoNfB3t",
+    "villaName": "Jessica Henson",
+    "coverImage": "/uploads/1738645100641-featured-property-first.png",
+    "multipleImages": [],
+    "keyFeatures": [
+      {
+        "id": "fmHg0bV8_k0ZSsFtqxa1W",
+        "name": "Dolorem explicabo V"
+      }
+    ],
+    "description": "Voluptate rerum offi",
+    "price": "457",
+    "pillName": "Charles Gonzalez",
+    "location": "Aut consequatur ex v",
+    "buildYear": "2025",
+    "totalBedRoom": 63,
+    "totalBathRoom": 22,
+    "totalArea": 62,
+    "areaUnit": "dhur",
+    "propertyType": "t3",
+    "propertyTransferTax": 41,
+    "legalFees": 54,
+    "homeInspectionFee": 32,
+    "propertyInsurance": 8,
+    "mortgageFee": "Sint et cumque quis",
+    "propertyTax": 27,
+    "additionalFee": 75,
+    "homeOwnersAssociationFee": 3,
+    "downPayment": 30,
+    "monthlyPropertyInsurance": 12
+  }
 }

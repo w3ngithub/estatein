@@ -1,4 +1,3 @@
-// app/api/addProperty/upload-images/route.ts
 import { NextResponse } from "next/server";
 import { writeFile } from "fs/promises";
 import { join } from "path";
@@ -9,7 +8,15 @@ export async function POST(request: Request) {
   try {
     const formData = await request.formData();
     const coverImage = formData.get("coverImage") as File;
-    const multipleImages = formData.getAll("multipleImages") as File[];
+    const multipleImages: File[] = [];
+
+    // Extract multiple images correctly
+    for (const entry of formData.entries()) {
+      const [key, value] = entry;
+      if (key === "multipleImages" && value instanceof File) {
+        multipleImages.push(value);
+      }
+    }
 
     // Create uploads directory if it doesn't exist
     const uploadDir = join(process.cwd(), "public", "uploads");
@@ -56,9 +63,3 @@ export async function POST(request: Request) {
     );
   }
 }
-
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};

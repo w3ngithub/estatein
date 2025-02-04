@@ -134,13 +134,21 @@ const PropertiesContent = () => {
 
       // Prepare the data for JSON Patch
       const newData = {
+        id: nanoid(),
         ...values,
         coverImage: coverImageUrl,
         multipleImages: multipleImageUrls,
       };
 
       // Generate JSON Patch operations
-      const patchOperations = compare(originalData || {}, newData);
+      // const patchOperations = compare(originalData || {}, newData);
+      const patchOperations = [
+        {
+          op: "add",
+          path: `/${newData.id}`,
+          value: newData,
+        },
+      ];
 
       // Send the patch operations to the API
       const response = await fetch("/estatein/api/addProperty", {
