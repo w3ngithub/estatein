@@ -107,13 +107,17 @@ const PropertiesContent = () => {
 
     formData.append("coverImage", values.coverImage);
 
-    values.multipleImages.forEach((image, index) => {
-      formData.append(`multipleImages[${index}]`, image);
-    });
+    // values.multipleImages.forEach((image, index) => {
+    //   formData.append(`multipleImages[${index}]`, image);
+    // });
 
     // // If you want to see the complete object structure
     // const formDataObject = Object.fromEntries(formData.entries());
     // console.log("Form Data as object:", formDataObject);
+
+    values.multipleImages.forEach((image) => {
+      formData.append("multipleImages", image);
+    });
 
     try {
       // First, upload the images
@@ -139,6 +143,10 @@ const PropertiesContent = () => {
         coverImage: coverImageUrl,
         multipleImages: multipleImageUrls,
       };
+      console.log(
+        "Uploaded Multiple Image URLzzzzzzzzzzzzzzzzzzzzs:",
+        multipleImageUrls
+      );
 
       // Generate JSON Patch operations
       // const patchOperations = compare(originalData || {}, newData);

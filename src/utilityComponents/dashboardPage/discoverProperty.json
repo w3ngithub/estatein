@@ -205,5 +205,39 @@
     "homeOwnersAssociationFee": 3,
     "downPayment": 30,
     "monthlyPropertyInsurance": 12
+  },
+  "hHQgGX1Pmv_8RR3XAMh4Z": {
+    "id": "hHQgGX1Pmv_8RR3XAMh4Z",
+    "villaName": "David Walls",
+    "coverImage": "/uploads/1738645619359-pic.JPG",
+    "multipleImages": [
+      "/uploads/1738645619379-admin dashboard.JPG"
+    ],
+    "keyFeatures": [
+      {
+        "id": "-3n_LL3JT3eD3aqi1OQ40",
+        "name": "Aut et atque quibusd"
+      }
+    ],
+    "description": "Deleniti exercitatio",
+    "price": "258",
+    "pillName": "Hanna Livingston",
+    "location": "Ea sint accusantium",
+    "buildYear": "2025",
+    "totalBedRoom": 54,
+    "totalBathRoom": 24,
+    "totalArea": 13,
+    "areaUnit": "asdasd",
+    "propertyType": "own",
+    "propertyTransferTax": 38,
+    "legalFees": 41,
+    "homeInspectionFee": 50,
+    "propertyInsurance": 95,
+    "mortgageFee": "Qui architecto magna",
+    "propertyTax": 1,
+    "additionalFee": 39,
+    "homeOwnersAssociationFee": 23,
+    "downPayment": 70,
+    "monthlyPropertyInsurance": 9
   }
 }
