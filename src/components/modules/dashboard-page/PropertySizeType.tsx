@@ -26,42 +26,56 @@ const PropertySizeType = () => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   //for edit
-  const [currentProperty, setCurrentProperty] = useState({ id: "", name: "" });
+  const [currentProperty, setCurrentProperty] = useState({
+    id: "",
+    value: "",
+    selectFieldData: "",
+  });
   const [propertyToDelete, setPropertyToDelete] = useState("");
   // for json patch
   const [properties, setProperties] = useState(propertySizeType);
 
-  const handleEdit = (id: string, name: string) => {
-    setCurrentProperty({ id, name });
+  const handleEdit = (id: string, value: string, selectFieldData: string) => {
+    setCurrentProperty({ id, value, selectFieldData });
     console.log(`Editing property type with ID: ${id}`);
     setIsEditModalOpen(true);
   };
 
   const handleSave = async () => {
+    const updatedProperty = {
+      id: currentProperty.id,
+      value: currentProperty.selectFieldData, // Update value with selectFieldData
+      selectFieldData: currentProperty.selectFieldData,
+    };
+
     try {
       const response = await fetch("/estatein/api/addPropertySizeType", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          id: currentProperty.id,
-          name: currentProperty.name,
-        }),
+        body: JSON.stringify(updatedProperty),
       });
 
       const result = await response.json();
 
       if (response.ok) {
-        console.log("Update successful:", result);
-        setIsEditModalOpen(false);
+        setProperties((prev) =>
+          prev.map((item) =>
+            item.id === currentProperty.id
+              ? {
+                  ...item,
+                  value: currentProperty.selectFieldData, // Sync value with selectFieldData
+                  selectFieldData: currentProperty.selectFieldData,
+                }
+              : item
+          )
+        );
         toast.success("Property Size Type successfully updated");
       } else {
-        console.error("Update failed:", result.message);
         toast.error("Error updating property size type");
       }
     } catch (error) {
-      console.error("Error updating property size type:", error);
       toast.error("Error updating property size type");
     }
 
@@ -140,6 +154,7 @@ const PropertySizeType = () => {
                         onClick={() =>
                           handleEdit(
                             propertyType.id,
+                            propertyType.value,
                             propertyType.selectFieldData
                           )
                         }
@@ -173,11 +188,14 @@ const PropertySizeType = () => {
           </DialogHeader>
           <div className="space-y-4">
             <Input
-              value={currentProperty.name}
+              value={currentProperty.selectFieldData}
               onChange={(e) =>
-                setCurrentProperty({ ...currentProperty, name: e.target.value })
+                setCurrentProperty({
+                  ...currentProperty,
+                  selectFieldData: e.target.value,
+                })
               }
-              placeholder="Enter property type"
+              placeholder="Enter property size type"
               className="h-14"
             />
           </div>
