@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 import { applyPatch } from "fast-json-patch";
 import { promises as fs } from "fs";
 import path from "path";
-import carouselDataDiscoverProperty from "@/utilityComponents/propertyPage/discoverProperty.json";
+// import carouselDataDiscoverProperty from "@/utilityComponents/propertyPage/discoverProperty.json";
 
 const filePath = path.join(
   process.cwd(),
@@ -18,7 +18,7 @@ async function readJsonFile() {
   } catch (error) {
     // If file doesn't exist, return initial data
     return {
-      properties: carouselDataDiscoverProperty,
+      // properties: carouselDataDiscoverProperty,
     };
   }
 }

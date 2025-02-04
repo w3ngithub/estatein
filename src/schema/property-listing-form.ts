@@ -29,9 +29,14 @@ export const propertySchema = z.object({
       message: "At least one key feature is required",
     }),
 
-  description: z.string().min(1, {
-    message: "Description is required",
-  }),
+  description: z
+    .string()
+    .min(1, {
+      message: "Description is required",
+    })
+    .refine((value) => value.trim().split(/\s+/).length >= 20, {
+      message: "Description must be at least 20 words",
+    }),
   price: z.string().min(1, {
     message: "Price is required",
   }),

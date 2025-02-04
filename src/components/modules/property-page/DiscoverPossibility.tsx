@@ -10,7 +10,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Image from "next/image";
-import { carouselDataDiscoverProperty } from "@/utilityComponents/propertyPage/discoverProperty";
+import carouselDataDiscoverProperty from "@/utilityComponents/dashboardPage/discoverProperty.json";
 import { ThreeStars } from "@/svgs/HomePageSvg";
 import SearchProperty from "./SearchProperty";
 import SelectFieldWithIcon from "../common/SelectFieldWithIcon";
@@ -77,67 +77,67 @@ const DiscoveredProperty = () => {
   };
 
   // Filter effect
-  useEffect(() => {
-    let result = carouselDataDiscoverProperty;
+  // useEffect(() => {
+  //   let result = carouselDataDiscoverProperty;
 
-    // Apply search filter
-    if (searchItemFilter.trim()) {
-      result = result.filter((property) =>
-        property.title.toLowerCase().includes(searchItemFilter.toLowerCase())
-      );
-    }
+  //   // Apply search filter
+  //   if (searchItemFilter.trim()) {
+  //     result = result.filter((property) =>
+  //       property.title.toLowerCase().includes(searchItemFilter.toLowerCase())
+  //     );
+  //   }
 
-    // Apply location filter
-    if (locationFilter) {
-      result = result.filter((property) =>
-        property.details.some(
-          (detail) =>
-            detail.pillName.toLowerCase() === locationFilter.toLowerCase()
-        )
-      );
-    }
+  //   // Apply location filter
+  //   if (locationFilter) {
+  //     result = result.filter((property) =>
+  //       property.details.some(
+  //         (detail) =>
+  //           detail.pillName.toLowerCase() === locationFilter.toLowerCase()
+  //       )
+  //     );
+  //   }
 
-    // Apply property type filter
-    if (propertyTypeFilter) {
-      result = result.filter((property) =>
-        property.details.some(
-          (detail) =>
-            detail.pillName.toLowerCase() === propertyTypeFilter.toLowerCase()
-        )
-      );
-    }
+  //   // Apply property type filter
+  //   if (propertyTypeFilter) {
+  //     result = result.filter((property) =>
+  //       property.details.some(
+  //         (detail) =>
+  //           detail.pillName.toLowerCase() === propertyTypeFilter.toLowerCase()
+  //       )
+  //     );
+  //   }
 
-    // Apply price range filter
-    if (priceRange) {
-      const [minPrice, maxPrice] = priceRange.split("-").map(Number);
-      result = result.filter((property) => {
-        const price = parseFloat(property.price.replace("$", ""));
-        return price >= minPrice && price <= maxPrice;
-      });
-    }
+  //   // Apply price range filter
+  //   if (priceRange) {
+  //     const [minPrice, maxPrice] = priceRange.split("-").map(Number);
+  //     result = result.filter((property) => {
+  //       const price = parseFloat(property.price.replace("$", ""));
+  //       return price >= minPrice && price <= maxPrice;
+  //     });
+  //   }
 
-    // Apply build date filter
-    if (buildDateFilter) {
-      const filterYear = new Date(buildDateFilter).getFullYear();
-      result = result.filter((property) => {
-        // Assuming we have a buildYear property in your property data
-        const propertyBuildYear = property.buildYear;
-        return propertyBuildYear === filterYear;
-      });
-    }
+  //   // Apply build date filter
+  //   if (buildDateFilter) {
+  //     const filterYear = new Date(buildDateFilter).getFullYear();
+  //     result = result.filter((property) => {
+  //       // Assuming we have a buildYear property in your property data
+  //       const propertyBuildYear = property.buildYear;
+  //       return propertyBuildYear === filterYear;
+  //     });
+  //   }
 
-    // Ensure some results are always shown if no specific filters are applied
-    // setFilteredProperties(
-    //   result.length > 0 ? result : carouselDataDiscoverProperty
-    // );
-    setFilteredProperties(result);
-  }, [
-    searchItemFilter,
-    locationFilter,
-    propertyTypeFilter,
-    buildDateFilter,
-    priceRange,
-  ]);
+  //   // Ensure some results are always shown if no specific filters are applied
+  //   // setFilteredProperties(
+  //   //   result.length > 0 ? result : carouselDataDiscoverProperty
+  //   // );
+  //   setFilteredProperties(result);
+  // }, [
+  //   searchItemFilter,
+  //   locationFilter,
+  //   propertyTypeFilter,
+  //   buildDateFilter,
+  //   priceRange,
+  // ]);
 
   const router = useRouter();
 
@@ -296,7 +296,7 @@ const DiscoveredProperty = () => {
                         <Image
                           src={`${
                             process.env.NEXT_PUBLIC_BASE_PATH +
-                            `${item.imageSrc}`
+                            `${item.coverImage}`
                           }`}
                           width={432}
                           height={318}
@@ -306,27 +306,20 @@ const DiscoveredProperty = () => {
                       </div>
                       <div className="flex flex-col gap-2">
                         <div className="flex flex-row gap-2 flex-wrap">
-                          {item.details.map((detail, idx) => {
-                            return (
-                              <div
-                                key={idx}
-                                className="flex flex-row justify-center items-center gap-1 border border-grey-shade-10 bg-grey-shade-15 px-3 py-2 rounded-full"
-                              >
-                                <p className="text-white text-lg max-desktop-lg:text-sm max-tablet-sm:text-sm">
-                                  {detail.pillName}
-                                </p>
-                              </div>
-                            );
-                          })}
+                          <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-10 bg-grey-shade-15 px-3 py-2 rounded-full">
+                            <p className="text-white text-lg max-desktop-lg:text-sm max-tablet-sm:text-sm">
+                              {item.pillName}
+                            </p>
+                          </div>
                         </div>
                         <h2 className="text-2xl font-semibold dark:text-white max-desktop-lg:text-xl max-tablet-sm:text-lg">
-                          {item.title}
+                          {item.villaName}
                         </h2>
                         <div>
                           <span className="text-lg dark:text-grey-shade-60 max-desktop-lg:text-base max-tablet-sm:text-sm line-clamp-2 max-w-[600px] border-border-red-500">
                             {item.description}
                           </span>
-                          <Link href={`/property/${item.id}`}>
+                          <Link href={`/property/${Number(item.id)}`}>
                             <span className="underline font-medium dark:text-white text-base p-[0.5px] max-tablet-sm:text-sm">
                               Read More
                             </span>
@@ -348,7 +341,7 @@ const DiscoveredProperty = () => {
                         <div className="col-span-8">
                           <Button
                             className="w-full h-full text-lg font-medium bg-purple-shade-60 rounded-md hover:bg-purple-shade-d60 max-desktop-2xl:text-sm max-tablet-sm:text-sm dark:text-white"
-                            onClick={() => handleNavigation(item.id)}
+                            onClick={() => handleNavigation(Number(item.id))}
                           >
                             View Property Details
                           </Button>

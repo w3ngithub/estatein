@@ -26,7 +26,6 @@ import SelectField from "../common/SelectField";
 import propertySizeType from "@/utilityComponents/dashboardPage/propertySizeTypeData.json";
 import propertyType from "@/utilityComponents/dashboardPage/propertyTypeData.json";
 import { YearCalendar } from "../common/YearCalender";
-import { compare } from "fast-json-patch";
 
 const PropertiesContent = () => {
   // for adding multiple features
@@ -69,7 +68,6 @@ const PropertiesContent = () => {
 
     const formData = new FormData();
 
-    // Append regular form fields
     formData.append("villaName", values.villaName);
     formData.append("price", values.price.toString());
     formData.append("pillName", values.pillName);
@@ -106,14 +104,6 @@ const PropertiesContent = () => {
     formData.append("keyFeatures", JSON.stringify(values.keyFeatures));
 
     formData.append("coverImage", values.coverImage);
-
-    // values.multipleImages.forEach((image, index) => {
-    //   formData.append(`multipleImages[${index}]`, image);
-    // });
-
-    // // If you want to see the complete object structure
-    // const formDataObject = Object.fromEntries(formData.entries());
-    // console.log("Form Data as object:", formDataObject);
 
     values.multipleImages.forEach((image) => {
       formData.append("multipleImages", image);
