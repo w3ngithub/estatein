@@ -1,8 +1,8 @@
 [
   {
     "id": "1",
-    "value": "rental",
-    "selectFieldData": "Rentallllllllll11112222222"
+    "value": "Rental",
+    "selectFieldData": "Rental"
   },
   {
     "id": "2",
@@ -21,7 +21,7 @@
   },
   {
     "id": "rx3K1UwhWdBNqEHeFH05S",
-    "value": "t3",
-    "selectFieldData": "T3"
+    "value": "T100",
+    "selectFieldData": "T100"
   }
 ]

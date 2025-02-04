@@ -72,11 +72,14 @@ export async function PUT(req: NextRequest) {
     const propertySizeTypes = JSON.parse(fileContent);
 
     // Parse request body
-    const { id, name } = await req.json();
+    const { id, value, selectFieldData } = await req.json();
 
-    if (!id || !name) {
+    if (!id || !value || !selectFieldData) {
       return NextResponse.json(
-        { message: "Invalid request. 'id' and 'name' are required." },
+        {
+          message:
+            "Invalid request. 'id', 'value' and 'selectFieldData' are required.",
+        },
         { status: 400 }
       );
     }
@@ -94,7 +97,8 @@ export async function PUT(req: NextRequest) {
     }
 
     // Update the property name
-    propertySizeTypes[propertyIndex].selectFieldData = name;
+    propertySizeTypes[propertyIndex].selectFieldData = selectFieldData;
+    propertySizeTypes[propertyIndex].value = selectFieldData;
 
     // Save updated data
     fs.writeFileSync(filePath, JSON.stringify(propertySizeTypes, null, 2));
