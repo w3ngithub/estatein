@@ -1,27 +1,22 @@
 [
   {
-    "id": "1",
+    "id": "bZCwlJfTwWEw5uS3D-cOt",
     "value": "Rental",
     "selectFieldData": "Rental"
   },
   {
-    "id": "2",
-    "value": "own",
+    "id": "ymraVCEpXCqEkzArLntpo",
+    "value": "Owned",
     "selectFieldData": "Owned"
   },
   {
-    "id": "4oyN_RPj9iLdltDeJkcGX",
-    "value": "old old",
-    "selectFieldData": "Old old"
+    "id": "4jWxsQmuCfQ5QFkUd-zEs",
+    "value": "1 BHK",
+    "selectFieldData": "1 BHK"
   },
   {
-    "id": "4hwyLT4ggHB1ShuHnCh_c",
-    "value": "12 BHK",
-    "selectFieldData": "12 BHK"
-  },
-  {
-    "id": "rx3K1UwhWdBNqEHeFH05S",
-    "value": "T100",
-    "selectFieldData": "T100"
+    "id": "Vk_hxudUYJ66ayvroQ76w",
+    "value": "2 BHK",
+    "selectFieldData": "2 BHK"
   }
 ]

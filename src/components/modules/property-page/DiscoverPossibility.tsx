@@ -99,7 +99,7 @@ const DiscoveredProperty = () => {
     // Apply property type filter
     if (propertyTypeFilter) {
       result = result.filter((property) =>
-        property.pillName
+        property.propertyType
           .toLowerCase()
           .includes(propertyTypeFilter.toLowerCase())
       );
