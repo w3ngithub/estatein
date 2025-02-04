@@ -26,10 +26,13 @@ import SelectField from "../common/SelectField";
 import propertySizeType from "@/utilityComponents/dashboardPage/propertySizeTypeData.json";
 import propertyType from "@/utilityComponents/dashboardPage/propertyTypeData.json";
 import { YearCalendar } from "../common/YearCalender";
+import { compare } from "fast-json-patch";
 
 const PropertiesContent = () => {
   // for adding multiple features
   const [newFeature, setNewFeature] = useState("");
+  const [originalData, setOriginalData] =
+    useState<PropertyListingSchema | null>(null);
 
   const form = useForm<PropertyListingSchema>({
     resolver: zodResolver(propertySchema),
@@ -61,7 +64,7 @@ const PropertiesContent = () => {
     },
   });
 
-  function onSubmit(values: PropertyListingSchema) {
+  async function onSubmit(values: PropertyListingSchema) {
     console.log(values);
 
     const formData = new FormData();
@@ -108,9 +111,63 @@ const PropertiesContent = () => {
       formData.append(`multipleImages[${index}]`, image);
     });
 
-    // If you want to see the complete object structure
-    const formDataObject = Object.fromEntries(formData.entries());
-    console.log("Form Data as object:", formDataObject);
+    // // If you want to see the complete object structure
+    // const formDataObject = Object.fromEntries(formData.entries());
+    // console.log("Form Data as object:", formDataObject);
+
+    try {
+      // First, upload the images
+      const imageUploadResponse = await fetch(
+        "/estatein/api/addProperty/upload-images",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+
+      if (!imageUploadResponse.ok) {
+        throw new Error("Failed to upload images");
+      }
+
+      const { coverImageUrl, multipleImageUrls } =
+        await imageUploadResponse.json();
+
+      // Prepare the data for JSON Patch
+      const newData = {
+        ...values,
+        coverImage: coverImageUrl,
+        multipleImages: multipleImageUrls,
+      };
+
+      // Generate JSON Patch operations
+      const patchOperations = compare(originalData || {}, newData);
+
+      // Send the patch operations to the API
+      const response = await fetch("/estatein/api/addProperty", {
+        method: "PATCH",
+        // headers: {
+        //   "Content-Type": "application/json-patch+json",
+        // },
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(patchOperations),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to update property");
+      }
+
+      // Update the original data with the new values
+      setOriginalData(newData);
+
+      // Reset form
+      form.reset();
+      form.resetField("buildYear");
+      form.resetField("coverImage");
+      form.resetField("multipleImages");
+    } catch (error) {
+      console.error("Error updating property:", error);
+      // Handle error appropriately
+    }
 
     // Reset form after submission
     form.reset();

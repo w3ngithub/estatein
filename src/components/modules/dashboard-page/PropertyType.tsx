@@ -53,7 +53,6 @@ const PropertyType = () => {
       const result = await response.json();
 
       if (response.ok) {
-        console.log("Update successful:", result);
         setIsEditModalOpen(false);
         toast.success("Property Type successfully updated");
       } else {
