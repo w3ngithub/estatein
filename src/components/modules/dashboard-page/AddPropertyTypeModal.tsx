@@ -21,6 +21,8 @@ import {
 } from "@/components/ui/form";
 import propertyType from "@/utilityComponents/dashboardPage/propertyTypeData.json";
 import { nanoid } from "nanoid";
+import { toast } from "sonner";
+
 interface AddPropertyTypeModalProps {
   isModalOpenPropertyType: boolean;
   setIsModalOpenPropertyType: Dispatch<SetStateAction<boolean>>;
@@ -46,7 +48,6 @@ const AddPropertyTypeModal = ({
   });
 
   const onSubmit = async (values: z.infer<typeof AddPropertyTypeSchema>) => {
-    // console.log("property size:", values);
     const newPropertyType = {
       id: nanoid(),
       value: values.propertyType,
@@ -71,10 +72,12 @@ const AddPropertyTypeModal = ({
 
       if (response.ok) {
         const result = await response.json();
-        setPropertyTypeData(result.data); // Update state with new data
+        setPropertyTypeData(result.data);
+        toast.success("Property Type is added");
       }
     } catch (error) {
-      console.error("Error updating property types:", error);
+      console.error("Error creating property type:", error);
+      toast.error("Error creating property type");
     }
 
     setIsModalOpenPropertyType(false);

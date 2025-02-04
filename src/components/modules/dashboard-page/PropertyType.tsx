@@ -20,6 +20,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import propertyType from "@/utilityComponents/dashboardPage/propertyTypeData.json";
+import { toast } from "sonner";
 
 const PropertyType = () => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
@@ -54,12 +55,14 @@ const PropertyType = () => {
       if (response.ok) {
         console.log("Update successful:", result);
         setIsEditModalOpen(false);
-        // Optionally, refresh state or fetch updated data
+        toast.success("Property Type successfully updated");
       } else {
         console.error("Update failed:", result.message);
+        toast.error("Error updating property type");
       }
     } catch (error) {
       console.error("Error updating property type:", error);
+      toast.error("Error updating property type");
     }
     setIsEditModalOpen(false);
   };
@@ -70,7 +73,6 @@ const PropertyType = () => {
   };
 
   const confirmDelete = async () => {
-    // console.log(`Deleting property type with ID: ${propertyToDelete}`);
     try {
       const response = await fetch("/estatein/api/addPropertyType", {
         method: "DELETE",
@@ -88,11 +90,14 @@ const PropertyType = () => {
         setProperties((prev) =>
           prev.filter((item) => item.id !== propertyToDelete)
         );
+        toast.success("Deleted successfully");
       } else {
         console.error("Error deleting:", data.message);
+        toast.error("Error deleting");
       }
     } catch (error) {
       console.error("Failed to delete property:", error);
+      toast.error("Failed to delete");
     }
 
     setIsDeleteModalOpen(false);

@@ -20,6 +20,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import propertySizeType from "@/utilityComponents/dashboardPage/propertySizeTypeData.json";
+import { toast } from "sonner";
 
 const PropertySizeType = () => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
@@ -54,12 +55,14 @@ const PropertySizeType = () => {
       if (response.ok) {
         console.log("Update successful:", result);
         setIsEditModalOpen(false);
-        // Optionally, refresh state or fetch updated data
+        toast.success("Property Size Type successfully updated");
       } else {
         console.error("Update failed:", result.message);
+        toast.error("Error updating property size type");
       }
     } catch (error) {
-      console.error("Error updating property type:", error);
+      console.error("Error updating property size type:", error);
+      toast.error("Error updating property size type");
     }
 
     setIsEditModalOpen(false);
@@ -89,11 +92,14 @@ const PropertySizeType = () => {
         setProperties((prev) =>
           prev.filter((item) => item.id !== propertyToDelete)
         );
+        toast.success("Deleted successfully");
       } else {
         console.error("Error deleting:", data.message);
+        toast.error("Error deleting");
       }
     } catch (error) {
       console.error("Failed to delete property:", error);
+      toast.error("Failed to delete");
     }
     setIsDeleteModalOpen(false);
   };
