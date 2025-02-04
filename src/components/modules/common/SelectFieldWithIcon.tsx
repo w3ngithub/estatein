@@ -28,13 +28,14 @@ const SelectFieldWithIcon = ({
         <SelectValue placeholder={placeholder} />
       </SelectTrigger>
       <SelectContent>
-        {data?.map((item) => {
-          return (
-            <SelectItem key={item.value} value={item.value}>
-              {item.selectFieldData}
-            </SelectItem>
-          );
-        })}
+        {Array.isArray(data) &&
+          data?.map((item) => {
+            return (
+              <SelectItem key={item.value} value={item.value}>
+                {item.selectFieldData}
+              </SelectItem>
+            );
+          })}
       </SelectContent>
     </Select>
   );

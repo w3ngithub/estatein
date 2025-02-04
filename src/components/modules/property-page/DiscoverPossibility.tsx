@@ -26,17 +26,22 @@ import DoubleSlider from "../common/DoubleSlider";
 import { CustomCalendar } from "../common/CustomCalender";
 import propertyType from "@/utilityComponents/dashboardPage/propertyTypeData.json";
 import propertySizeType from "@/utilityComponents/dashboardPage/propertySizeTypeData.json";
+import { nanoid } from "nanoid";
 
 const DiscoveredProperty = () => {
   //filtering properties
   const [filteredProperties, setFilteredProperties] = useState(
     carouselDataDiscoverProperty
   );
+  const [locations, setLocations] = useState<
+    { value: string; selectFieldData: string }[]
+  >([]);
 
   //for carousal
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
+
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
@@ -75,6 +80,17 @@ const DiscoveredProperty = () => {
 
     router.push(`${pathname}${query}`, { scroll: false });
   };
+
+  //taking unique locations from json file
+  useEffect(() => {
+    const uniqueLocations = Array.from(
+      new Set(carouselDataDiscoverProperty.map((property) => property.location))
+    ).map((location) => ({
+      value: location,
+      selectFieldData: location,
+    }));
+    setLocations(uniqueLocations);
+  }, []);
 
   // Filter effect
   useEffect(() => {
@@ -158,12 +174,6 @@ const DiscoveredProperty = () => {
     });
   }, [api]);
 
-  const preferredLocation = [
-    { value: "ktm", selectFieldData: "Kathmandu" },
-    { value: "bkt", selectFieldData: "Bhaktapur" },
-    { value: "lalit", selectFieldData: "Lalitpur" },
-  ];
-
   const handleNavigation = (id: string) => {
     window.open(`/estatein/property/${id}`, "_blank");
   };
@@ -187,7 +197,7 @@ const DiscoveredProperty = () => {
             <div>
               <SelectFieldWithIcon
                 placeholder="Location"
-                data={preferredLocation}
+                data={locations}
                 svgIcon={<LocationIcon />}
                 value={locationFilter}
                 onChange={(value) => {
