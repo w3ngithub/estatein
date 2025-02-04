@@ -77,67 +77,73 @@ const DiscoveredProperty = () => {
   };
 
   // Filter effect
-  // useEffect(() => {
-  //   let result = carouselDataDiscoverProperty;
+  useEffect(() => {
+    let result = carouselDataDiscoverProperty;
 
-  //   // Apply search filter
-  //   if (searchItemFilter.trim()) {
-  //     result = result.filter((property) =>
-  //       property.title.toLowerCase().includes(searchItemFilter.toLowerCase())
-  //     );
-  //   }
+    // Apply search filter
+    if (searchItemFilter.trim()) {
+      result = result.filter((property) =>
+        property.villaName
+          .toLowerCase()
+          .includes(searchItemFilter.toLowerCase())
+      );
+    }
 
-  //   // Apply location filter
-  //   if (locationFilter) {
-  //     result = result.filter((property) =>
-  //       property.details.some(
-  //         (detail) =>
-  //           detail.pillName.toLowerCase() === locationFilter.toLowerCase()
-  //       )
-  //     );
-  //   }
+    // Apply location filter
+    if (locationFilter) {
+      result = result.filter((property) =>
+        property.location.toLowerCase().includes(locationFilter.toLowerCase())
+      );
+    }
 
-  //   // Apply property type filter
-  //   if (propertyTypeFilter) {
-  //     result = result.filter((property) =>
-  //       property.details.some(
-  //         (detail) =>
-  //           detail.pillName.toLowerCase() === propertyTypeFilter.toLowerCase()
-  //       )
-  //     );
-  //   }
+    // Apply property type filter
+    if (propertyTypeFilter) {
+      result = result.filter((property) =>
+        property.pillName
+          .toLowerCase()
+          .includes(propertyTypeFilter.toLowerCase())
+      );
+    }
 
-  //   // Apply price range filter
-  //   if (priceRange) {
-  //     const [minPrice, maxPrice] = priceRange.split("-").map(Number);
-  //     result = result.filter((property) => {
-  //       const price = parseFloat(property.price.replace("$", ""));
-  //       return price >= minPrice && price <= maxPrice;
-  //     });
-  //   }
+    // Apply price range filter
+    if (priceRange) {
+      const [minPrice, maxPrice] = priceRange.split("-").map(Number);
+      result = result.filter((property) => {
+        const price = parseFloat(property.price.replace("$", ""));
+        return price >= minPrice && price <= maxPrice;
+      });
+    }
+    if (propertySizeFilter) {
+      result = result.filter((property) =>
+        property.areaUnit
+          .toLowerCase()
+          .includes(propertySizeFilter.toLowerCase())
+      );
+    }
 
-  //   // Apply build date filter
-  //   if (buildDateFilter) {
-  //     const filterYear = new Date(buildDateFilter).getFullYear();
-  //     result = result.filter((property) => {
-  //       // Assuming we have a buildYear property in your property data
-  //       const propertyBuildYear = property.buildYear;
-  //       return propertyBuildYear === filterYear;
-  //     });
-  //   }
+    // Apply build date filter
+    if (buildDateFilter) {
+      const filterYear = new Date(buildDateFilter).getFullYear();
+      result = result.filter((property) => {
+        // Assuming we have a buildYear property in your property data
+        const propertyBuildYear = Number(property.buildYear);
+        return propertyBuildYear === filterYear;
+      });
+    }
 
-  //   // Ensure some results are always shown if no specific filters are applied
-  //   // setFilteredProperties(
-  //   //   result.length > 0 ? result : carouselDataDiscoverProperty
-  //   // );
-  //   setFilteredProperties(result);
-  // }, [
-  //   searchItemFilter,
-  //   locationFilter,
-  //   propertyTypeFilter,
-  //   buildDateFilter,
-  //   priceRange,
-  // ]);
+    // Ensure some results are always shown if no specific filters are applied
+    // setFilteredProperties(
+    //   result.length > 0 ? result : carouselDataDiscoverProperty
+    // );
+    setFilteredProperties(result);
+  }, [
+    searchItemFilter,
+    locationFilter,
+    propertyTypeFilter,
+    buildDateFilter,
+    priceRange,
+    propertySizeFilter,
+  ]);
 
   const router = useRouter();
 
@@ -157,13 +163,8 @@ const DiscoveredProperty = () => {
     { value: "bkt", selectFieldData: "Bhaktapur" },
     { value: "lalit", selectFieldData: "Lalitpur" },
   ];
-  // const propertyType = [
-  //   { value: "rental", selectFieldData: "Rental" },
-  //   { value: "own", selectFieldData: "Owned" },
-  // ];
 
   const handleNavigation = (id: number) => {
-    // router.push(`/property/${id}`);
     window.open(`/estatein/property/${id}`, "_blank");
   };
   return (
@@ -238,9 +239,6 @@ const DiscoveredProperty = () => {
               <CustomCalendar
                 value={buildDateFilter}
                 onChange={(newDate) => {
-                  // const formattedDate = newDate
-                  //   ? format(new Date(newDate), "yyyy-MM-dd")
-                  //   : "";
                   setBuildDateFilter(newDate || "");
                   updateUrlParams("buildDate", newDate || ""); // Update the URL
                 }}
