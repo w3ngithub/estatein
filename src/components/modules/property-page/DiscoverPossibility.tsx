@@ -164,7 +164,7 @@ const DiscoveredProperty = () => {
     { value: "lalit", selectFieldData: "Lalitpur" },
   ];
 
-  const handleNavigation = (id: number) => {
+  const handleNavigation = (id: string) => {
     window.open(`/estatein/property/${id}`, "_blank");
   };
   return (
@@ -339,7 +339,7 @@ const DiscoveredProperty = () => {
                         <div className="col-span-8">
                           <Button
                             className="w-full h-full text-lg font-medium bg-purple-shade-60 rounded-md hover:bg-purple-shade-d60 max-desktop-2xl:text-sm max-tablet-sm:text-sm dark:text-white"
-                            onClick={() => handleNavigation(Number(item.id))}
+                            onClick={() => handleNavigation(item.id)}
                           >
                             View Property Details
                           </Button>
