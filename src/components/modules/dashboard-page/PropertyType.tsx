@@ -131,7 +131,7 @@ const PropertyType = () => {
             <TableHeader>
               <TableRow>
                 <TableHead className="w-[100px] desktop-lg:text-lg">
-                  ID
+                  S.N
                 </TableHead>
                 <TableHead className="w-[400px] text-center desktop-lg:text-lg">
                   Name
@@ -142,10 +142,11 @@ const PropertyType = () => {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {propertyType.map((propertyType) => (
+              {propertyType.map((propertyType, index) => (
                 <TableRow key={propertyType.id}>
                   <TableCell className="w-[100px] desktop-lg:text-lg">
-                    {propertyType.id}
+                    {/* {propertyType.id} */}
+                    {index + 1}
                   </TableCell>
                   <TableCell className="w-[400px] text-center desktop-lg:text-lg">
                     {propertyType.selectFieldData}
