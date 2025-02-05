@@ -12,48 +12,28 @@ import {
 } from "@/components/ui/carousel";
 import { LocationIcon } from "@/svgs/PropertyDetailPageSvg";
 
-const images = [
-  "/estatein/images/carousel-one.png",
-  "/estatein/images/carousel-two.png",
-  "/estatein/images/carousel-one.png",
-  "/estatein/images/carousel-two.png",
-  "/estatein/images/carousel-one.png",
-  "/estatein/images/carousel-two.png",
-  "/estatein/images/carousel-one.png",
-  "/estatein/images/carousel-two.png",
-  "/estatein/images/carousel-one.png",
-  "/estatein/images/carousel-two.png",
-  "/estatein/images/carousel-one.png",
-  "/estatein/images/carousel-two.png",
-];
+// const images = [
+//   "/estatein/images/carousel-one.png",
+//   "/estatein/images/carousel-two.png",
+//   "/estatein/images/carousel-one.png",
+//   "/estatein/images/carousel-two.png",
+//   "/estatein/images/carousel-one.png",
+//   "/estatein/images/carousel-two.png",
+//   "/estatein/images/carousel-one.png",
+//   "/estatein/images/carousel-two.png",
+//   "/estatein/images/carousel-one.png",
+//   "/estatein/images/carousel-two.png",
+//   "/estatein/images/carousel-one.png",
+//   "/estatein/images/carousel-two.png",
+// ];
 
-export default function PropertyImageCarousal() {
-  const [villa, setVilla] = React.useState(null);
-  const [loading, setLoading] = React.useState<boolean>(true);
-  const [error, setError] = React.useState<string | null>(null);
+interface PropertyImageCarousalProps {
+  images: string[];
+}
 
-  // React.useEffect(() => {
-  //   const fetchVillaDetails = async () => {
-  //     try {
-  //       const response = await fetch(`/estatein/api/addProperty?id=${id}`);
-  //       if (!response.ok) throw new Error("Villa not found");
-  //       const data = await response.json();
-  //       setVilla(data);
-  //     } catch (err) {
-  //       setError((err as Error).message);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-
-  //   fetchVillaDetails();
-  // }, [id]);
-
-  // if (loading) return <p>Loading...</p>;
-  // if (error) return <p>Error: {error}</p>;
-
-  // console.log(villa, "vvvvvvvv");
-
+export default function PropertyImageCarousal({
+  images,
+}: PropertyImageCarousalProps) {
   const [selectedIndex, setSelectedIndex] = React.useState(0);
   const [mainApi, setMainApi] = React.useState<CarouselApi>();
   const [thumbApi, setThumbApi] = React.useState<CarouselApi>();
@@ -118,7 +98,7 @@ export default function PropertyImageCarousal() {
                     onClick={() => handleThumbClick(index)}
                   >
                     <Image
-                      src={src}
+                      src={`/estatein${src}`}
                       alt={`Property view ${index + 1}`}
                       width={80}
                       height={60}
@@ -142,7 +122,7 @@ export default function PropertyImageCarousal() {
               {images.map((src, index) => (
                 <CarouselItem key={index} className="pl-2 mobile-lg:basis-1/2">
                   <Image
-                    src={src}
+                    src={`/estatein${src}`}
                     alt={`Property view ${index + 1}`}
                     width={600}
                     height={400}

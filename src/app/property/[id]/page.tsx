@@ -16,6 +16,7 @@ const fetchVillaDetails = async (id: string) => {
     throw new Error("Failed to fetch villa details");
   }
   const data = await res.json();
+
   return data;
 };
 
@@ -27,7 +28,7 @@ const page = async ({ params }: { params: { id: string } }) => {
 
   return (
     <div className="bg-white-95 dark:bg-grey-shade-8">
-      <PropertyImageCarousal />
+      <PropertyImageCarousal images={villa.multipleImages} />
       <PropertyDescription propertyDescription={propertyDescription} />
       <InquiryProperty />
       <PricingDetails pricingDetails={pricingDetails[0]} />
