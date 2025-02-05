@@ -109,9 +109,13 @@ export const propertySchema = z.object({
     .min(1, {
       message: "Property Insurance is required",
     }),
-  mortgageFee: z.string().min(1, {
-    message: "Mortgage Fee is required",
-  }),
+  mortgageFee: z
+    .number({
+      invalid_type_error: "Mortgage Fee must be a number",
+    })
+    .min(1, {
+      message: "Mortgage Fee is required",
+    }),
   propertyTax: z
     .number({
       invalid_type_error: "Property Tax must be a number",

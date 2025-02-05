@@ -52,7 +52,7 @@ const PropertiesContent = () => {
       legalFees: 0,
       homeInspectionFee: 0,
       propertyInsurance: 0,
-      mortgageFee: "",
+      mortgageFee: 0,
       propertyTax: 0,
       additionalFee: 0,
       homeOwnersAssociationFee: 0,
@@ -64,7 +64,7 @@ const PropertiesContent = () => {
   });
 
   async function onSubmit(values: PropertyListingSchema) {
-    console.log(values);
+    // console.log(values);
 
     const formData = new FormData();
 
@@ -87,7 +87,7 @@ const PropertiesContent = () => {
     formData.append("legalFees", values.legalFees.toString());
     formData.append("homeInspectionFee", values.homeInspectionFee.toString());
     formData.append("propertyInsurance", values.propertyInsurance.toString());
-    formData.append("mortgageFee", values.mortgageFee);
+    formData.append("mortgageFee", values.mortgageFee.toString());
     formData.append("propertyTax", values.propertyTax.toString());
     formData.append("additionalFee", values.additionalFee.toString());
     formData.append(
@@ -445,6 +445,7 @@ const PropertiesContent = () => {
                     <FormLabel>Enter Mortgage Fee</FormLabel>
                     <FormControl>
                       <Input
+                        type="number"
                         placeholder="Enter Mortgage Fee"
                         {...field}
                         className="h-16 max-desktop-lg:h-14"
