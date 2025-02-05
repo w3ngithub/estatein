@@ -16,6 +16,7 @@ interface PropertyPriceData {
   propertyName: string;
   area: number;
   price: number;
+  areaUnit: string;
 }
 
 interface CustomTooltipProps {
@@ -25,33 +26,18 @@ interface CustomTooltipProps {
   }>;
 }
 
-// const data01 = [
-//   { propertyName: "Villa A", propertySize: 400 },
-//   { propertyName: "Villa B", propertySize: 300 },
-//   { propertyName: "Villa C", propertySize: 300 },
-//   { propertyName: "Villa D", propertySize: 200 },
-//   { propertyName: "Villa E", propertySize: 278 },
-//   { propertyName: "Villa F", propertySize: 189 },
-// ];
-const data: PropertyPriceData[] = [
-  { propertyName: "Villa A", area: 1000, price: 4000 },
-  { propertyName: "Villa B", area: 1200, price: 3000 },
-  { propertyName: "Villa C", area: 1500, price: 2000 },
-  { propertyName: "Villa D", area: 1800, price: 2780 },
-  { propertyName: "Villa E", area: 2000, price: 1890 },
-  { propertyName: "Villa F", area: 2500, price: 2390 },
-  { propertyName: "Villa G", area: 3000, price: 3490 },
-];
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "#A28DFF"];
 
 // Custom Tooltip Component
 const CustomTooltip = ({ active, payload }: CustomTooltipProps) => {
   if (active && payload && payload.length) {
-    const { propertyName, area, price } = payload[0].payload;
+    const { propertyName, area, price, areaUnit } = payload[0].payload;
     return (
       <div className="bg-white p-2 border shadow-md rounded-md text-black">
         <p className="font-bold">{propertyName}</p>
-        <p>Area: {area} sq ft</p>
+        <p>
+          Area: {area} {areaUnit}
+        </p>
         <p>Price: ${price}</p>
       </div>
     );
@@ -64,9 +50,18 @@ const DashboardContent = ({
 }: {
   onNavigateToSettings?: () => void;
 }) => {
+  //pie chart data
   const data01 = discoverProperty.map((item) => ({
     propertyName: item.villaName,
     propertySize: item.totalArea,
+    areaUnit: item.areaUnit,
+  }));
+
+  //area chart data
+  const data = discoverProperty.map((item) => ({
+    propertyName: item.villaName,
+    area: item.totalArea,
+    price: item.price,
     areaUnit: item.areaUnit,
   }));
 
@@ -189,7 +184,7 @@ const DashboardContent = ({
                   <XAxis
                     dataKey="area"
                     label={{
-                      value: "Area (sq ft)",
+                      value: "Area",
                       position: "bottom",
                       offset: -5,
                     }}
