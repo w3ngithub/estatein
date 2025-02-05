@@ -10,10 +10,16 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Image from "next/image";
-import { carouselDataFeaturedProperty } from "@/utilityComponents/homePage/featuredProperty";
+// import { carouselDataFeaturedProperty } from "@/utilityComponents/homePage/featuredProperty";
 import { ThreeStars } from "@/svgs/HomePageSvg";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import discoverProperty from "@/utilityComponents/dashboardPage/discoverProperty.json";
+import {
+  BathRoomLogo,
+  BedRoomLogo,
+  VillaLogo,
+} from "@/svgs/FeaturedPropertyiesSvg";
 
 const FeaturedProperty = () => {
   const router = useRouter();
@@ -33,8 +39,9 @@ const FeaturedProperty = () => {
     });
   }, [api]);
 
-  const handleNavigation = (id: number) => {
-    router.push(`/property/${id}`);
+  const handleNavigation = (id: string) => {
+    // router.push(`/property/${id}`);
+    window.open(`/estatein/property/${id}`, "_blank");
   };
 
   return (
@@ -67,9 +74,9 @@ const FeaturedProperty = () => {
         {/* Carousel section */}
         <div className="flex justify-center items-center my-2">
           <CarouselContent>
-            {carouselDataFeaturedProperty.map((item, index) => (
+            {discoverProperty.map((item) => (
               <CarouselItem
-                key={index}
+                key={item.id}
                 className="mobile-xl:basis-1/2 tablet-lg:basis-1/3"
               >
                 <div className="border border-white-d1 dark:border-grey-shade-15 dark:bg-grey-shade-8 rounded-md px-4 py-5">
@@ -77,7 +84,8 @@ const FeaturedProperty = () => {
                     <div>
                       <Image
                         src={`${
-                          process.env.NEXT_PUBLIC_BASE_PATH + `${item.imageSrc}`
+                          process.env.NEXT_PUBLIC_BASE_PATH +
+                          `${item.coverImage}`
                         }`}
                         width={432}
                         height={318}
@@ -87,7 +95,7 @@ const FeaturedProperty = () => {
                     </div>
                     <div className="flex flex-col gap-2">
                       <h2 className="text-2xl font-semibold dark:text-white max-desktop-lg:text-xl max-tablet-sm:text-lg">
-                        {item.title}
+                        {item.villaName}
                       </h2>
                       <div>
                         <span className="text-lg dark:text-grey-shade-60 max-desktop-lg:text-base max-tablet-sm:text-sm line-clamp-2">
@@ -101,19 +109,24 @@ const FeaturedProperty = () => {
                       </div>
                     </div>
                     <div className="flex flex-row gap-2 flex-wrap">
-                      {item.details.map((detail, idx) => {
-                        return (
-                          <div
-                            key={idx}
-                            className="flex flex-row justify-center items-center gap-1 border border-grey-shade-10 bg-grey-shade-15 px-3 py-2 rounded-full"
-                          >
-                            <div>{detail.pillIcon}</div>
-                            <p className="text-white text-lg max-desktop-lg:text-sm max-tablet-sm:text-sm">
-                              {detail.pillName}
-                            </p>
-                          </div>
-                        );
-                      })}
+                      <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-10 bg-grey-shade-15 px-3 py-2 rounded-full">
+                        <div>{<BedRoomLogo />}</div>
+                        <p className="text-white text-lg max-desktop-lg:text-sm max-tablet-sm:text-sm">
+                          {item.totalBedRoom}-Bedroom
+                        </p>
+                      </div>
+                      <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-10 bg-grey-shade-15 px-3 py-2 rounded-full">
+                        <div>{<BathRoomLogo />}</div>
+                        <p className="text-white text-lg max-desktop-lg:text-sm max-tablet-sm:text-sm">
+                          {item.totalBathRoom}-Bathroom
+                        </p>
+                      </div>
+                      <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-10 bg-grey-shade-15 px-3 py-2 rounded-full">
+                        <div>{<VillaLogo />}</div>
+                        <p className="text-white text-lg max-desktop-lg:text-sm max-tablet-sm:text-sm">
+                          Villa
+                        </p>
+                      </div>
                     </div>
                     <div className="grid grid-cols-12">
                       <div className="col-span-4">
