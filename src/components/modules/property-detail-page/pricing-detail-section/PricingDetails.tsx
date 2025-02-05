@@ -4,14 +4,31 @@ import AdditionalFeeCard from "./AdditionalFeeCard";
 import MonthlyCostsCard from "./MonthlyCostsCard";
 import TotalInitialCostCard from "./TotalInitialCostCard";
 import MonthlyExpenseCard from "./MonthlyExpenseCard";
-import { PricingDetail } from "@/utilityComponents/propertyDetailPage/pricingDetails";
-
 interface PricingDetailsProps {
-  pricingDetails: PricingDetail;
-  villa: any;
+  price: string;
+  propertyTransferTax: string;
+  legalFees: string;
+  homeInspectionFee: string;
+  propertyInsurance: string;
+  propertyTax: string;
+  homeOwnersAssociationFee: string;
+  additionalFee: string;
+  downPayment: string;
+  mortgageFee: string;
 }
 
-const PricingDetails = ({ pricingDetails, villa }: PricingDetailsProps) => {
+const PricingDetails = ({
+  price,
+  propertyTransferTax,
+  legalFees,
+  homeInspectionFee,
+  propertyInsurance,
+  propertyTax,
+  homeOwnersAssociationFee,
+  additionalFee,
+  downPayment,
+  mortgageFee,
+}: PricingDetailsProps) => {
   return (
     <div className="container py-10">
       <div className="flex flex-col gap-10">
@@ -50,7 +67,7 @@ const PricingDetails = ({ pricingDetails, villa }: PricingDetailsProps) => {
               Listing Price
             </p>
             <h1 className="font-semibold text-4xl max-desktop-lg:text-3xl max-tablet-sm:text-2xl">
-              ${villa.price}
+              ${price}
             </h1>
           </div>
           {/* 2nd section */}
@@ -58,26 +75,26 @@ const PricingDetails = ({ pricingDetails, villa }: PricingDetailsProps) => {
             <div className="flex flex-col gap-10">
               {/* 1st 2nd 3rd 4th card */}
               <AdditionalFeeCard
-                propertyTransferTax={villa.propertyTransferTax}
-                legalFees={villa.legalFees}
-                homeInspectionFee={villa.homeInspectionFee}
-                propertyInsurance={villa.propertyInsurance}
+                propertyTransferTax={propertyTransferTax}
+                legalFees={legalFees}
+                homeInspectionFee={homeInspectionFee}
+                propertyInsurance={propertyInsurance}
               />
               <MonthlyCostsCard
-                propertyTax={villa.propertyTax}
-                homeOwnersAssociationFee={villa.homeOwnersAssociationFee}
+                propertyTax={propertyTax}
+                homeOwnersAssociationFee={homeOwnersAssociationFee}
               />
 
               <TotalInitialCostCard
-                price={villa.price}
-                additionalFee={villa.additionalFee}
-                downPayment={villa.downPayment}
-                mortgageFee={villa.mortgageFee}
+                price={price}
+                additionalFee={additionalFee}
+                downPayment={downPayment}
+                mortgageFee={mortgageFee}
               />
               <MonthlyExpenseCard
-                propertyTax={villa.propertyTax}
-                homeOwnersAssociationFee={villa.homeOwnersAssociationFee}
-                propertyInsurance={villa.propertyInsurance}
+                propertyTax={propertyTax}
+                homeOwnersAssociationFee={homeOwnersAssociationFee}
+                propertyInsurance={propertyInsurance}
               />
             </div>
           </div>

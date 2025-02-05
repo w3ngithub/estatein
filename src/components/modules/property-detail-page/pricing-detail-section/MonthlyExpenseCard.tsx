@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { MonthlyExpenses } from "@/utilityComponents/propertyDetailPage/pricingDetails";
 import Link from "next/link";
 import React from "react";
 
