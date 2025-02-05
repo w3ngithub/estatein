@@ -7,22 +7,24 @@ import React from "react";
 import { pricingDetails } from "@/utilityComponents/propertyDetailPage/pricingDetails";
 import PropertyImageCarousal from "@/components/modules/property-detail-page/PropertyImageCarousal";
 
-// const fetchVillaDetails = async (id: string) => {
-//   const res = await fetch(`/estatein/api/addProperty/${id}`, {
-//     cache: "no-store", // Ensures fresh data on each request
-//   });
-
-//   if (!res.ok) {
-//     throw new Error("Failed to fetch villa details");
-//   }
-
-//   return res.json();
-// };
+const fetchVillaDetails = async (id: string) => {
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_PATH || "http://localhost:3000";
+  const res = await fetch(
+    `http://localhost:3000/estatein/api/addProperty/${id}`
+  );
+  if (!res.ok) {
+    throw new Error("Failed to fetch villa details");
+  }
+  const data = await res.json();
+  return data;
+};
 
 const page = async ({ params }: { params: { id: string } }) => {
-  // const villa = await fetchVillaDetails(params.id);
   const { id } = await params;
+  // const id = params.id;
   console.log(id, "xxxxxxxxx");
+  const villa = await fetchVillaDetails(id);
+
   return (
     <div className="bg-white-95 dark:bg-grey-shade-8">
       <PropertyImageCarousal />

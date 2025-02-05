@@ -1,5 +1,37 @@
 [
   {
+    "id": "tm-sMWTZmwKN2RTk1EJEQ",
+    "villaName": "dipesh ji",
+    "coverImage": "/uploads/1738725474877-featured-property-first.png",
+    "multipleImages": ["/uploads/1738725474880-featured-property-first.png"],
+    "keyFeatures": [
+      {
+        "id": "NJW0Hu-WuJ9cXYmHriavL",
+        "name": "Repellendus Aut ut "
+      }
+    ],
+    "description": "Est anim iusto expeasda asd asdasdasd asdsdasd asdasd Est anim iusto expeasda Est anim iusto expeasda Est anim iusto expeasda",
+    "price": "571",
+    "pillName": "Isabella Valentine",
+    "location": "Cupiditate explicabo",
+    "buildYear": "2025",
+    "totalBedRoom": 70,
+    "totalBathRoom": 68,
+    "totalArea": 11,
+    "areaUnit": "aana",
+    "propertyType": "1 BHK",
+    "propertyTransferTax": 100,
+    "legalFees": 7,
+    "homeInspectionFee": 62,
+    "propertyInsurance": 30,
+    "mortgageFee": "Beatae animi accusa",
+    "propertyTax": 16,
+    "additionalFee": 46,
+    "homeOwnersAssociationFee": 70,
+    "downPayment": 57,
+    "monthlyPropertyInsurance": 12
+  },
+  {
     "id": "ygx-CFvk1rwr6xLnwK7I9",
     "villaName": "Noah Nixon",
     "coverImage": "/uploads/1738651678283-featured-property-first.png",
