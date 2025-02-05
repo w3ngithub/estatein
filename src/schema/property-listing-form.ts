@@ -12,7 +12,7 @@ export const propertySchema = z.object({
 
   multipleImages: z
     .array(z.instanceof(File))
-    .min(1, "Please upload at least one image")
+    .min(2, "Please upload at least two image")
     .refine(
       (files) => files.every((file) => file.size <= 1000000),
       "All images must be less than 1MB"

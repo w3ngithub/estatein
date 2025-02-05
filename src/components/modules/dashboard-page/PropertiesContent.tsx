@@ -448,6 +448,7 @@ const PropertiesContent = () => {
                         type="number"
                         placeholder="Enter Mortgage Fee"
                         {...field}
+                        onChange={(e) => field.onChange(Number(e.target.value))}
                         className="h-16 max-desktop-lg:h-14"
                       />
                     </FormControl>

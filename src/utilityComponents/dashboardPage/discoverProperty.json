@@ -1,9 +1,46 @@
 [
   {
+    "id": "1kSxaXnKHA-Oy2dkNeWbn",
+    "villaName": "AUS",
+    "coverImage": "/uploads/1738738857883-featured-property-first.png",
+    "multipleImages": [
+      "/uploads/1738738857887-carousel-one.png",
+      "/uploads/1738738857888-carousel-two.png"
+    ],
+    "keyFeatures": [
+      {
+        "id": "CJsPeA9ZIsNjceGZ6rey-",
+        "name": "Velit eum mollitia r"
+      }
+    ],
+    "description": "Magni dolor tempora Magni dolor tempora Magni dolor tempora Magni dolor tempora Magni dolor tempora Magni dolor tempora Magni dolor tempora ",
+    "price": "827",
+    "pillName": "Talon Velez",
+    "location": "Ex commodi alias non",
+    "buildYear": "2025",
+    "totalBedRoom": 91,
+    "totalBathRoom": 17,
+    "totalArea": 74,
+    "areaUnit": "dhur",
+    "propertyType": "2 BHK",
+    "propertyTransferTax": 8,
+    "legalFees": 14,
+    "homeInspectionFee": 1,
+    "propertyInsurance": 94,
+    "mortgageFee": 56,
+    "propertyTax": 68,
+    "additionalFee": 23,
+    "homeOwnersAssociationFee": 24,
+    "downPayment": 81,
+    "monthlyPropertyInsurance": 8
+  },
+  {
     "id": "tm-sMWTZmwKN2RTk1EJEQ",
     "villaName": "dipesh ji",
     "coverImage": "/uploads/1738725474877-featured-property-first.png",
-    "multipleImages": ["/uploads/1738725474880-featured-property-first.png"],
+    "multipleImages": [
+      "/uploads/1738725474880-featured-property-first.png"
+    ],
     "keyFeatures": [
       {
         "id": "NJW0Hu-WuJ9cXYmHriavL",
@@ -35,7 +72,9 @@
     "id": "ygx-CFvk1rwr6xLnwK7I9",
     "villaName": "Noah Nixon",
     "coverImage": "/uploads/1738651678283-featured-property-first.png",
-    "multipleImages": ["/uploads/1738651678290-pic.JPG"],
+    "multipleImages": [
+      "/uploads/1738651678290-pic.JPG"
+    ],
     "keyFeatures": [
       {
         "id": "D37xjjwY-vuaAzQuZVt9t",
@@ -67,7 +106,9 @@
     "id": "ygx-CFvk1rwr6xLnwK7I9",
     "villaName": "Noah Nixon",
     "coverImage": "/uploads/1738651678283-featured-property-first.png",
-    "multipleImages": ["/uploads/1738651678290-pic.JPG"],
+    "multipleImages": [
+      "/uploads/1738651678290-pic.JPG"
+    ],
     "keyFeatures": [
       {
         "id": "D37xjjwY-vuaAzQuZVt9t",
@@ -99,7 +140,9 @@
     "id": "_W60UFk6kdMTciHOXnG_o",
     "villaName": "Neville Evans",
     "coverImage": "/uploads/1738651575959-featured-property-first.png",
-    "multipleImages": ["/uploads/1738651575964-pic.JPG"],
+    "multipleImages": [
+      "/uploads/1738651575964-pic.JPG"
+    ],
     "keyFeatures": [
       {
         "id": "dV8ulzgTpz3fqMxvUMFO4",
