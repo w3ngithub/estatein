@@ -62,14 +62,22 @@ const PricingDetails = ({ pricingDetails, villa }: PricingDetailsProps) => {
                 legalFees={villa.legalFees}
                 homeInspectionFee={villa.homeInspectionFee}
                 propertyInsurance={villa.propertyInsurance}
+              />
+              <MonthlyCostsCard
+                propertyTax={villa.propertyTax}
+                homeOwnersAssociationFee={villa.homeOwnersAssociationFee}
+              />
+
+              <TotalInitialCostCard
+                price={villa.price}
+                additionalFee={villa.additionalFee}
+                downPayment={villa.downPayment}
                 mortgageFee={villa.mortgageFee}
               />
-              <MonthlyCostsCard monthlyCostData={pricingDetails.monthlyCosts} />
-              <TotalInitialCostCard
-                totalInitialCostData={pricingDetails.totalInitialCosts}
-              />
               <MonthlyExpenseCard
-                monthlyExpensesData={pricingDetails.monthlyExpenses}
+                propertyTax={villa.propertyTax}
+                homeOwnersAssociationFee={villa.homeOwnersAssociationFee}
+                propertyInsurance={villa.propertyInsurance}
               />
             </div>
           </div>

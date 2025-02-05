@@ -7,7 +7,6 @@ interface AdditionalFeeCardProps {
   legalFees: string;
   homeInspectionFee: string;
   propertyInsurance: string;
-  mortgageFee: string;
 }
 
 const AdditionalFeeCard = ({
@@ -15,7 +14,6 @@ const AdditionalFeeCard = ({
   legalFees,
   homeInspectionFee,
   propertyInsurance,
-  mortgageFee,
 }: AdditionalFeeCardProps) => {
   return (
     <div className="p-5 border border-grey-shade-15 rounded-lg">
@@ -38,7 +36,7 @@ const AdditionalFeeCard = ({
           </p>
           <div className="flex flex-row items-center gap-3">
             <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
-              {propertyTransferTax}
+              ${propertyTransferTax}
             </h1>
             <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-15 bg-grey-shade-10 px-3 py-2 rounded-full max-mobile-md:rounded-lg">
               <p className="text-grey-shade-60 text-lg max-desktop-lg:text-sm">
@@ -104,7 +102,7 @@ const AdditionalFeeCard = ({
           </p>
           <div className="flex flex-row items-center gap-3">
             <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
-              {mortgageFee}
+              Varies
             </h1>
             <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-15 bg-grey-shade-10 px-3 py-2 rounded-full max-mobile-md:rounded-lg">
               <p className="text-grey-shade-60 text-lg max-desktop-lg:text-sm">

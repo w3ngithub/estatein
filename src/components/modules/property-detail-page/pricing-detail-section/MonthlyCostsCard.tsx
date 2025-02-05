@@ -4,10 +4,14 @@ import Link from "next/link";
 import React from "react";
 
 interface MonthlyCostsCardProps {
-  monthlyCostData: MonthlyCosts;
+  propertyTax: string;
+  homeOwnersAssociationFee: string;
 }
 
-const MonthlyCostsCard = ({ monthlyCostData }: MonthlyCostsCardProps) => {
+const MonthlyCostsCard = ({
+  propertyTax,
+  homeOwnersAssociationFee,
+}: MonthlyCostsCardProps) => {
   return (
     <div className="p-5 border border-grey-shade-15 rounded-lg">
       <div className="flex flex-row items-center justify-between gap-2 py-5">
@@ -28,7 +32,7 @@ const MonthlyCostsCard = ({ monthlyCostData }: MonthlyCostsCardProps) => {
           </p>
           <div className="flex flex-row items-center gap-3">
             <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
-              ${monthlyCostData.propertyTax}
+              ${propertyTax}
             </h1>
             <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-15 bg-grey-shade-10 px-3 py-2 rounded-full max-mobile-md:rounded-lg">
               <p className="text-grey-shade-60 text-lg max-desktop-lg:text-sm">
@@ -44,7 +48,7 @@ const MonthlyCostsCard = ({ monthlyCostData }: MonthlyCostsCardProps) => {
           </p>
           <div className="flex flex-row items-center gap-3">
             <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
-              ${monthlyCostData.homeOwnerAssociationFee}
+              ${homeOwnersAssociationFee}
             </h1>
             <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-15 bg-grey-shade-10 px-3 py-2 rounded-full max-mobile-md:rounded-lg">
               <p className="text-grey-shade-60 text-lg max-desktop-lg:text-sm">
