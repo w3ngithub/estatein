@@ -24,6 +24,7 @@ import { useEffect, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import DoubleSlider from "../common/DoubleSlider";
 import { CustomCalendar } from "../common/CustomCalender";
+import { propertyType } from "@/utilityComponents/dashboardPage/propertyTypeData";
 
 const DiscoveredProperty = () => {
   //filtering properties
@@ -155,10 +156,10 @@ const DiscoveredProperty = () => {
     { value: "bkt", selectFieldData: "Bhaktapur" },
     { value: "lalit", selectFieldData: "Lalitpur" },
   ];
-  const propertyType = [
-    { value: "rental", selectFieldData: "Rental" },
-    { value: "own", selectFieldData: "Owned" },
-  ];
+  // const propertyType = [
+  //   { value: "rental", selectFieldData: "Rental" },
+  //   { value: "own", selectFieldData: "Owned" },
+  // ];
 
   const propertySize = [
     { value: "1", selectFieldData: "1 Aana" },
@@ -166,7 +167,8 @@ const DiscoveredProperty = () => {
   ];
 
   const handleNavigation = (id: number) => {
-    router.push(`/property/${id}`);
+    // router.push(`/property/${id}`);
+    window.open(`/estatein/property/${id}`, "_blank");
   };
   return (
     <div className="flex flex-col gap-10">

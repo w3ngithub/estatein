@@ -52,8 +52,6 @@ const SettingsContent = () => {
         isModalOpenPropertySize={isModalOpenPropertySize}
         setIsModalOpenPropertySize={setIsModalOpenPropertySize}
       />
-
-      <div></div>
     </div>
   );
 };

@@ -48,6 +48,7 @@ const Hero = () => {
               height={814} // Proportional height
               className="object-cover max-mobile-md:rounded-lg"
               alt="Hero icon"
+              style={{ width: "auto", height: "auto" }}
               priority
             />
           </div>
@@ -60,7 +61,9 @@ const Hero = () => {
               width={129}
               height={129}
               alt="Hero Logo"
-              priority
+              sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
             />
           </div>
         </div>

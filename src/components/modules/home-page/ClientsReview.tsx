@@ -50,7 +50,7 @@ const ClientsReview = () => {
             </p>
           </div>
           <div className="block max-mobile-xl:hidden">
-            <Link href="/">
+            <Link href="/about-us">
               <Button className="flex items-center justify-center text-lg py-6 px-4 font-medium border-2 border-grey-shade-15 bg-grey-shade-8 rounded-md max-desktop-lg:text-sm hover:bg-grey-shade-15 dark:text-white">
                 View All Testimonials
               </Button>
@@ -85,7 +85,9 @@ const ClientsReview = () => {
                             width={60}
                             height={60}
                             alt="profile icon"
-                            priority
+                            sizes="(max-width: 768px) 100vw,
+                            (max-width: 1200px) 50vw,
+                            33vw"
                           />
                         </div>
                         <div className="flex-col gap-2">

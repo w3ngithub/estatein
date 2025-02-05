@@ -19,44 +19,26 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-
-const propertyTypeData = [
-  {
-    id: "1",
-    aana: "12",
-    dhur: "20",
-  },
-  {
-    id: "2",
-    aana: "10",
-    dhur: "10",
-  },
-  {
-    id: "3",
-    aana: "3",
-    dhur: "4",
-  },
-  {
-    id: "4",
-    aana: "100",
-    dhur: "200",
-  },
-];
+import { propertySizeType } from "@/utilityComponents/dashboardPage/propertySizeTypeData";
 
 const PropertySizeType = () => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
-  const [currentProperty, setCurrentProperty] = useState({
-    id: "",
-    aana: "",
-    dhur: "",
-  });
+  const [currentProperty, setCurrentProperty] = useState({ id: "", name: "" });
   const [propertyToDelete, setPropertyToDelete] = useState("");
 
-  const handleEdit = (id: string, aana: string, dhur: string) => {
-    setCurrentProperty({ id, aana, dhur });
+  const handleEdit = (id: string, name: string) => {
+    setCurrentProperty({ id, name });
     console.log(`Editing property type with ID: ${id}`);
     setIsEditModalOpen(true);
+  };
+
+  const handleSave = () => {
+    console.log(
+      `Saving changes for ID: ${currentProperty.id}, Name: ${currentProperty.name}`
+    );
+    // Add your logic to save the updated property type here
+    setIsEditModalOpen(false);
   };
 
   const handleDelete = (id: string) => {
@@ -69,30 +51,19 @@ const PropertySizeType = () => {
     setIsDeleteModalOpen(false);
   };
 
-  const handleSave = () => {
-    console.log(
-      `Saving changes for ID: ${currentProperty.id},Aana: ${currentProperty.dhur}, Dhur: ${currentProperty.aana}`
-    );
-    // Add your logic to save the updated property type here
-    setIsEditModalOpen(false);
-  };
-
   return (
     <>
       <div className="space-y-5">
-        <h1 className="desktop-lg:text-lg">Property Size Type</h1>
+        <h1 className="desktop-lg:text-xl">Property Size Type</h1>
         <div>
-          <Table className="max-w-[1000px] max-mobile-md:overflow-y-auto">
+          <Table className="max-w-[600px] max-mobile-md:overflow-y-auto">
             <TableHeader>
               <TableRow>
                 <TableHead className="w-[100px] desktop-lg:text-lg">
                   ID
                 </TableHead>
                 <TableHead className="w-[400px] text-center desktop-lg:text-lg">
-                  Aana
-                </TableHead>
-                <TableHead className="w-[400px] text-center desktop-lg:text-lg">
-                  Dhur
+                  Name
                 </TableHead>
                 <TableHead className="w-[100px] text-center desktop-lg:text-lg">
                   Action
@@ -100,18 +71,15 @@ const PropertySizeType = () => {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {propertyTypeData.map((propertyType) => (
+              {propertySizeType.map((propertyType) => (
                 <TableRow key={propertyType.id}>
                   <TableCell className="w-[100px] desktop-lg:text-lg">
                     {propertyType.id}
                   </TableCell>
                   <TableCell className="w-[400px] text-center desktop-lg:text-lg">
-                    {propertyType.aana}
+                    {propertyType.selectFieldData}
                   </TableCell>
-                  <TableCell className="w-[400px] text-center desktop-lg:text-lg">
-                    {propertyType.dhur}
-                  </TableCell>
-                  <TableCell className="w-[100px] text-center">
+                  <TableCell className="w-[100px] text-center desktop-lg:text-lg">
                     <div className="flex items-center gap-2">
                       <Button
                         variant="ghost"
@@ -119,8 +87,7 @@ const PropertySizeType = () => {
                         onClick={() =>
                           handleEdit(
                             propertyType.id,
-                            propertyType.aana,
-                            propertyType.dhur
+                            propertyType.selectFieldData
                           )
                         }
                         className="text-blue-500 hover:text-blue-700"
@@ -144,43 +111,22 @@ const PropertySizeType = () => {
         </div>
       </div>
 
-      {/*Edit Modal: Property Size Type */}
+      {/*Edit Modal: Property Type */}
       <Dialog open={isEditModalOpen} onOpenChange={setIsEditModalOpen}>
         <DialogContent className="space-y-5 rounded-lg">
           <DialogHeader>
-            <DialogTitle>Edit Property Type</DialogTitle>
+            <DialogTitle>Edit Property Size Type</DialogTitle>
             <DialogDescription> </DialogDescription>
           </DialogHeader>
           <div className="space-y-4">
-            <div className="flex flex-row items-center gap-5">
-              <h1>Aana:</h1>
-              <Input
-                type="number"
-                value={currentProperty.aana}
-                onChange={(e) =>
-                  setCurrentProperty({
-                    ...currentProperty,
-                    aana: e.target.value,
-                  })
-                }
-                placeholder="Enter property type"
-                className="h-14"
-              />
-            </div>
-            <div className="flex flex-row items-center gap-5">
-              <h1>Dhur:</h1>
-              <Input
-                value={currentProperty.dhur}
-                onChange={(e) =>
-                  setCurrentProperty({
-                    ...currentProperty,
-                    dhur: e.target.value,
-                  })
-                }
-                placeholder="Enter property type"
-                className="h-14"
-              />
-            </div>
+            <Input
+              value={currentProperty.name}
+              onChange={(e) =>
+                setCurrentProperty({ ...currentProperty, name: e.target.value })
+              }
+              placeholder="Enter property type"
+              className="h-14"
+            />
           </div>
           <DialogFooter>
             <div className="flex flex-row justify-between items-center">
@@ -202,6 +148,7 @@ const PropertySizeType = () => {
         </DialogContent>
       </Dialog>
 
+      {/* Delete Modal */}
       <Dialog open={isDeleteModalOpen} onOpenChange={setIsDeleteModalOpen}>
         <DialogContent className="flex flex-col gap-10 rounded-lg">
           <DialogHeader>

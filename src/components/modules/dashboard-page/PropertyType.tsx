@@ -19,25 +19,7 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-
-const propertyTypeData = [
-  {
-    id: "1",
-    name: "Rental",
-  },
-  {
-    id: "2",
-    name: "Owned",
-  },
-  {
-    id: "3",
-    name: "1 BHK",
-  },
-  {
-    id: "4",
-    name: "2 BHK",
-  },
-];
+import { propertyType } from "@/utilityComponents/dashboardPage/propertyTypeData";
 
 const PropertyType = () => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
@@ -89,13 +71,13 @@ const PropertyType = () => {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {propertyTypeData.map((propertyType) => (
+              {propertyType.map((propertyType) => (
                 <TableRow key={propertyType.id}>
                   <TableCell className="w-[100px] desktop-lg:text-lg">
                     {propertyType.id}
                   </TableCell>
                   <TableCell className="w-[400px] text-center desktop-lg:text-lg">
-                    {propertyType.name}
+                    {propertyType.selectFieldData}
                   </TableCell>
                   <TableCell className="w-[100px] text-center desktop-lg:text-lg">
                     <div className="flex items-center gap-2">
@@ -103,7 +85,10 @@ const PropertyType = () => {
                         variant="ghost"
                         size="sm"
                         onClick={() =>
-                          handleEdit(propertyType.id, propertyType.name)
+                          handleEdit(
+                            propertyType.id,
+                            propertyType.selectFieldData
+                          )
                         }
                         className="text-blue-500 hover:text-blue-700"
                       >

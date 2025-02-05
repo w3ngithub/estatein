@@ -42,6 +42,10 @@ export const propertySchema = z.object({
   location: z.string().min(1, {
     message: "Location is required",
   }),
+  buildYear: z.string().min(1, {
+    message: "Build year is required",
+  }),
+
   totalBedRoom: z
     .number({
       invalid_type_error: "Total Bedroom must be a number",
@@ -69,6 +73,9 @@ export const propertySchema = z.object({
     .min(1, {
       message: "Total Area is required",
     }),
+  areaUnit: z.string().min(1, "Area Unit is required"),
+  propertyType: z.string().min(1, "Property Type is required"),
+
   propertyTransferTax: z
     .number({
       invalid_type_error: "Property Transfer Tax must be a number",

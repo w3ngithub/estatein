@@ -7,9 +7,13 @@ import { Suspense } from "react";
 const page = () => {
   return (
     <div className="bg-white-95 dark:bg-grey-shade-8">
-      <DreamProperty />
+      <div id="category">
+        <DreamProperty />
+      </div>
       <Suspense fallback={<Loading />}>
-        <DiscoveredProperty />
+        <div id="portfolio">
+          <DiscoveredProperty />
+        </div>
       </Suspense>
       <ContactForm />
     </div>

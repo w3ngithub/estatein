@@ -44,27 +44,27 @@ const Footer = () => {
                     Home
                   </li>
                 </Link>
-                <Link href="/">
+                <Link href="/#hero">
                   <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
                     Hero Section
                   </li>
                 </Link>
-                <Link href="/">
+                <Link href="/#features">
                   <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
                     Features
                   </li>
                 </Link>
-                <Link href="/">
+                <Link href="/#features">
                   <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
                     Properties
                   </li>
                 </Link>
-                <Link href="/">
+                <Link href="/#testimonials">
                   <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
                     Testimonials
                   </li>
                 </Link>
-                <Link href="/">
+                <Link href="/#faqs">
                   <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
                     FAQ&apos;s
                   </li>
@@ -73,32 +73,32 @@ const Footer = () => {
             </div>
             <div className="tablet-sm:col-span-2">
               <ul className="flex flex-col gap-3 list-none">
-                <Link href="/">
+                <Link href="/about-us">
                   <li className="text-xl font-medium dark:text-grey-shade-60 mb-1 max-desktop-lg:text-lg max-tablet-sm:text-base">
                     About Us
                   </li>
                 </Link>
-                <Link href="/">
+                <Link href="/about-us/#journey">
                   <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
                     Our Story
                   </li>
                 </Link>
-                <Link href="/">
+                <Link href="/about-us/#ourValues">
                   <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
                     Our Works
                   </li>
                 </Link>
-                <Link href="/">
+                <Link href="/about-us/#experience">
                   <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
                     How It Works
                   </li>
                 </Link>
-                <Link href="/">
+                <Link href="/about-us/#team">
                   <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
                     Our Team
                   </li>
                 </Link>
-                <Link href="/">
+                <Link href="/about-us/#clients">
                   <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
                     Our Clients
                   </li>
@@ -107,17 +107,17 @@ const Footer = () => {
             </div>
             <div className="tablet-sm:col-span-2">
               <ul className="flex flex-col gap-3 list-none">
-                <Link href="/">
+                <Link href="/property">
                   <li className="text-xl font-medium dark:text-grey-shade-60 mb-1 max-desktop-lg:text-lg max-tablet-sm:text-base">
                     Properties
                   </li>
                 </Link>
-                <Link href="/">
+                <Link href="/property/#portfolio">
                   <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
                     Portfolio
                   </li>
                 </Link>
-                <Link href="/">
+                <Link href="/property/#category">
                   <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
                     Categories
                   </li>
@@ -126,32 +126,32 @@ const Footer = () => {
             </div>
             <div className="tablet-sm:col-span-4">
               <ul className="flex flex-col gap-3 list-none">
-                <Link href="/">
+                <Link href="/services">
                   <li className="text-xl font-medium dark:text-grey-shade-60 mb-1 max-desktop-lg:text-lg max-tablet-sm:text-base">
                     Services
                   </li>
                 </Link>
-                <Link href="/">
+                <Link href="/services#evaluate">
                   <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
                     Valuation Mastery
                   </li>
                 </Link>
-                <Link href="/">
+                <Link href="/services#strategy">
                   <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
-                    Stategic Marketing
+                    Strategic Marketing
                   </li>
                 </Link>
-                <Link href="/">
+                <Link href="/services#negotiation">
                   <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
                     Negotiation Wizardry
                   </li>
                 </Link>
-                <Link href="/">
+                <Link href="/services#investment">
                   <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
                     Closing Success
                   </li>
                 </Link>
-                <Link href="/">
+                <Link href="/services#management">
                   <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
                     Property Management
                   </li>
@@ -160,17 +160,17 @@ const Footer = () => {
             </div>
             <div className="tablet-sm:col-span-2">
               <ul className="flex flex-col gap-3 list-none">
-                <Link href="/">
+                <Link href="/contact-us">
                   <li className="text-xl font-medium dark:text-grey-shade-60 mb-1 max-desktop-lg:text-lg max-tablet-sm:text-base">
                     Contact Us
                   </li>
                 </Link>
-                <Link href="/">
+                <Link href="/contact-us#contactForm">
                   <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
                     Contact Form
                   </li>
                 </Link>
-                <Link href="/">
+                <Link href="/contact-us#location">
                   <li className="font-medium text-lg dark:text-white max-desktop-lg:text-base max-tablet-sm:text-sm">
                     Our Offices
                   </li>

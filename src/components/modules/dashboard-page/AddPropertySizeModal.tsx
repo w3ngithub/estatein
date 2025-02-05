@@ -17,38 +17,32 @@ import {
   FormControl,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-
-interface AddPropertySizeModalProps {
+interface AddPropertySizeTypeModalProps {
   isModalOpenPropertySize: boolean;
   setIsModalOpenPropertySize: Dispatch<SetStateAction<boolean>>;
 }
 
-const AddPropertySizeModal = ({
+const AddPropertySizeTypeModal = ({
   isModalOpenPropertySize,
   setIsModalOpenPropertySize,
-}: AddPropertySizeModalProps) => {
-  const AddPropertySizeSchema = z.object({
-    aana: z
-      .number({ invalid_type_error: "Aana must be a number" })
-      .min(1, { message: "Aana is required" }),
-    dhur: z
-      .number({ invalid_type_error: "Dhur must be a number" })
-      .min(1, { message: "Dhur is required" }),
+}: AddPropertySizeTypeModalProps) => {
+  const AddPropertyTypeSchema = z.object({
+    propertySizeType: z.string().min(1, {
+      message: "Property Size Type is required",
+    }),
   });
 
-  const form = useForm<z.infer<typeof AddPropertySizeSchema>>({
-    resolver: zodResolver(AddPropertySizeSchema),
+  const form = useForm<z.infer<typeof AddPropertyTypeSchema>>({
+    resolver: zodResolver(AddPropertyTypeSchema),
     defaultValues: {
-      aana: 0,
-      dhur: 0,
+      propertySizeType: "",
     },
   });
 
-  const onSubmit = (values: z.infer<typeof AddPropertySizeSchema>) => {
-    console.log("property size:", values);
+  const onSubmit = (values: z.infer<typeof AddPropertyTypeSchema>) => {
+    console.log("property size type:", values);
     setIsModalOpenPropertySize(false);
     form.reset();
   };
@@ -68,45 +62,16 @@ const AddPropertySizeModal = ({
             <div className="space-y-4">
               <FormField
                 control={form.control}
-                name="aana"
+                name="propertySizeType"
                 render={({ field }) => (
                   <FormItem className="flex flex-row gap-5 items-center">
-                    <FormLabel>Aana:</FormLabel>
+                    {/* <FormLabel></FormLabel> */}
                     <div className="flex flex-col gap-3 w-full">
                       <FormControl>
                         <Input
                           {...field}
-                          value={field.value || ""}
-                          onChange={(e) =>
-                            field.onChange(Number(e.target.value) || undefined)
-                          }
-                          placeholder="Enter Aana"
-                          type="number"
-                          className="h-14"
-                        />
-                      </FormControl>
-
-                      <FormMessage />
-                    </div>
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="dhur"
-                render={({ field }) => (
-                  <FormItem className="flex flex-row gap-5 items-center">
-                    <FormLabel>Dhur:</FormLabel>
-                    <div className="flex flex-col gap-3 w-full">
-                      <FormControl>
-                        <Input
-                          {...field}
-                          value={field.value || ""}
-                          onChange={(e) =>
-                            field.onChange(Number(e.target.value) || undefined)
-                          }
-                          placeholder="Enter Dhur"
-                          type="number"
+                          placeholder="Enter Property Size Type"
+                          type="text"
                           className="h-14"
                         />
                       </FormControl>
@@ -141,4 +106,4 @@ const AddPropertySizeModal = ({
   );
 };
 
-export default AddPropertySizeModal;
+export default AddPropertySizeTypeModal;
