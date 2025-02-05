@@ -33,7 +33,7 @@ const PropertiesContent = () => {
   const [newFeature, setNewFeature] = useState("");
   const [originalData, setOriginalData] =
     useState<PropertyListingSchema | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const form = useForm<PropertyListingSchema>({
     resolver: zodResolver(propertySchema),
