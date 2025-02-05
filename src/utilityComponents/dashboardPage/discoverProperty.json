@@ -1,5 +1,37 @@
 [
   {
+    "id": "Mh8gMkn8gRJb04IL6M0jJ",
+    "villaName": "NEP",
+    "coverImage": "/uploads/1738739182515-pic.JPG",
+    "multipleImages": [],
+    "keyFeatures": [
+      {
+        "id": "lkwTVgjvbqAPdIFtEK80i",
+        "name": "Ab accusamus ratione"
+      }
+    ],
+    "description": "Pariatur Minim plac Pariatur Minim placPariatur Minim placPariatur Minim placPariatur Minim placPariatur Minim placPariatur Minim placPariatur Minim placPariatur Minim plac",
+    "price": "940",
+    "pillName": "Noah Ayers",
+    "location": "Vel delectus et nat",
+    "buildYear": "2025",
+    "totalBedRoom": 79,
+    "totalBathRoom": 8,
+    "totalArea": 63,
+    "areaUnit": "sq feet",
+    "propertyType": "1 BHK",
+    "propertyTransferTax": 12,
+    "legalFees": 80,
+    "homeInspectionFee": 95,
+    "propertyInsurance": 28,
+    "mortgageFee": 49,
+    "propertyTax": 13,
+    "additionalFee": 76,
+    "homeOwnersAssociationFee": 26,
+    "downPayment": 21,
+    "monthlyPropertyInsurance": 1
+  },
+  {
     "id": "1kSxaXnKHA-Oy2dkNeWbn",
     "villaName": "AUS",
     "coverImage": "/uploads/1738738857883-featured-property-first.png",
@@ -35,46 +67,10 @@
     "monthlyPropertyInsurance": 8
   },
   {
-    "id": "tm-sMWTZmwKN2RTk1EJEQ",
-    "villaName": "dipesh ji",
-    "coverImage": "/uploads/1738725474877-featured-property-first.png",
-    "multipleImages": [
-      "/uploads/1738725474880-featured-property-first.png"
-    ],
-    "keyFeatures": [
-      {
-        "id": "NJW0Hu-WuJ9cXYmHriavL",
-        "name": "Repellendus Aut ut "
-      }
-    ],
-    "description": "Est anim iusto expeasda asd asdasdasd asdsdasd asdasd Est anim iusto expeasda Est anim iusto expeasda Est anim iusto expeasda",
-    "price": "571",
-    "pillName": "Isabella Valentine",
-    "location": "Cupiditate explicabo",
-    "buildYear": "2025",
-    "totalBedRoom": 70,
-    "totalBathRoom": 68,
-    "totalArea": 11,
-    "areaUnit": "aana",
-    "propertyType": "1 BHK",
-    "propertyTransferTax": 100,
-    "legalFees": 7,
-    "homeInspectionFee": 62,
-    "propertyInsurance": 30,
-    "mortgageFee": "Beatae animi accusa",
-    "propertyTax": 16,
-    "additionalFee": 46,
-    "homeOwnersAssociationFee": 70,
-    "downPayment": 57,
-    "monthlyPropertyInsurance": 12
-  },
-  {
     "id": "ygx-CFvk1rwr6xLnwK7I9",
     "villaName": "Noah Nixon",
     "coverImage": "/uploads/1738651678283-featured-property-first.png",
-    "multipleImages": [
-      "/uploads/1738651678290-pic.JPG"
-    ],
+    "multipleImages": ["/uploads/1738651678290-pic.JPG"],
     "keyFeatures": [
       {
         "id": "D37xjjwY-vuaAzQuZVt9t",
@@ -106,9 +102,7 @@
     "id": "ygx-CFvk1rwr6xLnwK7I9",
     "villaName": "Noah Nixon",
     "coverImage": "/uploads/1738651678283-featured-property-first.png",
-    "multipleImages": [
-      "/uploads/1738651678290-pic.JPG"
-    ],
+    "multipleImages": ["/uploads/1738651678290-pic.JPG"],
     "keyFeatures": [
       {
         "id": "D37xjjwY-vuaAzQuZVt9t",
@@ -140,9 +134,7 @@
     "id": "_W60UFk6kdMTciHOXnG_o",
     "villaName": "Neville Evans",
     "coverImage": "/uploads/1738651575959-featured-property-first.png",
-    "multipleImages": [
-      "/uploads/1738651575964-pic.JPG"
-    ],
+    "multipleImages": ["/uploads/1738651575964-pic.JPG"],
     "keyFeatures": [
       {
         "id": "dV8ulzgTpz3fqMxvUMFO4",
@@ -168,78 +160,6 @@
     "additionalFee": 63,
     "homeOwnersAssociationFee": 38,
     "downPayment": 3,
-    "monthlyPropertyInsurance": 4
-  },
-  {
-    "id": "S8Ld1FZjRsYSM4k1vCbe2",
-    "villaName": "Dipesh Gyawali",
-    "coverImage": "/uploads/1738650151035-pic.JPG",
-    "multipleImages": [
-      "/uploads/1738650151037-admin dashboard.JPG",
-      "/uploads/1738650151038-featured-property-first.png",
-      "/uploads/1738650151038-pic.JPG"
-    ],
-    "keyFeatures": [
-      {
-        "id": "ll11vI8MLm3n_whQ_u_w2",
-        "name": "Voluptas et asperior"
-      }
-    ],
-    "description": "Id accusantium deser",
-    "price": "298",
-    "pillName": "Christine Hahn",
-    "location": "China",
-    "buildYear": "2023",
-    "totalBedRoom": 57,
-    "totalBathRoom": 58,
-    "totalArea": 82,
-    "areaUnit": "aana",
-    "propertyType": "2 BHK",
-    "propertyTransferTax": 75,
-    "legalFees": 96,
-    "homeInspectionFee": 65,
-    "propertyInsurance": 74,
-    "mortgageFee": "Accusantium aperiam ",
-    "propertyTax": 56,
-    "additionalFee": 48,
-    "homeOwnersAssociationFee": 90,
-    "downPayment": 7,
-    "monthlyPropertyInsurance": 8
-  },
-  {
-    "id": "ze2DP5f6me_imf5LTIetj",
-    "villaName": "Rhona Finley",
-    "coverImage": "/uploads/1738650008450-featured-property-first.png",
-    "multipleImages": [
-      "/uploads/1738650008454-admin dashboard.JPG",
-      "/uploads/1738650008454-featured-property-first.png",
-      "/uploads/1738650008454-pic.JPG"
-    ],
-    "keyFeatures": [
-      {
-        "id": "GDxAZ4vCJgh_WaHxN_R5N",
-        "name": "Dicta modi eos qui "
-      }
-    ],
-    "description": "Natus mollit quis qu",
-    "price": "594",
-    "pillName": "Gary Morgan",
-    "location": "China",
-    "buildYear": "2025",
-    "totalBedRoom": 11,
-    "totalBathRoom": 68,
-    "totalArea": 100,
-    "areaUnit": "aana",
-    "propertyType": "own",
-    "propertyTransferTax": 74,
-    "legalFees": 59,
-    "homeInspectionFee": 84,
-    "propertyInsurance": 19,
-    "mortgageFee": "Sit ea officia ipsa",
-    "propertyTax": 1,
-    "additionalFee": 56,
-    "homeOwnersAssociationFee": 81,
-    "downPayment": 48,
     "monthlyPropertyInsurance": 4
   }
 ]

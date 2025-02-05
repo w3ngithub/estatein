@@ -300,7 +300,7 @@ const DiscoveredProperty = () => {
                 >
                   <div className="border border-white-d1 dark:border-grey-shade-15 dark:bg-grey-shade-8 rounded-md px-4 py-5">
                     <div className="flex flex-col gap-8">
-                      <div>
+                      <div className="relative aspect-[4/3] w-full">
                         <Image
                           src={`${
                             process.env.NEXT_PUBLIC_BASE_PATH +
@@ -309,7 +309,8 @@ const DiscoveredProperty = () => {
                           width={432}
                           height={318}
                           alt="house image"
-                          className="max-mobile-xl:w-full"
+                          className="object-cover rounded-md max-mobile-xl:w-full"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         />
                       </div>
                       <div className="flex flex-col gap-2">
