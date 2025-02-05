@@ -6,10 +6,27 @@ import {
 } from "@/svgs/PropertyDetailPageSvg";
 import React from "react";
 
-interface PropertyDescriptionProps {
-  villa: any;
+interface keyFeaturesData {
+  id: string;
+  name: string;
 }
-const PropertyDescription = ({ villa }: PropertyDescriptionProps) => {
+interface PropertyDescriptionpProps {
+  description: string;
+  totalBedRoom: string;
+  totalBathRoom: string;
+  totalArea: string;
+  areaUnit: string;
+  keyFeatures: keyFeaturesData[];
+}
+
+const PropertyDescription = ({
+  description,
+  totalBedRoom,
+  totalBathRoom,
+  totalArea,
+  areaUnit,
+  keyFeatures,
+}: PropertyDescriptionpProps) => {
   return (
     <div className="container">
       <div className="grid tablet-md:grid-cols-2 gap-4 py-10">
@@ -20,7 +37,7 @@ const PropertyDescription = ({ villa }: PropertyDescriptionProps) => {
               Description
             </h2>
             <p className="font-medium text-lg dark:text-grey-shade-60 max-desktop-lg:text-base">
-              {villa.description}
+              {description}
             </p>
           </div>
           <div className="grid grid-cols-2 mobile-lg:grid-cols-3 border-t border-grey-shade-15 pt-3 max-mobile-lg:gap-5">
@@ -34,7 +51,7 @@ const PropertyDescription = ({ villa }: PropertyDescriptionProps) => {
                 </p>
               </div>
               <h1 className="font-semibold text-2xl max-desktop-lg:text-xl">
-                {villa.totalBedRoom}
+                {totalBedRoom}
               </h1>
             </div>
             <div className="flex flex-col gap-3 border-l border-grey-shade-15 pl-3">
@@ -47,7 +64,7 @@ const PropertyDescription = ({ villa }: PropertyDescriptionProps) => {
                 </p>
               </div>
               <h1 className="font-semibold text-2xl max-desktop-lg:text-xl">
-                {villa.totalBathRoom}
+                {totalBathRoom}
               </h1>
             </div>
             <div className="flex flex-col gap-3 mobile-lg:border-l border-grey-shade-15 pl-3 max-mobile-lg:pl-0  max-mobile-lg:border-t max-mobile-lg:pt-3 max-mobile-lg:col-span-2">
@@ -61,7 +78,7 @@ const PropertyDescription = ({ villa }: PropertyDescriptionProps) => {
               </div>
               <h1 className="font-semibold text-2xl max-desktop-lg:text-xl">
                 {/* 2,500 Square Feet */}
-                {villa.totalArea} {villa.areaUnit}
+                {totalArea} {areaUnit}
               </h1>
             </div>
           </div>
@@ -73,47 +90,21 @@ const PropertyDescription = ({ villa }: PropertyDescriptionProps) => {
               Key Features and Amenities
             </h1>
             {/* first feature */}
-            <div className="border-l-[1.5px] border-purple-shade-60 flex flex-row items-center gap-2 pl-5 py-3 bg-gradient-to-r from-[#1D1D1D] via-black to-black max-mobile-xl:gap-3">
-              <div>
-                <ThunderIcon />
-              </div>
-              <p className="font-medium text-lg text-grey-shade-60 max-desktop-lg:text-base">
-                Expansive oceanfront terrace for outdoor entertaining
-              </p>
-            </div>
-            <div className="border-l-[1.5px] border-purple-shade-60 flex flex-row items-center gap-2 pl-5 py-3 bg-gradient-to-r from-[#1D1D1D] via-black to-black max-mobile-xl:gap-3">
-              <div>
-                <ThunderIcon />
-              </div>
-              <p className="font-medium text-lg text-grey-shade-60 max-desktop-lg:text-base">
-                Gourmet kitchen with top-of-the-line appliances
-              </p>
-            </div>
-            <div className="border-l-[1.5px] border-purple-shade-60 flex flex-row items-center gap-2 pl-5 py-3 bg-gradient-to-r from-[#1D1D1D] via-black to-black max-mobile-xl:gap-3">
-              <div>
-                <ThunderIcon />
-              </div>
-              <p className="font-medium text-lg text-grey-shade-60 max-desktop-lg:text-base">
-                Private beach access for morning strolls and sunset views
-              </p>
-            </div>
-            <div className="border-l-[1.5px] border-purple-shade-60 items-center flex flex-row gap-2 pl-5 py-3 bg-gradient-to-r from-[#1D1D1D] via-black to-black max-mobile-xl:gap-3">
-              <div>
-                <ThunderIcon />
-              </div>
-              <p className="font-medium text-lg text-grey-shade-60 max-desktop-lg:text-base">
-                Master suite with a spa-inspired bathroom and ocean-facing
-                balcony
-              </p>
-            </div>
-            <div className="border-l-[1.5px] border-purple-shade-60 items-center flex flex-row gap-2 pl-5 py-3 bg-gradient-to-r from-[#1D1D1D] via-black to-black max-mobile-xl:gap-3">
-              <div>
-                <ThunderIcon />
-              </div>
-              <p className="font-medium text-lg text-grey-shade-60 max-desktop-lg:text-base">
-                Private garage and ample storage space
-              </p>
-            </div>
+            {keyFeatures?.map((item) => {
+              return (
+                <div
+                  key={item.id}
+                  className="border-l-[1.5px] border-purple-shade-60 flex flex-row items-center gap-2 pl-5 py-3 bg-gradient-to-r from-[#1D1D1D] via-black to-black max-mobile-xl:gap-3"
+                >
+                  <div>
+                    <ThunderIcon />
+                  </div>
+                  <p className="font-medium text-lg text-grey-shade-60 max-desktop-lg:text-base">
+                    {item.name}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
