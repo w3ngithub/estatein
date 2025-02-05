@@ -8,9 +8,10 @@ import { PricingDetail } from "@/utilityComponents/propertyDetailPage/pricingDet
 
 interface PricingDetailsProps {
   pricingDetails: PricingDetail;
+  villa: any;
 }
 
-const PricingDetails = ({ pricingDetails }: PricingDetailsProps) => {
+const PricingDetails = ({ pricingDetails, villa }: PricingDetailsProps) => {
   return (
     <div className="container py-10">
       <div className="flex flex-col gap-10">
@@ -49,7 +50,7 @@ const PricingDetails = ({ pricingDetails }: PricingDetailsProps) => {
               Listing Price
             </p>
             <h1 className="font-semibold text-4xl max-desktop-lg:text-3xl max-tablet-sm:text-2xl">
-              ${pricingDetails.listingPrice}
+              ${villa.price}
             </h1>
           </div>
           {/* 2nd section */}
@@ -57,7 +58,11 @@ const PricingDetails = ({ pricingDetails }: PricingDetailsProps) => {
             <div className="flex flex-col gap-10">
               {/* 1st 2nd 3rd 4th card */}
               <AdditionalFeeCard
-                additionalFeeData={pricingDetails.additionalFees}
+                propertyTransferTax={villa.propertyTransferTax}
+                legalFees={villa.legalFees}
+                homeInspectionFee={villa.homeInspectionFee}
+                propertyInsurance={villa.propertyInsurance}
+                mortgageFee={villa.mortgageFee}
               />
               <MonthlyCostsCard monthlyCostData={pricingDetails.monthlyCosts} />
               <TotalInitialCostCard

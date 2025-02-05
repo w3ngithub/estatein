@@ -36,7 +36,7 @@ const page = async ({ params }: { params: { id: string } }) => {
         keyFeatures={villa.keyFeatures}
       />
       <InquiryProperty />
-      <PricingDetails pricingDetails={pricingDetails[0]} />
+      <PricingDetails pricingDetails={pricingDetails[0]} villa={villa} />
       <Faq />
     </div>
   );

@@ -1,14 +1,22 @@
 import { Button } from "@/components/ui/button";
-import { AdditionalFees } from "@/utilityComponents/propertyDetailPage/pricingDetails";
 import Link from "next/link";
-
 import React from "react";
 
 interface AdditionalFeeCardProps {
-  additionalFeeData: AdditionalFees;
+  propertyTransferTax: string;
+  legalFees: string;
+  homeInspectionFee: string;
+  propertyInsurance: string;
+  mortgageFee: string;
 }
 
-const AdditionalFeeCard = ({ additionalFeeData }: AdditionalFeeCardProps) => {
+const AdditionalFeeCard = ({
+  propertyTransferTax,
+  legalFees,
+  homeInspectionFee,
+  propertyInsurance,
+  mortgageFee,
+}: AdditionalFeeCardProps) => {
   return (
     <div className="p-5 border border-grey-shade-15 rounded-lg">
       {/* 1st card: first row */}
@@ -30,7 +38,7 @@ const AdditionalFeeCard = ({ additionalFeeData }: AdditionalFeeCardProps) => {
           </p>
           <div className="flex flex-row items-center gap-3">
             <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
-              ${additionalFeeData.propertyTransferTax}
+              {propertyTransferTax}
             </h1>
             <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-15 bg-grey-shade-10 px-3 py-2 rounded-full max-mobile-md:rounded-lg">
               <p className="text-grey-shade-60 text-lg max-desktop-lg:text-sm">
@@ -45,7 +53,7 @@ const AdditionalFeeCard = ({ additionalFeeData }: AdditionalFeeCardProps) => {
           </p>
           <div className="flex flex-row items-center gap-3">
             <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
-              ${additionalFeeData.legalFees}
+              ${legalFees}
             </h1>
             <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-15 bg-grey-shade-10 px-3 py-2 rounded-full max-mobile-md:rounded-lg">
               <p className="text-grey-shade-60 text-lg max-desktop-lg:text-sm">
@@ -63,7 +71,7 @@ const AdditionalFeeCard = ({ additionalFeeData }: AdditionalFeeCardProps) => {
           </p>
           <div className="flex flex-row items-center gap-3">
             <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
-              ${additionalFeeData.homeInspection}
+              ${homeInspectionFee}
             </h1>
             <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-15 bg-grey-shade-10 px-3 py-2 rounded-full">
               <p className="text-grey-shade-60 text-lg max-desktop-lg:text-sm">
@@ -78,7 +86,7 @@ const AdditionalFeeCard = ({ additionalFeeData }: AdditionalFeeCardProps) => {
           </p>
           <div className="flex flex-row items-center gap-3">
             <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
-              ${additionalFeeData.propertyInsurance}
+              ${propertyInsurance}
             </h1>
             <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-15 bg-grey-shade-10 px-3 py-2 rounded-full max-mobile-md:rounded-lg">
               <p className="text-grey-shade-60 text-lg max-desktop-lg:text-sm">
@@ -96,7 +104,7 @@ const AdditionalFeeCard = ({ additionalFeeData }: AdditionalFeeCardProps) => {
           </p>
           <div className="flex flex-row items-center gap-3">
             <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
-              {additionalFeeData.mortgageFees}
+              {mortgageFee}
             </h1>
             <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-15 bg-grey-shade-10 px-3 py-2 rounded-full max-mobile-md:rounded-lg">
               <p className="text-grey-shade-60 text-lg max-desktop-lg:text-sm">
