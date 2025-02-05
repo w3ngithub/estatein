@@ -25,14 +25,14 @@ interface CustomTooltipProps {
   }>;
 }
 
-const data01 = [
-  { propertyName: "Villa A", propertySize: 400 },
-  { propertyName: "Villa B", propertySize: 300 },
-  { propertyName: "Villa C", propertySize: 300 },
-  { propertyName: "Villa D", propertySize: 200 },
-  { propertyName: "Villa E", propertySize: 278 },
-  { propertyName: "Villa F", propertySize: 189 },
-];
+// const data01 = [
+//   { propertyName: "Villa A", propertySize: 400 },
+//   { propertyName: "Villa B", propertySize: 300 },
+//   { propertyName: "Villa C", propertySize: 300 },
+//   { propertyName: "Villa D", propertySize: 200 },
+//   { propertyName: "Villa E", propertySize: 278 },
+//   { propertyName: "Villa F", propertySize: 189 },
+// ];
 const data: PropertyPriceData[] = [
   { propertyName: "Villa A", area: 1000, price: 4000 },
   { propertyName: "Villa B", area: 1200, price: 3000 },
@@ -64,6 +64,12 @@ const DashboardContent = ({
 }: {
   onNavigateToSettings?: () => void;
 }) => {
+  const data01 = discoverProperty.map((item) => ({
+    propertyName: item.villaName,
+    propertySize: item.totalArea,
+    areaUnit: item.areaUnit,
+  }));
+
   return (
     <div className="p-8 space-y-10">
       <h1 className="text-2xl">Dashboard</h1>
@@ -149,7 +155,11 @@ const DashboardContent = ({
                     ))}
                   </Pie>
 
-                  <Tooltip formatter={(value) => `${value} sq ft`} />
+                  <Tooltip
+                    formatter={(value, _, { payload }) =>
+                      `${value} ${payload.areaUnit}`
+                    }
+                  />
                 </PieChart>
               </ResponsiveContainer>
             </div>
