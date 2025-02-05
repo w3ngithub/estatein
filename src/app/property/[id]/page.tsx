@@ -26,7 +26,12 @@ const page = async ({ params }: { params: { id: string } }) => {
 
   return (
     <div className="bg-white-95 dark:bg-grey-shade-8">
-      <PropertyImageCarousal images={villa.multipleImages} />
+      <PropertyImageCarousal
+        images={villa.multipleImages}
+        villaName={villa.villaName}
+        location={villa.location}
+        price={villa.price}
+      />
       <PropertyDescription
         description={villa.description}
         totalBedRoom={villa.totalBedRoom}

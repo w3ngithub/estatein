@@ -29,10 +29,16 @@ import { LocationIcon } from "@/svgs/PropertyDetailPageSvg";
 
 interface PropertyImageCarousalProps {
   images: string[];
+  villaName: string;
+  location: string;
+  price: string;
 }
 
 export default function PropertyImageCarousal({
   images,
+  villaName,
+  location,
+  price,
 }: PropertyImageCarousalProps) {
   const [selectedIndex, setSelectedIndex] = React.useState(0);
   const [mainApi, setMainApi] = React.useState<CarouselApi>();
@@ -59,21 +65,21 @@ export default function PropertyImageCarousal({
       <div className="flex flex-row items-center justify-between">
         <div className="flex flex-row items-center gap-4 max-mobile-xl:flex-col max-mobile-xl:items-start">
           <h1 className="font-semibold text-2xl max-desktop-lg:text-2xl max-mobile-lg:text-xl">
-            Seaside Serenity Villa
+            {villaName}
           </h1>
           <div className="flex flex-row items-center justify-center gap-2 border border-white-d1 dark:border-grey-shade-15 rounded-lg px-3 py-3">
             <div>
               <LocationIcon />
             </div>
             <p className="font-medium text-sm max-desktop-lg:text-sm">
-              Malibu, California
+              {location}
             </p>
           </div>
         </div>
         <div className="flex flex-col gap-3 max-mobile-xl:flex-row  max-mobile-xl:items-center max-mobile-md:mt-9">
           <p className="dark:text-grey-shade-60 font-medium text-sm">Price</p>
           <h1 className="font-semibold text-xl max-mobile-lg:text-lg">
-            $1,250,000
+            ${price}
           </h1>
         </div>
       </div>
@@ -154,25 +160,4 @@ export default function PropertyImageCarousal({
       </div>
     </div>
   );
-}
-
-{
-  /* <Button
-      variant="outline"
-      size="icon"
-      className="bg-white/10 hover:bg-white/20"
-      onClick={() => mainApi?.scrollPrev()}
-      >
-        <ChevronLeft className="w-4 h-4 text-white" />
-      </Button> */
-}
-{
-  /* <Button
-      variant="outline"
-      size="icon"
-      className="bg-white/10 hover:bg-white/20"
-      onClick={() => mainApi?.scrollNext()}
-        >
-          <ChevronRight className="w-4 h-4 text-white" />
-      </Button> */
 }
