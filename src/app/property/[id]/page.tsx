@@ -22,14 +22,12 @@ const fetchVillaDetails = async (id: string) => {
 
 const page = async ({ params }: { params: { id: string } }) => {
   const { id } = await params;
-  // const id = params.id;
-  console.log(id, "xxxxxxxxx");
   const villa = await fetchVillaDetails(id);
 
   return (
     <div className="bg-white-95 dark:bg-grey-shade-8">
       <PropertyImageCarousal images={villa.multipleImages} />
-      <PropertyDescription propertyDescription={propertyDescription} />
+      <PropertyDescription villa={villa} />
       <InquiryProperty />
       <PricingDetails pricingDetails={pricingDetails[0]} />
       <Faq />
