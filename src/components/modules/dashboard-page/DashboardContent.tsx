@@ -8,6 +8,9 @@ import {
 } from "@/components/ui/card";
 import { PieChart, Pie, Tooltip, ResponsiveContainer, Cell } from "recharts";
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid } from "recharts";
+import discoverProperty from "@/utilityComponents/dashboardPage/discoverProperty.json";
+import propertyTypeData from "@/utilityComponents/dashboardPage/propertyTypeData.json";
+import propertySizeTypeData from "@/utilityComponents/dashboardPage/propertySizeTypeData.json";
 
 interface PropertyPriceData {
   propertyName: string;
@@ -77,7 +80,9 @@ const DashboardContent = ({
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <p className="text-green-500 font-bold">15</p>
+            <p className="text-green-500 font-bold">
+              {discoverProperty.length}
+            </p>
           </CardContent>
         </Card>
         <Card
@@ -91,7 +96,9 @@ const DashboardContent = ({
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <p className="text-green-500 font-bold">6</p>
+            <p className="text-green-500 font-bold">
+              {propertyTypeData.length}
+            </p>
           </CardContent>
         </Card>
         <Card
@@ -105,7 +112,9 @@ const DashboardContent = ({
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <p className="text-green-500 font-bold">8</p>
+            <p className="text-green-500 font-bold">
+              {propertySizeTypeData.length}
+            </p>
           </CardContent>
         </Card>
       </div>
