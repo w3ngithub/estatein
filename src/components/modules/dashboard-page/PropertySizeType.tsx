@@ -21,6 +21,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import propertySizeType from "@/utilityComponents/dashboardPage/propertySizeTypeData.json";
 import { toast } from "sonner";
+import Loading from "@/components/elements/Loading";
 
 const PropertySizeType = () => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
@@ -34,6 +35,7 @@ const PropertySizeType = () => {
   const [propertyToDelete, setPropertyToDelete] = useState("");
   // for json patch
   const [properties, setProperties] = useState(propertySizeType);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleEdit = (id: string, value: string, selectFieldData: string) => {
     setCurrentProperty({ id, value, selectFieldData });
@@ -42,6 +44,7 @@ const PropertySizeType = () => {
   };
 
   const handleSave = async () => {
+    setIsLoading(true);
     const updatedProperty = {
       id: currentProperty.id,
       value: currentProperty.selectFieldData, // Update value with selectFieldData
@@ -79,6 +82,7 @@ const PropertySizeType = () => {
       toast.error("Error updating property size type");
     }
 
+    setIsLoading(false);
     setIsEditModalOpen(false);
   };
 
@@ -88,6 +92,7 @@ const PropertySizeType = () => {
   };
 
   const confirmDelete = async () => {
+    setIsLoading(true);
     try {
       const response = await fetch("/estatein/api/addPropertySizeType", {
         method: "DELETE",
@@ -115,6 +120,7 @@ const PropertySizeType = () => {
       console.error("Failed to delete property:", error);
       toast.error("Failed to delete");
     }
+    setIsLoading(false);
     setIsDeleteModalOpen(false);
   };
 
@@ -182,70 +188,82 @@ const PropertySizeType = () => {
       {/*Edit Modal: Property Type */}
       <Dialog open={isEditModalOpen} onOpenChange={setIsEditModalOpen}>
         <DialogContent className="space-y-5 rounded-lg">
-          <DialogHeader>
-            <DialogTitle>Edit Property Size Type</DialogTitle>
-            <DialogDescription> </DialogDescription>
-          </DialogHeader>
-          <div className="space-y-4">
-            <Input
-              value={currentProperty.selectFieldData}
-              onChange={(e) =>
-                setCurrentProperty({
-                  ...currentProperty,
-                  selectFieldData: e.target.value,
-                })
-              }
-              placeholder="Enter property size type"
-              className="h-14"
-            />
-          </div>
-          <DialogFooter>
-            <div className="flex flex-row justify-between items-center">
-              <Button
-                onClick={() => setIsEditModalOpen(false)}
-                variant="destructive"
-                className="px-6"
-              >
-                Cancel
-              </Button>
-              <Button
-                onClick={handleSave}
-                className="bg-purple-shade-60 hover:bg-purple-shade-d60 text-white px-7"
-              >
-                Save
-              </Button>
-            </div>
-          </DialogFooter>
+          {isLoading ? (
+            <Loading />
+          ) : (
+            <>
+              <DialogHeader>
+                <DialogTitle>Edit Property Size Type</DialogTitle>
+                <DialogDescription> </DialogDescription>
+              </DialogHeader>
+              <div className="space-y-4">
+                <Input
+                  value={currentProperty.selectFieldData}
+                  onChange={(e) =>
+                    setCurrentProperty({
+                      ...currentProperty,
+                      selectFieldData: e.target.value,
+                    })
+                  }
+                  placeholder="Enter property size type"
+                  className="h-14"
+                />
+              </div>
+              <DialogFooter>
+                <div className="flex flex-row justify-between items-center">
+                  <Button
+                    onClick={() => setIsEditModalOpen(false)}
+                    variant="destructive"
+                    className="px-6"
+                  >
+                    Cancel
+                  </Button>
+                  <Button
+                    onClick={handleSave}
+                    className="bg-purple-shade-60 hover:bg-purple-shade-d60 text-white px-7"
+                  >
+                    Save
+                  </Button>
+                </div>
+              </DialogFooter>
+            </>
+          )}
         </DialogContent>
       </Dialog>
 
       {/* Delete Modal */}
       <Dialog open={isDeleteModalOpen} onOpenChange={setIsDeleteModalOpen}>
         <DialogContent className="flex flex-col gap-10 rounded-lg">
-          <DialogHeader>
-            <DialogTitle>Confirm Deletion</DialogTitle>
-            <DialogDescription className="">
-              Are you sure you want to delete this property type?
-            </DialogDescription>
-          </DialogHeader>
-          <DialogFooter>
-            <div className="flex flex-row justify-between items-center w-full">
-              <Button
-                onClick={() => setIsDeleteModalOpen(false)}
-                variant="outline"
-                className="px-6"
-              >
-                Cancel
-              </Button>
-              <Button
-                onClick={confirmDelete}
-                variant="destructive"
-                className="px-7"
-              >
-                Delete
-              </Button>
-            </div>
-          </DialogFooter>
+          {isLoading ? (
+            <Loading />
+          ) : (
+            <>
+              <DialogHeader>
+                <DialogTitle>Confirm Deletion</DialogTitle>
+                <DialogDescription className="">
+                  Are you sure you want to delete this property type?
+                </DialogDescription>
+              </DialogHeader>
+              <DialogFooter>
+                <div className="flex flex-row justify-between items-center w-full">
+                  <Button
+                    onClick={() => setIsDeleteModalOpen(false)}
+                    variant="outline"
+                    className="px-6"
+                  >
+                    Cancel
+                  </Button>
+                  <Button
+                    onClick={confirmDelete}
+                    variant="destructive"
+                    className="px-7"
+                  >
+                    Delete
+                  </Button>
+                </div>
+              </DialogFooter>
+            </>
+          )}
         </DialogContent>
       </Dialog>
     </>
