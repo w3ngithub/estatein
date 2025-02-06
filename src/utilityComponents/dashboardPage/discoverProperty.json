@@ -1,5 +1,44 @@
 [
   {
+    "id": "_XQzt4uI-inTETADyH_bM",
+    "villaName": "Donovan Lee",
+    "coverImage": "/uploads/1738840724549-admin dashboard.JPG",
+    "multipleImages": [
+      "/uploads/1738840724552-admin dashboard.JPG",
+      "/uploads/1738840724552-carousel-one.png",
+      "/uploads/1738840724553-carousel-two.png",
+      "/uploads/1738840724554-featured-property-first.png",
+      "/uploads/1738840724554-items.JPG",
+      "/uploads/1738840724554-pic.JPG"
+    ],
+    "keyFeatures": [
+      {
+        "id": "RfmkjSYrRdpL2E6nQS_P7",
+        "name": "Et ea sed repudianda"
+      }
+    ],
+    "description": "Rerum dolore aliqua Rerum dolore aliquaRerum dolore aliquaRerum dolore aliquaRerum dolore aliquaRerum dolore aliquaRerum dolore aliquaRerum dolore aliquaRerum dolore aliquaRerum dolore aliquaRerum dolore aliquaRerum dolore aliquaRerum dolore aliquaRerum dolore aliquaRerum dolore aliquaRerum dolore aliqua",
+    "price": "403",
+    "pillName": "Odessa Hooper",
+    "location": "In recusandae In nu",
+    "buildYear": "2024",
+    "totalBedRoom": 42,
+    "totalBathRoom": 20,
+    "totalArea": 35,
+    "areaUnit": "sq feet",
+    "propertyType": "Rental",
+    "propertyTransferTax": 30,
+    "legalFees": 71,
+    "homeInspectionFee": 43,
+    "propertyInsurance": 76,
+    "mortgageFee": 8,
+    "propertyTax": 45,
+    "additionalFee": 67,
+    "homeOwnersAssociationFee": 85,
+    "downPayment": 78,
+    "monthlyPropertyInsurance": 8
+  },
+  {
     "id": "IMs-bOSoZV99yXIozDXxh",
     "villaName": "Neil Nguyen",
     "coverImage": "/uploads/1738840349890-featured-property-first.png",

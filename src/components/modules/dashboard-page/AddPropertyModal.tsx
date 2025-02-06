@@ -186,6 +186,7 @@ const AddPropertyModal = ({
     } finally {
       setIsLoading(false);
     }
+    setIsModalOpen(false);
 
     // Reset form after submission
     form.reset();
