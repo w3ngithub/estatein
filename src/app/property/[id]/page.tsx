@@ -14,7 +14,6 @@ const fetchVillaDetails = async (id: string) => {
     throw new Error("Failed to fetch villa details");
   }
   const data = await res.json();
-
   return data;
 };
 
