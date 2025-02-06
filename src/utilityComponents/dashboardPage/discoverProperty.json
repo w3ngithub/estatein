@@ -1,133 +1,57 @@
 [
   {
-    "id": "Mh8gMkn8gRJb04IL6M0jJ",
-    "villaName": "NEP",
-    "coverImage": "/uploads/1738739182515-pic.JPG",
-    "multipleImages": [],
-    "keyFeatures": [
-      {
-        "id": "lkwTVgjvbqAPdIFtEK80i",
-        "name": "Ab accusamus ratione"
-      }
-    ],
-    "description": "Pariatur Minim plac Pariatur Minim placPariatur Minim placPariatur Minim placPariatur Minim placPariatur Minim placPariatur Minim placPariatur Minim placPariatur Minim plac",
-    "price": "940",
-    "pillName": "Noah Ayers",
-    "location": "Vel delectus et nat",
-    "buildYear": "2025",
-    "totalBedRoom": 79,
-    "totalBathRoom": 8,
-    "totalArea": 63,
-    "areaUnit": "sq feet",
-    "propertyType": "1 BHK",
-    "propertyTransferTax": 12,
-    "legalFees": 80,
-    "homeInspectionFee": 95,
-    "propertyInsurance": 28,
-    "mortgageFee": 49,
-    "propertyTax": 13,
-    "additionalFee": 76,
-    "homeOwnersAssociationFee": 26,
-    "downPayment": 21,
-    "monthlyPropertyInsurance": 1
-  },
-  {
-    "id": "1kSxaXnKHA-Oy2dkNeWbn",
-    "villaName": "AUS",
-    "coverImage": "/uploads/1738738857883-featured-property-first.png",
+    "id": "EySq91mGhLAu2Ad-pTQtf",
+    "villaName": "Seaside Serenity Villa",
+    "coverImage": "/uploads/1738813646084-featured-property-first.png",
     "multipleImages": [
-      "/uploads/1738738857887-carousel-one.png",
-      "/uploads/1738738857888-carousel-two.png"
+      "/uploads/1738813646112-admin dashboard.JPG",
+      "/uploads/1738813646112-carousel-one.png",
+      "/uploads/1738813646129-carousel-two.png",
+      "/uploads/1738813646155-featured-property-first.png",
+      "/uploads/1738813646155-items.JPG",
+      "/uploads/1738813646157-pic.JPG"
     ],
     "keyFeatures": [
       {
-        "id": "CJsPeA9ZIsNjceGZ6rey-",
-        "name": "Velit eum mollitia r"
+        "id": "DLnMw6rgirxqBVxYrZRUi",
+        "name": "Expansive oceanfront terrace for outdoor entertaining"
+      },
+      {
+        "id": "fFlDiJ-qWGV4wCo2lqW1M",
+        "name": "Expansive oceanfront terrace for outdoor entertaining"
+      },
+      {
+        "id": "8IcTJ4RzRxHeTatCiOOZX",
+        "name": "Expansive oceanfront terrace for outdoor entertaining"
+      },
+      {
+        "id": "gRjF21L0u_hHd-x-l_ry2",
+        "name": "Expansive oceanfront terrace for outdoor entertaining"
+      },
+      {
+        "id": "DD0Gu7dZqpu84BaWKLVXZ",
+        "name": "Master suite with a spa-inspired bathroom and ocean-facing balcony"
       }
     ],
-    "description": "Magni dolor tempora Magni dolor tempora Magni dolor tempora Magni dolor tempora Magni dolor tempora Magni dolor tempora Magni dolor tempora ",
-    "price": "827",
-    "pillName": "Talon Velez",
-    "location": "Ex commodi alias non",
+    "description": "Discover your own piece of paradise with the Seaside Serenity Villa. T With an open floor plan, breathtaking ocean views from every room, and direct access to a pristine sandy beach, this property is the epitome of coastal living.",
+    "price": "1250000",
+    "pillName": "Coastal Escapes - Where Waves Beckon",
+    "location": "Malibu, California",
     "buildYear": "2025",
-    "totalBedRoom": 91,
-    "totalBathRoom": 17,
-    "totalArea": 74,
-    "areaUnit": "dhur",
-    "propertyType": "2 BHK",
-    "propertyTransferTax": 8,
-    "legalFees": 14,
-    "homeInspectionFee": 1,
-    "propertyInsurance": 94,
-    "mortgageFee": 56,
-    "propertyTax": 68,
-    "additionalFee": 23,
-    "homeOwnersAssociationFee": 24,
-    "downPayment": 81,
-    "monthlyPropertyInsurance": 8
-  },
-  {
-    "id": "ygx-CFvk1rwr6xLnwK7I9",
-    "villaName": "Noah Nixon",
-    "coverImage": "/uploads/1738651678283-featured-property-first.png",
-    "multipleImages": ["/uploads/1738651678290-pic.JPG"],
-    "keyFeatures": [
-      {
-        "id": "D37xjjwY-vuaAzQuZVt9t",
-        "name": "Reiciendis tempor vo"
-      }
-    ],
-    "description": "A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood.A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood.A stunning 4-bedroom,",
-    "price": "87",
-    "pillName": "Nina Greer",
-    "location": "India",
-    "buildYear": "2025",
-    "totalBedRoom": 50,
-    "totalBathRoom": 36,
-    "totalArea": 50,
-    "areaUnit": "dhur",
-    "propertyType": "Rental",
-    "propertyTransferTax": 56,
-    "legalFees": 42,
-    "homeInspectionFee": 79,
-    "propertyInsurance": 30,
-    "mortgageFee": "Magni in sed illum ",
-    "propertyTax": 42,
-    "additionalFee": 66,
-    "homeOwnersAssociationFee": 33,
-    "downPayment": 26,
-    "monthlyPropertyInsurance": 10
-  },
-  {
-    "id": "_W60UFk6kdMTciHOXnG_o",
-    "villaName": "Neville Evans",
-    "coverImage": "/uploads/1738651575959-featured-property-first.png",
-    "multipleImages": ["/uploads/1738651575964-pic.JPG"],
-    "keyFeatures": [
-      {
-        "id": "dV8ulzgTpz3fqMxvUMFO4",
-        "name": "Esse ea quia non tem"
-      }
-    ],
-    "description": "A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood.A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood.A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood.A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood.",
-    "price": "213",
-    "pillName": "Lani Whitfield",
-    "location": "Nepal",
-    "buildYear": "2024",
-    "totalBedRoom": 14,
-    "totalBathRoom": 4,
-    "totalArea": 53,
+    "totalBedRoom": 4,
+    "totalBathRoom": 3,
+    "totalArea": 2500,
     "areaUnit": "sq feet",
-    "propertyType": "Owned",
-    "propertyTransferTax": 31,
-    "legalFees": 79,
-    "homeInspectionFee": 26,
-    "propertyInsurance": 74,
-    "mortgageFee": "Quam laboris fugiat",
-    "propertyTax": 30,
-    "additionalFee": 63,
-    "homeOwnersAssociationFee": 38,
-    "downPayment": 3,
-    "monthlyPropertyInsurance": 4
+    "propertyType": "Rental",
+    "propertyTransferTax": 25000,
+    "legalFees": 3000,
+    "homeInspectionFee": 500,
+    "propertyInsurance": 1200,
+    "mortgageFee": 1200,
+    "propertyTax": 1250,
+    "additionalFee": 29700,
+    "homeOwnersAssociationFee": 300,
+    "downPayment": 250000,
+    "monthlyPropertyInsurance": 100
   }
 ]
