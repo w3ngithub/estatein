@@ -1,7 +1,7 @@
-import DemoPage from "@/app/properties/page";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import AddPropertyModal from "./AddPropertyModal";
+import PropertyTable from "@/app/properties/page";
 
 const PropertiesContent = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -22,7 +22,7 @@ const PropertiesContent = () => {
         </Button>
       </div>
       <div>
-        <DemoPage />
+        <PropertyTable />
       </div>
 
       {/* Add Property Modal */}

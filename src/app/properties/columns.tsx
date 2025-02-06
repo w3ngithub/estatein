@@ -1,7 +1,9 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { PropertyListingSchema } from "@/schema/property-listing-form";
 import { ColumnDef } from "@tanstack/react-table";
+import { Edit2, Trash } from "lucide-react";
 
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
@@ -15,90 +17,116 @@ import { ColumnDef } from "@tanstack/react-table";
 export const columns: ColumnDef<PropertyListingSchema>[] = [
   {
     accessorKey: "villaName",
-    header: "villaName",
+    header: "Property Name",
   },
   {
     accessorKey: "keyFeatures",
-    header: "keyFeatures",
+    header: "Key Features",
   },
   {
     accessorKey: "description",
-    header: "description",
+    header: "Description",
   },
   {
     accessorKey: "pillName",
-    header: "pillName",
+    header: "Pill Name",
   },
   {
     accessorKey: "location",
-    header: "location",
+    header: "Location",
   },
   {
     accessorKey: "buildYear",
-    header: "buildYear",
+    header: "Build Year",
   },
   {
     accessorKey: "totalBedRoom",
-    header: "totalBedRoom",
+    header: "BedRoom",
   },
   {
     accessorKey: "totalBathRoom",
-    header: "totalBathRoom",
+    header: "BathRoom",
   },
   {
     accessorKey: "totalArea",
-    header: "totalArea",
+    header: "Area",
   },
   {
     accessorKey: "areaUnit",
-    header: "areaUnit",
+    header: "Area Unit",
   },
   {
     accessorKey: "propertyType",
-    header: "propertyType",
+    header: "Property Type",
   },
   {
     accessorKey: "propertyTransferTax",
-    header: "propertyTransferTax",
+    header: "Property Transfer Tax",
   },
   {
     accessorKey: "homeInspectionFee",
-    header: "homeInspectionFee",
+    header: "Home Inspection Fee",
   },
   {
     accessorKey: "propertyInsurance",
-    header: "propertyInsurance",
+    header: "Property Insurance",
   },
   {
     accessorKey: "mortgageFee",
-    header: "mortgageFee",
+    header: "Mortgage Fee",
   },
   {
     accessorKey: "propertyTax",
-    header: "propertyTax",
+    header: "Property Tax",
   },
   {
     accessorKey: "additionalFee",
-    header: "additionalFee",
+    header: "Additional Fee",
   },
   {
     accessorKey: "homeOwnersAssociationFee",
-    header: "homeOwnersAssociationFee",
+    header: "Home Owners Association Fee",
   },
   {
     accessorKey: "downPayment",
-    header: "downPayment",
+    header: "Down Payment",
   },
   {
     accessorKey: "monthlyPropertyInsurance",
-    header: "monthlyPropertyInsurance",
+    header: "Monthly Property Insurance",
   },
   {
     accessorKey: "coverImage",
-    header: "coverImage",
+    header: "Cover Image",
   },
   {
     accessorKey: "multipleImages",
-    header: "multipleImages",
+    header: "Multiple Images",
+  },
+  {
+    accessorKey: "actions",
+    header: "Actions",
+    cell: () => {
+      return (
+        <div className="flex items-center gap-2">
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => console.log("edit")}
+            className="text-blue-500 hover:text-blue-700"
+          >
+            <Edit2 className="h-4 w-4" />
+          </Button>
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => console.log("delete")}
+            className="text-red-500 hover:text-red-700"
+          >
+            <Trash className="h-4 w-4" />
+          </Button>
+        </div>
+      );
+    },
   },
 ];

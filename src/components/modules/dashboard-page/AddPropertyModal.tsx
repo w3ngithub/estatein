@@ -197,13 +197,11 @@ const AddPropertyModal = ({
   return (
     <>
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen} modal={false}>
-        {/* <DialogContent className="rounded-lg border border-red-500"> */}
-        <DialogContent className="max-w-full w-full h-full max-h-full rounded-lg p-0 border border-red-500 overflow-y-auto">
+        <DialogContent className="max-w-full w-full h-full max-h-full rounded-lg p-0 overflow-y-auto">
           {isLoading ? (
             <Loading />
           ) : (
             <div className="p-8 space-y-10">
-              {/* <h1 className="text-2xl">Add Properties</h1> */}
               <div>
                 <Form {...form}>
                   <form
@@ -211,7 +209,9 @@ const AddPropertyModal = ({
                     className="space-y-3"
                   >
                     <DialogHeader>
-                      <DialogTitle>Add Property</DialogTitle>
+                      <DialogTitle className="text-2xl py-4">
+                        Add Property
+                      </DialogTitle>
                       <DialogDescription> </DialogDescription>
                     </DialogHeader>
                     <div className="grid mobile-lg:grid-cols-2 gap-3">
