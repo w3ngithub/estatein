@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { PropertyListingSchema } from "@/schema/property-listing-form";
 import { ColumnDef } from "@tanstack/react-table";
 import { Edit2, Trash } from "lucide-react";
+import Image from "next/image";
 
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
@@ -28,7 +29,7 @@ export const columns: ColumnDef<PropertyListingSchema>[] = [
         <ol className="text-center">
           {keyFeatures.map((item, index) => {
             return (
-              <div className="flex flex-row gap-2">
+              <div key={item.id} className="flex flex-row gap-2">
                 <p>{index + 1})</p>
                 <li key={item.id}>{item.name}</li>;
               </div>
@@ -117,10 +118,46 @@ export const columns: ColumnDef<PropertyListingSchema>[] = [
   {
     accessorKey: "coverImage",
     header: "Cover Image",
+    cell: ({ row }) => {
+      const image = row.original.coverImage;
+      return (
+        <div className="relative size-16">
+          <Image
+            src={`${process.env.NEXT_PUBLIC_BASE_PATH + `${image}`}`}
+            alt="house"
+            width={100}
+            height={100}
+            className="absolute h-full w-full top-0 left-0 object-cover object-center rounded-lg"
+          />
+        </div>
+      );
+    },
   },
   {
     accessorKey: "multipleImages",
     header: "Multiple Images",
+    cell: ({ row }) => {
+      const images = row.original.multipleImages;
+      return (
+        <>
+          {images.map((imgUrl, index: number) => {
+            return (
+              <div key={index} className="flex flex-row gap-2">
+                <div className="relative size-16">
+                  <Image
+                    src={`${process.env.NEXT_PUBLIC_BASE_PATH + `${imgUrl}`}`}
+                    alt="house"
+                    width={100}
+                    height={100}
+                    className="absolute h-full w-full top-0 left-0 object-cover object-center rounded-lg"
+                  />
+                </div>
+              </div>
+            );
+          })}
+        </>
+      );
+    },
   },
   {
     accessorKey: "actions",
