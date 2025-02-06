@@ -155,7 +155,7 @@ export const columns: ColumnDef<PropertyListingSchema>[] = [
           {images.length > 0 && (
             <div className="relative size-16">
               <Image
-                src={`${process?.env?.NEXT_PUBLIC_BASE_PATH + images[0]}`}
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH + `${images[0]}`}`}
                 alt="house"
                 width={100}
                 height={100}
@@ -174,9 +174,7 @@ export const columns: ColumnDef<PropertyListingSchema>[] = [
               </DialogTrigger>
               <DialogContent className="max-w-lg p-4 rounded-lg">
                 <DialogHeader>
-                  <DialogTitle className="text-2xl py-4">
-                    All Images
-                  </DialogTitle>
+                  <DialogTitle className="text-2xl py-4">Images</DialogTitle>
                   <DialogDescription> </DialogDescription>
                 </DialogHeader>
                 <div className="grid grid-cols-3 gap-2">

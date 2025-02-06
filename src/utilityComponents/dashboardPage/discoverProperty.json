@@ -1,5 +1,40 @@
 [
   {
+    "id": "IMs-bOSoZV99yXIozDXxh",
+    "villaName": "Neil Nguyen",
+    "coverImage": "/uploads/1738840349890-featured-property-first.png",
+    "multipleImages": [
+      "/uploads/1738840349897-carousel-one.png",
+      "/uploads/1738840349898-carousel-two.png"
+    ],
+    "keyFeatures": [
+      {
+        "id": "DPut-4jLvw12P0bKrZQLZ",
+        "name": "Sint beatae quae of"
+      }
+    ],
+    "description": "Ad exercitationem laAd exercitationem laAd exercitationem laAd exercitationem laAd exercitationem laAd exercitationem laAd exercitationem laAd exercitationem laAd exercitationem laAd exercitationem laAd exercitationem laAd exercitationem laAd exercitationem laAd exercitationem laAd exercitationem la",
+    "price": "867",
+    "pillName": "Allegra Powell",
+    "location": "Obcaecati odio repre",
+    "buildYear": "2024",
+    "totalBedRoom": 28,
+    "totalBathRoom": 1,
+    "totalArea": 78,
+    "areaUnit": "sq feet",
+    "propertyType": "Owned",
+    "propertyTransferTax": 76,
+    "legalFees": 34,
+    "homeInspectionFee": 34,
+    "propertyInsurance": 45,
+    "mortgageFee": 80,
+    "propertyTax": 30,
+    "additionalFee": 24,
+    "homeOwnersAssociationFee": 80,
+    "downPayment": 99,
+    "monthlyPropertyInsurance": 11
+  },
+  {
     "id": "rLALnppQYDVDT_MS9jUKg",
     "villaName": "Dipesh",
     "coverImage": "/uploads/1738833281606-pic.JPG",
