@@ -1,10 +1,19 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { PropertyListingSchema } from "@/schema/property-listing-form";
 import { ColumnDef } from "@tanstack/react-table";
 import { Edit2, Trash } from "lucide-react";
 import Image from "next/image";
+import { useState } from "react";
 
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
@@ -138,24 +147,57 @@ export const columns: ColumnDef<PropertyListingSchema>[] = [
     header: "Multiple Images",
     cell: ({ row }) => {
       const images = row.original.multipleImages;
+      const [open, setOpen] = useState(false);
+
       return (
-        <>
-          {images.map((imgUrl, index: number) => {
-            return (
-              <div key={index} className="flex flex-row gap-2">
-                <div className="relative size-16">
-                  <Image
-                    src={`${process.env.NEXT_PUBLIC_BASE_PATH + `${imgUrl}`}`}
-                    alt="house"
-                    width={100}
-                    height={100}
-                    className="absolute h-full w-full top-0 left-0 object-cover object-center rounded-lg"
-                  />
+        <div className="flex flex-col items-start gap-2">
+          {/* Show only the first image */}
+          {images.length > 0 && (
+            <div className="relative size-16">
+              <Image
+                src={`${process?.env?.NEXT_PUBLIC_BASE_PATH + images[0]}`}
+                alt="house"
+                width={100}
+                height={100}
+                className="absolute h-full w-full top-0 left-0 object-cover object-center rounded-lg"
+              />
+            </div>
+          )}
+
+          {/* Show "View More" button if there are multiple images */}
+          {images.length > 1 && (
+            <Dialog open={open} onOpenChange={setOpen}>
+              <DialogTrigger asChild>
+                <Button variant="outline" size="sm">
+                  View....
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="max-w-lg p-4 rounded-lg">
+                <DialogHeader>
+                  <DialogTitle className="text-2xl py-4">
+                    All Images
+                  </DialogTitle>
+                  <DialogDescription> </DialogDescription>
+                </DialogHeader>
+                <div className="grid grid-cols-3 gap-2">
+                  {images.map((imgUrl, index) => (
+                    <div key={index} className="relative size-24 my-5">
+                      <Image
+                        src={`${
+                          process.env.NEXT_PUBLIC_BASE_PATH + `${imgUrl}`
+                        }`}
+                        alt={`house-${index}`}
+                        width={100}
+                        height={100}
+                        className="absolute h-full w-full top-0 left-0 object-cover object-center rounded-lg"
+                      />
+                    </div>
+                  ))}
                 </div>
-              </div>
-            );
-          })}
-        </>
+              </DialogContent>
+            </Dialog>
+          )}
+        </div>
       );
     },
   },
