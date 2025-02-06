@@ -571,27 +571,6 @@ const PropertiesContent = () => {
                   />
                   <FormField
                     control={form.control}
-                    name="downPayment"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Enter Down Payment</FormLabel>
-                        <FormControl>
-                          <Input
-                            type="number"
-                            placeholder="Enter Down Payment"
-                            {...field}
-                            onChange={(e) =>
-                              field.onChange(Number(e.target.value))
-                            }
-                            className="h-16 max-desktop-lg:h-14"
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
                     name="monthlyPropertyInsurance"
                     render={({ field }) => (
                       <FormItem>
