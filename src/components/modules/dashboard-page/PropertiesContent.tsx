@@ -11,7 +11,7 @@ const PropertiesContent = () => {
   };
 
   return (
-    <div className="p-8 space-y-7 max-mobile-md:p-1 w-[85vw]">
+    <div className="p-8 space-y-7 max-mobile-md:p-1 w-[100vw] mobile-lg:w-[85vw]">
       <h1 className="text-2xl">Properties</h1>
       <div className="flex flex-row items-center justify-end gap-5">
         <Button
