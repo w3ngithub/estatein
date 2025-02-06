@@ -36,7 +36,7 @@ const AdditionalFeeCard = ({
           </p>
           <div className="flex flex-row items-center gap-3">
             <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
-              ${propertyTransferTax}
+              ${Number(propertyTransferTax).toLocaleString()}
             </h1>
             <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-15 bg-grey-shade-10 px-3 py-2 rounded-full max-mobile-md:rounded-lg">
               <p className="text-grey-shade-60 text-lg max-desktop-lg:text-sm">
@@ -51,7 +51,7 @@ const AdditionalFeeCard = ({
           </p>
           <div className="flex flex-row items-center gap-3">
             <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
-              ${legalFees}
+              ${Number(legalFees).toLocaleString()}
             </h1>
             <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-15 bg-grey-shade-10 px-3 py-2 rounded-full max-mobile-md:rounded-lg">
               <p className="text-grey-shade-60 text-lg max-desktop-lg:text-sm">
@@ -69,7 +69,7 @@ const AdditionalFeeCard = ({
           </p>
           <div className="flex flex-row items-center gap-3">
             <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
-              ${homeInspectionFee}
+              ${Number(homeInspectionFee).toLocaleString()}
             </h1>
             <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-15 bg-grey-shade-10 px-3 py-2 rounded-full">
               <p className="text-grey-shade-60 text-lg max-desktop-lg:text-sm">
@@ -84,7 +84,7 @@ const AdditionalFeeCard = ({
           </p>
           <div className="flex flex-row items-center gap-3">
             <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
-              ${propertyInsurance}
+              ${Number(propertyInsurance).toLocaleString()}
             </h1>
             <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-15 bg-grey-shade-10 px-3 py-2 rounded-full max-mobile-md:rounded-lg">
               <p className="text-grey-shade-60 text-lg max-desktop-lg:text-sm">

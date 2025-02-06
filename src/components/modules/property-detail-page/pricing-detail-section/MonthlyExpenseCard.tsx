@@ -32,7 +32,7 @@ const MonthlyExpenseCard = ({
           </p>
           <div className="flex flex-row items-center gap-3">
             <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
-              ${propertyTax}
+              ${Number(propertyTax).toLocaleString()}
             </h1>
           </div>
         </div>
@@ -42,7 +42,7 @@ const MonthlyExpenseCard = ({
           </p>
           <div className="flex flex-row items-center gap-3">
             <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
-              ${homeOwnersAssociationFee}
+              ${homeOwnersAssociationFee.toLocaleString()}
             </h1>
           </div>
         </div>
@@ -69,7 +69,7 @@ const MonthlyExpenseCard = ({
           </p>
           <div className="flex flex-row items-center gap-3">
             <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
-              ${propertyInsurance}
+              ${Number(propertyInsurance).toLocaleString()}
             </h1>
             <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-15 bg-grey-shade-10 px-3 py-2 rounded-full max-mobile-md:rounded-lg">
               <p className="text-grey-shade-60 text-lg max-desktop-lg:text-sm">

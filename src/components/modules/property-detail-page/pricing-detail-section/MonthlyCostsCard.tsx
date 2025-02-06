@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { MonthlyCosts } from "@/utilityComponents/propertyDetailPage/pricingDetails";
 import Link from "next/link";
 import React from "react";
 
@@ -32,7 +31,7 @@ const MonthlyCostsCard = ({
           </p>
           <div className="flex flex-row items-center gap-3">
             <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
-              ${propertyTax}
+              ${Number(propertyTax).toLocaleString()}
             </h1>
             <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-15 bg-grey-shade-10 px-3 py-2 rounded-full max-mobile-md:rounded-lg">
               <p className="text-grey-shade-60 text-lg max-desktop-lg:text-sm">
@@ -48,7 +47,7 @@ const MonthlyCostsCard = ({
           </p>
           <div className="flex flex-row items-center gap-3">
             <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
-              ${homeOwnersAssociationFee}
+              ${Number(homeOwnersAssociationFee).toLocaleString()}
             </h1>
             <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-15 bg-grey-shade-10 px-3 py-2 rounded-full max-mobile-md:rounded-lg">
               <p className="text-grey-shade-60 text-lg max-desktop-lg:text-sm">

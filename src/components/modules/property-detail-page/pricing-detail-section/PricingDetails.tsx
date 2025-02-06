@@ -67,7 +67,7 @@ const PricingDetails = ({
               Listing Price
             </p>
             <h1 className="font-semibold text-4xl max-desktop-lg:text-3xl max-tablet-sm:text-2xl">
-              ${price}
+              ${Number(price).toLocaleString()}
             </h1>
           </div>
           {/* 2nd section */}

@@ -16,15 +16,6 @@ import { LocationIcon } from "@/svgs/PropertyDetailPageSvg";
 //   "/estatein/images/carousel-one.png",
 //   "/estatein/images/carousel-two.png",
 //   "/estatein/images/carousel-one.png",
-//   "/estatein/images/carousel-two.png",
-//   "/estatein/images/carousel-one.png",
-//   "/estatein/images/carousel-two.png",
-//   "/estatein/images/carousel-one.png",
-//   "/estatein/images/carousel-two.png",
-//   "/estatein/images/carousel-one.png",
-//   "/estatein/images/carousel-two.png",
-//   "/estatein/images/carousel-one.png",
-//   "/estatein/images/carousel-two.png",
 // ];
 
 interface PropertyImageCarousalProps {
@@ -79,7 +70,7 @@ export default function PropertyImageCarousal({
         <div className="flex flex-col gap-3 max-mobile-xl:flex-row  max-mobile-xl:items-center max-mobile-md:mt-9">
           <p className="dark:text-grey-shade-60 font-medium text-sm">Price</p>
           <h1 className="font-semibold text-xl max-mobile-lg:text-lg">
-            ${price}
+            ${Number(price).toLocaleString()}
           </h1>
         </div>
       </div>

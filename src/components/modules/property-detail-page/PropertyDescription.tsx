@@ -77,8 +77,7 @@ const PropertyDescription = ({
                 </p>
               </div>
               <h1 className="font-semibold text-2xl max-desktop-lg:text-xl">
-                {/* 2,500 Square Feet */}
-                {totalArea} {areaUnit}
+                {Number(totalArea).toLocaleString()} {areaUnit}
               </h1>
             </div>
           </div>

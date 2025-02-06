@@ -342,7 +342,7 @@ const DiscoveredProperty = () => {
                               Price
                             </p>
                             <h2 className="text-2xl font-semibold dark:text-white max-desktop-lg:text-xl max-tablet-sm:text-lg">
-                              ${item.price}
+                              ${Number(item.price).toLocaleString()}
                             </h2>
                           </div>
                         </div>
