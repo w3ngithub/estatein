@@ -1,5 +1,42 @@
 [
   {
+    "id": "rLALnppQYDVDT_MS9jUKg",
+    "villaName": "Dipesh",
+    "coverImage": "/uploads/1738833281606-pic.JPG",
+    "multipleImages": [
+      "/uploads/1738833281611-admin dashboard.JPG",
+      "/uploads/1738833281611-featured-property-first.png",
+      "/uploads/1738833281611-items.JPG",
+      "/uploads/1738833281611-pic.JPG"
+    ],
+    "keyFeatures": [
+      {
+        "id": "hfKJBGihko9WrkIWRs2Uh",
+        "name": "Doloribus soluta est"
+      }
+    ],
+    "description": "Reprehenderit qui aReprehendeReprehenderit qui aReprehenderit qui aReprehenderit qui aReprehenderit qui aReprehenderit qui aReprehenderit qui aReprehenderit qui aReprehenderit qui aReprehenderit qui aReprehenderit qui aReprehenderit qui aReprehenderit qui aReprehenderit qui arit qui a",
+    "price": "923",
+    "pillName": "Callum Salas",
+    "location": "Quod placeat laboru",
+    "buildYear": "2025",
+    "totalBedRoom": 65,
+    "totalBathRoom": 74,
+    "totalArea": 49,
+    "areaUnit": "aana",
+    "propertyType": "2 BHK",
+    "propertyTransferTax": 19,
+    "legalFees": 29,
+    "homeInspectionFee": 38,
+    "propertyInsurance": 65,
+    "mortgageFee": 58,
+    "propertyTax": 27,
+    "additionalFee": 26,
+    "homeOwnersAssociationFee": 38,
+    "downPayment": 41,
+    "monthlyPropertyInsurance": 10
+  },
+  {
     "id": "j34-zjyEVAc33k5rU8EHW",
     "villaName": "Jessica Knowles",
     "coverImage": "/uploads/1738818207147-featured-property-first.png",

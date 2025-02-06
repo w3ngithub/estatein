@@ -1,4 +1,3 @@
-import { PropertyListingSchema } from "@/schema/property-listing-form";
 import { columns } from "./columns";
 import { DataTable } from "./data-table";
 import discoverProperty from "@/utilityComponents/dashboardPage/discoverProperty.json";
