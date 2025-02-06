@@ -1,5 +1,44 @@
 [
   {
+    "id": "B7Emp6DsXYh-7eszajEDQ",
+    "villaName": "2/6/2025",
+    "coverImage": "/uploads/1738842430078-carousel-one.png",
+    "multipleImages": [
+      "/uploads/1738842430085-admin dashboard.JPG",
+      "/uploads/1738842430085-carousel-one.png",
+      "/uploads/1738842430085-carousel-two.png",
+      "/uploads/1738842430086-featured-property-first.png",
+      "/uploads/1738842430086-items.JPG",
+      "/uploads/1738842430086-pic.JPG"
+    ],
+    "keyFeatures": [
+      {
+        "id": "Lt1oF8xTUMTpsaTG-ztag",
+        "name": "Deleniti harum quas "
+      }
+    ],
+    "description": " Omnis est consequatuOmnis est consequatuOmnis est consequatuOmnis est consequatuOmnis est consequatuOmnis est consequatuOmnis est consequatuOmnis est consequatuOmnis est consequatuOmnis est consequatuOmnis est consequatuOmnis est consequatuOmnis est consequatuOmnis est consequatu",
+    "price": "987",
+    "pillName": "Shannon Hardy",
+    "location": "Temporibus culpa fac",
+    "buildYear": "2025",
+    "totalBedRoom": 49,
+    "totalBathRoom": 2,
+    "totalArea": 46,
+    "areaUnit": "aana",
+    "propertyType": "2 BHK",
+    "propertyTransferTax": 95,
+    "legalFees": 53,
+    "homeInspectionFee": 53,
+    "propertyInsurance": 22,
+    "mortgageFee": 95,
+    "propertyTax": 26,
+    "additionalFee": 97,
+    "homeOwnersAssociationFee": 35,
+    "downPayment": 2,
+    "monthlyPropertyInsurance": 11
+  },
+  {
     "id": "_XQzt4uI-inTETADyH_bM",
     "villaName": "Donovan Lee",
     "coverImage": "/uploads/1738840724549-admin dashboard.JPG",

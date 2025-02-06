@@ -215,7 +215,7 @@ const AddPropertyModal = ({
                       </DialogTitle>
                       <DialogDescription> </DialogDescription>
                     </DialogHeader>
-                    <div className="grid mobile-lg:grid-cols-2 gap-3">
+                    <div className="grid mobile-lg:grid-cols-2 gap-10">
                       <FormField
                         control={form.control}
                         name="villaName"
