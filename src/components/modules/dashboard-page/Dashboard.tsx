@@ -33,11 +33,11 @@ const Dashboard = ({ userName }: { userName: string }) => {
   };
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex flex-col mobile-lg:flex-row min-h-screen">
       <div
         className={`${
           collapsed ? "tablet-md:w-[80px]" : "w-40"
-        } transition-all duration-300 relative`}
+        } transition-all duration-300 relative max-mobile-lg:w-full`}
       >
         {/* sidenav */}
         <div className="flex flex-col justify-between dark:bg-zinc-900 border-r dark:border-zinc-800 p-4 h-full">

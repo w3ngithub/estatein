@@ -22,8 +22,8 @@ const LogOutComp = ({
     }
   };
   return (
-    <div className="flex flex-col gap-8">
-      <div className="flex flex-row items-center">
+    <div className="flex flex-col gap-8 max-mobile-lg:gap-4 max-mobile-lg:mt-9">
+      <div className="flex flex-row items-center max-mobile-lg:gap-5">
         {!collapsed && (
           <Label className="text-sm" htmlFor="user">
             Switch to User
