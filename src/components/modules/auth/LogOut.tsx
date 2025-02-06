@@ -19,7 +19,7 @@ const LogOutComp = ({
     }
   };
   return (
-    <div className="flex flex-row gap-2 p-4">
+    <div className="flex flex-row gap-1 w-full">
       {!collapsed && (
         <Avatar>
           <AvatarFallback>{userName?.charAt(0).toUpperCase()}</AvatarFallback>
@@ -29,7 +29,7 @@ const LogOutComp = ({
         <Button
           onClick={handleLogout}
           variant="ghost"
-          className="w-full justify-start gap-2 dark:text-white"
+          className="w-full text-sm justify-start gap-2 dark:text-white"
         >
           Logout
           <LogOut className="h-4 w-4" />
