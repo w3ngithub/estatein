@@ -22,10 +22,29 @@ export const columns: ColumnDef<PropertyListingSchema>[] = [
   {
     accessorKey: "keyFeatures",
     header: "Key Features",
+    cell: ({ row }) => {
+      const keyFeatures = row.original.keyFeatures;
+      return (
+        <ol className="text-center">
+          {keyFeatures.map((item, index) => {
+            return (
+              <div className="flex flex-row gap-2">
+                <p>{index + 1})</p>
+                <li key={item.id}>{item.name}</li>;
+              </div>
+            );
+          })}
+        </ol>
+      );
+    },
   },
   {
     accessorKey: "description",
     header: "Description",
+    cell: ({ row }) => {
+      const desc = row.original.description;
+      return <span className="line-clamp-3">{desc}</span>;
+    },
   },
   {
     accessorKey: "pillName",
