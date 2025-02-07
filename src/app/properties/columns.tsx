@@ -278,6 +278,7 @@ export const columns: ColumnDef<PropertyApiResponse>[] = [
           <EditPropertyModal
             isModalOpen={isModalOpen}
             setIsModalOpen={setIsModalOpen}
+            propertyId={propertyToEdit}
           />
           {/* <AddPropertyModal
             isModalOpen={isModalOpen}

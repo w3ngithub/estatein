@@ -7,7 +7,6 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-  DialogFooter,
   DialogDescription,
 } from "@/components/ui/dialog";
 import {
@@ -25,63 +24,124 @@ import { nanoid } from "nanoid";
 import "react-dropzone-uploader/dist/styles.css";
 import SingleImageUpload from "@/components/elements/SingleImageUpload";
 import MultipleImageUpload from "@/components/elements/MultipleImageUpload";
-import { Dispatch, SetStateAction, useState } from "react";
+import { type Dispatch, type SetStateAction, useState, useEffect } from "react";
 import {
-  PropertyListingSchema,
+  type PropertyListingSchema,
   propertySchema,
 } from "@/schema/property-listing-form";
 import SelectField from "../common/SelectField";
 import propertySizeType from "@/utilityComponents/dashboardPage/propertySizeTypeData.json";
 import propertyType from "@/utilityComponents/dashboardPage/propertyTypeData.json";
-import Loading from "@/components/elements/Loading";
 import { YearCalendar } from "../common/YearCalender";
+import discoverProperty from "@/utilityComponents/dashboardPage/discoverProperty.json";
 
 interface EditPropertyModalProps {
   isModalOpen: boolean;
   setIsModalOpen: Dispatch<SetStateAction<boolean>>;
+  propertyId: string;
 }
 
 const EditPropertyModal = ({
   isModalOpen,
   setIsModalOpen,
+  propertyId,
 }: EditPropertyModalProps) => {
-  // for adding multiple features
-  const [newFeature, setNewFeature] = useState("");
-  // const [originalData, setOriginalData] =
-  //   useState<PropertyListingSchema | null>(null);
+  const propertyToEdit =
+    discoverProperty.find((property) => property.id === propertyId) ||
+    discoverProperty[0];
+  const [newFeature, setNewFeature] = useState(
+    propertyToEdit.keyFeatures[0]?.name || ""
+  );
 
   const form = useForm<PropertyListingSchema>({
     resolver: zodResolver(propertySchema),
     defaultValues: {
-      villaName: "",
-      keyFeatures: [],
-      description: "",
-      price: "",
-      pillName: "",
-      location: "",
-      buildYear: "",
-      totalBedRoom: 0,
-      totalBathRoom: 0,
-      totalArea: 0,
-      areaUnit: "",
-      propertyType: "",
-      propertyTransferTax: 0,
-      legalFees: 0,
-      homeInspectionFee: 0,
-      propertyInsurance: 0,
-      mortgageFee: 0,
-      propertyTax: 0,
-      additionalFee: 0,
-      homeOwnersAssociationFee: 0,
-      downPayment: 0,
-      monthlyPropertyInsurance: 0,
-      coverImage: new File([""], "filename"),
-      multipleImages: [],
+      villaName: propertyToEdit.villaName,
+      keyFeatures: propertyToEdit.keyFeatures,
+      description: propertyToEdit.description,
+      price: propertyToEdit.price.toString(),
+      pillName: propertyToEdit.pillName,
+      location: propertyToEdit.location,
+      buildYear: propertyToEdit.buildYear,
+      totalBedRoom: propertyToEdit.totalBedRoom,
+      totalBathRoom: propertyToEdit.totalBathRoom,
+      totalArea: propertyToEdit.totalArea,
+      areaUnit: propertyToEdit.areaUnit,
+      propertyType: propertyToEdit.propertyType,
+      propertyTransferTax: propertyToEdit.propertyTransferTax,
+      legalFees: propertyToEdit.legalFees,
+      homeInspectionFee: propertyToEdit.homeInspectionFee,
+      propertyInsurance: propertyToEdit.propertyInsurance,
+      mortgageFee: propertyToEdit.mortgageFee,
+      propertyTax: propertyToEdit.propertyTax,
+      additionalFee: propertyToEdit.additionalFee,
+      homeOwnersAssociationFee: propertyToEdit.homeOwnersAssociationFee,
+      downPayment: propertyToEdit.downPayment,
+      monthlyPropertyInsurance: propertyToEdit.monthlyPropertyInsurance,
+      coverImage: null, // We'll set this in useEffect
+      multipleImages: [], // We'll set this in useEffect
     },
   });
 
+  useEffect(() => {
+    const fetchImages = async () => {
+      // Fetch cover image
+      if (propertyToEdit.coverImage) {
+        try {
+          const coverImageResponse = await fetch(propertyToEdit.coverImage);
+          const coverImageBlob = await coverImageResponse.blob();
+          const coverImageFile = new File([coverImageBlob], "coverImage", {
+            type: coverImageBlob.type,
+          });
+          form.setValue("coverImage", coverImageFile);
+        } catch (error) {
+          console.error("Error fetching cover image:", error);
+        }
+      }
+
+      // Fetch multiple images
+      if (
+        propertyToEdit.multipleImages &&
+        propertyToEdit.multipleImages.length > 0
+      ) {
+        try {
+          const multipleImageFiles = await Promise.all(
+            propertyToEdit.multipleImages.map(async (imageUrl, index) => {
+              const response = await fetch(imageUrl);
+              const blob = await response.blob();
+              return new File([blob], `image${index}`, { type: blob.type });
+            })
+          );
+          form.setValue("multipleImages", multipleImageFiles);
+        } catch (error) {
+          console.error("Error fetching multiple images:", error);
+        }
+      }
+    };
+
+    fetchImages();
+  }, [propertyToEdit, form]);
+
   async function onSubmit(values: PropertyListingSchema) {
     const formData = new FormData();
+
+    // Append all form fields to formData
+    Object.entries(values).forEach(([key, value]) => {
+      if (key === "keyFeatures") {
+        formData.append(key, JSON.stringify(value));
+      } else if (key === "coverImage" && value instanceof File) {
+        formData.append(key, value);
+      } else if (key === "multipleImages" && Array.isArray(value)) {
+        value.forEach((file, index) => {
+          formData.append(`${key}[${index}]`, file);
+        });
+      } else {
+        formData.append(key, value?.toString() || "");
+      }
+    });
+
+    // Here you would typically send the formData to your API
+    console.log("Form submitted:", Object.fromEntries(formData));
 
     formData.append("villaName", values.villaName);
     formData.append("price", values.price.toString());
@@ -629,8 +689,40 @@ const EditPropertyModal = ({
                       )}
                     />
                     <div className="w-full space-y-10">
-                      <SingleImageUpload form={form} name="coverImage" />
-                      <MultipleImageUpload form={form} name="multipleImages" />
+                      <FormField
+                        control={form.control}
+                        name="coverImage"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Cover Image</FormLabel>
+                            <FormControl>
+                              <SingleImageUpload
+                                form={form}
+                                name="coverImage"
+                                onChange={field.onChange}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="multipleImages"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Multiple Images</FormLabel>
+                            <FormControl>
+                              <MultipleImageUpload
+                                form={form}
+                                name="multipleImages"
+                                onChange={field.onChange}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
                     </div>
 
                     <div className="w-full flex justify-end">
