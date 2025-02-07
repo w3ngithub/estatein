@@ -1,21 +1,46 @@
 import Link from "next/link";
 import FooterMobile from "./FooterMobile";
 import { EstateinLogo, MessagePlusLogo, SendIcon } from "@/svgs/HomePageSvg";
+import { useState } from "react";
+import { toast } from "sonner";
 
 const Footer = () => {
+  const [email, setEmail] = useState("");
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    try {
+      const response = await fetch("/estatein/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`response status: ${response.status}`);
+      }
+      const responseData = await response.json();
+      toast.success("Message successfully sent");
+      setEmail("");
+    } catch (err) {
+      console.error(err);
+      toast.error("Error, please try resubmitting the form");
+    }
+  }
+
   return (
     <div className="container py-12">
       <div className="grid desktop-md:grid-cols-12 gap-10 max-desktop-md:space-y-5">
         <div className="desktop-md:col-span-4">
           <div className="flex flex-col gap-5">
-            <div className="flex flex-row gap-2">
+            <form className="flex flex-row gap-2">
               <div>
                 <EstateinLogo />
               </div>
               <h1 className="font-medium text-2xl max-tablet-sm:text-xl">
                 Estatein
               </h1>
-            </div>
+            </form>
             {/* input field container */}
             <div className="flex items-center gap-3 w-[85%] max-w-sm px-4 py-3 bg-[#E4E4E7] border border-grey-shade-15 dark:bg-grey-shade-8 rounded-lg max-mobile-md:w-full">
               <div>
@@ -24,13 +49,21 @@ const Footer = () => {
 
               <input
                 type="email"
+                name="email"
+                id="email"
+                value={email || ""}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter Your Email"
                 className="flex-1 bg-transparent dark:text-white dark:placeholder:text-gray-400 focus:outline-none text-sm"
+                required
               />
 
-              <div className="p-2 rounded-full cursor-pointer">
+              <button
+                onClick={handleSubmit}
+                className="p-2 rounded-full cursor-pointer"
+              >
                 <SendIcon />
-              </div>
+              </button>
             </div>
           </div>
         </div>
