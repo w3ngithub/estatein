@@ -5,17 +5,19 @@ import {
   Dialog,
   DialogContent,
   DialogDescription,
+  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { PropertyListingSchema } from "@/schema/property-listing-form";
 import { ColumnDef } from "@tanstack/react-table";
 import { Edit2, Trash } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
+import { PropertyApiResponse } from "./types";
+import Loading from "@/components/elements/Loading";
 
-export const columns: ColumnDef<PropertyListingSchema>[] = [
+export const columns: ColumnDef<PropertyApiResponse>[] = [
   {
     accessorKey: "villaName",
     header: "Property Name",
@@ -193,26 +195,103 @@ export const columns: ColumnDef<PropertyListingSchema>[] = [
   {
     accessorKey: "actions",
     header: "Actions",
-    cell: () => {
+    cell: ({ row }) => {
+      const id = row.original.id;
+      const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+      const [isLoading, setIsLoading] = useState<boolean>(false);
+      const [propertyToDelete, setPropertyToDelete] = useState<string | null>(
+        null
+      );
+
+      const handleDelete = (id: string) => {
+        setPropertyToDelete(id);
+        setIsDeleteModalOpen(true);
+      };
+
+      // const confirmDelete = async () => {
+      //   if (!propertyToDelete) return
+      //   setIsLoading(true)
+      //   try {
+      //     const response = await fetch("/estatein/api/addPropertySizeType", {
+      //       method: "DELETE",
+      //       headers: {
+      //         "Content-Type": "application/json",
+      //       },
+      //       body: JSON.stringify({ id: propertyToDelete }),
+      //     })
+
+      //     const data = await response.json()
+      //     if (response.ok) {
+      //       console.log("Deleted successfully:", data)
+      //       setIsDeleteModalOpen(false)
+      //       toast.success("Deleted successfully")
+      //       // You might want to refresh your data here
+      //     } else {
+      //       console.error("Error deleting:", data.message)
+      //       toast.error("Error deleting")
+      //     }
+      //   } catch (error) {
+      //     console.error("Failed to delete property:", error)
+      //     toast.error("Failed to delete")
+      //   }
+      //   setIsLoading(false)
+      //   setIsDeleteModalOpen(false)
+      //   setPropertyToDelete(null)
+      // }
+
       return (
-        <div className="flex items-center gap-2">
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => console.log("edit")}
-            className="text-blue-500 hover:text-blue-700"
-          >
-            <Edit2 className="h-4 w-4" />
-          </Button>
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => console.log("delete")}
-            className="text-red-500 hover:text-red-700"
-          >
-            <Trash className="h-4 w-4" />
-          </Button>
-        </div>
+        <>
+          <div className="flex items-center gap-2">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => console.log("edit")}
+              className="text-blue-500 hover:text-blue-700"
+            >
+              <Edit2 className="h-4 w-4" />
+            </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => handleDelete(id)}
+              className="text-red-500 hover:text-red-700"
+            >
+              <Trash className="h-4 w-4" />
+            </Button>
+          </div>
+
+          {/* Delete Modal */}
+          <Dialog open={isDeleteModalOpen} onOpenChange={setIsDeleteModalOpen}>
+            <DialogContent className="flex flex-col gap-10 rounded-lg">
+              {isLoading ? (
+                <Loading />
+              ) : (
+                <>
+                  <DialogHeader>
+                    <DialogTitle>Confirm Deletion</DialogTitle>
+                    <DialogDescription className="">
+                      Are you sure you want to delete this property?
+                    </DialogDescription>
+                  </DialogHeader>
+                  <DialogFooter>
+                    <div className="flex flex-row justify-between items-center w-full">
+                      <Button
+                        onClick={() => setIsDeleteModalOpen(false)}
+                        variant="outline"
+                        className="px-6"
+                      >
+                        Cancel
+                      </Button>
+                      {/* <Button onClick={confirmDelete} variant="destructive" className="px-7">
+                    Delete
+                  </Button> */}
+                    </div>
+                  </DialogFooter>
+                </>
+              )}
+            </DialogContent>
+          </Dialog>
+        </>
       );
     },
   },
