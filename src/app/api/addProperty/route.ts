@@ -1,7 +1,8 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { applyPatch } from "fast-json-patch";
-import { promises as fs } from "fs";
+import { promises as ps } from "fs";
 import path from "path";
+import fs from "fs";
 
 const filePath = path.join(
   process.cwd(),
@@ -11,7 +12,7 @@ const filePath = path.join(
 // Helper function to read JSON file
 async function readJsonFile() {
   try {
-    const fileData = await fs.readFile(filePath, "utf8");
+    const fileData = await ps.readFile(filePath, "utf8");
     return JSON.parse(fileData);
   } catch (error) {
     // If file doesn't exist, return initial data
@@ -23,7 +24,7 @@ async function readJsonFile() {
 
 // Helper function to write JSON file
 async function writeJsonFile(data: any) {
-  await fs.writeFile(filePath, JSON.stringify(data, null, 2));
+  await ps.writeFile(filePath, JSON.stringify(data, null, 2));
 }
 
 //to post property
@@ -45,6 +46,32 @@ export async function PATCH(request: Request) {
     console.error("Error updating property:", error);
     return NextResponse.json(
       { error: "Failed to update property" },
+      { status: 500 }
+    );
+  }
+}
+
+export async function DELETE(req: NextRequest) {
+  try {
+    const { id } = await req.json();
+
+    // Read existing data
+    const currentData = JSON.parse(fs.readFileSync(filePath, "utf-8"));
+
+    // Filter out the item to be deleted
+    const updatedData = currentData.filter((item: any) => item.id !== id);
+
+    // Write updated data back to the file
+    fs.writeFileSync(filePath, JSON.stringify(updatedData, null, 2));
+
+    return NextResponse.json(
+      { message: "Deleted successfully", data: updatedData },
+      { status: 200 }
+    );
+  } catch (error) {
+    console.error("Error deleting data:", error);
+    return NextResponse.json(
+      { message: "Error deleting data" },
       { status: 500 }
     );
   }
