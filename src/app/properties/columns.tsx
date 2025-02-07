@@ -18,6 +18,7 @@ import { PropertyApiResponse } from "./types";
 import Loading from "@/components/elements/Loading";
 import { toast } from "sonner";
 import AddPropertyModal from "@/components/modules/dashboard-page/AddPropertyModal";
+import EditPropertyModal from "@/components/modules/dashboard-page/EditPropertyModal";
 
 export const columns: ColumnDef<PropertyApiResponse>[] = [
   {
@@ -199,6 +200,7 @@ export const columns: ColumnDef<PropertyApiResponse>[] = [
     header: "Actions",
     cell: ({ row }) => {
       const id = row.original.id;
+      const original = row.original;
       const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
       const [isLoading, setIsLoading] = useState<boolean>(false);
       const [propertyToDelete, setPropertyToDelete] = useState<string | null>(
@@ -273,10 +275,16 @@ export const columns: ColumnDef<PropertyApiResponse>[] = [
           </div>
 
           {/* edit modal */}
-          <AddPropertyModal
+          <EditPropertyModal
             isModalOpen={isModalOpen}
             setIsModalOpen={setIsModalOpen}
           />
+          {/* <AddPropertyModal
+            isModalOpen={isModalOpen}
+            setIsModalOpen={setIsModalOpen}
+            propertyToEdit={propertyToEdit}
+            original={original}
+          /> */}
 
           {/* Delete Modal */}
           <Dialog open={isDeleteModalOpen} onOpenChange={setIsDeleteModalOpen}>
