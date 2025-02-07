@@ -34,7 +34,7 @@ const PropertySizeType = () => {
   });
   const [propertyToDelete, setPropertyToDelete] = useState("");
   // for json patch
-  const [properties, setProperties] = useState(propertySizeType);
+  // const [properties, setProperties] = useState(propertySizeType);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleEdit = (id: string, value: string, selectFieldData: string) => {
@@ -60,25 +60,26 @@ const PropertySizeType = () => {
         body: JSON.stringify(updatedProperty),
       });
 
-      const result = await response.json();
+      // const result = await response.json();
 
       if (response.ok) {
-        setProperties((prev) =>
-          prev.map((item) =>
-            item.id === currentProperty.id
-              ? {
-                  ...item,
-                  value: currentProperty.selectFieldData, // Sync value with selectFieldData
-                  selectFieldData: currentProperty.selectFieldData,
-                }
-              : item
-          )
-        );
+        // setProperties((prev) =>
+        //   prev.map((item) =>
+        //     item.id === currentProperty.id
+        //       ? {
+        //           ...item,
+        //           value: currentProperty.selectFieldData, // Sync value with selectFieldData
+        //           selectFieldData: currentProperty.selectFieldData,
+        //         }
+        //       : item
+        //   )
+        // );
         toast.success("Property Size Type successfully updated");
       } else {
         toast.error("Error updating property size type");
       }
     } catch (error) {
+      console.error(error);
       toast.error("Error updating property size type");
     }
 
@@ -104,13 +105,12 @@ const PropertySizeType = () => {
 
       const data = await response.json();
       if (response.ok) {
-        console.log("Deleted successfully:", data);
         setIsDeleteModalOpen(false);
 
         // Optionally update the UI by removing the deleted item
-        setProperties((prev) =>
-          prev.filter((item) => item.id !== propertyToDelete)
-        );
+        // setProperties((prev) =>
+        //   prev.filter((item) => item.id !== propertyToDelete)
+        // );
         toast.success("Deleted successfully");
       } else {
         console.error("Error deleting:", data.message);

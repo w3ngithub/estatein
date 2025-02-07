@@ -46,7 +46,9 @@ export async function DELETE(req: NextRequest) {
     const currentData = JSON.parse(fs.readFileSync(filePath, "utf-8"));
 
     // Filter out the item to be deleted
-    const updatedData = currentData.filter((item: any) => item.id !== id);
+    const updatedData = currentData.filter(
+      (item: { id: number }) => item.id !== id
+    );
 
     // Write updated data back to the file
     fs.writeFileSync(filePath, JSON.stringify(updatedData, null, 2));

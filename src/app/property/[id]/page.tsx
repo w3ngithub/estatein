@@ -6,7 +6,7 @@ import React from "react";
 import PropertyImageCarousal from "@/components/modules/property-detail-page/PropertyImageCarousal";
 
 const fetchVillaDetails = async (id: string) => {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_PATH || "http://localhost:3000";
+  // const baseUrl = process.env.NEXT_PUBLIC_BASE_PATH || "http://localhost:3000";
   const res = await fetch(
     `http://localhost:3000/estatein/api/addProperty/${id}`
   );
@@ -18,7 +18,7 @@ const fetchVillaDetails = async (id: string) => {
 };
 
 const page = async ({ params }: { params: { id: string } }) => {
-  const { id } = await params;
+  const { id } = params;
   const villa = await fetchVillaDetails(id);
 
   return (

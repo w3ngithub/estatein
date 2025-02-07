@@ -80,6 +80,7 @@ const AddPropertySizeTypeModal = ({
         toast.success("Property Size Type is added");
       }
     } catch (error) {
+      console.error(error);
       toast.error("Error creating property size type");
     }
 

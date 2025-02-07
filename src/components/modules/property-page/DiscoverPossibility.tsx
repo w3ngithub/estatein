@@ -26,7 +26,6 @@ import DoubleSlider from "../common/DoubleSlider";
 import { CustomCalendar } from "../common/CustomCalender";
 import propertyType from "@/utilityComponents/dashboardPage/propertyTypeData.json";
 import propertySizeType from "@/utilityComponents/dashboardPage/propertySizeTypeData.json";
-import { nanoid } from "nanoid";
 
 const DiscoveredProperty = () => {
   //filtering properties

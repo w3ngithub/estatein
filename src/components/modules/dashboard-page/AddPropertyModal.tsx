@@ -7,7 +7,6 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-  DialogFooter,
   DialogDescription,
 } from "@/components/ui/dialog";
 import {
@@ -47,8 +46,8 @@ const AddPropertyModal = ({
 }: AddPropertyProps) => {
   // for adding multiple features
   const [newFeature, setNewFeature] = useState("");
-  const [originalData, setOriginalData] =
-    useState<PropertyListingSchema | null>(null);
+  // const [originalData, setOriginalData] =
+  //   useState<PropertyListingSchema | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const form = useForm<PropertyListingSchema>({
@@ -173,7 +172,7 @@ const AddPropertyModal = ({
       }
 
       // Update the original data with the new values
-      setOriginalData(newData);
+      // setOriginalData(newData);
 
       // Reset form
       form.reset();

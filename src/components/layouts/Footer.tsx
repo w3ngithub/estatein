@@ -19,7 +19,7 @@ const Footer = () => {
       if (!response.ok) {
         throw new Error(`response status: ${response.status}`);
       }
-      const responseData = await response.json();
+      // const responseData = await response.json();
       toast.success("Message successfully sent");
       setEmail("");
     } catch (err) {
@@ -34,7 +34,7 @@ const Footer = () => {
       <div className="grid desktop-md:grid-cols-12 gap-10 max-desktop-md:space-y-5">
         <div className="desktop-md:col-span-4">
           <div className="flex flex-col gap-5">
-            <form className="flex flex-row gap-2">
+            <form className="flex flex-row gap-2" onSubmit={handleSubmit}>
               <div>
                 <EstateinLogo />
               </div>
@@ -59,10 +59,7 @@ const Footer = () => {
                 required
               />
 
-              <button
-                onClick={handleSubmit}
-                className="p-2 rounded-full cursor-pointer"
-              >
+              <button type="submit" className="p-2 rounded-full cursor-pointer">
                 <SendIcon />
               </button>
             </div>

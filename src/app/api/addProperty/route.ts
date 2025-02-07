@@ -3,6 +3,7 @@ import { applyPatch } from "fast-json-patch";
 import { promises as ps } from "fs";
 import path from "path";
 import fs from "fs";
+import { PropertyApiResponse } from "@/app/properties/types";
 
 const filePath = path.join(
   process.cwd(),
@@ -15,6 +16,7 @@ async function readJsonFile() {
     const fileData = await ps.readFile(filePath, "utf8");
     return JSON.parse(fileData);
   } catch (error) {
+    console.error("Error adding property", error);
     // If file doesn't exist, return initial data
     return {
       // properties: carouselDataDiscoverProperty,
@@ -23,7 +25,7 @@ async function readJsonFile() {
 }
 
 // Helper function to write JSON file
-async function writeJsonFile(data: any) {
+async function writeJsonFile(data: PropertyApiResponse[]): Promise<void> {
   await ps.writeFile(filePath, JSON.stringify(data, null, 2));
 }
 
@@ -59,7 +61,9 @@ export async function DELETE(req: NextRequest) {
     const currentData = JSON.parse(fs.readFileSync(filePath, "utf-8"));
 
     // Filter out the item to be deleted
-    const updatedData = currentData.filter((item: any) => item.id !== id);
+    const updatedData = currentData.filter(
+      (item: { id: number }) => item.id !== id
+    );
 
     // Write updated data back to the file
     fs.writeFileSync(filePath, JSON.stringify(updatedData, null, 2));

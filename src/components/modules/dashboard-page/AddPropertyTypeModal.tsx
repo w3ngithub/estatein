@@ -80,6 +80,7 @@ const AddPropertyTypeModal = ({
         toast.success("Property Type is added");
       }
     } catch (error) {
+      console.error(error);
       toast.error("Error creating property type");
     }
     setIsLoading(false);

@@ -10,10 +10,8 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Image from "next/image";
-// import { carouselDataFeaturedProperty } from "@/utilityComponents/homePage/featuredProperty";
 import { ThreeStars } from "@/svgs/HomePageSvg";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import discoverProperty from "@/utilityComponents/dashboardPage/discoverProperty.json";
 import {
   BathRoomLogo,
@@ -22,7 +20,6 @@ import {
 } from "@/svgs/FeaturedPropertyiesSvg";
 
 const FeaturedProperty = () => {
-  const router = useRouter();
   //for carousel
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
