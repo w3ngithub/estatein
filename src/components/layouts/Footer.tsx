@@ -24,6 +24,7 @@ const Footer = () => {
       setEmail("");
     } catch (err) {
       console.error(err);
+
       toast.error("Error, please try resubmitting the form");
     }
   }
