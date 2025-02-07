@@ -16,6 +16,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { PropertyApiResponse } from "./types";
 import Loading from "@/components/elements/Loading";
+import { toast } from "sonner";
 
 export const columns: ColumnDef<PropertyApiResponse>[] = [
   {
@@ -208,36 +209,36 @@ export const columns: ColumnDef<PropertyApiResponse>[] = [
         setIsDeleteModalOpen(true);
       };
 
-      // const confirmDelete = async () => {
-      //   if (!propertyToDelete) return
-      //   setIsLoading(true)
-      //   try {
-      //     const response = await fetch("/estatein/api/addPropertySizeType", {
-      //       method: "DELETE",
-      //       headers: {
-      //         "Content-Type": "application/json",
-      //       },
-      //       body: JSON.stringify({ id: propertyToDelete }),
-      //     })
+      const confirmDelete = async () => {
+        if (!propertyToDelete) return;
+        setIsLoading(true);
+        try {
+          const response = await fetch("/estatein/api/addProperty", {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ id: propertyToDelete }),
+          });
 
-      //     const data = await response.json()
-      //     if (response.ok) {
-      //       console.log("Deleted successfully:", data)
-      //       setIsDeleteModalOpen(false)
-      //       toast.success("Deleted successfully")
-      //       // You might want to refresh your data here
-      //     } else {
-      //       console.error("Error deleting:", data.message)
-      //       toast.error("Error deleting")
-      //     }
-      //   } catch (error) {
-      //     console.error("Failed to delete property:", error)
-      //     toast.error("Failed to delete")
-      //   }
-      //   setIsLoading(false)
-      //   setIsDeleteModalOpen(false)
-      //   setPropertyToDelete(null)
-      // }
+          const data = await response.json();
+          if (response.ok) {
+            console.log("Deleted successfully:", data);
+            setIsDeleteModalOpen(false);
+            toast.success("Deleted successfully");
+            // You might want to refresh your data here
+          } else {
+            console.error("Error deleting:", data.message);
+            toast.error("Error deleting");
+          }
+        } catch (error) {
+          console.error("Failed to delete property:", error);
+          toast.error("Failed to delete");
+        }
+        setIsLoading(false);
+        setIsDeleteModalOpen(false);
+        setPropertyToDelete(null);
+      };
 
       return (
         <>
@@ -282,9 +283,13 @@ export const columns: ColumnDef<PropertyApiResponse>[] = [
                       >
                         Cancel
                       </Button>
-                      {/* <Button onClick={confirmDelete} variant="destructive" className="px-7">
-                    Delete
-                  </Button> */}
+                      <Button
+                        onClick={confirmDelete}
+                        variant="destructive"
+                        className="px-7"
+                      >
+                        Delete
+                      </Button>
                     </div>
                   </DialogFooter>
                 </>

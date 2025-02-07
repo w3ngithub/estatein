@@ -1,9 +1,7 @@
-// app/api/addProperty/route.ts
 import { NextResponse } from "next/server";
 import { applyPatch } from "fast-json-patch";
 import { promises as fs } from "fs";
 import path from "path";
-// import carouselDataDiscoverProperty from "@/utilityComponents/propertyPage/discoverProperty.json";
 
 const filePath = path.join(
   process.cwd(),
@@ -28,6 +26,7 @@ async function writeJsonFile(data: any) {
   await fs.writeFile(filePath, JSON.stringify(data, null, 2));
 }
 
+//to post property
 export async function PATCH(request: Request) {
   try {
     const patchOperations = await request.json();
