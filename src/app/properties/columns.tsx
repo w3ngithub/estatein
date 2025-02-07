@@ -17,6 +17,7 @@ import { useState } from "react";
 import { PropertyApiResponse } from "./types";
 import Loading from "@/components/elements/Loading";
 import { toast } from "sonner";
+import AddPropertyModal from "@/components/modules/dashboard-page/AddPropertyModal";
 
 export const columns: ColumnDef<PropertyApiResponse>[] = [
   {
@@ -204,6 +205,10 @@ export const columns: ColumnDef<PropertyApiResponse>[] = [
         null
       );
 
+      // for edit
+      const [propertyToEdit, setPropertyToEdit] = useState<string | null>(null);
+      const [isModalOpen, setIsModalOpen] = useState(false);
+
       const handleDelete = (id: string) => {
         setPropertyToDelete(id);
         setIsDeleteModalOpen(true);
@@ -240,13 +245,19 @@ export const columns: ColumnDef<PropertyApiResponse>[] = [
         setPropertyToDelete(null);
       };
 
+      const handleEdit = (id: string) => {
+        console.log(id, "mmmmmmmmmm");
+        setPropertyToEdit(id);
+        setIsModalOpen(true);
+      };
+
       return (
         <>
           <div className="flex items-center gap-2">
             <Button
               variant="ghost"
               size="sm"
-              onClick={() => console.log("edit")}
+              onClick={() => handleEdit(id)}
               className="text-blue-500 hover:text-blue-700"
             >
               <Edit2 className="h-4 w-4" />
@@ -260,6 +271,12 @@ export const columns: ColumnDef<PropertyApiResponse>[] = [
               <Trash className="h-4 w-4" />
             </Button>
           </div>
+
+          {/* edit modal */}
+          <AddPropertyModal
+            isModalOpen={isModalOpen}
+            setIsModalOpen={setIsModalOpen}
+          />
 
           {/* Delete Modal */}
           <Dialog open={isDeleteModalOpen} onOpenChange={setIsDeleteModalOpen}>
