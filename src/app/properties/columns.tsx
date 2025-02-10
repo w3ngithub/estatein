@@ -193,14 +193,16 @@ export const columns: ColumnDef<PropertyApiResponse>[] = [
     accessorKey: "keyFeatures",
     header: "Key Features",
     cell: ({ row }) => {
-      const keyFeatures = row.original.keyFeatures;
+      const keyFeatures = row.original.keyFeatures.slice(0, 2);
       return (
         <ol className="text-center">
           {keyFeatures.map((item, index) => {
             return (
               <div key={item.id} className="flex flex-row gap-2">
                 <p>{index + 1})</p>
-                <li key={item.id}>{item.name}</li>
+                <li key={item.id} className="line-clamp-1 overflow-hidden">
+                  {item.name}
+                </li>
               </div>
             );
           })}
