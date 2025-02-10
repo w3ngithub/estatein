@@ -41,8 +41,8 @@ export async function POST(request: NextRequest) {
       from: username,
       to: myEmail,
       replyTo: email,
-      subject: `Website activity from ${email}`,
-      html: `<p>Email: ${email}</p>`,
+      subject: `New Message from Estatein`,
+      html: `<p>Contact to this email: ${email}</p>`,
     });
 
     return NextResponse.json({ message: "Success: email was sent" });

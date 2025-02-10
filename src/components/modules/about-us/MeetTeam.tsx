@@ -71,7 +71,7 @@ const MeetTeam = () => {
         throw new Error(`Error: ${response.status}`);
       }
 
-      toast.success(`Message sent to ${email}`);
+      toast.success(`Message sent`);
       setMessages((prev) => ({ ...prev, [email]: "" })); // Clear message after sending
     } catch (error) {
       console.error("Error sending message:", error);

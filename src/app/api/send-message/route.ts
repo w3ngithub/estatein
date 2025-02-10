@@ -4,13 +4,18 @@ import nodemailer from "nodemailer";
 export async function POST(request: NextRequest) {
   const { recipientEmail, message } = await request.json();
 
-  const username = process.env.BURNER_USERNAME;
-  const password = process.env.BURNER_PASSWORD;
+  const username = process.env.NEXT_PUBLIC_EMAIL_USERNAME;
+  const password = process.env.NEXT_PUBLIC_EMAIL_PASSWORD;
 
   const transporter = nodemailer.createTransport({
-    host: "smtp-mail.outlook.com",
-    port: 587,
-    secure: false,
+    service: "gmail",
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true,
+    tls: {
+      ciphers: "SSLv3",
+      rejectUnauthorized: false,
+    },
     auth: { user: username, pass: password },
   });
 
