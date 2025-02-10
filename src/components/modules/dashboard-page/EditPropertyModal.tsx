@@ -47,9 +47,10 @@ const EditPropertyModal = ({
 }: EditPropertyModalProps) => {
   const [isLoading, setIsLoading] = useState(true);
   const [propertyData, setPropertyData] = useState(null);
-  const [imageUrl, setImageUrl] = useState("");
-  console.log(propertyData, "xxxxxxxxxxx");
-  console.log(imageUrl, "yyyyyyy");
+  const [imageUrl, setImageUrl] = useState(""); //for coverImage
+  const [multipleImgUrl, setMultipleImgUrl] = useState([]);
+
+  console.log(multipleImgUrl, "kkkkkkkkkkkkkkkkk");
 
   const [newFeature, setNewFeature] = useState("");
 
@@ -78,6 +79,20 @@ const EditPropertyModal = ({
         if (data.coverImage) {
           setImageUrl(data.coverImage); // Set image URL for preview
           form.setValue("coverImage", data.coverImage); // Store URL for form submission
+        }
+
+        if (data.multipleImages && data.multipleImages.length > 0) {
+          setMultipleImgUrl(data.multipleImages); // ✅ Store all image URLs
+          // const imageFiles = await Promise.all(
+          //   data.multipleImages.map(async (url: string, index: number) => {
+          //     const response = await fetch(url);
+          //     setMultipleImgUrl(response.url);
+          //     // const blob = await response.blob();
+          //     // return new File([blob], `image${index}`, { type: blob.type });
+          //   })
+          // );
+          // console.log(imageFiles, "qqqqqqqquuuuuu");
+          form.setValue("multipleImages", data.multipleImages);
         }
 
         // Handle images separately
@@ -715,6 +730,7 @@ const EditPropertyModal = ({
                               <MultipleImageUpload
                                 form={form}
                                 name="multipleImages"
+                                multipleImgUrl={multipleImgUrl}
                               />
                             </FormControl>
                             <FormMessage />

@@ -17,15 +17,33 @@ import { PropertyListingSchema } from "@/schema/property-listing-form";
 interface MultipleImageUploadProps {
   form: UseFormReturn<PropertyListingSchema>;
   name: keyof Pick<PropertyListingSchema, "multipleImages">;
+  multipleImgUrl: string[];
 }
 
 const MultipleImageUpload = ({
   form,
   name = "multipleImages",
+  multipleImgUrl,
 }: MultipleImageUploadProps) => {
   const [previews, setPreviews] = useState<
     Array<{ id: string; preview: string }>
   >([]);
+
+  // useEffect(() => {
+  //   if (multipleImgUrl) {
+  //     setPreviews(multipleImgUrl); // // Populate previews from API data
+  //   }
+  // }, [multipleImgUrl]);
+  useEffect(() => {
+    if (multipleImgUrl) {
+      setPreviews(
+        multipleImgUrl.map((url) => ({
+          id: Math.random().toString(36).substr(2, 9),
+          preview: url,
+        }))
+      );
+    }
+  }, [multipleImgUrl]);
 
   // Watch for form resets
   useEffect(() => {
@@ -102,10 +120,10 @@ const MultipleImageUpload = ({
               className="mx-auto flex cursor-pointer flex-col items-center justify-center gap-y-4 rounded-lg border border-foreground p-8 shadow-sm shadow-foreground"
             >
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4 w-full">
-                {previews.map((preview) => (
+                {previews?.map((preview) => (
                   <div key={preview.id} className="relative">
                     <Image
-                      src={preview.preview}
+                      src={preview.preview || multipleImgUrl || ""}
                       alt="Uploaded image"
                       // className="w-full h-40 object-cover rounded-lg"
                       className="max-h-[400px] w-full object-cover rounded-lg"
