@@ -33,6 +33,7 @@ import SelectField from "../common/SelectField";
 import propertySizeType from "@/utilityComponents/dashboardPage/propertySizeTypeData.json";
 import propertyType from "@/utilityComponents/dashboardPage/propertyTypeData.json";
 import { YearCalendar } from "../common/YearCalender";
+import Loading from "@/components/elements/Loading";
 
 interface EditPropertyModalProps {
   isModalOpen: boolean;
@@ -172,22 +173,23 @@ const EditPropertyModal = ({
   }
 
   return (
-    <>
-      <Dialog open={isModalOpen} onOpenChange={setIsModalOpen} modal={false}>
-        <DialogContent className="max-w-full w-full h-full max-h-full rounded-lg p-0 overflow-y-auto">
+    <Dialog open={isModalOpen} onOpenChange={setIsModalOpen} modal={false}>
+      <DialogContent className="max-w-full w-full h-full max-h-full rounded-lg p-0 overflow-y-auto">
+        <DialogHeader>
+          <DialogTitle className="text-2xl py-4">Edit Property</DialogTitle>
+          <DialogDescription> </DialogDescription>
+        </DialogHeader>
+        {isLoading ? (
+          <Loading />
+        ) : (
           <div className="p-8 space-y-10">
             <div>
               <Form {...form}>
                 <form
                   onSubmit={form.handleSubmit(onSubmit)}
                   className="space-y-3"
+                  aria-label="Edit property form"
                 >
-                  <DialogHeader>
-                    <DialogTitle className="text-2xl py-4">
-                      Edit Property
-                    </DialogTitle>
-                    <DialogDescription> </DialogDescription>
-                  </DialogHeader>
                   <div className="grid mobile-lg:grid-cols-2 gap-10">
                     <FormField
                       control={form.control}
@@ -737,9 +739,9 @@ const EditPropertyModal = ({
               </Form>
             </div>
           </div>
-        </DialogContent>
-      </Dialog>
-    </>
+        )}
+      </DialogContent>
+    </Dialog>
   );
 };
 

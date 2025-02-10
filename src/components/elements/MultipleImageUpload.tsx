@@ -17,7 +17,7 @@ import { PropertyListingSchema } from "@/schema/property-listing-form";
 interface MultipleImageUploadProps {
   form: UseFormReturn<PropertyListingSchema>;
   name: keyof Pick<PropertyListingSchema, "multipleImages">;
-  multipleImgUrl: string[];
+  multipleImgUrl?: string[]; //for edit
 }
 
 const MultipleImageUpload = ({

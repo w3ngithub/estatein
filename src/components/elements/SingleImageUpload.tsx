@@ -17,7 +17,7 @@ import { PropertyListingSchema } from "@/schema/property-listing-form";
 interface SingleImageUploadProps {
   form: UseFormReturn<PropertyListingSchema>;
   name: keyof PropertyListingSchema;
-  imageUrl: string;
+  imageUrl?: string; //for edit
 }
 
 const SingleImageUpload = ({
