@@ -46,81 +46,148 @@ const EditPropertyModal = ({
   setIsModalOpen,
   propertyId,
 }: EditPropertyModalProps) => {
-  const propertyToEdit =
-    discoverProperty.find((property) => property.id === propertyId) ||
-    discoverProperty[0];
-  const [newFeature, setNewFeature] = useState(
-    propertyToEdit.keyFeatures[0]?.name || ""
+  const [isLoading, setIsLoading] = useState(true);
+  const [propertyData, setPropertyData] = useState(null);
+
+  // const [p, setP] = useState();
+  // const propertyToEdit = discoverProperty.find(
+  //   (property) => property.id === propertyId
+  // );
+  // const [newFeature, setNewFeature] = useState(
+  //   propertyToEdit?.keyFeatures[0]?.name || ""
+  // );
+   const [newFeature, setNewFeature] = useState(
+    ""
   );
 
   const form = useForm<PropertyListingSchema>({
     resolver: zodResolver(propertySchema),
-    defaultValues: {
-      villaName: propertyToEdit.villaName,
-      keyFeatures: propertyToEdit.keyFeatures,
-      description: propertyToEdit.description,
-      price: propertyToEdit.price.toString(),
-      pillName: propertyToEdit.pillName,
-      location: propertyToEdit.location,
-      buildYear: propertyToEdit.buildYear,
-      totalBedRoom: propertyToEdit.totalBedRoom,
-      totalBathRoom: propertyToEdit.totalBathRoom,
-      totalArea: propertyToEdit.totalArea,
-      areaUnit: propertyToEdit.areaUnit,
-      propertyType: propertyToEdit.propertyType,
-      propertyTransferTax: propertyToEdit.propertyTransferTax,
-      legalFees: propertyToEdit.legalFees,
-      homeInspectionFee: propertyToEdit.homeInspectionFee,
-      propertyInsurance: propertyToEdit.propertyInsurance,
-      mortgageFee: propertyToEdit.mortgageFee,
-      propertyTax: propertyToEdit.propertyTax,
-      additionalFee: propertyToEdit.additionalFee,
-      homeOwnersAssociationFee: propertyToEdit.homeOwnersAssociationFee,
-      downPayment: propertyToEdit.downPayment,
-      monthlyPropertyInsurance: propertyToEdit.monthlyPropertyInsurance,
-      coverImage: null, // We'll set this in useEffect
-      multipleImages: [], // We'll set this in useEffect
-    },
   });
+  // const form = useForm<PropertyListingSchema>({
+  //   resolver: zodResolver(propertySchema),
+  //   defaultValues: {
+  //     villaName: propertyToEdit?.villaName,
+  //     keyFeatures: propertyToEdit?.keyFeatures,
+  //     description: propertyToEdit?.description,
+  //     price: propertyToEdit?.price.toString(),
+  //     pillName: propertyToEdit?.pillName,
+  //     location: propertyToEdit?.location,
+  //     buildYear: propertyToEdit?.buildYear,
+  //     totalBedRoom: propertyToEdit?.totalBedRoom,
+  //     totalBathRoom: propertyToEdit?.totalBathRoom,
+  //     totalArea: propertyToEdit?.totalArea,
+  //     areaUnit: propertyToEdit?.areaUnit,
+  //     propertyType: propertyToEdit?.propertyType,
+  //     propertyTransferTax: propertyToEdit?.propertyTransferTax,
+  //     legalFees: propertyToEdit?.legalFees,
+  //     homeInspectionFee: propertyToEdit?.homeInspectionFee,
+  //     propertyInsurance: propertyToEdit?.propertyInsurance,
+  //     mortgageFee: propertyToEdit?.mortgageFee,
+  //     propertyTax: propertyToEdit?.propertyTax,
+  //     additionalFee: propertyToEdit?.additionalFee,
+  //     homeOwnersAssociationFee: propertyToEdit?.homeOwnersAssociationFee,
+  //     downPayment: propertyToEdit?.downPayment,
+  //     monthlyPropertyInsurance: propertyToEdit?.monthlyPropertyInsurance,
+  //     coverImage: null, // We'll set this in useEffect
+  //     multipleImages: [], // We'll set this in useEffect
+  //   },
+  // });
 
   useEffect(() => {
-    const fetchImages = async () => {
-      // Fetch cover image
-      if (propertyToEdit.coverImage) {
-        try {
-          const coverImageResponse = await fetch(propertyToEdit.coverImage);
+    const fetchPropertyData = async () => {
+      try {
+        setIsLoading(true);
+        const response = await fetch(`/estatein/api/addProperty/${propertyId}`);
+        if (!response.ok) {
+          throw new Error("Failed to fetch property details");
+        }
+        const data = await response.json();
+        setPropertyData(data);
+
+        // Populate form fields with fetched data
+        Object.keys(data).forEach((key) => {
+          if (key !== "coverImage" && key !== "multipleImages") {
+            form.setValue(key, data[key]);
+          }
+        });
+
+        // Handle images separately
+        if (data.coverImage) {
+          const coverImageResponse = await fetch(data.coverImage);
           const coverImageBlob = await coverImageResponse.blob();
           const coverImageFile = new File([coverImageBlob], "coverImage", {
             type: coverImageBlob.type,
           });
           form.setValue("coverImage", coverImageFile);
-        } catch (error) {
-          console.error("Error fetching cover image:", error);
         }
-      }
 
-      // Fetch multiple images
-      if (
-        propertyToEdit.multipleImages &&
-        propertyToEdit.multipleImages.length > 0
-      ) {
-        try {
-          const multipleImageFiles = await Promise.all(
-            propertyToEdit.multipleImages.map(async (imageUrl, index) => {
+        if (data.multipleImages && data.multipleImages.length > 0) {
+          const imageFiles = await Promise.all(
+            data.multipleImages.map(async (imageUrl: string, index: number) => {
               const response = await fetch(imageUrl);
               const blob = await response.blob();
               return new File([blob], `image${index}`, { type: blob.type });
             })
           );
-          form.setValue("multipleImages", multipleImageFiles);
-        } catch (error) {
-          console.error("Error fetching multiple images:", error);
+          form.setValue("multipleImages", imageFiles);
         }
+
+        // Set key features
+        if (data.keyFeatures) {
+          form.setValue("keyFeatures", data.keyFeatures);
+          setNewFeature(""); // Reset new feature input
+        }
+      } catch (error) {
+        console.error("Error fetching property data:", error);
+        // Handle error appropriately (show toast, error message, etc.)
+      } finally {
+        setIsLoading(false);
       }
     };
 
-    fetchImages();
-  }, [propertyToEdit, form]);
+    if (propertyId && isModalOpen) {
+      fetchPropertyData();
+    }
+  }, [propertyId, isModalOpen, form]);
+
+  // useEffect(() => {
+  //   const fetchImages = async () => {
+  //     // Fetch cover image
+  //     if (propertyToEdit?.coverImage) {
+  //       try {
+  //         const coverImageResponse = await fetch(propertyToEdit?.coverImage);
+  //         const coverImageBlob = await coverImageResponse.blob();
+  //         const coverImageFile = new File([coverImageBlob], "coverImage", {
+  //           type: coverImageBlob.type,
+  //         });
+  //         form.setValue("coverImage", coverImageFile);
+  //       } catch (error) {
+  //         console.error("Error fetching cover image:", error);
+  //       }
+  //     }
+
+  //     // Fetch multiple images
+  //     if (
+  //       propertyToEdit?.multipleImages &&
+  //       propertyToEdit?.multipleImages.length > 0
+  //     ) {
+  //       try {
+  //         const multipleImageFiles = await Promise.all(
+  //           propertyToEdit?.multipleImages.map(async (imageUrl, index) => {
+  //             const response = await fetch(imageUrl);
+  //             const blob = await response.blob();
+  //             return new File([blob], `image${index}`, { type: blob.type });
+  //           })
+  //         );
+  //         form.setValue("multipleImages", multipleImageFiles);
+  //       } catch (error) {
+  //         console.error("Error fetching multiple images:", error);
+  //       }
+  //     }
+  //   };
+
+  //   fetchImages();
+  // }, [propertyToEdit, form]);
 
   async function onSubmit(values: PropertyListingSchema) {
     const formData = new FormData();
@@ -660,7 +727,7 @@ const EditPropertyModal = ({
 
                               {/* List of added features */}
                               <ul className="space-y-1">
-                                {field.value.map((feature, index) => (
+                                {field?.value?.map((feature, index) => (
                                   <li
                                     key={feature.id}
                                     className="flex items-center justify-between p-2 bg-gray-100 dark:bg-grey-shade-40 rounded-lg"
