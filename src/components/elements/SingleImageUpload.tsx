@@ -17,13 +17,21 @@ import { PropertyListingSchema } from "@/schema/property-listing-form";
 interface SingleImageUploadProps {
   form: UseFormReturn<PropertyListingSchema>;
   name: keyof PropertyListingSchema;
+  imageUrl: any;
 }
 
 const SingleImageUpload = ({
   form,
   name = "coverImage",
+  imageUrl,
 }: SingleImageUploadProps) => {
   const [preview, setPreview] = useState<string | ArrayBuffer | null>(null);
+
+  useEffect(() => {
+    if (imageUrl) {
+      setPreview(imageUrl); // // Populate preview from API data
+    }
+  }, [imageUrl]);
 
   // Watch for form resets and field changes
   useEffect(() => {

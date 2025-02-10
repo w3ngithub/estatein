@@ -33,7 +33,6 @@ import SelectField from "../common/SelectField";
 import propertySizeType from "@/utilityComponents/dashboardPage/propertySizeTypeData.json";
 import propertyType from "@/utilityComponents/dashboardPage/propertyTypeData.json";
 import { YearCalendar } from "../common/YearCalender";
-import discoverProperty from "@/utilityComponents/dashboardPage/discoverProperty.json";
 
 interface EditPropertyModalProps {
   isModalOpen: boolean;
@@ -48,50 +47,15 @@ const EditPropertyModal = ({
 }: EditPropertyModalProps) => {
   const [isLoading, setIsLoading] = useState(true);
   const [propertyData, setPropertyData] = useState(null);
+  const [imageUrl, setImageUrl] = useState("");
+  console.log(propertyData, "xxxxxxxxxxx");
+  console.log(imageUrl, "yyyyyyy");
 
-  // const [p, setP] = useState();
-  // const propertyToEdit = discoverProperty.find(
-  //   (property) => property.id === propertyId
-  // );
-  // const [newFeature, setNewFeature] = useState(
-  //   propertyToEdit?.keyFeatures[0]?.name || ""
-  // );
-   const [newFeature, setNewFeature] = useState(
-    ""
-  );
+  const [newFeature, setNewFeature] = useState("");
 
   const form = useForm<PropertyListingSchema>({
     resolver: zodResolver(propertySchema),
   });
-  // const form = useForm<PropertyListingSchema>({
-  //   resolver: zodResolver(propertySchema),
-  //   defaultValues: {
-  //     villaName: propertyToEdit?.villaName,
-  //     keyFeatures: propertyToEdit?.keyFeatures,
-  //     description: propertyToEdit?.description,
-  //     price: propertyToEdit?.price.toString(),
-  //     pillName: propertyToEdit?.pillName,
-  //     location: propertyToEdit?.location,
-  //     buildYear: propertyToEdit?.buildYear,
-  //     totalBedRoom: propertyToEdit?.totalBedRoom,
-  //     totalBathRoom: propertyToEdit?.totalBathRoom,
-  //     totalArea: propertyToEdit?.totalArea,
-  //     areaUnit: propertyToEdit?.areaUnit,
-  //     propertyType: propertyToEdit?.propertyType,
-  //     propertyTransferTax: propertyToEdit?.propertyTransferTax,
-  //     legalFees: propertyToEdit?.legalFees,
-  //     homeInspectionFee: propertyToEdit?.homeInspectionFee,
-  //     propertyInsurance: propertyToEdit?.propertyInsurance,
-  //     mortgageFee: propertyToEdit?.mortgageFee,
-  //     propertyTax: propertyToEdit?.propertyTax,
-  //     additionalFee: propertyToEdit?.additionalFee,
-  //     homeOwnersAssociationFee: propertyToEdit?.homeOwnersAssociationFee,
-  //     downPayment: propertyToEdit?.downPayment,
-  //     monthlyPropertyInsurance: propertyToEdit?.monthlyPropertyInsurance,
-  //     coverImage: null, // We'll set this in useEffect
-  //     multipleImages: [], // We'll set this in useEffect
-  //   },
-  // });
 
   useEffect(() => {
     const fetchPropertyData = async () => {
@@ -111,26 +75,32 @@ const EditPropertyModal = ({
           }
         });
 
-        // Handle images separately
         if (data.coverImage) {
-          const coverImageResponse = await fetch(data.coverImage);
-          const coverImageBlob = await coverImageResponse.blob();
-          const coverImageFile = new File([coverImageBlob], "coverImage", {
-            type: coverImageBlob.type,
-          });
-          form.setValue("coverImage", coverImageFile);
+          setImageUrl(data.coverImage); // Set image URL for preview
+          form.setValue("coverImage", data.coverImage); // Store URL for form submission
         }
 
-        if (data.multipleImages && data.multipleImages.length > 0) {
-          const imageFiles = await Promise.all(
-            data.multipleImages.map(async (imageUrl: string, index: number) => {
-              const response = await fetch(imageUrl);
-              const blob = await response.blob();
-              return new File([blob], `image${index}`, { type: blob.type });
-            })
-          );
-          form.setValue("multipleImages", imageFiles);
-        }
+        // Handle images separately
+        // if (data.coverImage) {
+        //   const coverImageResponse = await fetch(data.coverImage);
+        //   setImageUrl(coverImageResponse.url);
+        //   const coverImageBlob = await coverImageResponse.blob();
+        //   const coverImageFile = new File([coverImageBlob], "coverImage", {
+        //     type: coverImageBlob.type,
+        //   });
+        //   form.setValue("coverImage", coverImageFile);
+        // }
+
+        // if (data.multipleImages && data.multipleImages.length > 0) {
+        //   const imageFiles = await Promise.all(
+        //     data.multipleImages.map(async (imageUrl: string, index: number) => {
+        //       const response = await fetch(imageUrl);
+        //       const blob = await response.blob();
+        //       return new File([blob], `image${index}`, { type: blob.type });
+        //     })
+        //   );
+        //   form.setValue("multipleImages", imageFiles);
+        // }
 
         // Set key features
         if (data.keyFeatures) {
@@ -149,45 +119,6 @@ const EditPropertyModal = ({
       fetchPropertyData();
     }
   }, [propertyId, isModalOpen, form]);
-
-  // useEffect(() => {
-  //   const fetchImages = async () => {
-  //     // Fetch cover image
-  //     if (propertyToEdit?.coverImage) {
-  //       try {
-  //         const coverImageResponse = await fetch(propertyToEdit?.coverImage);
-  //         const coverImageBlob = await coverImageResponse.blob();
-  //         const coverImageFile = new File([coverImageBlob], "coverImage", {
-  //           type: coverImageBlob.type,
-  //         });
-  //         form.setValue("coverImage", coverImageFile);
-  //       } catch (error) {
-  //         console.error("Error fetching cover image:", error);
-  //       }
-  //     }
-
-  //     // Fetch multiple images
-  //     if (
-  //       propertyToEdit?.multipleImages &&
-  //       propertyToEdit?.multipleImages.length > 0
-  //     ) {
-  //       try {
-  //         const multipleImageFiles = await Promise.all(
-  //           propertyToEdit?.multipleImages.map(async (imageUrl, index) => {
-  //             const response = await fetch(imageUrl);
-  //             const blob = await response.blob();
-  //             return new File([blob], `image${index}`, { type: blob.type });
-  //           })
-  //         );
-  //         form.setValue("multipleImages", multipleImageFiles);
-  //       } catch (error) {
-  //         console.error("Error fetching multiple images:", error);
-  //       }
-  //     }
-  //   };
-
-  //   fetchImages();
-  // }, [propertyToEdit, form]);
 
   async function onSubmit(values: PropertyListingSchema) {
     const formData = new FormData();
@@ -766,7 +697,8 @@ const EditPropertyModal = ({
                               <SingleImageUpload
                                 form={form}
                                 name="coverImage"
-                                onChange={field.onChange}
+                                // onChange={field.onChange}
+                                imageUrl={imageUrl}
                               />
                             </FormControl>
                             <FormMessage />
@@ -783,7 +715,6 @@ const EditPropertyModal = ({
                               <MultipleImageUpload
                                 form={form}
                                 name="multipleImages"
-                                onChange={field.onChange}
                               />
                             </FormControl>
                             <FormMessage />
