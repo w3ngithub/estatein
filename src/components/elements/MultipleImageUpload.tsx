@@ -120,10 +120,13 @@ const MultipleImageUpload = ({
               className="mx-auto flex cursor-pointer flex-col items-center justify-center gap-y-4 rounded-lg border border-foreground p-8 shadow-sm shadow-foreground"
             >
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4 w-full">
-                {previews?.map((preview) => (
-                  <div key={preview.id} className="relative">
+                {previews?.map((preview, index) => (
+                  <div key={preview.id || index} className="relative">
                     <Image
                       src={preview.preview || multipleImgUrl || ""}
+                      // src={`${process.env.NEXT_PUBLIC_BASE_PATH}${
+                      //   preview || multipleImgUrl || ""
+                      // }`}
                       alt="Uploaded image"
                       // className="w-full h-40 object-cover rounded-lg"
                       className="max-h-[400px] w-full object-cover rounded-lg"
