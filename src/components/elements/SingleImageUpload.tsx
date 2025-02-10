@@ -120,14 +120,26 @@ const SingleImageUpload = ({
             >
               {preview && (
                 <div className="relative">
-                  <Image
-                    // src={preview as string}
-                    src={`${process.env.NEXT_PUBLIC_BASE_PATH}${preview}`}
-                    alt="Uploaded image"
-                    className="max-h-[400px] w-full object-cover rounded-lg"
-                    width={1920 / 5}
-                    height={814 / 5}
-                  />
+                  {imageUrl ? (
+                    <Image
+                      // src={preview as string}
+                      src={`${process.env.NEXT_PUBLIC_BASE_PATH}${preview}`}
+                      alt="Uploaded image"
+                      className="max-h-[400px] w-full object-cover rounded-lg"
+                      width={1920 / 5}
+                      height={814 / 5}
+                    />
+                  ) : (
+                    <Image
+                      src={preview as string}
+                      // src={`${process.env.NEXT_PUBLIC_BASE_PATH}${preview}`}
+                      alt="Uploaded image"
+                      className="max-h-[400px] w-full object-cover rounded-lg"
+                      width={1920 / 5}
+                      height={814 / 5}
+                    />
+                  )}
+
                   <button
                     type="button"
                     onClick={handleRemoveImage}

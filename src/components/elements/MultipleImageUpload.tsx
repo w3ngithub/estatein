@@ -122,17 +122,27 @@ const MultipleImageUpload = ({
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4 w-full">
                 {previews?.map((preview, index) => (
                   <div key={preview.id || index} className="relative">
-                    <Image
-                      // src={preview.preview || multipleImgUrl || ""}
-                      src={`${process.env.NEXT_PUBLIC_BASE_PATH}${
-                        preview.preview || multipleImgUrl || ""
-                      }`}
-                      alt="Uploaded image"
-                      // className="w-full h-40 object-cover rounded-lg"
-                      className="max-h-[400px] w-full object-cover rounded-lg"
-                      width={1920 / 5}
-                      height={814 / 5}
-                    />
+                    {multipleImgUrl ? (
+                      <Image
+                        src={`${process.env.NEXT_PUBLIC_BASE_PATH}${
+                          preview.preview || multipleImgUrl || ""
+                        }`}
+                        alt="Uploaded image"
+                        className="max-h-[400px] w-full object-cover rounded-lg"
+                        width={1920 / 5}
+                        height={814 / 5}
+                      />
+                    ) : (
+                      <Image
+                        src={preview.preview || multipleImgUrl || ""}
+                        alt="Uploaded image"
+                        // className="w-full h-40 object-cover rounded-lg"
+                        className="max-h-[400px] w-full object-cover rounded-lg"
+                        width={1920 / 5}
+                        height={814 / 5}
+                      />
+                    )}
+
                     <button
                       type="button"
                       onClick={(e) => {
