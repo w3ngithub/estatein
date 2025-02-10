@@ -48,9 +48,7 @@ const EditPropertyModal = ({
   const [isLoading, setIsLoading] = useState(true);
   const [propertyData, setPropertyData] = useState(null);
   const [imageUrl, setImageUrl] = useState(""); //for coverImage
-  const [multipleImgUrl, setMultipleImgUrl] = useState([]);
-
-  console.log(multipleImgUrl, "kkkkkkkkkkkkkkkkk");
+  const [multipleImgUrl, setMultipleImgUrl] = useState([]); //for multiple images
 
   const [newFeature, setNewFeature] = useState("");
 
@@ -78,44 +76,13 @@ const EditPropertyModal = ({
 
         if (data.coverImage) {
           setImageUrl(data.coverImage); // Set image URL for preview
-          form.setValue("coverImage", data.coverImage); // Store URL for form submission
+          form.setValue("coverImage", data.coverImage);
         }
 
         if (data.multipleImages && data.multipleImages.length > 0) {
-          setMultipleImgUrl(data.multipleImages); // ✅ Store all image URLs
-          // const imageFiles = await Promise.all(
-          //   data.multipleImages.map(async (url: string, index: number) => {
-          //     const response = await fetch(url);
-          //     setMultipleImgUrl(response.url);
-          //     // const blob = await response.blob();
-          //     // return new File([blob], `image${index}`, { type: blob.type });
-          //   })
-          // );
-          // console.log(imageFiles, "qqqqqqqquuuuuu");
+          setMultipleImgUrl(data.multipleImages); // Store all image URLs
           form.setValue("multipleImages", data.multipleImages);
         }
-
-        // Handle images separately
-        // if (data.coverImage) {
-        //   const coverImageResponse = await fetch(data.coverImage);
-        //   setImageUrl(coverImageResponse.url);
-        //   const coverImageBlob = await coverImageResponse.blob();
-        //   const coverImageFile = new File([coverImageBlob], "coverImage", {
-        //     type: coverImageBlob.type,
-        //   });
-        //   form.setValue("coverImage", coverImageFile);
-        // }
-
-        // if (data.multipleImages && data.multipleImages.length > 0) {
-        //   const imageFiles = await Promise.all(
-        //     data.multipleImages.map(async (imageUrl: string, index: number) => {
-        //       const response = await fetch(imageUrl);
-        //       const blob = await response.blob();
-        //       return new File([blob], `image${index}`, { type: blob.type });
-        //     })
-        //   );
-        //   form.setValue("multipleImages", imageFiles);
-        // }
 
         // Set key features
         if (data.keyFeatures) {
@@ -232,6 +199,7 @@ const EditPropertyModal = ({
                             <Input
                               placeholder="Enter Villa Name"
                               {...field}
+                              value={field.value ?? ""}
                               className="h-16 max-desktop-lg:h-14"
                             />
                           </FormControl>
@@ -251,6 +219,7 @@ const EditPropertyModal = ({
                               className="h-16 max-desktop-lg:h-14"
                               type="number"
                               {...field}
+                              value={field.value ?? ""}
                             />
                           </FormControl>
                           <FormMessage />
@@ -268,6 +237,7 @@ const EditPropertyModal = ({
                               placeholder="Enter Pill Name"
                               className="h-16 max-desktop-lg:h-14"
                               {...field}
+                              value={field.value ?? ""}
                             />
                           </FormControl>
                           <FormMessage />
@@ -285,6 +255,7 @@ const EditPropertyModal = ({
                             <Input
                               placeholder="Enter Location"
                               {...field}
+                              value={field.value ?? ""}
                               className="h-16 max-desktop-lg:h-14"
                             />
                           </FormControl>
@@ -319,6 +290,7 @@ const EditPropertyModal = ({
                               type="number"
                               placeholder="Enter total number of Bedroom"
                               {...field}
+                              value={field.value ?? ""}
                               onChange={(e) =>
                                 field.onChange(Number(e.target.value))
                               }
@@ -340,6 +312,7 @@ const EditPropertyModal = ({
                               type="number"
                               placeholder="Enter total number of Bathroom"
                               {...field}
+                              value={field.value ?? ""}
                               onChange={(e) =>
                                 field.onChange(Number(e.target.value))
                               }
@@ -361,6 +334,7 @@ const EditPropertyModal = ({
                               type="number"
                               placeholder="Enter total number of area"
                               {...field}
+                              value={field.value ?? ""}
                               onChange={(e) =>
                                 field.onChange(Number(e.target.value))
                               }
@@ -419,6 +393,7 @@ const EditPropertyModal = ({
                               type="number"
                               placeholder="Enter total number of area"
                               {...field}
+                              value={field.value ?? ""}
                               onChange={(e) =>
                                 field.onChange(Number(e.target.value))
                               }
@@ -440,6 +415,7 @@ const EditPropertyModal = ({
                               type="number"
                               placeholder="Enter Legal Fee"
                               {...field}
+                              value={field.value ?? ""}
                               onChange={(e) =>
                                 field.onChange(Number(e.target.value))
                               }
@@ -461,6 +437,7 @@ const EditPropertyModal = ({
                               type="number"
                               placeholder="Enter Home Inspection Fee"
                               {...field}
+                              value={field.value ?? ""}
                               onChange={(e) =>
                                 field.onChange(Number(e.target.value))
                               }
@@ -482,6 +459,7 @@ const EditPropertyModal = ({
                               type="number"
                               placeholder="Enter Property Insurance Fee"
                               {...field}
+                              value={field.value ?? ""}
                               onChange={(e) =>
                                 field.onChange(Number(e.target.value))
                               }
@@ -503,6 +481,7 @@ const EditPropertyModal = ({
                               type="number"
                               placeholder="Enter Mortgage Fee"
                               {...field}
+                              value={field.value ?? ""}
                               onChange={(e) =>
                                 field.onChange(Number(e.target.value))
                               }
@@ -524,6 +503,7 @@ const EditPropertyModal = ({
                               type="number"
                               placeholder="Enter Property Tax"
                               {...field}
+                              value={field.value ?? ""}
                               onChange={(e) =>
                                 field.onChange(Number(e.target.value))
                               }
@@ -547,6 +527,7 @@ const EditPropertyModal = ({
                               type="number"
                               placeholder="Enter Homeowner's Association Fee"
                               {...field}
+                              value={field.value ?? ""}
                               onChange={(e) =>
                                 field.onChange(Number(e.target.value))
                               }
@@ -568,6 +549,7 @@ const EditPropertyModal = ({
                               type="number"
                               placeholder="Enter Additional Fee"
                               {...field}
+                              value={field.value ?? ""}
                               onChange={(e) =>
                                 field.onChange(Number(e.target.value))
                               }
@@ -589,6 +571,7 @@ const EditPropertyModal = ({
                               type="number"
                               placeholder="Enter Down Payment"
                               {...field}
+                              value={field.value ?? ""}
                               onChange={(e) =>
                                 field.onChange(Number(e.target.value))
                               }
@@ -612,6 +595,7 @@ const EditPropertyModal = ({
                               type="number"
                               placeholder="Enter Monthly Property Insurance"
                               {...field}
+                              value={field.value ?? ""}
                               onChange={(e) =>
                                 field.onChange(Number(e.target.value))
                               }
@@ -633,6 +617,7 @@ const EditPropertyModal = ({
                           <FormControl>
                             <Textarea
                               {...field}
+                              value={field.value ?? ""}
                               placeholder="Enter Description"
                               className="h-44 max-desktop-lg:h-28 max-mobile-xl:h-20 border border-grey-15"
                             />
