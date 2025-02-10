@@ -96,7 +96,7 @@ const ActionsCell = ({ id }: { id: string }) => {
 
       const data = await response.json();
       if (response.ok) {
-        console.log("Deleted successfully:", data);
+        // console.log("Deleted successfully:", data);
         setIsDeleteModalOpen(false);
         toast.success("Deleted successfully");
       } else {
@@ -113,7 +113,6 @@ const ActionsCell = ({ id }: { id: string }) => {
   };
 
   const handleEdit = (id: string) => {
-    console.log(id, "mmmmmmmmmm");
     setPropertyToEdit(id);
     setIsModalOpen(true);
   };

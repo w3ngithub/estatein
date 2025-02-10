@@ -123,10 +123,10 @@ const MultipleImageUpload = ({
                 {previews?.map((preview, index) => (
                   <div key={preview.id || index} className="relative">
                     <Image
-                      src={preview.preview || multipleImgUrl || ""}
-                      // src={`${process.env.NEXT_PUBLIC_BASE_PATH}${
-                      //   preview || multipleImgUrl || ""
-                      // }`}
+                      // src={preview.preview || multipleImgUrl || ""}
+                      src={`${process.env.NEXT_PUBLIC_BASE_PATH}${
+                        preview.preview || multipleImgUrl || ""
+                      }`}
                       alt="Uploaded image"
                       // className="w-full h-40 object-cover rounded-lg"
                       className="max-h-[400px] w-full object-cover rounded-lg"
