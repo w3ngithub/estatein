@@ -47,7 +47,7 @@ const EditPropertyModal = ({
   propertyId,
 }: EditPropertyModalProps) => {
   const [isLoading, setIsLoading] = useState(true);
-  const [propertyData, setPropertyData] = useState(null);
+  // const [propertyData, setPropertyData] = useState(null);
   const [imageUrl, setImageUrl] = useState(""); //for coverImage
   const [multipleImgUrl, setMultipleImgUrl] = useState([]); //for multiple images
 
@@ -66,7 +66,7 @@ const EditPropertyModal = ({
           throw new Error("Failed to fetch property details");
         }
         const data = await response.json();
-        setPropertyData(data);
+        // setPropertyData(data);
 
         // Populate form fields with fetched data
         Object.keys(data).forEach((key) => {
@@ -692,7 +692,7 @@ const EditPropertyModal = ({
                       <FormField
                         control={form.control}
                         name="coverImage"
-                        render={({ field }) => (
+                        render={() => (
                           <FormItem>
                             <FormLabel>Cover Image</FormLabel>
                             <FormControl>
@@ -710,7 +710,7 @@ const EditPropertyModal = ({
                       <FormField
                         control={form.control}
                         name="multipleImages"
-                        render={({ field }) => (
+                        render={() => (
                           <FormItem>
                             <FormLabel>Multiple Images</FormLabel>
                             <FormControl>
