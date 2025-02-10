@@ -1,10 +1,11 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import discoverProperty from "@/utilityComponents/dashboardPage/discoverProperty.json";
 
-export type paramsType = Promise<{ id: string }>;
-
-export default async function GET(props: { params: paramsType }) {
-  const { id } = await props.params;
+export async function GET(
+  req: NextRequest,
+  { params }: { params: { id: string } }
+) {
+  const { id } = await params;
   console.log(id, "rrrrr");
 
   if (!id) {
