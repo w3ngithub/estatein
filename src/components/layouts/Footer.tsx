@@ -8,7 +8,7 @@ const Footer = () => {
   const [email, setEmail] = useState("");
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-
+    console.log(email, "bbbbbb");
     try {
       const response = await fetch("/estatein/api/contact", {
         method: "POST",
@@ -34,14 +34,14 @@ const Footer = () => {
       <div className="grid desktop-md:grid-cols-12 gap-10 max-desktop-md:space-y-5">
         <div className="desktop-md:col-span-4">
           <div className="flex flex-col gap-5">
-            <form className="flex flex-row gap-2" onSubmit={handleSubmit}>
+            <div className="flex flex-row gap-2">
               <div>
                 <EstateinLogo />
               </div>
               <h1 className="font-medium text-2xl max-tablet-sm:text-xl">
                 Estatein
               </h1>
-            </form>
+            </div>
             {/* input field container */}
             <div className="flex items-center gap-3 w-[85%] max-w-sm px-4 py-3 bg-[#E4E4E7] border border-grey-shade-15 dark:bg-grey-shade-8 rounded-lg max-mobile-md:w-full">
               <div>
@@ -59,7 +59,10 @@ const Footer = () => {
                 required
               />
 
-              <button type="submit" className="p-2 rounded-full cursor-pointer">
+              <button
+                onClick={handleSubmit}
+                className="p-2 rounded-full cursor-pointer"
+              >
                 <SendIcon />
               </button>
             </div>

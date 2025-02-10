@@ -1,9 +1,10 @@
 import { NextResponse, NextRequest } from "next/server";
 import nodemailer from "nodemailer";
 
+//for footer
 export async function POST(request: NextRequest) {
-  const username = process.env.NEXT_PUBLIC_BURNER_USERNAME;
-  const password = process.env.NEXT_PUBLIC_BURNER_PASSWORD;
+  const username = process.env.NEXT_PUBLIC_EMAIL_USERNAME;
+  const password = process.env.NEXT_PUBLIC_EMAIL_PASSWORD;
   const myEmail = process.env.NEXT_PUBLIC_PERSONAL_EMAIL;
 
   try {
@@ -20,9 +21,10 @@ export async function POST(request: NextRequest) {
 
     // create transporter object
     const transporter = nodemailer.createTransport({
-      host: "smtp-mail.outlook.com",
-      port: 587,
-      secure: false,
+      service: "gmail",
+      host: "smtp.gmail.com",
+      port: 465,
+      secure: true,
       tls: {
         ciphers: "SSLv3",
         rejectUnauthorized: false,
