@@ -39,7 +39,6 @@ const PropertySizeType = () => {
 
   const handleEdit = (id: string, value: string, selectFieldData: string) => {
     setCurrentProperty({ id, value, selectFieldData });
-    console.log(`Editing property type with ID: ${id}`);
     setIsEditModalOpen(true);
   };
 
