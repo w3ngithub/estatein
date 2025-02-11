@@ -137,12 +137,8 @@ const MultipleImageUpload = ({
             >
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4 w-full">
                 {previews?.map((preview, index) => {
-                  console.log(preview, "xxxxxxxxxxxx");
                   return (
-                    <div
-                      key={preview.id}
-                      className="relative border border-green-500"
-                    >
+                    <div key={preview.id} className="relative">
                       <Image
                         src={
                           typeof preview.preview === "string"

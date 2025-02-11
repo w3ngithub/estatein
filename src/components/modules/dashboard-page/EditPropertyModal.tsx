@@ -169,12 +169,13 @@ const EditPropertyModal = ({
   }, [propertyId, isModalOpen, form]);
 
   async function onSubmit(values: PropertyListingSchema) {
-    console.log(values, "kkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
+    console.log(values, "Submitting...");
     setIsLoading(true);
+
     try {
       const formData = new FormData();
 
-      // Append all non-file fields
+      // Append non-file fields
       Object.entries(values).forEach(([key, value]) => {
         if (key === "keyFeatures") {
           formData.append(key, JSON.stringify(value));
@@ -183,44 +184,52 @@ const EditPropertyModal = ({
         }
       });
 
-      // Handle cover image
+      let coverImageUrl = values.coverImage; // Default to existing URL
+
       if (values.coverImage instanceof File) {
         formData.append("coverImage", values.coverImage);
       }
 
-      // Handle multiple images
       if (Array.isArray(values.multipleImages)) {
-        values.multipleImages.forEach((image, index) => {
+        values.multipleImages.forEach((image) => {
           if (image instanceof File) {
-            formData.append(`multipleImages`, image);
+            formData.append("multipleImages", image);
           }
         });
       }
 
-      // First, upload the images
-      const imageUploadResponse = await fetch(
-        "/estatein/api/addProperty/upload-images",
-        {
-          method: "PUT",
-          body: formData,
-        }
-      );
+      // Upload images only if new files are present
+      if (
+        values.coverImage instanceof File ||
+        values.multipleImages.some((img) => img instanceof File)
+      ) {
+        const imageUploadResponse = await fetch(
+          "/estatein/api/addProperty/upload-images",
+          {
+            method: "PUT",
+            body: formData,
+          }
+        );
 
-      if (!imageUploadResponse.ok) {
-        throw new Error("Failed to upload images");
+        if (!imageUploadResponse.ok) {
+          throw new Error("Failed to upload images");
+        }
+
+        const { coverImageUrl: newCoverImageUrl, multipleImageUrls } =
+          await imageUploadResponse.json();
+
+        coverImageUrl = newCoverImageUrl || coverImageUrl;
+        console.log("Updated Cover Image URL:", coverImageUrl);
       }
 
-      const { coverImageUrl, multipleImageUrls } =
-        await imageUploadResponse.json();
-
-      // Prepare the data for update
+      // Prepare update data
       const updateData = {
         ...values,
-        coverImage: coverImageUrl,
-        multipleImages: multipleImageUrls,
+        coverImage: coverImageUrl, // ✅ Ensure URL format
+        multipleImages: multipleImgUrl,
       };
 
-      // Send the update request
+      // Send update request
       const response = await fetch(`/estatein/api/addProperty/${propertyId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },

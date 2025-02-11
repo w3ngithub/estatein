@@ -148,7 +148,7 @@ export async function PUT(request: NextRequest) {
     let coverImageUrl = "";
     if (coverImage && coverImage.size > 0) {
       const coverImageExt = getFileExtension(coverImage.name);
-      const coverImageName = `cover-${Date.now()}${coverImageExt}`;
+      const coverImageName = `${Date.now()}-${coverImage.name}`; // Unique filename
       const coverImagePath = join(uploadDir, coverImageName);
       const coverImageBuffer = Buffer.from(await coverImage.arrayBuffer());
       await writeFile(coverImagePath, coverImageBuffer);
@@ -160,7 +160,7 @@ export async function PUT(request: NextRequest) {
       multipleImages.map(async (file, index) => {
         if (file.size > 0) {
           const fileExt = getFileExtension(file.name);
-          const imageName = `image-${index}-${Date.now()}${fileExt}`;
+          const imageName = `${Date.now()}-${file.name}`;
           const imagePath = join(uploadDir, imageName);
           const imageBuffer = Buffer.from(await file.arrayBuffer());
           await writeFile(imagePath, imageBuffer);
@@ -171,8 +171,8 @@ export async function PUT(request: NextRequest) {
     );
 
     return NextResponse.json({
-      coverImage: coverImageUrl,
-      multipleImages: multipleImageUrls.filter((url) => url !== ""),
+      coverImageUrl, // ✅ Make sure it's "coverImageUrl"
+      multipleImageUrls: multipleImageUrls.filter((url) => url !== ""),
     });
   } catch (error) {
     console.error("Error handling file upload:", error);
