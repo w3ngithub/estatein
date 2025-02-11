@@ -140,37 +140,39 @@ export async function PUT(request: NextRequest) {
       await fs.mkdir(uploadDir, { recursive: true });
     }
 
+    // Function to get file extension
+    const getFileExtension = (fileName: string) =>
+      fileName.substring(fileName.lastIndexOf("."));
+
     // Handle cover image
     let coverImageUrl = "";
     if (coverImage && coverImage.size > 0) {
-      const coverImagePath = join(
-        uploadDir,
-        `cover-${Date.now()}-${coverImage.name}`
-      );
+      const coverImageExt = getFileExtension(coverImage.name);
+      const coverImageName = `cover-${Date.now()}${coverImageExt}`;
+      const coverImagePath = join(uploadDir, coverImageName);
       const coverImageBuffer = Buffer.from(await coverImage.arrayBuffer());
       await writeFile(coverImagePath, coverImageBuffer);
-      coverImageUrl = `/uploads/${path.basename(coverImagePath)}`;
+      coverImageUrl = `/uploads/${coverImageName}`;
     }
 
     // Handle multiple images
     const multipleImageUrls = await Promise.all(
       multipleImages.map(async (file, index) => {
         if (file.size > 0) {
-          const imagePath = join(
-            uploadDir,
-            `image-${index}-${Date.now()}-${file.name}`
-          );
+          const fileExt = getFileExtension(file.name);
+          const imageName = `image-${index}-${Date.now()}${fileExt}`;
+          const imagePath = join(uploadDir, imageName);
           const imageBuffer = Buffer.from(await file.arrayBuffer());
           await writeFile(imagePath, imageBuffer);
-          return `/uploads/${path.basename(imagePath)}`;
+          return `/uploads/${imageName}`;
         }
         return "";
       })
     );
 
     return NextResponse.json({
-      coverImageUrl,
-      multipleImageUrls: multipleImageUrls.filter((url) => url !== ""),
+      coverImage: coverImageUrl,
+      multipleImages: multipleImageUrls.filter((url) => url !== ""),
     });
   } catch (error) {
     console.error("Error handling file upload:", error);
