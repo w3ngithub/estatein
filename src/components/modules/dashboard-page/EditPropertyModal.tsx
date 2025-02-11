@@ -34,6 +34,7 @@ import propertySizeType from "@/utilityComponents/dashboardPage/propertySizeType
 import propertyType from "@/utilityComponents/dashboardPage/propertyTypeData.json";
 import { YearCalendar } from "../common/YearCalender";
 import Loading from "@/components/elements/Loading";
+import { toast } from "sonner";
 
 interface EditPropertyModalProps {
   isModalOpen: boolean;
@@ -53,9 +54,50 @@ const EditPropertyModal = ({
 
   const [newFeature, setNewFeature] = useState("");
 
+  // const form = useForm<PropertyListingSchema>({
+  //   resolver: zodResolver(propertySchema),
+  // });
   const form = useForm<PropertyListingSchema>({
     resolver: zodResolver(propertySchema),
+    defaultValues: {
+      villaName: "",
+      keyFeatures: [],
+      description: "",
+      price: "",
+      pillName: "",
+      location: "",
+      buildYear: "",
+      totalBedRoom: 0,
+      totalBathRoom: 0,
+      totalArea: 0,
+      areaUnit: "",
+      propertyType: "",
+      propertyTransferTax: 0,
+      legalFees: 0,
+      homeInspectionFee: 0,
+      propertyInsurance: 0,
+      mortgageFee: 0,
+      propertyTax: 0,
+      additionalFee: 0,
+      homeOwnersAssociationFee: 0,
+      downPayment: 0,
+      monthlyPropertyInsurance: 0,
+      coverImage: new File([""], "filename"),
+      multipleImages: [],
+    },
   });
+
+  // Helper function to convert URL to File object
+  const urlToFile = async (url: string, filename: string): Promise<File> => {
+    try {
+      const response = await fetch(url);
+      const blob = await response.blob();
+      return new File([blob], filename, { type: blob.type });
+    } catch (error) {
+      console.error("Error converting URL to File:", error);
+      return new File([""], filename);
+    }
+  };
 
   useEffect(() => {
     const fetchPropertyData = async () => {
@@ -77,12 +119,21 @@ const EditPropertyModal = ({
 
         if (data.coverImage) {
           setImageUrl(data.coverImage); // Set image URL for preview
-          form.setValue("coverImage", data.coverImage);
+          const coverImageFile = await urlToFile(
+            data.coverImage,
+            "cover-image"
+          );
+          form.setValue("coverImage", coverImageFile);
         }
 
         if (data.multipleImages && data.multipleImages.length > 0) {
           setMultipleImgUrl(data.multipleImages); // Store all image URLs
-          form.setValue("multipleImages", data.multipleImages);
+          const multipleImageFiles = await Promise.all(
+            data.multipleImages.map((url: string, index: number) =>
+              urlToFile(url, `image-${index}`)
+            )
+          );
+          form.setValue("multipleImages", multipleImageFiles);
         }
 
         // Set key features
@@ -92,7 +143,7 @@ const EditPropertyModal = ({
         }
       } catch (error) {
         console.error("Error fetching property data:", error);
-        // Handle error appropriately (show toast, error message, etc.)
+        toast.error("Error fetching property data");
       } finally {
         setIsLoading(false);
       }
@@ -104,72 +155,76 @@ const EditPropertyModal = ({
   }, [propertyId, isModalOpen, form]);
 
   async function onSubmit(values: PropertyListingSchema) {
-    const formData = new FormData();
+    console.log(values, "kkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
+    setIsLoading(true);
+    try {
+      const formData = new FormData();
 
-    // Append all form fields to formData
-    Object.entries(values).forEach(([key, value]) => {
-      if (key === "keyFeatures") {
-        formData.append(key, JSON.stringify(value));
-      } else if (key === "coverImage" && value instanceof File) {
-        formData.append(key, value);
-      } else if (key === "multipleImages" && Array.isArray(value)) {
-        value.forEach((file, index) => {
-          formData.append(`${key}[${index}]`, file);
-        });
-      } else {
-        formData.append(key, value?.toString() || "");
+      // Append all non-file fields
+      Object.entries(values).forEach(([key, value]) => {
+        if (key === "keyFeatures") {
+          formData.append(key, JSON.stringify(value));
+        } else if (key !== "coverImage" && key !== "multipleImages") {
+          formData.append(key, value?.toString() || "");
+        }
+      });
+
+      // Handle cover image
+      if (values.coverImage instanceof File) {
+        formData.append("coverImage", values.coverImage);
       }
-    });
 
-    // Here you would typically send the formData to your API
-    console.log("Form submitted:", Object.fromEntries(formData));
+      // Handle multiple images
+      if (Array.isArray(values.multipleImages)) {
+        values.multipleImages.forEach((image, index) => {
+          if (image instanceof File) {
+            formData.append(`multipleImages`, image);
+          }
+        });
+      }
 
-    formData.append("villaName", values.villaName);
-    formData.append("price", values.price.toString());
-    formData.append("pillName", values.pillName);
-    formData.append("location", values.location);
-    formData.append("buildYear", values.buildYear);
+      // First, upload the images
+      const imageUploadResponse = await fetch(
+        "/estatein/api/addProperty/upload-images",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
 
-    formData.append("totalBedRoom", values.totalBedRoom.toString());
-    formData.append("totalBathRoom", values.totalBathRoom.toString());
-    formData.append("totalArea", values.totalArea.toString());
-    formData.append("areaUnit", values.areaUnit.toString());
-    formData.append("propertyType", values.propertyType.toString());
+      if (!imageUploadResponse.ok) {
+        throw new Error("Failed to upload images");
+      }
 
-    formData.append(
-      "propertyTransferTax",
-      values.propertyTransferTax.toString()
-    );
-    formData.append("legalFees", values.legalFees.toString());
-    formData.append("homeInspectionFee", values.homeInspectionFee.toString());
-    formData.append("propertyInsurance", values.propertyInsurance.toString());
-    formData.append("mortgageFee", values.mortgageFee.toString());
-    formData.append("propertyTax", values.propertyTax.toString());
-    formData.append("additionalFee", values.additionalFee.toString());
-    formData.append(
-      "homeOwnersAssociationFee",
-      values.homeOwnersAssociationFee.toString()
-    );
-    formData.append("downPayment", values.downPayment.toString());
-    formData.append(
-      "monthlyPropertyInsurance",
-      values.monthlyPropertyInsurance.toString()
-    );
-    formData.append("description", values.description);
+      const { coverImageUrl, multipleImageUrls } =
+        await imageUploadResponse.json();
 
-    formData.append("keyFeatures", JSON.stringify(values.keyFeatures));
+      // Prepare the data for update
+      const updateData = {
+        ...values,
+        coverImage: coverImageUrl,
+        multipleImages: multipleImageUrls,
+      };
 
-    formData.append("coverImage", values.coverImage);
+      // Send the update request
+      const response = await fetch(`/estatein/api/addProperty/${propertyId}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(updateData),
+      });
 
-    values.multipleImages.forEach((image) => {
-      formData.append("multipleImages", image);
-    });
+      if (!response.ok) {
+        throw new Error("Failed to update property");
+      }
 
-    // Reset form after submission
-    form.reset();
-    form.resetField("buildYear");
-    form.resetField("coverImage");
-    form.resetField("multipleImages");
+      toast.success("Property updated successfully");
+      setIsModalOpen(false);
+    } catch (error) {
+      console.error("Error updating property:", error);
+      toast.error("Error updating property");
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   return (
