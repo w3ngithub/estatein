@@ -136,7 +136,7 @@ const MultipleImageUpload = ({
               className="mx-auto flex cursor-pointer flex-col items-center justify-center gap-y-4 rounded-lg border border-foreground p-8 shadow-sm shadow-foreground"
             >
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4 w-full">
-                {previews?.map((preview, index) => {
+                {previews?.map((preview) => {
                   return (
                     <div key={preview.id} className="relative">
                       <Image

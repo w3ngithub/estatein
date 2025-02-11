@@ -215,7 +215,8 @@ const EditPropertyModal = ({
           throw new Error("Failed to upload images");
         }
 
-        const { coverImageUrl: newCoverImageUrl, multipleImageUrls } =
+        // multipleImageUrls
+        const { coverImageUrl: newCoverImageUrl } =
           await imageUploadResponse.json();
 
         coverImageUrl = newCoverImageUrl || coverImageUrl;

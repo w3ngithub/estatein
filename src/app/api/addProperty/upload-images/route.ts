@@ -141,13 +141,13 @@ export async function PUT(request: NextRequest) {
     }
 
     // Function to get file extension
-    const getFileExtension = (fileName: string) =>
-      fileName.substring(fileName.lastIndexOf("."));
+    // const getFileExtension = (fileName: string) =>
+    //   fileName.substring(fileName.lastIndexOf("."));
 
     // Handle cover image
     let coverImageUrl = "";
     if (coverImage && coverImage.size > 0) {
-      const coverImageExt = getFileExtension(coverImage.name);
+      // const coverImageExt = getFileExtension(coverImage.name);
       const coverImageName = `${Date.now()}-${coverImage.name}`; // Unique filename
       const coverImagePath = join(uploadDir, coverImageName);
       const coverImageBuffer = Buffer.from(await coverImage.arrayBuffer());
@@ -157,9 +157,9 @@ export async function PUT(request: NextRequest) {
 
     // Handle multiple images
     const multipleImageUrls = await Promise.all(
-      multipleImages.map(async (file, index) => {
+      multipleImages.map(async (file) => {
         if (file.size > 0) {
-          const fileExt = getFileExtension(file.name);
+          // const fileExt = getFileExtension(file.name);
           const imageName = `${Date.now()}-${file.name}`;
           const imagePath = join(uploadDir, imageName);
           const imageBuffer = Buffer.from(await file.arrayBuffer());
