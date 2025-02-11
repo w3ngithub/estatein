@@ -226,7 +226,11 @@ const EditPropertyModal = ({
       const updateData = {
         ...values,
         coverImage: coverImageUrl, // ✅ Ensure URL format
-        multipleImages: multipleImgUrl,
+        multipleImages: values.multipleImages.map((img) =>
+          img instanceof File
+            ? multipleImgUrl?.[values.multipleImages.indexOf(img)]
+            : img
+        ),
       };
 
       // Send update request
