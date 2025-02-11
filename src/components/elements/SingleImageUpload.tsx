@@ -120,7 +120,19 @@ const SingleImageUpload = ({
             >
               {preview && (
                 <div className="relative">
-                  {imageUrl ? (
+                  <Image
+                    src={
+                      preview?.toString().startsWith("data:image")
+                        ? (preview as string) // Use Base64 directly
+                        : `${process.env.NEXT_PUBLIC_BASE_PATH}${preview}` // Use API URL
+                    }
+                    alt="Uploaded image"
+                    className="max-h-[400px] w-full object-cover rounded-lg"
+                    width={1920 / 5}
+                    height={814 / 5}
+                  />
+
+                  {/* {imageUrl ? (
                     <Image
                       // src={preview as string}
                       src={`${process.env.NEXT_PUBLIC_BASE_PATH}${preview}`}
@@ -138,7 +150,7 @@ const SingleImageUpload = ({
                       width={1920 / 5}
                       height={814 / 5}
                     />
-                  )}
+                  )} */}
 
                   <button
                     type="button"
