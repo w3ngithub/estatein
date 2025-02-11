@@ -88,9 +88,23 @@ const EditPropertyModal = ({
   });
 
   // Helper function to convert URL to File object
+  // const urlToFile = async (url: string, filename: string): Promise<File> => {
+  //   try {
+  //     const response = await fetch(url);
+  //     const blob = await response.blob();
+  //     return new File([blob], filename, { type: blob.type });
+  //   } catch (error) {
+  //     console.error("Error converting URL to File:", error);
+  //     return new File([""], filename);
+  //   }
+  // };
   const urlToFile = async (url: string, filename: string): Promise<File> => {
+    const correctedUrl = url.startsWith("/uploads/") ? `/estatein${url}` : url; // Ensure correct path
+
+    console.log(correctedUrl, "mmmmmmmmmmmmmmmmm"); // Debugging output
+
     try {
-      const response = await fetch(url);
+      const response = await fetch(correctedUrl);
       const blob = await response.blob();
       return new File([blob], filename, { type: blob.type });
     } catch (error) {
