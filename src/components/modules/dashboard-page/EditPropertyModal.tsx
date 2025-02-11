@@ -113,7 +113,7 @@ const EditPropertyModal = ({
         // Populate form fields with fetched data
         Object.keys(data).forEach((key) => {
           if (key !== "coverImage" && key !== "multipleImages") {
-            form.setValue(key, data[key]);
+            form.setValue(key as keyof PropertyListingSchema, data[key]);
           }
         });
 
@@ -187,7 +187,7 @@ const EditPropertyModal = ({
       const imageUploadResponse = await fetch(
         "/estatein/api/addProperty/upload-images",
         {
-          method: "POST",
+          method: "PUT",
           body: formData,
         }
       );
