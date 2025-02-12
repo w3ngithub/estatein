@@ -46,6 +46,7 @@ const MultipleImageUpload = ({
       const value = form.getValues(name);
       if (!value || value.length === 0) {
         // Cleanup existing preview URLs
+        //@ts-ignore
         previews.forEach((preview) => URL.revokeObjectURL(preview.preview));
         setPreviews([]);
       }
@@ -81,6 +82,7 @@ const MultipleImageUpload = ({
   // Cleanup preview URLs when component unmounts
   useEffect(() => {
     return () => {
+      //@ts-ignore
       previews.forEach((preview) => URL.revokeObjectURL(preview.preview));
     };
   }, [previews]);

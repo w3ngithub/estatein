@@ -18,7 +18,7 @@ const fetchVillaDetails = async (id: string) => {
   return data;
 };
 
-const page = async ({ params }: { params: { id: string } }) => {
+const page = async ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params;
   console.log(id, "bbbbbbbbbbbb");
   const villa = await fetchVillaDetails(id);

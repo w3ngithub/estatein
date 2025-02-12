@@ -31,7 +31,7 @@ async function writeJsonFile(data: PropertyApiResponse[]): Promise<void> {
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   const { id } = await params;
   console.log(id, "rrrrr");
@@ -55,7 +55,7 @@ export async function GET(
 // PUT update property
 export async function PUT(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const { id } = await params;

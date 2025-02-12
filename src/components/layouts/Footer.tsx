@@ -60,7 +60,9 @@ const Footer = () => {
               />
 
               <button
-                onClick={handleSubmit}
+                onClick={(e) =>
+                  handleSubmit(e as unknown as React.FormEvent<HTMLFormElement>)
+                }
                 className="p-2 rounded-full cursor-pointer"
               >
                 <SendIcon />

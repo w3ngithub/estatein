@@ -55,6 +55,7 @@ const SingleImageUpload = ({
     name,
     form.formState.submitCount,
     form.formState.isSubmitSuccessful,
+    imageUrl,
   ]);
 
   const onDrop = useCallback(
@@ -91,6 +92,7 @@ const SingleImageUpload = ({
     e.stopPropagation();
     setPreview(null); // Changed from empty string to null
     // form.resetField(name);
+    //@ts-ignore
     form.setValue(name, null); // Change this to set null instead of resetting
   };
 
