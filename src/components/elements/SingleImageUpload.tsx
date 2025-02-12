@@ -31,23 +31,23 @@ const SingleImageUpload = ({
     if (imageUrl) {
       setPreview(imageUrl); // // Populate preview from API data
     }
-  }, [imageUrl]);
+  }, [imageUrl, form, name]);
 
   // Watch for form resets and field changes
   useEffect(() => {
     // Watch for field changes
     const subscription = form.watch(() => {
       const fieldValue = form.getValues(name);
-      if (!fieldValue) {
+      if (!fieldValue && !imageUrl) {
         setPreview(null);
       }
     });
 
     // Watch for form state changes to detect resets
     // const resetSubscription = form.formState.submitCount;
-    if (form.formState.isSubmitSuccessful) {
-      setPreview(null);
-    }
+    // if (form.formState.isSubmitSuccessful) {
+    //   setPreview(null);
+    // }
 
     return () => subscription.unsubscribe();
   }, [
@@ -90,7 +90,8 @@ const SingleImageUpload = ({
   const handleRemoveImage = (e: React.MouseEvent) => {
     e.stopPropagation();
     setPreview(null); // Changed from empty string to null
-    form.resetField(name);
+    // form.resetField(name);
+    form.setValue(name, null); // Change this to set null instead of resetting
   };
 
   return (

@@ -125,8 +125,16 @@ const EditPropertyModal = ({
         // setPropertyData(data);
 
         // Populate form fields with fetched data
+        // Object.keys(data).forEach((key) => {
+        //   if (key !== "coverImage" && key !== "multipleImages") {
+        //     form.setValue(key as keyof PropertyListingSchema, data[key]);
+        //   }
+        // });
+        // Populate form fields with fetched data
         Object.keys(data).forEach((key) => {
-          if (key !== "coverImage" && key !== "multipleImages") {
+          if (key === "coverImage") {
+            setImageUrl(data[key]); // Just set the imageUrl state
+          } else if (key !== "multipleImages") {
             form.setValue(key as keyof PropertyListingSchema, data[key]);
           }
         });
@@ -184,7 +192,8 @@ const EditPropertyModal = ({
         }
       });
 
-      let coverImageUrl = values.coverImage; // Default to existing URL
+      // let coverImageUrl = values.coverImage; // Default to existing URL
+      let newCoverImageUrl = imageUrl; // Use the existing imageUrl as default
 
       if (values.coverImage instanceof File) {
         formData.append("coverImage", values.coverImage);
@@ -216,17 +225,18 @@ const EditPropertyModal = ({
         }
 
         // multipleImageUrls
-        const { coverImageUrl: newCoverImageUrl } =
-          await imageUploadResponse.json();
+        const { coverImageUrl } = await imageUploadResponse.json();
 
-        coverImageUrl = newCoverImageUrl || coverImageUrl;
-        console.log("Updated Cover Image URL:", coverImageUrl);
+        if (coverImageUrl) {
+          newCoverImageUrl = coverImageUrl;
+        }
+        // console.log("Updated Cover Image URL:", coverImageUrl);
       }
 
       // Prepare update data
       const updateData = {
         ...values,
-        coverImage: coverImageUrl, // ✅ Ensure URL format
+        coverImage: newCoverImageUrl, //  Ensure URL format
         multipleImages: values.multipleImages.map((img) =>
           img instanceof File
             ? multipleImgUrl?.[values.multipleImages.indexOf(img)]
@@ -244,7 +254,8 @@ const EditPropertyModal = ({
       if (!response.ok) {
         throw new Error("Failed to update property");
       }
-
+      // Update local state
+      setImageUrl(newCoverImageUrl);
       toast.success("Property updated successfully");
       setIsModalOpen(false);
     } catch (error) {
