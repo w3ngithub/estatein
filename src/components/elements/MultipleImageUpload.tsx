@@ -25,18 +25,10 @@ const MultipleImageUpload = ({
   name = "multipleImages",
   multipleImgUrl,
 }: MultipleImageUploadProps) => {
-  // const [previews, setPreviews] = useState<
-  //   Array<{ id: string; preview: string }>
-  // >([]);
   const [previews, setPreviews] = useState<
     Array<{ id: string; preview: string | File }> // Store File or URL
   >([]);
 
-  // useEffect(() => {
-  //   if (multipleImgUrl) {
-  //     setPreviews(multipleImgUrl); // // Populate previews from API data
-  //   }
-  // }, [multipleImgUrl]);
   useEffect(() => {
     if (multipleImgUrl) {
       setPreviews(
@@ -61,23 +53,6 @@ const MultipleImageUpload = ({
     return () => subscription.unsubscribe();
   }, [form, name, previews]);
 
-  // const onDrop = useCallback(
-  //   (acceptedFiles: File[]) => {
-  //     // Create preview URLs for all accepted files
-  //     const newPreviews = acceptedFiles.map((file) => ({
-  //       id: Math.random().toString(36).substr(2, 9),
-  //       preview: URL.createObjectURL(file),
-  //     }));
-
-  //     setPreviews((prev) => [...prev, ...newPreviews]);
-
-  //     // Update form value with all files
-  //     const currentFiles = form.getValues(name) || [];
-  //     form.setValue(name, [...currentFiles, ...acceptedFiles]);
-  //     form.clearErrors(name);
-  //   },
-  //   [form, name]
-  // );
   const onDrop = useCallback(
     (acceptedFiles: File[]) => {
       const newPreviews = acceptedFiles.map((file) => ({

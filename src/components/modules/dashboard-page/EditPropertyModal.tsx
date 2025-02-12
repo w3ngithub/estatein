@@ -194,6 +194,7 @@ const EditPropertyModal = ({
 
       // let coverImageUrl = values.coverImage; // Default to existing URL
       let newCoverImageUrl = imageUrl; // Use the existing imageUrl as default
+      let newMultipleImageUrl = multipleImgUrl;
 
       if (values.coverImage instanceof File) {
         formData.append("coverImage", values.coverImage);
@@ -225,7 +226,15 @@ const EditPropertyModal = ({
         }
 
         // multipleImageUrls
-        const { coverImageUrl } = await imageUploadResponse.json();
+        const { coverImageUrl, multipleImageUrls } =
+          await imageUploadResponse.json();
+
+        console.log(multipleImageUrls, "xxxxxxxxxxxxxxxxx");
+        // console.log(multipleImgUrl, "yyyyyyyyyyyy");
+
+        if (multipleImageUrls) {
+          newMultipleImageUrl = multipleImageUrls;
+        }
 
         if (coverImageUrl) {
           newCoverImageUrl = coverImageUrl;
@@ -237,11 +246,13 @@ const EditPropertyModal = ({
       const updateData = {
         ...values,
         coverImage: newCoverImageUrl, //  Ensure URL format
-        multipleImages: values.multipleImages.map((img) =>
-          img instanceof File
-            ? multipleImgUrl?.[values.multipleImages.indexOf(img)]
-            : img
-        ),
+        multipleImages: newMultipleImageUrl || values.multipleImages, // Ensure existing images remain
+
+        // multipleImages: values.multipleImages.map((img) =>
+        //   img instanceof File
+        //     ? multipleImgUrl?.[values.multipleImages.indexOf(img)]
+        //     : img
+        // ),
       };
 
       // Send update request
@@ -256,6 +267,7 @@ const EditPropertyModal = ({
       }
       // Update local state
       setImageUrl(newCoverImageUrl);
+      setMultipleImgUrl(newMultipleImageUrl);
       toast.success("Property updated successfully");
       setIsModalOpen(false);
     } catch (error) {
