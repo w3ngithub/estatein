@@ -22,6 +22,7 @@ const LetsConnectForm = () => {
     { value: "price", selectFieldData: "About Price" },
     { value: "location", selectFieldData: "About Location" },
     { value: "auction", selectFieldData: "About Auction" },
+    { value: "others", selectFieldData: "Others" },
   ];
   const hearAboutUs = [
     { value: "facebook", selectFieldData: "Facebook" },
@@ -279,9 +280,6 @@ const LetsConnectForm = () => {
             </p>
           </div>
           <div className="max-mobile-md:w-full">
-            {/* <Button disabled={isSubmitting} className={`bg-purple-shade-60 hover:bg-purple-shade-d60 py-6 px-4 font-medium rounded-md max-desktop-lg:text-sm max-mobile-lg:w-full dark:text-white ${isSubmitting ? "bg-gray-400 cursor-not-allowed" : ""}`}>
-              {isSubmitting ? "Submitting..." : "Send Your Message"}
-            </Button> */}
             <Button
               disabled={isSubmitting}
               className={`py-6 px-4 font-medium rounded-md max-desktop-lg:text-sm max-mobile-lg:w-full dark:text-white ${
