@@ -88,11 +88,16 @@ const ContactForm = () => {
     });
   };
 
+  const email = watch("email");
   const phoneNumber = watch("phoneNumber");
 
   const populatePreferredPhoneNumber = (e: any) => {
     e.preventDefault();
     setValue("preferredNumber", phoneNumber);
+  };
+  const populatePreferredEmail = (e: any) => {
+    e.preventDefault();
+    setValue("preferredEmail", email);
   };
 
   return (
@@ -395,6 +400,7 @@ const ContactForm = () => {
                       <Button
                         variant="link"
                         className="flex justify-end items-center"
+                        onClick={(e) => populatePreferredEmail(e)}
                       >
                         Same as above?
                       </Button>
