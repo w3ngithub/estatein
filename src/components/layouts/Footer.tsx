@@ -8,7 +8,6 @@ const Footer = () => {
   const [email, setEmail] = useState("");
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    console.log(email, "bbbbbb");
     try {
       const response = await fetch("/estatein/api/contact", {
         method: "POST",
@@ -19,11 +18,10 @@ const Footer = () => {
       if (!response.ok) {
         throw new Error(`response status: ${response.status}`);
       }
-      // const responseData = await response.json();
       toast.success("Message successfully sent");
       setEmail("");
     } catch (err) {
-      console.error(err);
+      console.error("Error submitting form:", err);
 
       toast.error("Error, please try resubmitting the form");
     }
