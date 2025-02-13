@@ -58,14 +58,16 @@ const ContactForm = () => {
       noOfBedrooms: "",
       budget: "",
       preferredContactMethod: "number",
+      preferredNumber: "",
+      preferredEmail: "",
       message: "",
       terms: true,
     },
   });
 
   // data: FormSchema
-  const onSubmit = () => {
-    // console.log("Form Data:", data);
+  const onSubmit = (data: FormSchema) => {
+    console.log("Form Data:", data);
     reset({
       firstName: "",
       lastName: "",
@@ -347,7 +349,7 @@ const ContactForm = () => {
                         type="number"
                         placeholder="Enter Your Number"
                         className="flex-1 bg-transparent dark:text-white dark:placeholder:text-gray-400 focus:outline-none text-sm"
-                        disabled
+                        {...register("preferredNumber")}
                       />
 
                       <div className="p-2 rounded-full max-mobile-extra-md:pl-0">
@@ -362,7 +364,7 @@ const ContactForm = () => {
                         type="email"
                         placeholder="Enter Your Email"
                         className="flex-1 bg-transparent dark:text-white dark:placeholder:text-gray-400 focus:outline-none text-sm"
-                        disabled
+                        {...register("preferredEmail")}
                       />
 
                       <div className="p-2 rounded-full max-mobile-extra-md:pl-0">
