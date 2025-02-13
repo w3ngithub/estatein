@@ -391,8 +391,8 @@ const ContactForm = () => {
                     defaultValue={field.value}
                     className="flex flex-row justify-between w-full h-16 max-desktop-lg:h-14 max-desktop-md:flex-col max-desktop-md:mb-6"
                   >
-                    <div className="flex flex-col">
-                      <div className="flex items-center gap-3 w-full px-4 py-3 rounded-lg bg-[#E4E4E7] dark:bg-[#1C1C1C]">
+                    <div className="flex flex-col w-full">
+                      <div className="flex items-center gap-3 w-full h-full px-4 py-3 rounded-lg bg-[#E4E4E7] dark:bg-[#1C1C1C]">
                         <div>
                           <PhoneIcon />
                         </div>
@@ -416,8 +416,8 @@ const ContactForm = () => {
                         Same as above?
                       </Button>
                     </div>
-                    <div className="flex flex-col">
-                      <div className="flex items-center gap-3 w-full px-4 py-3 bg-[#E4E4E7] dark:bg-[#1C1C1C] rounded-lg">
+                    <div className="flex flex-col w-full">
+                      <div className="flex items-center gap-3 w-full h-full px-4 py-3 bg-[#E4E4E7] dark:bg-[#1C1C1C] rounded-lg">
                         <div>
                           <MessageIcon />
                         </div>
