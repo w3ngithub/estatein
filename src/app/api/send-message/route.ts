@@ -19,12 +19,18 @@ export async function POST(request: NextRequest) {
     auth: { user: username, pass: password },
   });
 
+  // Prepare email HTML content
+  const emailHtml = `
+      <h2>New Meet Team Form Submission - Estatein</h2>
+      <p><strong>Message:</strong> ${message}</p>
+    `;
+
   try {
     await transporter.sendMail({
       from: username,
       to: recipientEmail, // Send to selected team member
       subject: "New Message from Estatein",
-      html: `<p>${message}</p>`,
+      html: emailHtml,
     });
 
     return NextResponse.json({ message: "Success: email was sent" });
