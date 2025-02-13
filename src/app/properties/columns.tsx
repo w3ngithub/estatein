@@ -50,7 +50,7 @@ const ImageCell: React.FC<{ images: string[] }> = ({ images }) => {
               <DialogTitle className="text-2xl py-4">Images</DialogTitle>
               <DialogDescription> </DialogDescription>
             </DialogHeader>
-            <div className="grid grid-cols-3 gap-2">
+            <div className="grid grid-cols-3 gap-2 place-items-center overflow-y-auto h-64">
               {images.map((imgUrl, index) => (
                 <div key={index} className="relative size-24 my-5">
                   <Image
