@@ -45,6 +45,8 @@ const ContactForm = () => {
     control,
     formState: { errors },
     reset,
+    setValue,
+    watch,
   } = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -84,6 +86,13 @@ const ContactForm = () => {
       message: "",
       terms: true,
     });
+  };
+
+  const phoneNumber = watch("phoneNumber");
+
+  const populatePreferredPhoneNumber = (e: any) => {
+    e.preventDefault();
+    setValue("preferredNumber", phoneNumber);
   };
 
   return (
@@ -342,36 +351,53 @@ const ContactForm = () => {
                     defaultValue={field.value}
                     className="flex flex-row justify-between w-full h-16 max-desktop-lg:h-14 max-desktop-md:flex-col max-desktop-md:mb-6"
                   >
-                    <div className="flex items-center gap-3 w-full px-4 py-3 rounded-lg bg-[#E4E4E7] dark:bg-[#1C1C1C]">
-                      <div>
-                        <PhoneIcon />
-                      </div>
+                    <div className="flex flex-col">
+                      <div className="flex items-center gap-3 w-full px-4 py-3 rounded-lg bg-[#E4E4E7] dark:bg-[#1C1C1C]">
+                        <div>
+                          <PhoneIcon />
+                        </div>
 
-                      <input
-                        type="number"
-                        placeholder="Enter Your Number"
-                        className="flex-1 bg-transparent dark:text-white dark:placeholder:text-gray-400 focus:outline-none text-sm"
-                        {...register("preferredNumber")}
-                      />
+                        <input
+                          type="number"
+                          placeholder="Enter Your Number"
+                          className="flex-1 bg-transparent dark:text-white dark:placeholder:text-gray-400 focus:outline-none text-sm"
+                          {...register("preferredNumber")}
+                        />
 
-                      <div className="p-2 rounded-full max-mobile-extra-md:pl-0">
-                        <RadioGroupItem value="number" id="number" />
+                        <div className="p-2 rounded-full max-mobile-extra-md:pl-0">
+                          <RadioGroupItem value="number" id="number" />
+                        </div>
                       </div>
+                      <Button
+                        variant="link"
+                        className="flex justify-end items-center"
+                        onClick={(e) => populatePreferredPhoneNumber(e)}
+                      >
+                        Same as above?
+                      </Button>
                     </div>
-                    <div className="flex items-center gap-3 w-full px-4 py-3 bg-[#E4E4E7] dark:bg-[#1C1C1C] rounded-lg">
-                      <div>
-                        <MessageIcon />
-                      </div>
-                      <input
-                        type="email"
-                        placeholder="Enter Your Email"
-                        className="flex-1 bg-transparent dark:text-white dark:placeholder:text-gray-400 focus:outline-none text-sm"
-                        {...register("preferredEmail")}
-                      />
+                    <div className="flex flex-col">
+                      <div className="flex items-center gap-3 w-full px-4 py-3 bg-[#E4E4E7] dark:bg-[#1C1C1C] rounded-lg">
+                        <div>
+                          <MessageIcon />
+                        </div>
+                        <input
+                          type="email"
+                          placeholder="Enter Your Email"
+                          className="flex-1 bg-transparent dark:text-white dark:placeholder:text-gray-400 focus:outline-none text-sm"
+                          {...register("preferredEmail")}
+                        />
 
-                      <div className="p-2 rounded-full max-mobile-extra-md:pl-0">
-                        <RadioGroupItem value="email" id="email" />
+                        <div className="p-2 rounded-full max-mobile-extra-md:pl-0">
+                          <RadioGroupItem value="email" id="email" />
+                        </div>
                       </div>
+                      <Button
+                        variant="link"
+                        className="flex justify-end items-center"
+                      >
+                        Same as above?
+                      </Button>
                     </div>
                   </RadioGroup>
                 )}
