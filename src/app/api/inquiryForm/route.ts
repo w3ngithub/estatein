@@ -5,7 +5,7 @@ import path from "path";
 
 const filePath = path.join(
   process.cwd(),
-  "src/utilityComponents/dashboardPage/letsConnectForm.json"
+  "src/utilityComponents/dashboardPage/inquiryForm.json"
 );
 
 export async function POST(request: NextRequest) {
@@ -29,12 +29,11 @@ export async function POST(request: NextRequest) {
 
     // Prepare email HTML content
     const emailHtml = `
-      <h2>New Connect Form Submission</h2>
+      <h2>New Inquiry Form Submission</h2>
       <p><strong>Name:</strong> ${formData.firstName} ${formData.lastName}</p>
       <p><strong>Email:</strong> ${formData.email}</p>
       <p><strong>Phone:</strong> ${formData.phoneNumber}</p>
-      <p><strong>Inquiry Type:</strong> ${formData.inquiryType}</p>
-      <p><strong>How did they hear about us:</strong> ${formData.hearAboutUs}</p>
+      <p><strong>Selected Location:</strong> ${formData.selectedProperty}</p>
       <p><strong>Message:</strong> ${formData.message}</p>
     `;
 
@@ -42,7 +41,7 @@ export async function POST(request: NextRequest) {
     await transporter.sendMail({
       from: username,
       to: username, // Sending to yourself/admin email
-      subject: "New Connect Form Submission - Estatein",
+      subject: "New Inquiry Form Submission - Estatein",
       html: emailHtml,
     });
 

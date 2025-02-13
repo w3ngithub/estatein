@@ -12,6 +12,7 @@ import {
   InquiryFormData,
   inquiryFormSchema,
 } from "@/schema/inquiry-form-schema";
+import { toast } from "sonner";
 
 const preferredLocation = [
   { value: "ktm", selectFieldData: "Kathmandu" },
@@ -39,19 +40,48 @@ const InquiryForm = () => {
     },
   });
 
-  // data: InquiryFormData
-  const onSubmit = () => {
-    // console.log("Form submitted successfully:", data);
-    reset({
-      firstName: "",
-      lastName: "",
-      email: "",
-      phoneNumber: "",
-      selectedProperty: "",
-      message: "",
-      terms: true,
-    });
+  const onSubmit = async (data: InquiryFormData) => {
+    try {
+      const response = await fetch("/estatein/api/inquiryForm", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit form");
+      }
+
+      toast.success("Form submitted successfully");
+      reset({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phoneNumber: "",
+        selectedProperty: "",
+        message: "",
+        terms: true,
+      });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast.error("Error submitting form");
+    }
   };
+
+  // const onSubmit = (data: InquiryFormData) => {
+  //   console.log("Form submitted successfully:", data);
+  // reset({
+  //   firstName: "",
+  //   lastName: "",
+  //   email: "",
+  //   phoneNumber: "",
+  //   selectedProperty: "",
+  //   message: "",
+  //   terms: true,
+  // });
+  // };
 
   return (
     <form
