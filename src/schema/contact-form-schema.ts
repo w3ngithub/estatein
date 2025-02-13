@@ -11,7 +11,10 @@ export const formSchema = z.object({
   noOfBedrooms: z.string().min(1, "Number of Bedrooms is required"),
   budget: z.string().min(1, "Budget is required"),
   preferredContactMethod: z.enum(["number", "email"]),
-  preferredNumber: z.string().regex(/^[0-9]{10}$/, "Invalid phone number"),
+  preferredNumber: z
+    .string()
+    .regex(/^[0-9]{10}$/, "Invalid phone number")
+    .optional(),
   preferredEmail: z.string().optional(),
   message: z.string().optional(),
   terms: z.literal(true, {

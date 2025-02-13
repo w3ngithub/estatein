@@ -79,6 +79,8 @@ const ContactForm = () => {
       noOfBedrooms: "",
       budget: "",
       preferredContactMethod: "number",
+      preferredNumber: "",
+      preferredEmail: "",
       message: "",
       terms: true,
     });
@@ -374,6 +376,16 @@ const ContactForm = () => {
                   </RadioGroup>
                 )}
               />
+              {errors.preferredNumber && (
+                <span className="text-red-500 text-sm mt-1">
+                  {errors.preferredNumber.message}
+                </span>
+              )}
+              {errors.preferredEmail && (
+                <span className="text-red-500 text-sm mt-1">
+                  {errors.preferredEmail.message}
+                </span>
+              )}
               {errors.preferredContactMethod && (
                 <span className="text-red-500 text-sm mt-1">
                   {errors.preferredContactMethod.message}
