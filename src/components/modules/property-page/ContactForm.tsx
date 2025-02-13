@@ -113,11 +113,13 @@ const ContactForm = () => {
   const email = watch("email");
   const phoneNumber = watch("phoneNumber");
 
-  const populatePreferredPhoneNumber = (e: any) => {
+  const populatePreferredPhoneNumber = (
+    e: React.MouseEvent<HTMLButtonElement>
+  ) => {
     e.preventDefault();
     setValue("preferredNumber", phoneNumber);
   };
-  const populatePreferredEmail = (e: any) => {
+  const populatePreferredEmail = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     setValue("preferredEmail", email);
   };

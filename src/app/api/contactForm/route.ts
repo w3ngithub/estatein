@@ -59,6 +59,7 @@ export async function POST(request: NextRequest) {
       existingData = JSON.parse(fileContent);
     } catch (error) {
       // File doesn't exist or is empty, start with empty array
+      console.log(error);
     }
 
     // Add timestamp to form data
