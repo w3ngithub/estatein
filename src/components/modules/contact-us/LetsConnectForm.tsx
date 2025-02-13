@@ -53,7 +53,7 @@ const LetsConnectForm = () => {
     try {
       setIsSubmitting(true);
 
-      const response = await fetch("/estatein/api/lets-connect-form", {
+      const response = await fetch("/estatein/api/letsConnectForm", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

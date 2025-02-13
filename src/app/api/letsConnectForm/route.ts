@@ -5,7 +5,7 @@ import path from "path";
 
 const filePath = path.join(
   process.cwd(),
-  "src/utilityComponents/dashboardPage/lets-connect-form.json"
+  "src/utilityComponents/dashboardPage/letsConnectForm.json"
 );
 
 export async function POST(request: NextRequest) {
