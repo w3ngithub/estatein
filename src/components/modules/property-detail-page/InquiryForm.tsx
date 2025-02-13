@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SelectField from "../common/SelectField";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -13,15 +13,13 @@ import {
   inquiryFormSchema,
 } from "@/schema/inquiry-form-schema";
 import { toast } from "sonner";
-
-const preferredLocation = [
-  { value: "ktm", selectFieldData: "Kathmandu" },
-  { value: "bkt", selectFieldData: "Bhaktapur" },
-  { value: "lalit", selectFieldData: "Lalitpur" },
-];
+import carouselDataDiscoverProperty from "@/utilityComponents/dashboardPage/discoverProperty.json";
 
 const InquiryForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [locations, setLocations] = useState<
+    { value: string; selectFieldData: string }[]
+  >([]);
 
   const {
     register,
@@ -41,6 +39,17 @@ const InquiryForm = () => {
       terms: true,
     },
   });
+
+  //taking unique locations from json file
+  useEffect(() => {
+    const uniqueLocations = Array.from(
+      new Set(carouselDataDiscoverProperty.map((property) => property.location))
+    ).map((location) => ({
+      value: location,
+      selectFieldData: location,
+    }));
+    setLocations(uniqueLocations);
+  }, []);
 
   const onSubmit = async (data: InquiryFormData) => {
     if (isSubmitting) return; // Prevent multiple submissions
@@ -170,7 +179,7 @@ const InquiryForm = () => {
           render={({ field }) => (
             <SelectField
               placeholder="Select Location"
-              data={preferredLocation}
+              data={locations}
               value={field.value || ""}
               onChange={field.onChange}
             />
