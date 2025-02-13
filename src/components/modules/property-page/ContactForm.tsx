@@ -12,6 +12,7 @@ import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { formSchema, FormSchema } from "@/schema/contact-form-schema";
 import { MessageIcon, PhoneIcon } from "@/svgs/PropertyPageSvg";
+import { toast } from "sonner";
 
 const ContactForm = () => {
   const preferredLocation = [
@@ -67,26 +68,60 @@ const ContactForm = () => {
     },
   });
 
-  // data: FormSchema
-  const onSubmit = (data: FormSchema) => {
-    console.log("Form Data:", data);
-    reset({
-      firstName: "",
-      lastName: "",
-      email: "",
-      phoneNumber: "",
-      preferredLocation: "",
-      propertyType: "",
-      noOfBathrooms: "",
-      noOfBedrooms: "",
-      budget: "",
-      preferredContactMethod: "number",
-      preferredNumber: "",
-      preferredEmail: "",
-      message: "",
-      terms: true,
-    });
+  const onSubmit = async (data: FormSchema) => {
+    try {
+      const response = await fetch("/estatein/api/contactForm", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      if (!response.ok) {
+        throw new Error("Failed to submit form");
+      }
+      toast.success("Form submitted successfully");
+      reset({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phoneNumber: "",
+        preferredLocation: "",
+        propertyType: "",
+        noOfBathrooms: "",
+        noOfBedrooms: "",
+        budget: "",
+        preferredContactMethod: "number",
+        preferredNumber: "",
+        preferredEmail: "",
+        message: "",
+        terms: true,
+      });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast.error("Error submitting form");
+    }
   };
+
+  // const onSubmit = (data: FormSchema) => {
+  //   console.log("Form Data:", data);
+  //   reset({
+  //     firstName: "",
+  //     lastName: "",
+  //     email: "",
+  //     phoneNumber: "",
+  //     preferredLocation: "",
+  //     propertyType: "",
+  //     noOfBathrooms: "",
+  //     noOfBedrooms: "",
+  //     budget: "",
+  //     preferredContactMethod: "number",
+  //     preferredNumber: "",
+  //     preferredEmail: "",
+  //     message: "",
+  //     terms: true,
+  //   });
+  // };
 
   const email = watch("email");
   const phoneNumber = watch("phoneNumber");
