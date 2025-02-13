@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { ThreeStars } from "@/svgs/HomePageSvg";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -15,6 +15,8 @@ import { MessageIcon, PhoneIcon } from "@/svgs/PropertyPageSvg";
 import { toast } from "sonner";
 
 const ContactForm = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const preferredLocation = [
     { value: "ktm", selectFieldData: "Kathmandu" },
     { value: "bkt", selectFieldData: "Bhaktapur" },
@@ -69,7 +71,10 @@ const ContactForm = () => {
   });
 
   const onSubmit = async (data: FormSchema) => {
+    if (isSubmitting) return; // Prevent multiple submissions
     try {
+      setIsSubmitting(true);
+
       const response = await fetch("/estatein/api/contactForm", {
         method: "POST",
         headers: {
@@ -100,28 +105,10 @@ const ContactForm = () => {
     } catch (error) {
       console.error("Error submitting form:", error);
       toast.error("Error submitting form");
+    } finally {
+      setIsSubmitting(false);
     }
   };
-
-  // const onSubmit = (data: FormSchema) => {
-  //   console.log("Form Data:", data);
-  //   reset({
-  //     firstName: "",
-  //     lastName: "",
-  //     email: "",
-  //     phoneNumber: "",
-  //     preferredLocation: "",
-  //     propertyType: "",
-  //     noOfBathrooms: "",
-  //     noOfBedrooms: "",
-  //     budget: "",
-  //     preferredContactMethod: "number",
-  //     preferredNumber: "",
-  //     preferredEmail: "",
-  //     message: "",
-  //     terms: true,
-  //   });
-  // };
 
   const email = watch("email");
   const phoneNumber = watch("phoneNumber");
@@ -507,8 +494,15 @@ const ContactForm = () => {
             </p>
           </div>
           <div className="max-mobile-md:w-full">
-            <Button className="bg-purple-shade-60 hover:bg-purple-shade-d60 py-6 px-4 font-medium rounded-md max-desktop-lg:text-sm max-mobile-lg:w-full dark:text-white">
-              Send Your Message
+            <Button
+              disabled={isSubmitting}
+              className={`py-6 px-4 font-medium rounded-md max-desktop-lg:text-sm max-mobile-lg:w-full dark:text-white ${
+                isSubmitting
+                  ? "bg-gray-400 cursor-not-allowed"
+                  : "bg-purple-shade-60 hover:bg-purple-shade-d60"
+              }`}
+            >
+              {isSubmitting ? "Submitting..." : "Send Your Message"}
             </Button>
           </div>
         </div>
