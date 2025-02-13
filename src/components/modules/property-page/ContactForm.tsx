@@ -375,7 +375,7 @@ const ContactForm = () => {
                       </div>
                       <Button
                         variant="link"
-                        className="flex justify-end items-center"
+                        className="flex justify-end items-center text-purple-shade-60"
                         onClick={(e) => populatePreferredPhoneNumber(e)}
                       >
                         Same as above?
@@ -399,7 +399,7 @@ const ContactForm = () => {
                       </div>
                       <Button
                         variant="link"
-                        className="flex justify-end items-center"
+                        className="flex justify-end items-center text-purple-shade-60"
                         onClick={(e) => populatePreferredEmail(e)}
                       >
                         Same as above?
