@@ -8,6 +8,9 @@ import { toast } from "sonner";
 
 const MeetTeam = () => {
   const [messages, setMessages] = useState<{ [key: string]: string }>({});
+  const [submitting, setIsSubmitting] = useState<{ [key: string]: boolean }>(
+    {}
+  );
 
   const teamMembers = [
     {
@@ -50,12 +53,16 @@ const MeetTeam = () => {
 
   // Handle message sending
   const handleSendMessage = async (email: string) => {
+    if (submitting[email]) return; // Prevent multiple submissions for this email
+
     if (!messages[email]?.trim()) {
       toast.error("Please enter a message before sending.");
       return;
     }
 
     try {
+      setIsSubmitting((prev) => ({ ...prev, [email]: true }));
+
       const response = await fetch("/estatein/api/send-message", {
         method: "POST",
         headers: {
@@ -76,6 +83,8 @@ const MeetTeam = () => {
     } catch (error) {
       console.error("Error sending message:", error);
       toast.error("Failed to send message. Please try again.");
+    } finally {
+      setIsSubmitting((prev) => ({ ...prev, [email]: false }));
     }
   };
 
@@ -142,7 +151,11 @@ const MeetTeam = () => {
                   className="absolute top-1/2 right-2 transform -translate-y-1/2 p-2 rounded-full dark:bg-purple-shade-60 cursor-pointer"
                   onClick={() => handleSendMessage(member.email)}
                 >
-                  <SendSmallIcon />
+                  {submitting[member.email] ? (
+                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                  ) : (
+                    <SendSmallIcon />
+                  )}
                 </div>
               </div>
             </div>
