@@ -5,10 +5,14 @@ import { useState } from "react";
 import { toast } from "sonner";
 
 const Footer = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [email, setEmail] = useState("");
+
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (isSubmitting) return;
     try {
+      setIsSubmitting(true);
       const response = await fetch("/estatein/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -24,6 +28,8 @@ const Footer = () => {
       console.error("Error submitting form:", err);
 
       toast.error("Error, please try resubmitting the form");
+    } finally {
+      setIsSubmitting(false);
     }
   }
 
@@ -58,12 +64,13 @@ const Footer = () => {
               />
 
               <button
+                disabled={isSubmitting}
                 onClick={(e) =>
                   handleSubmit(e as unknown as React.FormEvent<HTMLFormElement>)
                 }
                 className="p-2 rounded-full cursor-pointer"
               >
-                <SendIcon />
+                {isSubmitting ? "Submitting..." : <SendIcon />}
               </button>
             </div>
           </div>
