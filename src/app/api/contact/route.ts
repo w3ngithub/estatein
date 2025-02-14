@@ -17,8 +17,6 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    console.log("Processing request for email:", email);
-
     // create transporter object
     const transporter = nodemailer.createTransport({
       service: "gmail",
