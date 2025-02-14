@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import {
   Table,
   TableBody,
@@ -19,11 +19,32 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import propertySizeType from "@/utilityComponents/dashboardPage/propertySizeTypeData.json";
 import { toast } from "sonner";
 import Loading from "@/components/elements/Loading";
 
-const PropertySizeType = () => {
+type PropertySizeType = {
+  id: string;
+  value: string;
+  selectFieldData: string;
+};
+
+interface PropertySizeTypeProps {
+  propertySizeType: Array<{
+    id: string;
+    value: string;
+    selectFieldData: string;
+  }>;
+  setPropertySizeType: Dispatch<
+    SetStateAction<
+      Array<{ id: string; value: string; selectFieldData: string }>
+    >
+  >;
+}
+
+const PropertySizeType = ({
+  propertySizeType,
+  setPropertySizeType,
+}: PropertySizeTypeProps) => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   //for edit
@@ -36,6 +57,17 @@ const PropertySizeType = () => {
   // for json patch
   // const [properties, setProperties] = useState(propertySizeType);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  useEffect(() => {
+    // Fetch and display data
+    async function fetchData() {
+      const res = await fetch("/estatein/api/addPropertySizeType");
+      const result = await res.json();
+      // setPropertyType(result.data);
+      setPropertySizeType(result.data);
+    }
+    fetchData();
+  }, []);
 
   const handleEdit = (id: string, value: string, selectFieldData: string) => {
     setCurrentProperty({ id, value, selectFieldData });

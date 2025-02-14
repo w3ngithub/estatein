@@ -10,6 +10,9 @@ const SettingsContent = () => {
   const [isModalOpenPropertyType, setIsModalOpenPropertyType] = useState(false);
   const [isModalOpenPropertySize, setIsModalOpenPropertySize] = useState(false);
   const [propertyType, setPropertyType] = useState<PropertyType[]>([]);
+  const [propertySizeType, setPropertySizeType] = useState<PropertySizeType[]>(
+    []
+  );
 
   const handleAddPropertyType = () => {
     setIsModalOpenPropertyType(true);
@@ -43,7 +46,10 @@ const SettingsContent = () => {
         />
       </div>
       <div>
-        <PropertySizeType />
+        <PropertySizeType
+          propertySizeType={propertySizeType}
+          setPropertySizeType={setPropertySizeType}
+        />
       </div>
       {/* Add Property Type Modal */}
       <AddPropertyTypeModal
@@ -57,6 +63,8 @@ const SettingsContent = () => {
       <AddPropertySizeModal
         isModalOpenPropertySize={isModalOpenPropertySize}
         setIsModalOpenPropertySize={setIsModalOpenPropertySize}
+        propertyTypeSizeData={propertySizeType}
+        setPropertyTypeSizeData={setPropertySizeType}
       />
     </div>
   );

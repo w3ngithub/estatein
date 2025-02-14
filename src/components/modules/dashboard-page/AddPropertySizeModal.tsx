@@ -20,22 +20,30 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { nanoid } from "nanoid";
-import propertySize from "@/utilityComponents/dashboardPage/propertySizeTypeData.json";
 import { toast } from "sonner";
 import Loading from "@/components/elements/Loading";
 
 interface AddPropertySizeTypeModalProps {
   isModalOpenPropertySize: boolean;
   setIsModalOpenPropertySize: Dispatch<SetStateAction<boolean>>;
+  propertyTypeSizeData: Array<{
+    id: string;
+    value: string;
+    selectFieldData: string;
+  }>;
+  setPropertyTypeSizeData: Dispatch<
+    SetStateAction<
+      Array<{ id: string; value: string; selectFieldData: string }>
+    >
+  >;
 }
 
 const AddPropertySizeTypeModal = ({
   isModalOpenPropertySize,
   setIsModalOpenPropertySize,
+  propertyTypeSizeData,
+  setPropertyTypeSizeData,
 }: AddPropertySizeTypeModalProps) => {
-  const [propertyTypeSizeData, setPropertyTypeSizeData] = useState([
-    ...propertySize,
-  ]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const AddPropertyTypeSchema = z.object({

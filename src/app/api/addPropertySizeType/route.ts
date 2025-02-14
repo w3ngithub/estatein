@@ -8,6 +8,20 @@ const filePath = path.join(
   "src/utilityComponents/dashboardPage/propertySizeTypeData.json"
 );
 
+// GET request to retrieve data
+export async function GET(req: NextRequest) {
+  try {
+    const data = JSON.parse(fs.readFileSync(filePath, "utf-8"));
+    return NextResponse.json({ data }, { status: 200 });
+  } catch (error) {
+    console.error("Error during GET request:", error);
+    return NextResponse.json(
+      { message: "Error retrieving data" },
+      { status: 500 }
+    );
+  }
+}
+
 //for post operation
 export async function PATCH(req: NextRequest) {
   try {
