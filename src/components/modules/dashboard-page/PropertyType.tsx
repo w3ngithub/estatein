@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Table,
   TableBody,
@@ -19,9 +19,14 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import propertyType from "@/utilityComponents/dashboardPage/propertyTypeData.json";
 import { toast } from "sonner";
 import Loading from "@/components/elements/Loading";
+
+type PropertyType = {
+  id: string;
+  value: string;
+  selectFieldData: string;
+};
 
 const PropertyType = () => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
@@ -36,6 +41,17 @@ const PropertyType = () => {
   // for json patch
   // const [properties, setProperties] = useState(propertyType);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [propertyType, setPropertyType] = useState<PropertyType[]>([]);
+
+  useEffect(() => {
+    // Fetch and display data
+    async function fetchData() {
+      const res = await fetch("/estatein/api/addPropertyType");
+      const result = await res.json();
+      setPropertyType(result.data);
+    }
+    fetchData();
+  }, []);
 
   const handleEdit = (id: string, value: string, selectFieldData: string) => {
     setCurrentProperty({ id, value, selectFieldData });
@@ -143,43 +159,45 @@ const PropertyType = () => {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {propertyType.map((propertyType, index) => (
-                <TableRow key={propertyType.id}>
-                  <TableCell className="w-[100px] desktop-lg:text-lg">
-                    {/* {propertyType.id} */}
-                    {index + 1}
-                  </TableCell>
-                  <TableCell className="w-[400px] text-center desktop-lg:text-lg">
-                    {propertyType.selectFieldData}
-                  </TableCell>
-                  <TableCell className="w-[100px] text-center desktop-lg:text-lg">
-                    <div className="flex items-center gap-2">
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        onClick={() =>
-                          handleEdit(
-                            propertyType.id,
-                            propertyType.value,
-                            propertyType.selectFieldData
-                          )
-                        }
-                        className="text-blue-500 hover:text-blue-700"
-                      >
-                        <Edit2 className="h-4 w-4" />
-                      </Button>
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        onClick={() => handleDelete(propertyType.id)}
-                        className="text-red-500 hover:text-red-700"
-                      >
-                        <Trash className="h-4 w-4" />
-                      </Button>
-                    </div>
-                  </TableCell>
-                </TableRow>
-              ))}
+              {propertyType?.map(
+                (propertyType: PropertyType, index: number) => (
+                  <TableRow key={propertyType.id}>
+                    <TableCell className="w-[100px] desktop-lg:text-lg">
+                      {/* {propertyType.id} */}
+                      {index + 1}
+                    </TableCell>
+                    <TableCell className="w-[400px] text-center desktop-lg:text-lg">
+                      {propertyType.selectFieldData}
+                    </TableCell>
+                    <TableCell className="w-[100px] text-center desktop-lg:text-lg">
+                      <div className="flex items-center gap-2">
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          onClick={() =>
+                            handleEdit(
+                              propertyType.id,
+                              propertyType.value,
+                              propertyType.selectFieldData
+                            )
+                          }
+                          className="text-blue-500 hover:text-blue-700"
+                        >
+                          <Edit2 className="h-4 w-4" />
+                        </Button>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          onClick={() => handleDelete(propertyType.id)}
+                          className="text-red-500 hover:text-red-700"
+                        >
+                          <Trash className="h-4 w-4" />
+                        </Button>
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                )
+              )}
             </TableBody>
           </Table>
         </div>
