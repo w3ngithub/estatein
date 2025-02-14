@@ -94,17 +94,19 @@ const PropertySizeType = ({
       // const result = await response.json();
 
       if (response.ok) {
-        // setProperties((prev) =>
-        //   prev.map((item) =>
-        //     item.id === currentProperty.id
-        //       ? {
-        //           ...item,
-        //           value: currentProperty.selectFieldData, // Sync value with selectFieldData
-        //           selectFieldData: currentProperty.selectFieldData,
-        //         }
-        //       : item
-        //   )
-        // );
+        setIsEditModalOpen(false);
+        //update the ui
+        setPropertySizeType((prev) =>
+          prev.map((item) =>
+            item.id === currentProperty.id
+              ? {
+                  ...item,
+                  value: currentProperty.selectFieldData, // Sync value with selectFieldData
+                  selectFieldData: currentProperty.selectFieldData,
+                }
+              : item
+          )
+        );
         toast.success("Property Size Type successfully updated");
       } else {
         toast.error("Error updating property size type");
@@ -139,9 +141,9 @@ const PropertySizeType = ({
         setIsDeleteModalOpen(false);
 
         // Optionally update the UI by removing the deleted item
-        // setProperties((prev) =>
-        //   prev.filter((item) => item.id !== propertyToDelete)
-        // );
+        setPropertySizeType((prev) =>
+          prev.filter((item) => item.id !== propertyToDelete)
+        );
         toast.success("Deleted successfully");
       } else {
         console.error("Error deleting:", data.message);
