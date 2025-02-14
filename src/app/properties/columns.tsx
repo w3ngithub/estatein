@@ -69,8 +69,14 @@ const ImageCell: React.FC<{ images: string[] }> = ({ images }) => {
     </div>
   );
 };
+
+interface ActionsCellProps {
+  id: string;
+  property: PropertyApiResponse[];
+  setProperty: (property: PropertyApiResponse[]) => void;
+}
 // Create a separate React component for the cell
-const ActionsCell = ({ id }: { id: string }) => {
+const ActionsCell = ({ id, property, setProperty }: ActionsCellProps) => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [propertyToDelete, setPropertyToDelete] = useState<string | null>(null);
@@ -98,6 +104,8 @@ const ActionsCell = ({ id }: { id: string }) => {
       if (response.ok) {
         // console.log("Deleted successfully:", data);
         setIsDeleteModalOpen(false);
+        // Update the local state immediately
+        setProperty(property.filter((item) => item.id !== propertyToDelete));
         toast.success("Deleted successfully");
       } else {
         console.error("Error deleting:", data.message);
@@ -184,7 +192,10 @@ const ActionsCell = ({ id }: { id: string }) => {
   );
 };
 
-export const columns: ColumnDef<PropertyApiResponse>[] = [
+export const columns = (
+  property: PropertyApiResponse[],
+  setProperty: (property: PropertyApiResponse[]) => void
+): ColumnDef<PropertyApiResponse>[] => [
   {
     accessorKey: "villaName",
     header: "Property Name",
@@ -312,6 +323,12 @@ export const columns: ColumnDef<PropertyApiResponse>[] = [
   {
     accessorKey: "actions",
     header: "Actions",
-    cell: ({ row }) => <ActionsCell id={row.original.id} />,
+    cell: ({ row }) => (
+      <ActionsCell
+        id={row.original.id}
+        property={property}
+        setProperty={setProperty}
+      />
+    ),
   },
 ];
