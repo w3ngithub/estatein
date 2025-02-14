@@ -151,6 +151,8 @@ const ActionsCell = ({ id, property, setProperty }: ActionsCellProps) => {
         isModalOpen={isModalOpen}
         setIsModalOpen={setIsModalOpen}
         propertyId={propertyToEdit!}
+        property={property}
+        setProperty={setProperty}
       />
 
       {/* Delete Modal */}

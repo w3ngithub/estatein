@@ -35,17 +35,22 @@ import propertyType from "@/utilityComponents/dashboardPage/propertyTypeData.jso
 import { YearCalendar } from "../common/YearCalender";
 import Loading from "@/components/elements/Loading";
 import { toast } from "sonner";
+import { PropertyApiResponse } from "@/app/properties/types";
 
 interface EditPropertyModalProps {
   isModalOpen: boolean;
   setIsModalOpen: Dispatch<SetStateAction<boolean>>;
   propertyId: string;
+  property: PropertyApiResponse[];
+  setProperty: (property: PropertyApiResponse[]) => void;
 }
 
 const EditPropertyModal = ({
   isModalOpen,
   setIsModalOpen,
   propertyId,
+  property,
+  setProperty,
 }: EditPropertyModalProps) => {
   const [isLoading, setIsLoading] = useState(true);
   // const [propertyData, setPropertyData] = useState(null);
@@ -265,6 +270,42 @@ const EditPropertyModal = ({
       if (!response.ok) {
         throw new Error("Failed to update property");
       }
+      // Update local state immediately
+      setProperty((prevProperties) =>
+        prevProperties.map((item) =>
+          item.id === propertyId
+            ? {
+                ...item,
+                ...updateData,
+                coverImage: newCoverImageUrl,
+                multipleImages: newMultipleImageUrl || item.multipleImages,
+                keyFeatures: values.keyFeatures,
+                villaName: values.villaName,
+                description: values.description,
+                price: values.price,
+                pillName: values.pillName,
+                location: values.location,
+                buildYear: values.buildYear,
+                totalBedRoom: values.totalBedRoom,
+                totalBathRoom: values.totalBathRoom,
+                totalArea: values.totalArea,
+                areaUnit: values.areaUnit,
+                propertyType: values.propertyType,
+                propertyTransferTax: values.propertyTransferTax,
+                legalFees: values.legalFees,
+                homeInspectionFee: values.homeInspectionFee,
+                propertyInsurance: values.propertyInsurance,
+                mortgageFee: values.mortgageFee,
+                propertyTax: values.propertyTax,
+                additionalFee: values.additionalFee,
+                homeOwnersAssociationFee: values.homeOwnersAssociationFee,
+                downPayment: values.downPayment,
+                monthlyPropertyInsurance: values.monthlyPropertyInsurance,
+              }
+            : item
+        )
+      );
+
       // Update local state
       setImageUrl(newCoverImageUrl);
       setMultipleImgUrl(newMultipleImageUrl);
