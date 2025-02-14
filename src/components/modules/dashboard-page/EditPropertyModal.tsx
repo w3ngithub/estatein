@@ -53,15 +53,11 @@ const EditPropertyModal = ({
   setProperty,
 }: EditPropertyModalProps) => {
   const [isLoading, setIsLoading] = useState(true);
-  // const [propertyData, setPropertyData] = useState(null);
   const [imageUrl, setImageUrl] = useState(""); //for coverImage
   const [multipleImgUrl, setMultipleImgUrl] = useState([]); //for multiple images
 
   const [newFeature, setNewFeature] = useState("");
 
-  // const form = useForm<PropertyListingSchema>({
-  //   resolver: zodResolver(propertySchema),
-  // });
   const form = useForm<PropertyListingSchema>({
     resolver: zodResolver(propertySchema),
     defaultValues: {
@@ -92,21 +88,8 @@ const EditPropertyModal = ({
     },
   });
 
-  // Helper function to convert URL to File object
-  // const urlToFile = async (url: string, filename: string): Promise<File> => {
-  //   try {
-  //     const response = await fetch(url);
-  //     const blob = await response.blob();
-  //     return new File([blob], filename, { type: blob.type });
-  //   } catch (error) {
-  //     console.error("Error converting URL to File:", error);
-  //     return new File([""], filename);
-  //   }
-  // };
   const urlToFile = async (url: string, filename: string): Promise<File> => {
     const correctedUrl = url.startsWith("/uploads/") ? `/estatein${url}` : url; // Ensure correct path
-
-    console.log(correctedUrl, "mmmmmmmmmmmmmmmmm"); // Debugging output
 
     try {
       const response = await fetch(correctedUrl);
@@ -127,14 +110,7 @@ const EditPropertyModal = ({
           throw new Error("Failed to fetch property details");
         }
         const data = await response.json();
-        // setPropertyData(data);
 
-        // Populate form fields with fetched data
-        // Object.keys(data).forEach((key) => {
-        //   if (key !== "coverImage" && key !== "multipleImages") {
-        //     form.setValue(key as keyof PropertyListingSchema, data[key]);
-        //   }
-        // });
         // Populate form fields with fetched data
         Object.keys(data).forEach((key) => {
           if (key === "coverImage") {
@@ -234,9 +210,6 @@ const EditPropertyModal = ({
         const { coverImageUrl, multipleImageUrls } =
           await imageUploadResponse.json();
 
-        console.log(multipleImageUrls, "xxxxxxxxxxxxxxxxx");
-        // console.log(multipleImgUrl, "yyyyyyyyyyyy");
-
         if (multipleImageUrls) {
           newMultipleImageUrl = multipleImageUrls;
         }
@@ -244,7 +217,6 @@ const EditPropertyModal = ({
         if (coverImageUrl) {
           newCoverImageUrl = coverImageUrl;
         }
-        // console.log("Updated Cover Image URL:", coverImageUrl);
       }
 
       // Prepare update data
@@ -271,8 +243,9 @@ const EditPropertyModal = ({
         throw new Error("Failed to update property");
       }
       // Update local state immediately
+      //@ts-ignore
       setProperty((prevProperties) =>
-        prevProperties.map((item) =>
+        prevProperties.map((item: PropertyApiResponse) =>
           item.id === propertyId
             ? {
                 ...item,
