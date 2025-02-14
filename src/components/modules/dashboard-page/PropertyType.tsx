@@ -93,17 +93,18 @@ const PropertyType = ({ propertyType, setPropertyType }: PropertyTypeProps) => {
 
       if (response.ok) {
         setIsEditModalOpen(false);
-        // setProperties((prev) =>
-        //   prev.map((item) =>
-        //     item.id === currentProperty.id
-        //       ? {
-        //           ...item,
-        //           value: currentProperty.selectFieldData, // Sync value with selectFieldData
-        //           selectFieldData: currentProperty.selectFieldData,
-        //         }
-        //       : item
-        //   )
-        // );
+        //update the ui
+        setPropertyType((prev) =>
+          prev.map((item) =>
+            item.id === currentProperty.id
+              ? {
+                  ...item,
+                  value: currentProperty.selectFieldData, // Sync value with selectFieldData
+                  selectFieldData: currentProperty.selectFieldData,
+                }
+              : item
+          )
+        );
 
         toast.success("Property Type successfully updated");
       } else {
@@ -137,9 +138,9 @@ const PropertyType = ({ propertyType, setPropertyType }: PropertyTypeProps) => {
         setIsDeleteModalOpen(false);
 
         // Optionally update the UI by removing the deleted item
-        // setProperties((prev) =>
-        //   prev.filter((item) => item.id !== propertyToDelete)
-        // );
+        setPropertyType((prev) =>
+          prev.filter((item) => item.id !== propertyToDelete)
+        );
         toast.success("Deleted successfully");
       } else {
         toast.error("Error deleting");
