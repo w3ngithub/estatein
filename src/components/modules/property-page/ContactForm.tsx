@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ThreeStars } from "@/svgs/HomePageSvg";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -13,28 +13,63 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { formSchema, FormSchema } from "@/schema/contact-form-schema";
 import { MessageIcon, PhoneIcon } from "@/svgs/PropertyPageSvg";
 import { toast } from "sonner";
+import carouselDataDiscoverProperty from "@/utilityComponents/dashboardPage/discoverProperty.json";
 
 const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [locations, setLocations] = useState<
+    { value: string; selectFieldData: string }[]
+  >([]);
+  const [propertyType, setPropertyType] = useState<
+    { value: string; selectFieldData: string }[]
+  >([]);
 
-  const preferredLocation = [
-    { value: "ktm", selectFieldData: "Kathmandu" },
-    { value: "bkt", selectFieldData: "Bhaktapur" },
-    { value: "lalit", selectFieldData: "Lalitpur" },
-  ];
-  const propertyType = [
-    { value: "rental", selectFieldData: "Rental" },
-    { value: "own", selectFieldData: "Owned" },
-  ];
+  //taking unique locations from json file
+  useEffect(() => {
+    const uniqueLocations = Array.from(
+      new Set(carouselDataDiscoverProperty.map((property) => property.location))
+    ).map((location) => ({
+      value: location,
+      selectFieldData: location,
+    }));
+    setLocations(uniqueLocations);
+  }, []);
+
+  //taking unique property type from json file
+  useEffect(() => {
+    const uniquePropertyType = Array.from(
+      new Set(
+        carouselDataDiscoverProperty.map((property) => property.propertyType)
+      )
+    ).map((item) => ({
+      value: item,
+      selectFieldData: item,
+    }));
+    setPropertyType(uniquePropertyType);
+  }, []);
+
+  // const preferredLocation = [
+  //   { value: "ktm", selectFieldData: "Kathmandu" },
+  //   { value: "bkt", selectFieldData: "Bhaktapur" },
+  //   { value: "lalit", selectFieldData: "Lalitpur" },
+  // ];
+  // const propertyType = [
+  //   { value: "rental", selectFieldData: "Rental" },
+  //   { value: "own", selectFieldData: "Owned" },
+  // ];
   const noOfBathrooms = [
     { value: "1", selectFieldData: "One" },
     { value: "2", selectFieldData: "Two" },
     { value: "3", selectFieldData: "Three" },
+    { value: "4", selectFieldData: "Four" },
+    { value: "Others", selectFieldData: "Others" },
   ];
   const noOfBedrooms = [
     { value: "1", selectFieldData: "One" },
     { value: "2", selectFieldData: "Two" },
     { value: "3", selectFieldData: "Three" },
+    { value: "4", selectFieldData: "Four" },
+    { value: "Others", selectFieldData: "Others" },
   ];
   const budget = [
     { value: "1000", selectFieldData: "10000" },
@@ -250,7 +285,7 @@ const ContactForm = () => {
               render={({ field }) => (
                 <SelectField
                   placeholder="Select Location"
-                  data={preferredLocation}
+                  data={locations}
                   value={field.value || ""}
                   onChange={field.onChange}
                 />
@@ -379,8 +414,6 @@ const ContactForm = () => {
                   <RadioGroup
                     onValueChange={field.onChange}
                     defaultValue={field.value}
-                    // className="flex flex-row justify-between w-full h-16 max-desktop-lg:h-14 max-desktop-md:flex-col max-desktop-md:mb-6"
-                    // className="flex flex-col space-y-4 w-full"
                     className="grid grid-cols-1 desktop-md:grid-cols-2"
                   >
                     <div className="flex flex-col w-full">
