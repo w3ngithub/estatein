@@ -2,9 +2,13 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import AddPropertyModal from "./AddPropertyModal";
 import PropertyTable from "@/app/properties/page";
+import { PropertyApiResponse } from "@/app/properties/types";
 
 const PropertiesContent = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [property, setProperty] = useState<PropertyApiResponse[]>([]);
+
+  console.log(property, "xxxxxxxxxx");
 
   const handleAddProperty = () => {
     setIsModalOpen(true);
@@ -22,7 +26,7 @@ const PropertiesContent = () => {
         </Button>
       </div>
       <div className="w-full overflow-x-auto">
-        <PropertyTable />
+        <PropertyTable property={property} setProperty={setProperty} />
       </div>
 
       {/* Add Property Modal */}

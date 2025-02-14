@@ -24,6 +24,20 @@ async function readJsonFile() {
   }
 }
 
+// GET request to retrieve all property data
+export async function GET(req: NextRequest) {
+  try {
+    const data = JSON.parse(fs.readFileSync(filePath, "utf-8"));
+    return NextResponse.json({ data }, { status: 200 });
+  } catch (error) {
+    console.error("Error during GET request:", error);
+    return NextResponse.json(
+      { message: "Error retrieving data" },
+      { status: 500 }
+    );
+  }
+}
+
 // Helper function to write JSON file
 async function writeJsonFile(data: PropertyApiResponse[]): Promise<void> {
   await ps.writeFile(filePath, JSON.stringify(data, null, 2));
