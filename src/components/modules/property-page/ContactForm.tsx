@@ -364,7 +364,7 @@ const ContactForm = () => {
               <span className="text-red-500">{errors.budget.message}</span>
             )}
           </div>
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col space-y-3">
             <Label
               htmlFor="contact"
               className="font-semibold text-xl max-desktop-lg:text-base"
@@ -384,7 +384,7 @@ const ContactForm = () => {
                     className="grid grid-cols-1 desktop-md:grid-cols-2"
                   >
                     <div className="flex flex-col w-full">
-                      <div className="flex items-center gap-3 w-full h-full px-4 py-3 rounded-lg bg-[#E4E4E7] dark:bg-[#1C1C1C]">
+                      <div className="flex items-center gap-3 w-full px-4 py-3 rounded-lg bg-[#E4E4E7] dark:bg-[#1C1C1C] h-16 max-desktop-lg:h-14">
                         <div>
                           <PhoneIcon />
                         </div>
@@ -409,7 +409,7 @@ const ContactForm = () => {
                       </Button>
                     </div>
                     <div className="flex flex-col w-full">
-                      <div className="flex items-center gap-3 w-full h-full px-4 py-3 bg-[#E4E4E7] dark:bg-[#1C1C1C] rounded-lg">
+                      <div className="flex items-center gap-3 w-full px-4 py-3 bg-[#E4E4E7] dark:bg-[#1C1C1C] rounded-lg h-16 max-desktop-lg:h-14">
                         <div>
                           <MessageIcon />
                         </div>
