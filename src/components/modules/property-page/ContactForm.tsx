@@ -339,7 +339,8 @@ const ContactForm = () => {
           </div>
         </div>
         {/* third row */}
-        <div className="grid tablet-sm:grid-cols-2 gap-3 max-tablet-sm:pb-12">
+        {/* max-tablet-sm:pb-12 */}
+        <div className="grid tablet-sm:grid-cols-2 gap-3">
           <div className="flex flex-col gap-3">
             <Label
               htmlFor="budget"
@@ -378,7 +379,9 @@ const ContactForm = () => {
                   <RadioGroup
                     onValueChange={field.onChange}
                     defaultValue={field.value}
-                    className="flex flex-row justify-between w-full h-16 max-desktop-lg:h-14 max-desktop-md:flex-col max-desktop-md:mb-6"
+                    // className="flex flex-row justify-between w-full h-16 max-desktop-lg:h-14 max-desktop-md:flex-col max-desktop-md:mb-6"
+                    // className="flex flex-col space-y-4 w-full"
+                    className="grid grid-cols-1 desktop-md:grid-cols-2"
                   >
                     <div className="flex flex-col w-full">
                       <div className="flex items-center gap-3 w-full h-full px-4 py-3 rounded-lg bg-[#E4E4E7] dark:bg-[#1C1C1C]">
