@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction, useState } from "react";
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import {
   Dialog,
   DialogContent,
@@ -19,7 +19,6 @@ import {
   FormItem,
   FormMessage,
 } from "@/components/ui/form";
-import propertyType from "@/utilityComponents/dashboardPage/propertyTypeData.json";
 import { nanoid } from "nanoid";
 import { toast } from "sonner";
 import Loading from "@/components/elements/Loading";
@@ -27,13 +26,25 @@ import Loading from "@/components/elements/Loading";
 interface AddPropertyTypeModalProps {
   isModalOpenPropertyType: boolean;
   setIsModalOpenPropertyType: Dispatch<SetStateAction<boolean>>;
+  propertyTypeData: Array<{
+    id: string;
+    value: string;
+    selectFieldData: string;
+  }>;
+  setPropertyTypeData: Dispatch<
+    SetStateAction<
+      Array<{ id: string; value: string; selectFieldData: string }>
+    >
+  >;
 }
 
 const AddPropertyTypeModal = ({
   isModalOpenPropertyType,
   setIsModalOpenPropertyType,
+  propertyTypeData,
+  setPropertyTypeData,
 }: AddPropertyTypeModalProps) => {
-  const [propertyTypeData, setPropertyTypeData] = useState([...propertyType]);
+  // const [propertyTypeData, setPropertyTypeData] = useState([...propertyType]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const AddPropertyTypeSchema = z.object({
@@ -76,6 +87,7 @@ const AddPropertyTypeModal = ({
 
       if (response.ok) {
         const result = await response.json();
+        // Update the parent component's state
         setPropertyTypeData(result.data);
         toast.success("Property Type is added");
       }

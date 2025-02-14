@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import {
   Table,
   TableBody,
@@ -28,7 +28,20 @@ type PropertyType = {
   selectFieldData: string;
 };
 
-const PropertyType = () => {
+interface PropertyTypeProps {
+  propertyType: Array<{
+    id: string;
+    value: string;
+    selectFieldData: string;
+  }>;
+  setPropertyType: Dispatch<
+    SetStateAction<
+      Array<{ id: string; value: string; selectFieldData: string }>
+    >
+  >;
+}
+
+const PropertyType = ({ propertyType, setPropertyType }: PropertyTypeProps) => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   //for edit
@@ -41,13 +54,14 @@ const PropertyType = () => {
   // for json patch
   // const [properties, setProperties] = useState(propertyType);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [propertyType, setPropertyType] = useState<PropertyType[]>([]);
+  // const [propertyType, setPropertyType] = useState<PropertyType[]>([]);
 
   useEffect(() => {
     // Fetch and display data
     async function fetchData() {
       const res = await fetch("/estatein/api/addPropertyType");
       const result = await res.json();
+      // setPropertyType(result.data);
       setPropertyType(result.data);
     }
     fetchData();

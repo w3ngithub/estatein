@@ -9,6 +9,7 @@ import AddPropertyTypeModal from "./AddPropertyTypeModal";
 const SettingsContent = () => {
   const [isModalOpenPropertyType, setIsModalOpenPropertyType] = useState(false);
   const [isModalOpenPropertySize, setIsModalOpenPropertySize] = useState(false);
+  const [propertyType, setPropertyType] = useState<PropertyType[]>([]);
 
   const handleAddPropertyType = () => {
     setIsModalOpenPropertyType(true);
@@ -36,7 +37,10 @@ const SettingsContent = () => {
         </Button>
       </div>
       <div>
-        <PropertyType />
+        <PropertyType
+          propertyType={propertyType}
+          setPropertyType={setPropertyType}
+        />
       </div>
       <div>
         <PropertySizeType />
@@ -45,6 +49,8 @@ const SettingsContent = () => {
       <AddPropertyTypeModal
         isModalOpenPropertyType={isModalOpenPropertyType}
         setIsModalOpenPropertyType={setIsModalOpenPropertyType}
+        propertyTypeData={propertyType}
+        setPropertyTypeData={setPropertyType}
       />
 
       {/* Add Property Size Type Modal */}
