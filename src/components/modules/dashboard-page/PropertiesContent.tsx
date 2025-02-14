@@ -1,5 +1,6 @@
+"use client";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AddPropertyModal from "./AddPropertyModal";
 import PropertyTable from "@/app/properties/page";
 import { PropertyApiResponse } from "@/app/properties/types";
@@ -9,6 +10,24 @@ const PropertiesContent = () => {
   const [property, setProperty] = useState<PropertyApiResponse[]>([]);
 
   console.log(property, "xxxxxxxxxx");
+
+  // Add a fetch function that can be reused
+  const fetchProperties = async () => {
+    try {
+      const res = await fetch("/estatein/api/addProperty");
+      const result = await res.json();
+      if (result.data && Array.isArray(result.data)) {
+        setProperty(result.data);
+      }
+    } catch (error) {
+      console.error("Failed to fetch properties:", error);
+    }
+  };
+
+  // Fetch properties on component mount
+  useEffect(() => {
+    fetchProperties();
+  }, []);
 
   const handleAddProperty = () => {
     setIsModalOpen(true);
@@ -26,13 +45,20 @@ const PropertiesContent = () => {
         </Button>
       </div>
       <div className="w-full overflow-x-auto">
-        <PropertyTable property={property} setProperty={setProperty} />
+        <PropertyTable
+          property={property}
+          setProperty={setProperty}
+          fetchProperties={fetchProperties}
+        />
       </div>
 
       {/* Add Property Modal */}
       <AddPropertyModal
         isModalOpen={isModalOpen}
         setIsModalOpen={setIsModalOpen}
+        property={property}
+        setProperty={setProperty}
+        fetchProperties={fetchProperties}
       />
     </div>
   );

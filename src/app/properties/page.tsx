@@ -7,21 +7,24 @@ import { PropertyApiResponse } from "./types";
 interface PropertyTableProps {
   property: PropertyApiResponse[];
   setProperty: Dispatch<SetStateAction<PropertyApiResponse[]>>;
+  fetchProperties: () => Promise<void>;
 }
 
-const PropertyTable = ({ property, setProperty }: PropertyTableProps) => {
+const PropertyTable = ({
+  property,
+  setProperty,
+  fetchProperties,
+}: PropertyTableProps) => {
   useEffect(() => {
-    // Fetch and display data
-    async function fetchData() {
-      const res = await fetch("/estatein/api/addProperty");
-      const result = await res.json();
-      setProperty(result.data);
-    }
-    fetchData();
-  }, [setProperty]);
+    fetchProperties();
+  }, []);
+
   return (
     <div className="container mx-auto py-10">
-      <DataTable columns={columns} data={property} />
+      <DataTable
+        columns={columns}
+        data={property.filter((prop) => prop !== undefined)}
+      />
     </div>
   );
 };

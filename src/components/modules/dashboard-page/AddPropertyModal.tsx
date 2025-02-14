@@ -34,15 +34,23 @@ import propertySizeType from "@/utilityComponents/dashboardPage/propertySizeType
 import propertyType from "@/utilityComponents/dashboardPage/propertyTypeData.json";
 import Loading from "@/components/elements/Loading";
 import { YearCalendar } from "../common/YearCalender";
+import { PropertyApiResponse } from "@/app/properties/types";
+import { toast } from "sonner";
 
 interface AddPropertyProps {
   isModalOpen: boolean;
   setIsModalOpen: Dispatch<SetStateAction<boolean>>;
+  property: PropertyApiResponse[];
+  setProperty: Dispatch<SetStateAction<PropertyApiResponse[]>>;
+  fetchProperties: () => Promise<void>;
 }
 
 const AddPropertyModal = ({
   isModalOpen,
   setIsModalOpen,
+  property,
+  setProperty,
+  fetchProperties,
 }: AddPropertyProps) => {
   // for adding multiple features
   const [newFeature, setNewFeature] = useState("");
@@ -171,21 +179,41 @@ const AddPropertyModal = ({
         throw new Error("Failed to update property");
       }
 
-      // Update the original data with the new values
-      // setOriginalData(newData);
+      const result = await response.json();
+
+      // Update the state with the new property
+      setProperty((prevProperties) => {
+        // Ensure prevProperties is always an array
+        const currentProperties = Array.isArray(prevProperties)
+          ? prevProperties
+          : [];
+        return [...currentProperties, result.data];
+      });
+      // Fetch the updated property list immediately
+      await fetchProperties();
+      // // Update the state with the new property
+      // setProperty((prevProperties) => {
+      //   // Ensure prevProperties is always an array
+      //   const currentProperties = Array.isArray(prevProperties)
+      //     ? prevProperties
+      //     : [];
+      //   return [...currentProperties, result.data];
+      // });
+      toast.success("Property is added");
 
       // Reset form
       form.reset();
       form.resetField("buildYear");
       form.resetField("coverImage");
       form.resetField("multipleImages");
+      setIsModalOpen(false);
     } catch (error) {
       console.error("Error updating property:", error);
       // Handle error appropriately
     } finally {
       setIsLoading(false);
+      setIsModalOpen(false);
     }
-    setIsModalOpen(false);
 
     // Reset form after submission
     form.reset();
