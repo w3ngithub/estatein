@@ -222,11 +222,14 @@ const DiscoveredProperty = () => {
     if (!api) {
       return;
     }
-    setCount(api.scrollSnapList().length);
-    setCurrent(api.selectedScrollSnap());
-    api.on("select", () => {
+    const snapList = api.scrollSnapList();
+    if (snapList.length > 0) {
+      setCount(snapList.length);
       setCurrent(api.selectedScrollSnap());
-    });
+      api.on("select", () => {
+        setCurrent(api.selectedScrollSnap());
+      });
+    }
   }, [api]);
 
   const handleNavigation = (id: string) => {
