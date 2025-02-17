@@ -10,7 +10,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Image from "next/image";
-import carouselDataDiscoverProperty from "@/utilityComponents/dashboardPage/discoverProperty.json";
+// import carouselDataDiscoverProperty from "@/utilityComponents/dashboardPage/discoverProperty.json";
 import { ThreeStars } from "@/svgs/HomePageSvg";
 import SearchProperty from "./SearchProperty";
 import SelectFieldWithIcon from "../common/SelectFieldWithIcon";
@@ -26,12 +26,13 @@ import DoubleSlider from "../common/DoubleSlider";
 import { CustomCalendar } from "../common/CustomCalender";
 import propertyType from "@/utilityComponents/dashboardPage/propertyTypeData.json";
 import propertySizeType from "@/utilityComponents/dashboardPage/propertySizeTypeData.json";
+import { toast } from "sonner";
+import { PropertyApiResponse } from "@/app/properties/types";
+import Loading from "@/components/elements/Loading";
 
 const DiscoveredProperty = () => {
-  //filtering properties
-  const [filteredProperties, setFilteredProperties] = useState(
-    carouselDataDiscoverProperty
-  );
+  const [property, setProperty] = useState<PropertyApiResponse[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [locations, setLocations] = useState<
     { value: string; selectFieldData: string }[]
   >([]);
@@ -80,10 +81,32 @@ const DiscoveredProperty = () => {
     router.push(`${pathname}${query}`, { scroll: false });
   };
 
+  const fetchProperties = async () => {
+    setIsLoading(true);
+
+    try {
+      const res = await fetch("/estatein/api/addProperty");
+      const result = await res.json();
+      if (result.data && Array.isArray(result.data)) {
+        setProperty(result.data);
+      }
+    } catch (error) {
+      console.error("Failed to fetch properties:", error);
+      toast.error("Failed to fetch property");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    // Fetch and display property type
+    fetchProperties();
+  }, []);
+
   //taking unique locations from json file
   useEffect(() => {
     const uniqueLocations = Array.from(
-      new Set(carouselDataDiscoverProperty.map((property) => property.location))
+      new Set(property.map((property) => property.location))
     ).map((location) => ({
       value: location,
       selectFieldData: location,
@@ -93,7 +116,7 @@ const DiscoveredProperty = () => {
 
   // Filter effect
   useEffect(() => {
-    let result = carouselDataDiscoverProperty;
+    let result = property;
 
     // Apply search filter
     if (searchItemFilter.trim()) {
@@ -150,7 +173,7 @@ const DiscoveredProperty = () => {
     // setFilteredProperties(
     //   result.length > 0 ? result : carouselDataDiscoverProperty
     // );
-    setFilteredProperties(result);
+    setProperty(result);
   }, [
     searchItemFilter,
     locationFilter,
@@ -276,90 +299,96 @@ const DiscoveredProperty = () => {
           </div>
           {/* Carousel section */}
           <div className="flex justify-center items-center my-2">
-            {filteredProperties.length === 0 && (
+            {property.length === 0 && !isLoading && (
               <div className="text-center py-10 w-full">
                 <p className="text-base text-red-500">
                   No Data Found Matching Your Requirement
                 </p>
               </div>
             )}
-            <CarouselContent
-              className={`flex ${
-                filteredProperties.length === 1 ? "justify-center" : ""
-              }`}
-            >
-              {filteredProperties.map((item, index) => (
-                <CarouselItem
-                  key={index}
-                  className={`${
-                    filteredProperties.length === 1
-                      ? "basis-[70%] max-mobile-lg:basis-full"
-                      : "mobile-xl:basis-1/2 tablet-lg:basis-1/3"
-                  }`}
-                >
-                  <div className="border border-white-d1 dark:border-grey-shade-15 dark:bg-grey-shade-8 rounded-md px-4 py-5">
-                    <div className="flex flex-col gap-8">
-                      <div className="relative aspect-[4/3] w-full">
-                        <Image
-                          src={`${
-                            process.env.NEXT_PUBLIC_BASE_PATH +
-                            `${item.coverImage}`
-                          }`}
-                          width={432}
-                          height={318}
-                          alt="house image"
-                          className="object-cover rounded-md max-mobile-xl:w-full"
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        />
-                      </div>
-                      <div className="flex flex-col gap-2">
-                        <div className="flex flex-row gap-2 flex-wrap">
-                          <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-10 bg-grey-shade-15 px-3 py-2 rounded-full">
-                            <p className="text-white text-lg max-desktop-lg:text-sm max-tablet-sm:text-sm">
-                              {item.pillName}
-                            </p>
-                          </div>
+            {isLoading ? (
+              <div className="flex justify-center items-center h-40">
+                <Loading />
+              </div>
+            ) : (
+              <CarouselContent
+                className={`flex ${
+                  property.length === 1 ? "justify-center" : ""
+                }`}
+              >
+                {property.map((item, index) => (
+                  <CarouselItem
+                    key={index}
+                    className={`${
+                      property.length === 1
+                        ? "basis-[70%] max-mobile-lg:basis-full"
+                        : "mobile-xl:basis-1/2 tablet-lg:basis-1/3"
+                    }`}
+                  >
+                    <div className="border border-white-d1 dark:border-grey-shade-15 dark:bg-grey-shade-8 rounded-md px-4 py-5">
+                      <div className="flex flex-col gap-8">
+                        <div className="relative aspect-[4/3] w-full">
+                          <Image
+                            src={`${
+                              process.env.NEXT_PUBLIC_BASE_PATH +
+                              `${item.coverImage}`
+                            }`}
+                            width={432}
+                            height={318}
+                            alt="house image"
+                            className="object-cover rounded-md max-mobile-xl:w-full"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          />
                         </div>
-                        <h2 className="text-2xl font-semibold dark:text-white max-desktop-lg:text-xl max-tablet-sm:text-lg">
-                          {item.villaName}
-                        </h2>
-                        <div>
-                          <span className="text-lg dark:text-grey-shade-60 max-desktop-lg:text-base max-tablet-sm:text-sm line-clamp-2 max-w-[600px] border-border-red-500">
-                            {item.description}
-                          </span>
-                          <Link href={`/property/${item.id}`}>
-                            <span className="underline font-medium dark:text-white text-base p-[0.5px] max-tablet-sm:text-sm">
-                              Read More
+                        <div className="flex flex-col gap-2">
+                          <div className="flex flex-row gap-2 flex-wrap">
+                            <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-10 bg-grey-shade-15 px-3 py-2 rounded-full">
+                              <p className="text-white text-lg max-desktop-lg:text-sm max-tablet-sm:text-sm">
+                                {item.pillName}
+                              </p>
+                            </div>
+                          </div>
+                          <h2 className="text-2xl font-semibold dark:text-white max-desktop-lg:text-xl max-tablet-sm:text-lg">
+                            {item.villaName}
+                          </h2>
+                          <div>
+                            <span className="text-lg dark:text-grey-shade-60 max-desktop-lg:text-base max-tablet-sm:text-sm line-clamp-2 max-w-[600px] border-border-red-500">
+                              {item.description}
                             </span>
-                          </Link>
-                        </div>
-                      </div>
-                      <div className="grid grid-cols-12">
-                        <div className="col-span-4">
-                          <div className="flex flex-col gap-1">
-                            <p className="text-lg text-grey-shade-60 max-desktop-lg:text-sm">
-                              Price
-                            </p>
-                            <h2 className="text-2xl font-semibold dark:text-white max-desktop-lg:text-xl max-tablet-sm:text-lg">
-                              ${Number(item.price).toLocaleString()}
-                            </h2>
+                            <Link href={`/property/${item.id}`}>
+                              <span className="underline font-medium dark:text-white text-base p-[0.5px] max-tablet-sm:text-sm">
+                                Read More
+                              </span>
+                            </Link>
                           </div>
                         </div>
+                        <div className="grid grid-cols-12">
+                          <div className="col-span-4">
+                            <div className="flex flex-col gap-1">
+                              <p className="text-lg text-grey-shade-60 max-desktop-lg:text-sm">
+                                Price
+                              </p>
+                              <h2 className="text-2xl font-semibold dark:text-white max-desktop-lg:text-xl max-tablet-sm:text-lg">
+                                ${Number(item.price).toLocaleString()}
+                              </h2>
+                            </div>
+                          </div>
 
-                        <div className="col-span-8">
-                          <Button
-                            className="w-full h-full text-lg font-medium bg-purple-shade-60 rounded-md hover:bg-purple-shade-d60 max-desktop-2xl:text-sm max-tablet-sm:text-sm dark:text-white"
-                            onClick={() => handleNavigation(item.id)}
-                          >
-                            View Property Details
-                          </Button>
+                          <div className="col-span-8">
+                            <Button
+                              className="w-full h-full text-lg font-medium bg-purple-shade-60 rounded-md hover:bg-purple-shade-d60 max-desktop-2xl:text-sm max-tablet-sm:text-sm dark:text-white"
+                              onClick={() => handleNavigation(item.id)}
+                            >
+                              View Property Details
+                            </Button>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+            )}
           </div>
           <div className="flex flex-row justify-between mb-4 max-mobile-md:hidden border-t-[1px] border-t-[#E4E4E7] dark:border-t-grey-shade-15 dark:bg-grey-shade-8 pt-5">
             <div className="text-base font-medium">
