@@ -32,9 +32,9 @@ import {
 import SelectField from "../common/SelectField";
 import Loading from "@/components/elements/Loading";
 import { YearCalendar } from "../common/YearCalender";
-import { PropertyApiResponse } from "@/app/properties/types";
 import { toast } from "sonner";
 import PropertySizeType from "./PropertySizeType";
+import { PropertyApiResponse } from "@/components/propertiesTable/types";
 
 interface AddPropertyProps {
   isModalOpen: boolean;

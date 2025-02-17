@@ -24,10 +24,10 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import DoubleSlider from "../common/DoubleSlider";
 import { CustomCalendar } from "../common/CustomCalender";
 import { toast } from "sonner";
-import { PropertyApiResponse } from "@/app/properties/types";
 import Loading from "@/components/elements/Loading";
 import PropertyType from "../dashboard-page/PropertyType";
 import PropertySizeType from "../dashboard-page/PropertySizeType";
+import { PropertyApiResponse } from "@/components/propertiesTable/types";
 
 const DiscoveredProperty = () => {
   const [allProperties, setAllProperties] = useState<PropertyApiResponse[]>([]); // Original, unfiltered list

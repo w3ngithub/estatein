@@ -35,7 +35,7 @@ import propertyType from "@/utilityComponents/dashboardPage/propertyTypeData.jso
 import { YearCalendar } from "../common/YearCalender";
 import Loading from "@/components/elements/Loading";
 import { toast } from "sonner";
-import { PropertyApiResponse } from "@/app/properties/types";
+import { PropertyApiResponse } from "@/components/propertiesTable/types";
 
 interface EditPropertyModalProps {
   isModalOpen: boolean;

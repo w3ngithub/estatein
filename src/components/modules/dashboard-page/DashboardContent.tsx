@@ -9,11 +9,11 @@ import {
 } from "@/components/ui/card";
 import { PieChart, Pie, Tooltip, ResponsiveContainer, Cell } from "recharts";
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid } from "recharts";
-import { PropertyApiResponse } from "@/app/properties/types";
 import PropertyType from "./PropertyType";
 import { toast } from "sonner";
 import PropertySizeType from "./PropertySizeType";
 import Loading from "@/components/elements/Loading";
+import { PropertyApiResponse } from "@/components/propertiesTable/types";
 
 interface PropertyPriceData {
   propertyName: string;

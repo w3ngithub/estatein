@@ -17,9 +17,9 @@ import {
   BedRoomLogo,
   VillaLogo,
 } from "@/svgs/FeaturedPropertyiesSvg";
-import { PropertyApiResponse } from "@/app/properties/types";
 import { toast } from "sonner";
 import Loading from "@/components/elements/Loading";
+import { PropertyApiResponse } from "@/components/propertiesTable/types";
 
 const FeaturedProperty = () => {
   //for carousel

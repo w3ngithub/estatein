@@ -13,7 +13,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { formSchema, FormSchema } from "@/schema/contact-form-schema";
 import { MessageIcon, PhoneIcon } from "@/svgs/PropertyPageSvg";
 import { toast } from "sonner";
-import { PropertyApiResponse } from "@/app/properties/types";
+import { PropertyApiResponse } from "@/components/propertiesTable/types";
 
 const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);

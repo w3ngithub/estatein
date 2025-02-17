@@ -2,15 +2,13 @@
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import AddPropertyModal from "./AddPropertyModal";
-import PropertyTable from "@/app/properties/page";
-import { PropertyApiResponse } from "@/app/properties/types";
+import PropertyTable from "@/components/propertiesTable/page";
+import { PropertyApiResponse } from "@/components/propertiesTable/types";
 
 const PropertiesContent = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [property, setProperty] = useState<PropertyApiResponse[]>([]);
   const [isTableLoading, setIsTableLoading] = useState(true);
-
-  console.log(property, "property");
 
   // Add a fetch function that can be reused
   const fetchProperties = async () => {

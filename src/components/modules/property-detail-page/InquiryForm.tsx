@@ -13,7 +13,7 @@ import {
   inquiryFormSchema,
 } from "@/schema/inquiry-form-schema";
 import { toast } from "sonner";
-import { PropertyApiResponse } from "@/app/properties/types";
+import { PropertyApiResponse } from "@/components/propertiesTable/types";
 
 const InquiryForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);

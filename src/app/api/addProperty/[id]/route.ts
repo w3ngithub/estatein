@@ -2,8 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import discoverProperty from "@/utilityComponents/dashboardPage/discoverProperty.json";
 import path from "path";
 import { promises as ps } from "fs";
-
-import { PropertyApiResponse } from "@/app/properties/types";
+import { PropertyApiResponse } from "@/components/propertiesTable/types";
 
 const filePath = path.join(
   process.cwd(),

@@ -3,7 +3,7 @@ import { applyPatch } from "fast-json-patch";
 import { promises as ps } from "fs";
 import path from "path";
 import fs from "fs";
-import { PropertyApiResponse } from "@/app/properties/types";
+import { PropertyApiResponse } from "@/components/propertiesTable/types";
 
 const filePath = path.join(
   process.cwd(),
