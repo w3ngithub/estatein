@@ -24,18 +24,17 @@ import { nanoid } from "nanoid";
 import "react-dropzone-uploader/dist/styles.css";
 import SingleImageUpload from "@/components/elements/SingleImageUpload";
 import MultipleImageUpload from "@/components/elements/MultipleImageUpload";
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import {
   PropertyListingSchema,
   propertySchema,
 } from "@/schema/property-listing-form";
 import SelectField from "../common/SelectField";
-import propertySizeType from "@/utilityComponents/dashboardPage/propertySizeTypeData.json";
-import propertyType from "@/utilityComponents/dashboardPage/propertyTypeData.json";
 import Loading from "@/components/elements/Loading";
 import { YearCalendar } from "../common/YearCalender";
 import { PropertyApiResponse } from "@/app/properties/types";
 import { toast } from "sonner";
+import PropertySizeType from "./PropertySizeType";
 
 interface AddPropertyProps {
   isModalOpen: boolean;
@@ -54,10 +53,13 @@ const AddPropertyModal = ({
 }: AddPropertyProps) => {
   // for adding multiple features
   const [newFeature, setNewFeature] = useState("");
-  // const [originalData, setOriginalData] =
-  //   useState<PropertyListingSchema | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-
+  const [propertyType, setPropertyType] = useState<
+    { value: string; selectFieldData: string }[]
+  >([]);
+  const [propertySizeType, setPropertySizeType] = useState<PropertySizeType[]>(
+    []
+  );
   const form = useForm<PropertyListingSchema>({
     resolver: zodResolver(propertySchema),
     defaultValues: {
@@ -87,6 +89,37 @@ const AddPropertyModal = ({
       multipleImages: [],
     },
   });
+
+  useEffect(() => {
+    // Fetch and display property type
+    async function fetchData() {
+      try {
+        const res = await fetch("/estatein/api/addPropertyType");
+        const result = await res.json();
+        setPropertyType(result.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        toast.error("Failed to fetch property types");
+      } finally {
+      }
+    }
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    // Fetch and display data
+    async function fetchData() {
+      try {
+        const res = await fetch("/estatein/api/addPropertySizeType");
+        const result = await res.json();
+        setPropertySizeType(result.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        toast.error("Failed to fetch property types");
+      }
+    }
+    fetchData();
+  }, []);
 
   async function onSubmit(values: PropertyListingSchema) {
     setIsLoading(true);
