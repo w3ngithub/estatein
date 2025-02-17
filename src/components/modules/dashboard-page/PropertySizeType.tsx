@@ -54,17 +54,23 @@ const PropertySizeType = ({
     selectFieldData: "",
   });
   const [propertyToDelete, setPropertyToDelete] = useState("");
-  // for json patch
-  // const [properties, setProperties] = useState(propertySizeType);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isTableLoading, setIsTableLoading] = useState(true);
 
   useEffect(() => {
     // Fetch and display data
     async function fetchData() {
-      const res = await fetch("/estatein/api/addPropertySizeType");
-      const result = await res.json();
-      // setPropertyType(result.data);
-      setPropertySizeType(result.data);
+      setIsTableLoading(true);
+      try {
+        const res = await fetch("/estatein/api/addPropertySizeType");
+        const result = await res.json();
+        setPropertySizeType(result.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        toast.error("Failed to fetch property types");
+      } finally {
+        setIsTableLoading(false);
+      }
     }
     fetchData();
   }, []);
@@ -161,62 +167,68 @@ const PropertySizeType = ({
     <>
       <div className="space-y-5">
         <h1 className="desktop-lg:text-xl">Property Size Type</h1>
-        <div>
-          <Table className="max-w-[600px] max-mobile-md:overflow-y-auto">
-            <TableHeader>
-              <TableRow>
-                <TableHead className="w-[100px] desktop-lg:text-lg">
-                  S.N
-                </TableHead>
-                <TableHead className="w-[400px] text-center desktop-lg:text-lg">
-                  Name
-                </TableHead>
-                <TableHead className="w-[100px] text-center desktop-lg:text-lg">
-                  Action
-                </TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {propertySizeType.map((propertyType, index) => (
-                <TableRow key={propertyType.id}>
-                  <TableCell className="w-[100px] desktop-lg:text-lg">
-                    {/* {propertyType.id} */}
-                    {index + 1}
-                  </TableCell>
-                  <TableCell className="w-[400px] text-center desktop-lg:text-lg">
-                    {propertyType.selectFieldData}
-                  </TableCell>
-                  <TableCell className="w-[100px] text-center desktop-lg:text-lg">
-                    <div className="flex items-center gap-2">
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        onClick={() =>
-                          handleEdit(
-                            propertyType.id,
-                            propertyType.value,
-                            propertyType.selectFieldData
-                          )
-                        }
-                        className="text-blue-500 hover:text-blue-700"
-                      >
-                        <Edit2 className="h-4 w-4" />
-                      </Button>
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        onClick={() => handleDelete(propertyType.id)}
-                        className="text-red-500 hover:text-red-700"
-                      >
-                        <Trash className="h-4 w-4" />
-                      </Button>
-                    </div>
-                  </TableCell>
+        {isTableLoading ? (
+          <div className="flex justify-center items-center h-40">
+            <Loading />
+          </div>
+        ) : (
+          <div>
+            <Table className="max-w-[600px] max-mobile-md:overflow-y-auto">
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="w-[100px] desktop-lg:text-lg">
+                    S.N
+                  </TableHead>
+                  <TableHead className="w-[400px] text-center desktop-lg:text-lg">
+                    Name
+                  </TableHead>
+                  <TableHead className="w-[100px] text-center desktop-lg:text-lg">
+                    Action
+                  </TableHead>
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </div>
+              </TableHeader>
+              <TableBody>
+                {propertySizeType.map((propertyType, index) => (
+                  <TableRow key={propertyType.id}>
+                    <TableCell className="w-[100px] desktop-lg:text-lg">
+                      {/* {propertyType.id} */}
+                      {index + 1}
+                    </TableCell>
+                    <TableCell className="w-[400px] text-center desktop-lg:text-lg">
+                      {propertyType.selectFieldData}
+                    </TableCell>
+                    <TableCell className="w-[100px] text-center desktop-lg:text-lg">
+                      <div className="flex items-center gap-2">
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          onClick={() =>
+                            handleEdit(
+                              propertyType.id,
+                              propertyType.value,
+                              propertyType.selectFieldData
+                            )
+                          }
+                          className="text-blue-500 hover:text-blue-700"
+                        >
+                          <Edit2 className="h-4 w-4" />
+                        </Button>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          onClick={() => handleDelete(propertyType.id)}
+                          className="text-red-500 hover:text-red-700"
+                        >
+                          <Trash className="h-4 w-4" />
+                        </Button>
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </div>
+        )}
       </div>
 
       {/*Edit Modal: Property Type */}
