@@ -86,24 +86,27 @@ export default function PropertyImageCarousal({
             }}
           >
             <CarouselContent className="-ml-2 p-2 bg-grey-shade-8 border border-grey-shade-15">
-              {images.map((src, index) => (
-                <CarouselItem key={index} className="pl-2 basis-20">
-                  <div
-                    className={`cursor-pointer transition-all ${
-                      selectedIndex === index ? "opacity-100" : "opacity-50"
-                    }`}
-                    onClick={() => handleThumbClick(index)}
-                  >
-                    <Image
-                      src={`/estatein${src}`}
-                      alt={`Property view ${index + 1}`}
-                      width={80}
-                      height={60}
-                      className="object-cover w-full h-16 rounded"
-                    />
-                  </div>
-                </CarouselItem>
-              ))}
+              {images.map((src, index) => {
+                return (
+                  <CarouselItem key={index} className="pl-2 basis-20">
+                    <div
+                      className={`cursor-pointer transition-all ${
+                        selectedIndex === index ? "opacity-100" : "opacity-50"
+                      }`}
+                      onClick={() => handleThumbClick(index)}
+                    >
+                      <Image
+                        // src={`/estatein/uploads/${src}`}
+                        src={`${process.env.NEXT_PUBLIC_BASE_PATH}/uploads/${src}`}
+                        alt={`Property view ${index + 1}`}
+                        width={80}
+                        height={60}
+                        className="object-cover w-full h-16 rounded"
+                      />
+                    </div>
+                  </CarouselItem>
+                );
+              })}
             </CarouselContent>
           </Carousel>
 
@@ -119,7 +122,7 @@ export default function PropertyImageCarousal({
               {images.map((src, index) => (
                 <CarouselItem key={index} className="pl-2 mobile-lg:basis-1/2">
                   <Image
-                    src={`/estatein${src}`}
+                    src={`/estatein/uploads/${src}`}
                     alt={`Property view ${index + 1}`}
                     width={600}
                     height={400}

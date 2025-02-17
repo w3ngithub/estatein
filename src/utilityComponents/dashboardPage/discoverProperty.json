@@ -1,40 +1,5 @@
 [
   {
-    "id": "3G1t1tnjUqyOFpbiggdWI",
-    "villaName": "test 1",
-    "coverImage": "1739779864856-featured-property-first.png",
-    "multipleImages": [
-      "1739779864862-carousel-one.png",
-      "1739779864863-carousel-two.png"
-    ],
-    "keyFeatures": [
-      {
-        "id": "-bJa_QOc99_nBTXC-h2w_",
-        "name": "Alias minus earum qu"
-      }
-    ],
-    "description": "Pariatur Dolorem pa Pariatur Dolorem paPariatur Dolorem paPariatur Dolorem paPariatur Dolorem paPariatur Dolorem paPariatur Dolorem paPariatur Dolorem paPariatur Dolorem paPariatur Dolorem paPariatur Dolorem paPariatur Dolorem pa",
-    "price": "215",
-    "pillName": "Tanya Reyes",
-    "location": "Et sapiente et omnis",
-    "buildYear": "2025",
-    "totalBedRoom": 94,
-    "totalBathRoom": 50,
-    "totalArea": 47,
-    "areaUnit": "Yo mannnnv",
-    "propertyType": "Rental",
-    "propertyTransferTax": 21,
-    "legalFees": 60,
-    "homeInspectionFee": 54,
-    "propertyInsurance": 15,
-    "mortgageFee": 89,
-    "propertyTax": 11,
-    "additionalFee": 71,
-    "homeOwnersAssociationFee": 89,
-    "downPayment": 61,
-    "monthlyPropertyInsurance": 12
-  },
-  {
     "id": "l83d9DNrEtVmoYu7i3AQU",
     "villaName": "dipesh",
     "coverImage": "1739763837336-pic.JPG",
