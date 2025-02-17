@@ -8,11 +8,13 @@ import { PropertyApiResponse } from "@/app/properties/types";
 const PropertiesContent = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [property, setProperty] = useState<PropertyApiResponse[]>([]);
+  const [isTableLoading, setIsTableLoading] = useState(true);
 
   console.log(property, "xxxxxxxxxx");
 
   // Add a fetch function that can be reused
   const fetchProperties = async () => {
+    setIsTableLoading(true);
     try {
       const res = await fetch("/estatein/api/addProperty");
       const result = await res.json();
@@ -21,6 +23,8 @@ const PropertiesContent = () => {
       }
     } catch (error) {
       console.error("Failed to fetch properties:", error);
+    } finally {
+      setIsTableLoading(false);
     }
   };
 
@@ -49,6 +53,7 @@ const PropertiesContent = () => {
           property={property}
           setProperty={setProperty}
           fetchProperties={fetchProperties}
+          isTableLoading={isTableLoading}
         />
       </div>
 
