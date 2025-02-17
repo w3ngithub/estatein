@@ -35,7 +35,7 @@ export async function POST(request: Request) {
       );
       const coverImageBuffer = Buffer.from(await coverImage.arrayBuffer());
       await writeFile(coverImagePath, coverImageBuffer);
-      coverImageUrl = `/uploads/${path.basename(coverImagePath)}`;
+      coverImageUrl = `${path.basename(coverImagePath)}`;
     }
 
     // Handle multiple images
@@ -45,7 +45,7 @@ export async function POST(request: Request) {
           const imagePath = join(uploadDir, `${Date.now()}-${file.name}`);
           const imageBuffer = Buffer.from(await file.arrayBuffer());
           await writeFile(imagePath, imageBuffer);
-          return `/uploads/${path.basename(imagePath)}`;
+          return `${path.basename(imagePath)}`;
         }
         return "";
       })
@@ -152,7 +152,7 @@ export async function PUT(request: NextRequest) {
       const coverImagePath = join(uploadDir, coverImageName);
       const coverImageBuffer = Buffer.from(await coverImage.arrayBuffer());
       await writeFile(coverImagePath, coverImageBuffer);
-      coverImageUrl = `/uploads/${coverImageName}`;
+      coverImageUrl = `${coverImageName}`;
     }
 
     // Handle multiple images
@@ -164,7 +164,7 @@ export async function PUT(request: NextRequest) {
           const imagePath = join(uploadDir, imageName);
           const imageBuffer = Buffer.from(await file.arrayBuffer());
           await writeFile(imagePath, imageBuffer);
-          return `/uploads/${imageName}`;
+          return `${imageName}`;
         }
         return "";
       })

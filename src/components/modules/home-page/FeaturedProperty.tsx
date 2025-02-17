@@ -110,10 +110,11 @@ const FeaturedProperty = () => {
                     <div className="flex flex-col gap-8">
                       <div className="relative aspect-[4/3] w-full">
                         <Image
-                          src={`${
-                            process.env.NEXT_PUBLIC_BASE_PATH +
-                            `${item.coverImage}`
-                          }`}
+                          // src={`${
+                          //   process.env.NEXT_PUBLIC_BASE_PATH +
+                          //   `${item.coverImage}`
+                          // }`}
+                          src={`${process.env.NEXT_PUBLIC_BASE_PATH}/uploads/${item.coverImage}`}
                           width={432}
                           height={318}
                           alt="house image"

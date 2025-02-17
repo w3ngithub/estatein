@@ -114,6 +114,7 @@ const MultipleImageUpload = ({
             >
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4 w-full">
                 {previews?.map((preview) => {
+                  // ${process.env.NEXT_PUBLIC_BASE_PATH}${preview.preview}
                   return (
                     <div key={preview.id} className="relative">
                       <Image
@@ -121,7 +122,7 @@ const MultipleImageUpload = ({
                           typeof preview.preview === "string"
                             ? preview.preview.startsWith("data:image")
                               ? preview.preview
-                              : `${process.env.NEXT_PUBLIC_BASE_PATH}${preview.preview}`
+                              : `${process.env.NEXT_PUBLIC_BASE_PATH}/uploads/${preview.preview}`
                             : preview.preview instanceof File
                             ? URL.createObjectURL(preview.preview)
                             : ""

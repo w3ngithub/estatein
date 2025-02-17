@@ -123,11 +123,12 @@ const SingleImageUpload = ({
             >
               {preview && (
                 <div className="relative">
+                  {/* ${process.env.NEXT_PUBLIC_BASE_PATH}${preview} */}
                   <Image
                     src={
                       preview?.toString().startsWith("data:image")
                         ? (preview as string) // Use Base64 directly
-                        : `${process.env.NEXT_PUBLIC_BASE_PATH}${preview}` // Use API URL
+                        : `${process.env.NEXT_PUBLIC_BASE_PATH}/uploads/${preview}` // Use API URL
                     }
                     alt="Uploaded image"
                     className="max-h-[400px] w-full object-cover rounded-lg"

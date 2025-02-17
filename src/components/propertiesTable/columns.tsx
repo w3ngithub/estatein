@@ -28,7 +28,8 @@ const ImageCell: React.FC<{ images: string[] }> = ({ images }) => {
       {images.length > 0 && (
         <div className="relative size-16">
           <Image
-            src={`${process.env.NEXT_PUBLIC_BASE_PATH}${images[0]}`}
+            // src={`${process.env.NEXT_PUBLIC_BASE_PATH}${images[0]}`}
+            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/uploads/${images[0]}`}
             alt="house"
             width={100}
             height={100}
@@ -54,7 +55,8 @@ const ImageCell: React.FC<{ images: string[] }> = ({ images }) => {
               {images.map((imgUrl, index) => (
                 <div key={index} className="relative size-24 my-5">
                   <Image
-                    src={`${process.env.NEXT_PUBLIC_BASE_PATH}${imgUrl}`}
+                    // src={`${process.env.NEXT_PUBLIC_BASE_PATH}${imgUrl}`}
+                    src={`${process.env.NEXT_PUBLIC_BASE_PATH}/uploads/${imgUrl}`}
                     alt={`house-${index}`}
                     width={100}
                     height={100}
@@ -307,7 +309,8 @@ export const columns = (
       return (
         <div className="relative size-16">
           <Image
-            src={`${process.env.NEXT_PUBLIC_BASE_PATH + `${image}`}`}
+            // src={`${process.env.NEXT_PUBLIC_BASE_PATH + `${image}`}`}
+            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/uploads/${image}`}
             alt="house"
             width={100}
             height={100}

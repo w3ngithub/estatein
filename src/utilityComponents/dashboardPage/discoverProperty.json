@@ -1,11 +1,46 @@
 [
   {
+    "id": "3G1t1tnjUqyOFpbiggdWI",
+    "villaName": "test 1",
+    "coverImage": "1739779864856-featured-property-first.png",
+    "multipleImages": [
+      "1739779864862-carousel-one.png",
+      "1739779864863-carousel-two.png"
+    ],
+    "keyFeatures": [
+      {
+        "id": "-bJa_QOc99_nBTXC-h2w_",
+        "name": "Alias minus earum qu"
+      }
+    ],
+    "description": "Pariatur Dolorem pa Pariatur Dolorem paPariatur Dolorem paPariatur Dolorem paPariatur Dolorem paPariatur Dolorem paPariatur Dolorem paPariatur Dolorem paPariatur Dolorem paPariatur Dolorem paPariatur Dolorem paPariatur Dolorem pa",
+    "price": "215",
+    "pillName": "Tanya Reyes",
+    "location": "Et sapiente et omnis",
+    "buildYear": "2025",
+    "totalBedRoom": 94,
+    "totalBathRoom": 50,
+    "totalArea": 47,
+    "areaUnit": "Yo mannnnv",
+    "propertyType": "Rental",
+    "propertyTransferTax": 21,
+    "legalFees": 60,
+    "homeInspectionFee": 54,
+    "propertyInsurance": 15,
+    "mortgageFee": 89,
+    "propertyTax": 11,
+    "additionalFee": 71,
+    "homeOwnersAssociationFee": 89,
+    "downPayment": 61,
+    "monthlyPropertyInsurance": 12
+  },
+  {
     "id": "l83d9DNrEtVmoYu7i3AQU",
     "villaName": "dipesh",
-    "coverImage": "/uploads/1739763837336-pic.JPG",
+    "coverImage": "1739763837336-pic.JPG",
     "multipleImages": [
-      "/uploads/1739763837338-carousel-one.png",
-      "/uploads/1739763837338-carousel-two.png"
+      "1739763837338-carousel-one.png",
+      "1739763837338-carousel-two.png"
     ],
     "keyFeatures": [
       {
@@ -37,14 +72,14 @@
   {
     "id": "_XQzt4uI-inTETADyH_bM",
     "villaName": "Donovan Leeqqqqqqq",
-    "coverImage": "/uploads/1738840724549-admin dashboard.JPG",
+    "coverImage": "1738840724549-admin dashboard.JPG",
     "multipleImages": [
-      "/uploads/1738840724552-admin dashboard.JPG",
-      "/uploads/1738840724552-carousel-one.png",
-      "/uploads/1738840724553-carousel-two.png",
-      "/uploads/1738840724554-featured-property-first.png",
-      "/uploads/1738840724554-items.JPG",
-      "/uploads/1738840724554-pic.JPG"
+      "1738840724552-admin dashboard.JPG",
+      "1738840724552-carousel-one.png",
+      "1738840724553-carousel-two.png",
+      "1738840724554-featured-property-first.png",
+      "1738840724554-items.JPG",
+      "1738840724554-pic.JPG"
     ],
     "keyFeatures": [
       {
@@ -76,10 +111,10 @@
   {
     "id": "IMs-bOSoZV99yXIozDXxh",
     "villaName": "Neil Nguyen",
-    "coverImage": "/uploads/1738840349890-featured-property-first.png",
+    "coverImage": "1738840349890-featured-property-first.png",
     "multipleImages": [
-      "/uploads/1738840349897-carousel-one.png",
-      "/uploads/1738840349898-carousel-two.png"
+      "1738840349897-carousel-one.png",
+      "1738840349898-carousel-two.png"
     ],
     "keyFeatures": [
       {
@@ -111,12 +146,12 @@
   {
     "id": "rLALnppQYDVDT_MS9jUKg",
     "villaName": "Dipesh",
-    "coverImage": "/uploads/1738833281606-pic.JPG",
+    "coverImage": "1738833281606-pic.JPG",
     "multipleImages": [
-      "/uploads/1738833281611-admin dashboard.JPG",
-      "/uploads/1738833281611-featured-property-first.png",
-      "/uploads/1738833281611-items.JPG",
-      "/uploads/1738833281611-pic.JPG"
+      "1738833281611-admin dashboard.JPG",
+      "1738833281611-featured-property-first.png",
+      "1738833281611-items.JPG",
+      "1738833281611-pic.JPG"
     ],
     "keyFeatures": [
       {
@@ -148,10 +183,10 @@
   {
     "id": "j34-zjyEVAc33k5rU8EHW",
     "villaName": "Jessica Knowles",
-    "coverImage": "/uploads/1738818207147-featured-property-first.png",
+    "coverImage": "1738818207147-featured-property-first.png",
     "multipleImages": [
-      "/uploads/1738818207156-carousel-one.png",
-      "/uploads/1738818207156-carousel-two.png"
+      "1738818207156-carousel-one.png",
+      "1738818207156-carousel-two.png"
     ],
     "keyFeatures": [
       {
