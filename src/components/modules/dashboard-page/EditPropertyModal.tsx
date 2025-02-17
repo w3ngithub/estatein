@@ -89,7 +89,7 @@ const EditPropertyModal = ({
   });
 
   const urlToFile = async (url: string, filename: string): Promise<File> => {
-    const correctedUrl = url.startsWith("/uploads/") ? `/estatein${url}` : url; // Ensure correct path
+    const correctedUrl = `/estatein/uploads/${url}`;
 
     try {
       const response = await fetch(correctedUrl);
