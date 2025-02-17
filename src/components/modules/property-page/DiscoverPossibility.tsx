@@ -10,7 +10,6 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Image from "next/image";
-// import carouselDataDiscoverProperty from "@/utilityComponents/dashboardPage/discoverProperty.json";
 import { ThreeStars } from "@/svgs/HomePageSvg";
 import SearchProperty from "./SearchProperty";
 import SelectFieldWithIcon from "../common/SelectFieldWithIcon";
@@ -24,18 +23,23 @@ import { useEffect, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import DoubleSlider from "../common/DoubleSlider";
 import { CustomCalendar } from "../common/CustomCalender";
-import propertyType from "@/utilityComponents/dashboardPage/propertyTypeData.json";
-import propertySizeType from "@/utilityComponents/dashboardPage/propertySizeTypeData.json";
 import { toast } from "sonner";
 import { PropertyApiResponse } from "@/app/properties/types";
 import Loading from "@/components/elements/Loading";
+import PropertyType from "../dashboard-page/PropertyType";
+import PropertySizeType from "../dashboard-page/PropertySizeType";
 
 const DiscoveredProperty = () => {
+  const [allProperties, setAllProperties] = useState<PropertyApiResponse[]>([]); // Original, unfiltered list
   const [property, setProperty] = useState<PropertyApiResponse[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [locations, setLocations] = useState<
     { value: string; selectFieldData: string }[]
   >([]);
+  const [propertyType, setPropertyType] = useState<PropertyType[]>([]);
+  const [propertySizeType, setPropertySizeType] = useState<PropertySizeType[]>(
+    []
+  );
 
   //for carousal
   const [api, setApi] = useState<CarouselApi>();
@@ -88,7 +92,8 @@ const DiscoveredProperty = () => {
       const res = await fetch("/estatein/api/addProperty");
       const result = await res.json();
       if (result.data && Array.isArray(result.data)) {
-        setProperty(result.data);
+        setAllProperties(result.data); // Store the original data
+        setProperty(result.data); // Initialize the filtered data
       }
     } catch (error) {
       console.error("Failed to fetch properties:", error);
@@ -103,20 +108,52 @@ const DiscoveredProperty = () => {
     fetchProperties();
   }, []);
 
+  useEffect(() => {
+    // Fetch and display property type
+    async function fetchData() {
+      try {
+        const res = await fetch("/estatein/api/addPropertyType");
+        const result = await res.json();
+        setPropertyType(result.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        toast.error("Failed to fetch property types");
+      } finally {
+      }
+    }
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    // Fetch and display data
+    async function fetchData() {
+      try {
+        const res = await fetch("/estatein/api/addPropertySizeType");
+        const result = await res.json();
+        setPropertySizeType(result.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        toast.error("Failed to fetch property types");
+      }
+    }
+    fetchData();
+  }, []);
+
   //taking unique locations from json file
   useEffect(() => {
+    // Check if property has data
     const uniqueLocations = Array.from(
-      new Set(property.map((property) => property.location))
+      new Set(allProperties?.map((property) => property.location))
     ).map((location) => ({
       value: location,
       selectFieldData: location,
     }));
     setLocations(uniqueLocations);
-  }, []);
+  }, [allProperties]);
 
   // Filter effect
   useEffect(() => {
-    let result = property;
+    let result = [...allProperties];
 
     // Apply search filter
     if (searchItemFilter.trim()) {
@@ -168,11 +205,6 @@ const DiscoveredProperty = () => {
         return propertyBuildYear === filterYear;
       });
     }
-
-    // Ensure some results are always shown if no specific filters are applied
-    // setFilteredProperties(
-    //   result.length > 0 ? result : carouselDataDiscoverProperty
-    // );
     setProperty(result);
   }, [
     searchItemFilter,
@@ -181,6 +213,7 @@ const DiscoveredProperty = () => {
     buildDateFilter,
     priceRange,
     propertySizeFilter,
+    allProperties,
   ]);
 
   const router = useRouter();
