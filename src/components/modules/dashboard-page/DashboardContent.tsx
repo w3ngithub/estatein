@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import {
   Card,
   CardContent,
@@ -8,9 +9,13 @@ import {
 } from "@/components/ui/card";
 import { PieChart, Pie, Tooltip, ResponsiveContainer, Cell } from "recharts";
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid } from "recharts";
-import discoverProperty from "@/utilityComponents/dashboardPage/discoverProperty.json";
-import propertyTypeData from "@/utilityComponents/dashboardPage/propertyTypeData.json";
-import propertySizeTypeData from "@/utilityComponents/dashboardPage/propertySizeTypeData.json";
+// import discoverProperty from "@/utilityComponents/dashboardPage/discoverProperty.json";
+// import propertyTypeData from "@/utilityComponents/dashboardPage/propertyTypeData.json";
+// import propertySizeTypeData from "@/utilityComponents/dashboardPage/propertySizeTypeData.json";
+import { PropertyApiResponse } from "@/app/properties/types";
+import PropertyType from "./PropertyType";
+import { toast } from "sonner";
+import PropertySizeType from "./PropertySizeType";
 
 interface PropertyPriceData {
   propertyName: string;
@@ -50,15 +55,70 @@ const DashboardContent = ({
 }: {
   onNavigateToSettings?: () => void;
 }) => {
+  const [property, setProperty] = useState<PropertyApiResponse[]>([]);
+  const [propertyType, setPropertyType] = useState<PropertyType[]>([]);
+  const [propertySizeType, setPropertySizeType] = useState<PropertySizeType[]>(
+    []
+  );
+
+  const fetchProperties = async () => {
+    try {
+      const res = await fetch("/estatein/api/addProperty");
+      const result = await res.json();
+      if (result.data && Array.isArray(result.data)) {
+        setProperty(result.data);
+      }
+    } catch (error) {
+      console.error("Failed to fetch properties:", error);
+      toast.error("Failed to fetch property");
+    }
+  };
+
+  useEffect(() => {
+    // Fetch and display property type
+    fetchProperties();
+  }, []);
+
+  useEffect(() => {
+    // Fetch and display property type
+    async function fetchData() {
+      try {
+        const res = await fetch("/estatein/api/addPropertyType");
+        const result = await res.json();
+        setPropertyType(result.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        toast.error("Failed to fetch property types");
+      } finally {
+      }
+    }
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    // Fetch and display data
+    async function fetchData() {
+      try {
+        const res = await fetch("/estatein/api/addPropertySizeType");
+        const result = await res.json();
+        setPropertySizeType(result.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        toast.error("Failed to fetch property types");
+      }
+    }
+    fetchData();
+  }, []);
+
   //pie chart data
-  const data01 = discoverProperty.map((item) => ({
+  const data01 = property.map((item) => ({
     propertyName: item.villaName,
     propertySize: item.totalArea,
     areaUnit: item.areaUnit,
   }));
 
   //area chart data
-  const data = discoverProperty.map((item) => ({
+  const data = property.map((item) => ({
     propertyName: item.villaName,
     area: item.totalArea,
     price: item.price,
@@ -81,9 +141,7 @@ const DashboardContent = ({
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <p className="text-green-500 font-bold">
-              {discoverProperty.length}
-            </p>
+            <p className="text-green-500 font-bold">{property.length}</p>
           </CardContent>
         </Card>
         <Card
@@ -97,9 +155,7 @@ const DashboardContent = ({
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <p className="text-green-500 font-bold">
-              {propertyTypeData.length}
-            </p>
+            <p className="text-green-500 font-bold">{propertyType.length}</p>
           </CardContent>
         </Card>
         <Card
@@ -114,7 +170,7 @@ const DashboardContent = ({
           </CardHeader>
           <CardContent>
             <p className="text-green-500 font-bold">
-              {propertySizeTypeData.length}
+              {propertySizeType.length}
             </p>
           </CardContent>
         </Card>

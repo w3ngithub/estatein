@@ -10,7 +10,7 @@ const PropertiesContent = () => {
   const [property, setProperty] = useState<PropertyApiResponse[]>([]);
   const [isTableLoading, setIsTableLoading] = useState(true);
 
-  console.log(property, "xxxxxxxxxx");
+  console.log(property, "property");
 
   // Add a fetch function that can be reused
   const fetchProperties = async () => {
