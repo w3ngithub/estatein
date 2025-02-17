@@ -141,7 +141,6 @@ const DiscoveredProperty = () => {
 
   //taking unique locations from json file
   useEffect(() => {
-    // Check if property has data
     const uniqueLocations = Array.from(
       new Set(allProperties?.map((property) => property.location))
     ).map((location) => ({

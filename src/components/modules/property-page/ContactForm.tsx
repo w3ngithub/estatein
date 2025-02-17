@@ -13,7 +13,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { formSchema, FormSchema } from "@/schema/contact-form-schema";
 import { MessageIcon, PhoneIcon } from "@/svgs/PropertyPageSvg";
 import { toast } from "sonner";
-import carouselDataDiscoverProperty from "@/utilityComponents/dashboardPage/discoverProperty.json";
+import { PropertyApiResponse } from "@/app/properties/types";
 
 const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -23,40 +23,65 @@ const ContactForm = () => {
   const [propertyType, setPropertyType] = useState<
     { value: string; selectFieldData: string }[]
   >([]);
+  const [allProperties, setAllProperties] = useState<PropertyApiResponse[]>([]);
+
+  const fetchProperties = async () => {
+    try {
+      const res = await fetch("/estatein/api/addProperty");
+      const result = await res.json();
+      if (result.data && Array.isArray(result.data)) {
+        setAllProperties(result.data); // Store the original data
+      }
+    } catch (error) {
+      console.error("Failed to fetch properties:", error);
+      toast.error("Failed to fetch property");
+    } finally {
+    }
+  };
+
+  useEffect(() => {
+    // Fetch and display property type
+    fetchProperties();
+  }, []);
 
   //taking unique locations from json file
   useEffect(() => {
     const uniqueLocations = Array.from(
-      new Set(carouselDataDiscoverProperty.map((property) => property.location))
+      new Set(allProperties?.map((property) => property.location))
     ).map((location) => ({
       value: location,
       selectFieldData: location,
     }));
     setLocations(uniqueLocations);
-  }, []);
+  }, [allProperties]);
 
-  //taking unique property type from json file
   useEffect(() => {
-    const uniquePropertyType = Array.from(
-      new Set(
-        carouselDataDiscoverProperty.map((property) => property.propertyType)
-      )
-    ).map((item) => ({
-      value: item,
-      selectFieldData: item,
-    }));
-    setPropertyType(uniquePropertyType);
+    // Fetch and display property type
+    async function fetchData() {
+      try {
+        const res = await fetch("/estatein/api/addPropertyType");
+        const result = await res.json();
+        setPropertyType(result.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        toast.error("Failed to fetch property types");
+      } finally {
+      }
+    }
+    fetchData();
   }, []);
 
-  // const preferredLocation = [
-  //   { value: "ktm", selectFieldData: "Kathmandu" },
-  //   { value: "bkt", selectFieldData: "Bhaktapur" },
-  //   { value: "lalit", selectFieldData: "Lalitpur" },
-  // ];
-  // const propertyType = [
-  //   { value: "rental", selectFieldData: "Rental" },
-  //   { value: "own", selectFieldData: "Owned" },
-  // ];
+  // //taking unique property type from json file
+  // useEffect(() => {
+  //   const uniquePropertyType = Array.from(
+  //     new Set(allProperties?.map((property) => property.propertyType))
+  //   ).map((item) => ({
+  //     value: item,
+  //     selectFieldData: item,
+  //   }));
+  //   setPropertyType(uniquePropertyType);
+  // }, [allProperties]);
+
   const noOfBathrooms = [
     { value: "1", selectFieldData: "One" },
     { value: "2", selectFieldData: "Two" },
@@ -72,9 +97,11 @@ const ContactForm = () => {
     { value: "Others", selectFieldData: "Others" },
   ];
   const budget = [
-    { value: "1000", selectFieldData: "10000" },
-    { value: "2000", selectFieldData: "20000" },
-    { value: "3000", selectFieldData: "30000" },
+    { value: "10K", selectFieldData: "10K" },
+    { value: "100K", selectFieldData: "100K" },
+    { value: "500K", selectFieldData: "500K" },
+    { value: "900K", selectFieldData: "900K" },
+    { value: "Others", selectFieldData: "Others" },
   ];
 
   const {
