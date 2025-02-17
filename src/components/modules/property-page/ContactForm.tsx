@@ -40,7 +40,7 @@ const ContactForm = () => {
   };
 
   useEffect(() => {
-    // Fetch and display property type
+    // Fetch and display property
     fetchProperties();
   }, []);
 
