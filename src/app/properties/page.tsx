@@ -21,11 +21,10 @@ const PropertyTable = ({
 
   return (
     <div className="container mx-auto py-10">
-      {/* <DataTable
-        columns={columns}
+      <DataTable
+        columns={columns(property, setProperty)}
         data={property.filter((prop) => prop !== undefined)}
-      /> */}
-      <DataTable columns={columns(property, setProperty)} data={property} />
+      />
     </div>
   );
 };

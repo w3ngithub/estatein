@@ -1,5 +1,40 @@
 [
   {
+    "id": "l83d9DNrEtVmoYu7i3AQU",
+    "villaName": "dipesh",
+    "coverImage": "/uploads/1739763837336-pic.JPG",
+    "multipleImages": [
+      "/uploads/1739763837338-carousel-one.png",
+      "/uploads/1739763837338-carousel-two.png"
+    ],
+    "keyFeatures": [
+      {
+        "id": "TfaYYLUjZqinMddx3o868",
+        "name": "Deserunt in dolor ve"
+      }
+    ],
+    "description": "Unde molestiae molli Unde molestiae molliUnde molestiae molliUnde molestiae molliUnde molestiae molliUnde molestiae molliUnde molestiae molliUnde molestiae molliUnde molestiae molliUnde molestiae molliUnde molestiae molliUnde molestiae molli",
+    "price": "910",
+    "pillName": "Vera Golden",
+    "location": "Quia consequat Exer",
+    "buildYear": "2025",
+    "totalBedRoom": 38,
+    "totalBathRoom": 92,
+    "totalArea": 99,
+    "areaUnit": "sq feet",
+    "propertyType": "Rental",
+    "propertyTransferTax": 6,
+    "legalFees": 1,
+    "homeInspectionFee": 77,
+    "propertyInsurance": 54,
+    "mortgageFee": 46,
+    "propertyTax": 36,
+    "additionalFee": 84,
+    "homeOwnersAssociationFee": 58,
+    "downPayment": 36,
+    "monthlyPropertyInsurance": 10
+  },
+  {
     "id": "_XQzt4uI-inTETADyH_bM",
     "villaName": "Donovan Leeqqqqqqq",
     "coverImage": "/uploads/1738840724549-admin dashboard.JPG",
