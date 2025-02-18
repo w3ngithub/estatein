@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import discoverProperty from "@/utilityComponents/dashboardPage/discoverProperty.json";
 import path from "path";
 import { promises as ps } from "fs";
 import { PropertyApiResponse } from "@/components/propertiesTable/types";
@@ -41,7 +40,9 @@ export async function GET(
     );
   }
 
-  const villa = discoverProperty.find((villa) => villa.id === id);
+  const discoverProperty = await readJsonFile();
+
+  const villa = discoverProperty.find((villa: any) => villa.id === id);
 
   if (!villa) {
     return NextResponse.json({ error: "Property not found" }, { status: 404 });
