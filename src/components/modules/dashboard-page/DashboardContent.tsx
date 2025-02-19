@@ -187,7 +187,7 @@ const DashboardContent = ({
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="h-96">
+            <div className="h-96 mobile-lg:p-8">
               <ResponsiveContainer width="100%" height="100%">
                 {isLoading ? (
                   <div className="flex justify-center items-center h-40">
