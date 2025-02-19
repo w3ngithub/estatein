@@ -40,7 +40,7 @@ const Dashboard = ({ userName }: { userName: string }) => {
         } transition-all duration-300 relative max-mobile-lg:w-full`}
       >
         {/* sidenav */}
-        <div className="flex flex-col justify-between dark:bg-zinc-900 border-r dark:border-zinc-800 p-4 h-full">
+        <div className="flex flex-col justify-between bg-white-95 dark:bg-zinc-900 border-r dark:border-zinc-800 p-4 h-full">
           <div>
             <div className="flex items-center gap-2 mb-8">
               <HeaderLaptopLogo />
