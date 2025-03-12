@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import CustomersCard from "../common/CustomersCard";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -18,12 +19,17 @@ const Hero = () => {
                 Explore our listings to find the home that matches your dreams.
               </p>
               <div className="flex flex-row items-center gap-4 max-mobile-md:flex-col max-mobile-md:w-full">
-                <Button className="py-6 px-4 border-2 border-grey-shade-15 bg-grey-shade-10 rounded-md text-lg max-desktop-2xl:text-sm max-mobile-md:w-full hover:bg-grey-shade-15 dark:text-white">
-                  Learn More
-                </Button>
-                <Button className="py-3 px-4 text-lg bg-purple-shade-60 rounded-md hover:bg-purple-shade-d60 max-desktop-2xl:text-sm h-full max-mobile-md:w-full max-mobile-md:py-4 dark:text-white">
-                  Browse Properties
-                </Button>
+                <Link href="/about-us" className="w-full">
+                  {" "}
+                  <Button className="py-6 px-4 border-2 bg-purple-shade-60 hover:bg-purple-shade-d60 dark:border-grey-shade-15 dark:bg-grey-shade-10 rounded-md text-lg max-desktop-2xl:text-sm max-mobile-md:w-full dark:hover:bg-grey-shade-15 dark:text-white w-full">
+                    Learn More
+                  </Button>
+                </Link>
+                <Link href="/property" className="w-full">
+                  <Button className="py-3 px-4 text-lg bg-purple-shade-60 rounded-md hover:bg-purple-shade-d60 max-desktop-2xl:text-sm h-full max-mobile-md:w-full max-mobile-md:py-4 dark:text-white w-full">
+                    Browse Properties
+                  </Button>
+                </Link>
               </div>
               <div className="max-mobile-extra-md:w-full">
                 <CustomersCard />
@@ -42,6 +48,7 @@ const Hero = () => {
               height={814} // Proportional height
               className="object-cover max-mobile-md:rounded-lg"
               alt="Hero icon"
+              style={{ width: "auto", height: "auto" }}
               priority
             />
           </div>
@@ -54,7 +61,9 @@ const Hero = () => {
               width={129}
               height={129}
               alt="Hero Logo"
-              priority
+              sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
             />
           </div>
         </div>

@@ -3,6 +3,7 @@ import type { Config } from "tailwindcss";
 export default {
   darkMode: ["class"],
   content: [
+    "./src/svgs/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
@@ -50,6 +51,7 @@ export default {
           95: "#F1F1F3",
           97: "#F7F7F8",
           99: "#FCFCFD",
+          d1: "#E4E4E7",
         },
         "grey-shade": {
           8: "#141414",
@@ -103,6 +105,15 @@ export default {
           "4": "hsl(var(--chart-4))",
           "5": "hsl(var(--chart-5))",
         },
+      },
+      backgroundImage: {
+        "custom-gradient-purple":
+          "linear-gradient(135deg, rgba(112, 59, 274, 0.75) 0%, rgba(0, 0, 0, 0.1) 12%)",
+        "service-banner": `url(${process.env.NEXT_PUBLIC_BASE_PATH}/images/service-page-unlock-property-banner.png)`,
+        "smart-banner": `url(${process.env.NEXT_PUBLIC_BASE_PATH}/images/service-page-unlock-property-banner.png)`,
+        "explore-right-img": `url(${process.env.NEXT_PUBLIC_BASE_PATH}/images/footer-banner-background-second.png)`,
+        "explore-left-img": `url(${process.env.NEXT_PUBLIC_BASE_PATH}/images/footer-banner-background-first.png)`,
+        "explore-world": `url(${process.env.NEXT_PUBLIC_BASE_PATH}/images/contact-us-explore-world-banner.png)`,
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -25,8 +25,8 @@ const Header = () => {
 
   const navItems: NavItem[] = [
     { name: "Home", path: "/" },
-    { name: "About Us", path: "/about" },
-    { name: "Properties", path: "/properties" },
+    { name: "About Us", path: "/about-us" },
+    { name: "Properties", path: "/property" },
     { name: "Services", path: "/services" },
   ];
 
@@ -86,7 +86,7 @@ const Header = () => {
           </div>
           <Button
             onClick={() => router.push("/contact-us")}
-            className="border border-grey-shade-15 py-2 px-3 rounded-md font-medium text-lg max-desktop-2xl:text-sm block max-tablet-sm:hidden hover:bg-grey-shade-15 dark:text-white dark:bg-grey-shade-8"
+            className="flex border border-grey-shade-15 py-2 px-3 rounded-md font-medium text-lg max-desktop-2xl:text-sm  max-tablet-sm:hidden hover:bg-grey-shade-15 dark:text-white dark:bg-grey-shade-8 items-center justify-center"
           >
             Contact Us
           </Button>

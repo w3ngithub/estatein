@@ -1,31 +1,28 @@
-import { heroCard } from "@/utilityComponents/homePage/heroCard";
+import { GoToArrowLogo } from "@/svgs/HomePageSvg";
+import Link from "next/link";
 
-const HeroCard = () => {
+interface HeroCardData {
+  icon: React.ReactNode;
+  title: string;
+}
+
+interface HeroCardProps {
+  data: HeroCardData[];
+}
+
+const HeroCard = ({ data }: HeroCardProps) => {
   return (
     <section className="p-4">
       <div className="grid grid-cols-2 gap-4 tablet-sm:grid-cols-4">
-        {heroCard.map((card, index) => (
+        {data.map((card, index) => (
           <div
             key={index}
-            className="border-2 border-[#E4E4E7] dark:border-grey-shade-15 dark:bg-grey-shade-10 rounded-md flex flex-col"
+            className="border-2 border-white-d1 dark:border-grey-shade-15 dark:bg-grey-shade-10 rounded-md flex flex-col"
           >
             <div className="flex justify-end items-center pt-4 pr-4 hover:cursor-pointer">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="max-tablet-sm:h-[16px] max-tablet-sm:w-[16px]"
-              >
-                <path
-                  d="M1.375 22.625L22.625 1.375M22.625 1.375L6.6875 1.375M22.625 1.375V17.3125"
-                  stroke="#4D4D4D"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
+              <Link href="/property">
+                <GoToArrowLogo />
+              </Link>
             </div>
             <div className="flex flex-col items-center justify-center gap-6 p-3 flex-grow">
               <div className="flex items-center justify-center max-desktop-lg:h-[60px] max-desktop-lg:w-[60px] max-desktop-lg:gap-4">
