@@ -1,0 +1,46 @@
+[
+  {
+    "firstName": "Nomlanga",
+    "lastName": "Cantrell",
+    "email": "xafofapu@mailinator.com",
+    "phoneNumber": "9840031044",
+    "inquiryType": "price",
+    "hearAboutUs": "newspaper",
+    "message": "Consequuntur aut des",
+    "terms": true,
+    "timestamp": "2025-02-13T05:04:15.865Z"
+  },
+  {
+    "firstName": "Whitney",
+    "lastName": "Black",
+    "email": "xavahiq@mailinator.com",
+    "phoneNumber": "9840031045",
+    "inquiryType": "auction",
+    "hearAboutUs": "instagram",
+    "message": "Labore doloremque sa",
+    "terms": true,
+    "timestamp": "2025-02-13T05:15:08.337Z"
+  },
+  {
+    "firstName": "Laura",
+    "lastName": "Rivers",
+    "email": "bygixego@mailinator.com",
+    "phoneNumber": "9840031045",
+    "inquiryType": "price",
+    "hearAboutUs": "instagram",
+    "message": "Ab fugiat atque labo",
+    "terms": true,
+    "timestamp": "2025-02-13T05:56:18.027Z"
+  },
+  {
+    "firstName": "Rudyard",
+    "lastName": "Monroe",
+    "email": "fatuk@mailinator.com",
+    "phoneNumber": "9840031045",
+    "inquiryType": "price",
+    "hearAboutUs": "instagram",
+    "message": "Qui id enim sequi se",
+    "terms": true,
+    "timestamp": "2025-02-13T06:22:48.945Z"
+  }
+]

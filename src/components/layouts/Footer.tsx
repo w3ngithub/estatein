@@ -1,8 +1,38 @@
 import Link from "next/link";
 import FooterMobile from "./FooterMobile";
 import { EstateinLogo, MessagePlusLogo, SendIcon } from "@/svgs/HomePageSvg";
+import { useState } from "react";
+import { toast } from "sonner";
 
 const Footer = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [email, setEmail] = useState("");
+
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (isSubmitting) return;
+    try {
+      setIsSubmitting(true);
+      const response = await fetch("/estatein/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`response status: ${response.status}`);
+      }
+      toast.success("Message successfully sent");
+      setEmail("");
+    } catch (err) {
+      console.error("Error submitting form:", err);
+
+      toast.error("Error, please try resubmitting the form");
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
+
   return (
     <div className="container py-12">
       <div className="grid desktop-md:grid-cols-12 gap-10 max-desktop-md:space-y-5">
@@ -24,13 +54,24 @@ const Footer = () => {
 
               <input
                 type="email"
+                name="email"
+                id="email"
+                value={email || ""}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter Your Email"
                 className="flex-1 bg-transparent dark:text-white dark:placeholder:text-gray-400 focus:outline-none text-sm"
+                required
               />
 
-              <div className="p-2 rounded-full cursor-pointer">
-                <SendIcon />
-              </div>
+              <button
+                disabled={isSubmitting}
+                onClick={(e) =>
+                  handleSubmit(e as unknown as React.FormEvent<HTMLFormElement>)
+                }
+                className="p-2 rounded-full cursor-pointer"
+              >
+                {isSubmitting ? "Submitting..." : <SendIcon />}
+              </button>
             </div>
           </div>
         </div>

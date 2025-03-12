@@ -4,13 +4,31 @@ import AdditionalFeeCard from "./AdditionalFeeCard";
 import MonthlyCostsCard from "./MonthlyCostsCard";
 import TotalInitialCostCard from "./TotalInitialCostCard";
 import MonthlyExpenseCard from "./MonthlyExpenseCard";
-import { PricingDetail } from "@/utilityComponents/propertyDetailPage/pricingDetails";
-
 interface PricingDetailsProps {
-  pricingDetails: PricingDetail;
+  price: string;
+  propertyTransferTax: string;
+  legalFees: string;
+  homeInspectionFee: string;
+  propertyInsurance: string;
+  propertyTax: string;
+  homeOwnersAssociationFee: string;
+  additionalFee: string;
+  downPayment: string;
+  mortgageFee: string;
 }
 
-const PricingDetails = ({ pricingDetails }: PricingDetailsProps) => {
+const PricingDetails = ({
+  price,
+  propertyTransferTax,
+  legalFees,
+  homeInspectionFee,
+  propertyInsurance,
+  propertyTax,
+  homeOwnersAssociationFee,
+  additionalFee,
+  downPayment,
+  mortgageFee,
+}: PricingDetailsProps) => {
   return (
     <div className="container py-10">
       <div className="flex flex-col gap-10">
@@ -49,7 +67,7 @@ const PricingDetails = ({ pricingDetails }: PricingDetailsProps) => {
               Listing Price
             </p>
             <h1 className="font-semibold text-4xl max-desktop-lg:text-3xl max-tablet-sm:text-2xl">
-              ${pricingDetails.listingPrice}
+              ${Number(price).toLocaleString()}
             </h1>
           </div>
           {/* 2nd section */}
@@ -57,14 +75,26 @@ const PricingDetails = ({ pricingDetails }: PricingDetailsProps) => {
             <div className="flex flex-col gap-10">
               {/* 1st 2nd 3rd 4th card */}
               <AdditionalFeeCard
-                additionalFeeData={pricingDetails.additionalFees}
+                propertyTransferTax={propertyTransferTax}
+                legalFees={legalFees}
+                homeInspectionFee={homeInspectionFee}
+                propertyInsurance={propertyInsurance}
               />
-              <MonthlyCostsCard monthlyCostData={pricingDetails.monthlyCosts} />
+              <MonthlyCostsCard
+                propertyTax={propertyTax}
+                homeOwnersAssociationFee={homeOwnersAssociationFee}
+              />
+
               <TotalInitialCostCard
-                totalInitialCostData={pricingDetails.totalInitialCosts}
+                price={price}
+                additionalFee={additionalFee}
+                downPayment={downPayment}
+                mortgageFee={mortgageFee}
               />
               <MonthlyExpenseCard
-                monthlyExpensesData={pricingDetails.monthlyExpenses}
+                propertyTax={propertyTax}
+                homeOwnersAssociationFee={homeOwnersAssociationFee}
+                propertyInsurance={propertyInsurance}
               />
             </div>
           </div>

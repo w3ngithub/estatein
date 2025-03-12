@@ -11,6 +11,11 @@ export const formSchema = z.object({
   noOfBedrooms: z.string().min(1, "Number of Bedrooms is required"),
   budget: z.string().min(1, "Budget is required"),
   preferredContactMethod: z.enum(["number", "email"]),
+  preferredNumber: z
+    .string()
+    .regex(/^[0-9]{10}$/, "Invalid phone number")
+    .optional(),
+  preferredEmail: z.string().optional(),
   message: z.string().optional(),
   terms: z.literal(true, {
     errorMap: () => ({ message: "You must accept the terms & conditions" }),

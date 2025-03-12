@@ -8,7 +8,7 @@ export const inquiryFormSchema = z.object({
   selectedProperty: z
     .string({ required_error: "Please select a location" })
     .min(1, "Please select a location"),
-  message: z.string().min(1, "Message is required"),
+  message: z.string().optional(),
   terms: z.literal(true, {
     errorMap: () => ({ message: "You must accept the terms & conditions" }),
   }),

@@ -33,20 +33,19 @@ const Dashboard = ({ userName }: { userName: string }) => {
   };
 
   return (
-    <div className="grid tablet-md:grid-cols-10 min-h-screen">
-      {/* <div className="tablet-md:col-span-2"> */}
+    <div className="flex flex-col mobile-lg:flex-row min-h-screen">
       <div
         className={`${
-          collapsed ? "tablet-md:w-[80px]" : "tablet-md:col-span-2"
-        } transition-all duration-300 relative`}
+          collapsed ? "tablet-md:w-[80px]" : "w-40"
+        } transition-all duration-300 relative max-mobile-lg:w-full`}
       >
         {/* sidenav */}
-        <div className="flex flex-col justify-between dark:bg-zinc-900 border-r dark:border-zinc-800 p-4 h-full">
+        <div className="flex flex-col justify-between bg-white-95 dark:bg-zinc-900 border-r dark:border-zinc-800 p-4 h-full">
           <div>
             <div className="flex items-center gap-2 mb-8">
               <HeaderLaptopLogo />
               {!collapsed && (
-                <h1 className="text-xl font-bold dark:text-white">Admin</h1>
+                <h1 className="text-[16px] font-bold dark:text-white">Admin</h1>
               )}
               {!collapsed && <ThemeToggle />}
             </div>
@@ -64,7 +63,7 @@ const Dashboard = ({ userName }: { userName: string }) => {
                 <Button
                   key={index}
                   variant={activeItem === item.label ? "default" : "ghost"}
-                  className={`w-full justify-start gap-2 desktop-lg:gap-4 desktop-lg:py-6 ${
+                  className={`flex justify-start items-center w-full gap-2 desktop-lg:gap-2 desktop-lg:py-3 ${
                     activeItem === item.label
                       ? "bg-purple-shade-60 text-white hover:bg-purple-shade-60"
                       : ""
@@ -73,7 +72,7 @@ const Dashboard = ({ userName }: { userName: string }) => {
                 >
                   <div className="h-4 w-4">{item.icon}</div>
                   {!collapsed && (
-                    <h1 className="desktop-lg:text-lg">{item.label}</h1>
+                    <h1 className="desktop-lg:text-[16px]">{item.label}</h1>
                   )}
                 </Button>
               ))}
@@ -82,7 +81,7 @@ const Dashboard = ({ userName }: { userName: string }) => {
           <LogOutComp collapsed={collapsed} userName={userName} />
         </div>
       </div>
-      <div className="tablet-md:col-span-8">{renderContent()}</div>
+      <div className="flex-grow">{renderContent()}</div>
     </div>
   );
 };

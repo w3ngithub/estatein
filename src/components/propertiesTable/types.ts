@@ -1,0 +1,30 @@
+export type PropertyApiResponse = {
+  id: string;
+  villaName: string;
+  coverImage: string;
+  multipleImages: string[];
+  keyFeatures: {
+    id: string;
+    name: string;
+  }[];
+  description: string;
+  price: string;
+  pillName: string;
+  location: string;
+  buildYear: string;
+  totalBedRoom: number;
+  totalBathRoom: number;
+  totalArea: number;
+  areaUnit: string;
+  propertyType: string;
+  propertyTransferTax: number;
+  legalFees: number;
+  homeInspectionFee: number;
+  propertyInsurance: number;
+  mortgageFee: number;
+  propertyTax: number;
+  additionalFee: number;
+  homeOwnersAssociationFee: number;
+  downPayment: number;
+  monthlyPropertyInsurance: number;
+};

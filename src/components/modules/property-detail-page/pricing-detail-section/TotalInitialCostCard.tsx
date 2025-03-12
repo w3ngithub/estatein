@@ -1,14 +1,19 @@
 import { Button } from "@/components/ui/button";
-import { TotalInitialCosts } from "@/utilityComponents/propertyDetailPage/pricingDetails";
 import Link from "next/link";
 import React from "react";
 
 interface TotalInitialCostCardProps {
-  totalInitialCostData: TotalInitialCosts;
+  price: string;
+  additionalFee: string;
+  downPayment: string;
+  mortgageFee: string;
 }
 
 const TotalInitialCostCard = ({
-  totalInitialCostData,
+  price,
+  additionalFee,
+  downPayment,
+  mortgageFee,
 }: TotalInitialCostCardProps) => {
   return (
     <div className="p-5 border border-grey-shade-15 rounded-lg">
@@ -29,14 +34,8 @@ const TotalInitialCostCard = ({
           </p>
           <div className="flex flex-row items-center gap-3">
             <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
-              ${totalInitialCostData.listingPrice}
+              ${Number(price).toLocaleString()}
             </h1>
-            {/* pills */}
-            {/* <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-15 bg-grey-shade-10 px-3 py-2 rounded-full max-mobile-md:rounded-lg">
-            <p className="text-grey-shade-60 text-lg max-desktop-lg:text-sm">
-              Based on the sale price and local regulations
-            </p>
-          </div> */}
           </div>
         </div>
         <div className="flex flex-col gap-3 tablet-lg:border-l border-grey-shade-15 tablet-lg:pl-5 max-tablet-lg:border-t max-tablet-lg:pt-5">
@@ -45,7 +44,7 @@ const TotalInitialCostCard = ({
           </p>
           <div className="flex flex-row items-center gap-3">
             <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
-              ${totalInitialCostData.additionalFees}
+              ${Number(additionalFee).toLocaleString()}
             </h1>
             <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-15 bg-grey-shade-10 px-3 py-2 rounded-full max-mobile-md:rounded-lg">
               <p className="text-grey-shade-60 text-lg max-desktop-lg:text-sm">
@@ -62,7 +61,7 @@ const TotalInitialCostCard = ({
           </p>
           <div className="flex flex-row items-center gap-3">
             <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
-              ${totalInitialCostData.downPayment}
+              ${Number(downPayment).toLocaleString()}
             </h1>
             <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-15 bg-grey-shade-10 px-3 py-2 rounded-full">
               <p className="text-grey-shade-60 text-lg max-desktop-lg:text-sm">
@@ -77,7 +76,7 @@ const TotalInitialCostCard = ({
           </p>
           <div className="flex flex-row items-center gap-3">
             <h1 className="font-semibold text-2xl max-desktop-lg:text-xl max-tablet-sm:text-lg">
-              ${totalInitialCostData.mortgageAmount}
+              ${Number(mortgageFee).toLocaleString()}
             </h1>
             <div className="flex flex-row justify-center items-center gap-1 border border-grey-shade-15 bg-grey-shade-10 px-3 py-2 rounded-full max-mobile-md:rounded-lg">
               <p className="text-grey-shade-60 text-lg max-desktop-lg:text-sm">

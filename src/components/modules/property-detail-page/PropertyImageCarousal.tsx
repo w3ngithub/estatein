@@ -12,22 +12,25 @@ import {
 } from "@/components/ui/carousel";
 import { LocationIcon } from "@/svgs/PropertyDetailPageSvg";
 
-const images = [
-  "/estatein/images/carousel-one.png",
-  "/estatein/images/carousel-two.png",
-  "/estatein/images/carousel-one.png",
-  "/estatein/images/carousel-two.png",
-  "/estatein/images/carousel-one.png",
-  "/estatein/images/carousel-two.png",
-  "/estatein/images/carousel-one.png",
-  "/estatein/images/carousel-two.png",
-  "/estatein/images/carousel-one.png",
-  "/estatein/images/carousel-two.png",
-  "/estatein/images/carousel-one.png",
-  "/estatein/images/carousel-two.png",
-];
+// const images = [
+//   "/estatein/images/carousel-one.png",
+//   "/estatein/images/carousel-two.png",
+//   "/estatein/images/carousel-one.png",
+// ];
 
-export default function PropertyImageCarousal() {
+interface PropertyImageCarousalProps {
+  images: string[];
+  villaName: string;
+  location: string;
+  price: string;
+}
+
+export default function PropertyImageCarousal({
+  images,
+  villaName,
+  location,
+  price,
+}: PropertyImageCarousalProps) {
   const [selectedIndex, setSelectedIndex] = React.useState(0);
   const [mainApi, setMainApi] = React.useState<CarouselApi>();
   const [thumbApi, setThumbApi] = React.useState<CarouselApi>();
@@ -53,21 +56,21 @@ export default function PropertyImageCarousal() {
       <div className="flex flex-row items-center justify-between">
         <div className="flex flex-row items-center gap-4 max-mobile-xl:flex-col max-mobile-xl:items-start">
           <h1 className="font-semibold text-2xl max-desktop-lg:text-2xl max-mobile-lg:text-xl">
-            Seaside Serenity Villa
+            {villaName}
           </h1>
           <div className="flex flex-row items-center justify-center gap-2 border border-white-d1 dark:border-grey-shade-15 rounded-lg px-3 py-3">
             <div>
               <LocationIcon />
             </div>
             <p className="font-medium text-sm max-desktop-lg:text-sm">
-              Malibu, California
+              {location}
             </p>
           </div>
         </div>
         <div className="flex flex-col gap-3 max-mobile-xl:flex-row  max-mobile-xl:items-center max-mobile-md:mt-9">
           <p className="dark:text-grey-shade-60 font-medium text-sm">Price</p>
           <h1 className="font-semibold text-xl max-mobile-lg:text-lg">
-            $1,250,000
+            ${Number(price).toLocaleString()}
           </h1>
         </div>
       </div>
@@ -83,24 +86,27 @@ export default function PropertyImageCarousal() {
             }}
           >
             <CarouselContent className="-ml-2 p-2 bg-grey-shade-8 border border-grey-shade-15">
-              {images.map((src, index) => (
-                <CarouselItem key={index} className="pl-2 basis-20">
-                  <div
-                    className={`cursor-pointer transition-all ${
-                      selectedIndex === index ? "opacity-100" : "opacity-50"
-                    }`}
-                    onClick={() => handleThumbClick(index)}
-                  >
-                    <Image
-                      src={src}
-                      alt={`Property view ${index + 1}`}
-                      width={80}
-                      height={60}
-                      className="object-cover w-full h-16 rounded"
-                    />
-                  </div>
-                </CarouselItem>
-              ))}
+              {images.map((src, index) => {
+                return (
+                  <CarouselItem key={index} className="pl-2 basis-20">
+                    <div
+                      className={`cursor-pointer transition-all ${
+                        selectedIndex === index ? "opacity-100" : "opacity-50"
+                      }`}
+                      onClick={() => handleThumbClick(index)}
+                    >
+                      <Image
+                        // src={`/estatein/uploads/${src}`}
+                        src={`${process.env.NEXT_PUBLIC_BASE_PATH}/uploads/${src}`}
+                        alt={`Property view ${index + 1}`}
+                        width={80}
+                        height={60}
+                        className="object-cover w-full h-16 rounded"
+                      />
+                    </div>
+                  </CarouselItem>
+                );
+              })}
             </CarouselContent>
           </Carousel>
 
@@ -116,7 +122,7 @@ export default function PropertyImageCarousal() {
               {images.map((src, index) => (
                 <CarouselItem key={index} className="pl-2 mobile-lg:basis-1/2">
                   <Image
-                    src={src}
+                    src={`/estatein/uploads/${src}`}
                     alt={`Property view ${index + 1}`}
                     width={600}
                     height={400}
@@ -148,25 +154,4 @@ export default function PropertyImageCarousal() {
       </div>
     </div>
   );
-}
-
-{
-  /* <Button
-      variant="outline"
-      size="icon"
-      className="bg-white/10 hover:bg-white/20"
-      onClick={() => mainApi?.scrollPrev()}
-      >
-        <ChevronLeft className="w-4 h-4 text-white" />
-      </Button> */
-}
-{
-  /* <Button
-      variant="outline"
-      size="icon"
-      className="bg-white/10 hover:bg-white/20"
-      onClick={() => mainApi?.scrollNext()}
-        >
-          <ChevronRight className="w-4 h-4 text-white" />
-      </Button> */
 }

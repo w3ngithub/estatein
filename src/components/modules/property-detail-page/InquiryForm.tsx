@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import SelectField from "../common/SelectField";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -12,14 +12,16 @@ import {
   InquiryFormData,
   inquiryFormSchema,
 } from "@/schema/inquiry-form-schema";
-
-const preferredLocation = [
-  { value: "ktm", selectFieldData: "Kathmandu" },
-  { value: "bkt", selectFieldData: "Bhaktapur" },
-  { value: "lalit", selectFieldData: "Lalitpur" },
-];
+import { toast } from "sonner";
+import { PropertyApiResponse } from "@/components/propertiesTable/types";
 
 const InquiryForm = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [locations, setLocations] = useState<
+    { value: string; selectFieldData: string }[]
+  >([]);
+  const [allProperties, setAllProperties] = useState<PropertyApiResponse[]>([]);
+
   const {
     register,
     handleSubmit,
@@ -39,18 +41,68 @@ const InquiryForm = () => {
     },
   });
 
-  // data: InquiryFormData
-  const onSubmit = () => {
-    // console.log("Form submitted successfully:", data);
-    reset({
-      firstName: "",
-      lastName: "",
-      email: "",
-      phoneNumber: "",
-      selectedProperty: "",
-      message: "",
-      terms: true,
-    });
+  const fetchProperties = async () => {
+    try {
+      const res = await fetch("/estatein/api/addProperty");
+      const result = await res.json();
+      if (result.data && Array.isArray(result.data)) {
+        setAllProperties(result.data); // Store the original data
+      }
+    } catch (error) {
+      console.error("Failed to fetch properties:", error);
+      toast.error("Failed to fetch property");
+    } finally {
+    }
+  };
+
+  useEffect(() => {
+    // Fetch and display property type
+    fetchProperties();
+  }, []);
+
+  //taking unique locations from json file
+  useEffect(() => {
+    const uniqueLocations = Array.from(
+      new Set(allProperties?.map((property) => property.location))
+    ).map((location) => ({
+      value: location,
+      selectFieldData: location,
+    }));
+    setLocations(uniqueLocations);
+  }, [allProperties]);
+
+  const onSubmit = async (data: InquiryFormData) => {
+    if (isSubmitting) return; // Prevent multiple submissions
+    try {
+      setIsSubmitting(true);
+      const response = await fetch("/estatein/api/inquiryForm", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit form");
+      }
+
+      toast.success("Form submitted successfully");
+      reset({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phoneNumber: "",
+        selectedProperty: "",
+        message: "",
+        terms: true,
+      });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast.error("Error submitting form");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -147,7 +199,7 @@ const InquiryForm = () => {
           render={({ field }) => (
             <SelectField
               placeholder="Select Location"
-              data={preferredLocation}
+              data={locations}
               value={field.value || ""}
               onChange={field.onChange}
             />
@@ -198,8 +250,15 @@ const InquiryForm = () => {
           </p>
         </div>
         <div className="max-mobile-lg:w-full">
-          <Button className="bg-purple-shade-60 hover:bg-purple-shade-d60 py-6 px-4 font-medium rounded-md max-desktop-lg:text-sm dark:text-white max-mobile-lg:w-full">
-            Send Your Message
+          <Button
+            disabled={isSubmitting}
+            className={`py-6 px-4 font-medium rounded-md max-desktop-lg:text-sm max-mobile-lg:w-full dark:text-white ${
+              isSubmitting
+                ? "bg-gray-400 cursor-not-allowed"
+                : "bg-purple-shade-60 hover:bg-purple-shade-d60"
+            }`}
+          >
+            {isSubmitting ? "Submitting..." : "Send Your Message"}
           </Button>
         </div>
       </div>

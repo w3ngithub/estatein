@@ -12,7 +12,8 @@ export const propertySchema = z.object({
 
   multipleImages: z
     .array(z.instanceof(File))
-    .min(1, "Please upload at least one image")
+    .min(2, "Please upload at least two image")
+    .max(20, "You can upload up to 20 images")
     .refine(
       (files) => files.every((file) => file.size <= 1000000),
       "All images must be less than 1MB"
@@ -29,9 +30,14 @@ export const propertySchema = z.object({
       message: "At least one key feature is required",
     }),
 
-  description: z.string().min(1, {
-    message: "Description is required",
-  }),
+  description: z
+    .string()
+    .min(1, {
+      message: "Description is required",
+    })
+    .refine((value) => value.trim().split(/\s+/).length >= 20, {
+      message: "Description must be at least 20 words",
+    }),
   price: z.string().min(1, {
     message: "Price is required",
   }),
@@ -104,9 +110,13 @@ export const propertySchema = z.object({
     .min(1, {
       message: "Property Insurance is required",
     }),
-  mortgageFee: z.string().min(1, {
-    message: "Mortgage Fee is required",
-  }),
+  mortgageFee: z
+    .number({
+      invalid_type_error: "Mortgage Fee must be a number",
+    })
+    .min(1, {
+      message: "Mortgage Fee is required",
+    }),
   propertyTax: z
     .number({
       invalid_type_error: "Property Tax must be a number",

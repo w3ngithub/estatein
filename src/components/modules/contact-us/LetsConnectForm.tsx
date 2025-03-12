@@ -2,7 +2,7 @@
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ThreeStars } from "@/svgs/HomePageSvg";
-import React from "react";
+import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import SelectField from "../common/SelectField";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -13,17 +13,22 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 
 const LetsConnectForm = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const inquiryType = [
     { value: "price", selectFieldData: "About Price" },
     { value: "location", selectFieldData: "About Location" },
     { value: "auction", selectFieldData: "About Auction" },
+    { value: "others", selectFieldData: "Others" },
   ];
   const hearAboutUs = [
     { value: "facebook", selectFieldData: "Facebook" },
     { value: "instagram", selectFieldData: "Instagram" },
     { value: "newspaper", selectFieldData: "Newspaper" },
+    { value: "others", selectFieldData: "Others" },
   ];
   const {
     register,
@@ -44,12 +49,33 @@ const LetsConnectForm = () => {
       terms: true,
     },
   });
+  const onSubmit = async (data: LetsConnectSchema) => {
+    if (isSubmitting) return; // Prevent multiple submissions
+    try {
+      setIsSubmitting(true);
 
-  //   data: LetsConnectSchema
-  const onSubmit = () => {
-    // console.log("Form Data:", data);
-    reset();
+      const response = await fetch("/estatein/api/letsConnectForm", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit form");
+      }
+
+      toast.success("Form submitted successfully");
+      reset();
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast.error("Error submitting form");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
+
   return (
     <section className="container flex flex-col gap-10 py-10 max-mobile-md:gap-5 max-mobile-md:pb-8">
       {/* first section */}
@@ -254,8 +280,15 @@ const LetsConnectForm = () => {
             </p>
           </div>
           <div className="max-mobile-md:w-full">
-            <Button className="bg-purple-shade-60 hover:bg-purple-shade-d60 py-6 px-4 font-medium rounded-md max-desktop-lg:text-sm max-mobile-lg:w-full dark:text-white">
-              Send Your Message
+            <Button
+              disabled={isSubmitting}
+              className={`py-6 px-4 font-medium rounded-md max-desktop-lg:text-sm max-mobile-lg:w-full dark:text-white ${
+                isSubmitting
+                  ? "bg-gray-400 cursor-not-allowed"
+                  : "bg-purple-shade-60 hover:bg-purple-shade-d60"
+              }`}
+            >
+              {isSubmitting ? "Submitting..." : "Send Your Message"}
             </Button>
           </div>
         </div>

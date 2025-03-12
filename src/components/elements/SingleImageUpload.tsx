@@ -17,29 +17,37 @@ import { PropertyListingSchema } from "@/schema/property-listing-form";
 interface SingleImageUploadProps {
   form: UseFormReturn<PropertyListingSchema>;
   name: keyof PropertyListingSchema;
+  imageUrl?: string; //for edit
 }
 
 const SingleImageUpload = ({
   form,
   name = "coverImage",
+  imageUrl,
 }: SingleImageUploadProps) => {
   const [preview, setPreview] = useState<string | ArrayBuffer | null>(null);
+
+  useEffect(() => {
+    if (imageUrl) {
+      setPreview(imageUrl); // // Populate preview from API data
+    }
+  }, [imageUrl, form, name]);
 
   // Watch for form resets and field changes
   useEffect(() => {
     // Watch for field changes
     const subscription = form.watch(() => {
       const fieldValue = form.getValues(name);
-      if (!fieldValue) {
+      if (!fieldValue && !imageUrl) {
         setPreview(null);
       }
     });
 
     // Watch for form state changes to detect resets
     // const resetSubscription = form.formState.submitCount;
-    if (form.formState.isSubmitSuccessful) {
-      setPreview(null);
-    }
+    // if (form.formState.isSubmitSuccessful) {
+    //   setPreview(null);
+    // }
 
     return () => subscription.unsubscribe();
   }, [
@@ -47,6 +55,7 @@ const SingleImageUpload = ({
     name,
     form.formState.submitCount,
     form.formState.isSubmitSuccessful,
+    imageUrl,
   ]);
 
   const onDrop = useCallback(
@@ -82,7 +91,9 @@ const SingleImageUpload = ({
   const handleRemoveImage = (e: React.MouseEvent) => {
     e.stopPropagation();
     setPreview(null); // Changed from empty string to null
-    form.resetField(name);
+    // form.resetField(name);
+    //@ts-ignore
+    form.setValue(name, null); // Change this to set null instead of resetting
   };
 
   return (
@@ -112,13 +123,39 @@ const SingleImageUpload = ({
             >
               {preview && (
                 <div className="relative">
+                  {/* ${process.env.NEXT_PUBLIC_BASE_PATH}${preview} */}
                   <Image
-                    src={preview as string}
+                    src={
+                      preview?.toString().startsWith("data:image")
+                        ? (preview as string) // Use Base64 directly
+                        : `${process.env.NEXT_PUBLIC_BASE_PATH}/uploads/${preview}` // Use API URL
+                    }
                     alt="Uploaded image"
                     className="max-h-[400px] w-full object-cover rounded-lg"
                     width={1920 / 5}
                     height={814 / 5}
                   />
+
+                  {/* {imageUrl ? (
+                    <Image
+                      // src={preview as string}
+                      src={`${process.env.NEXT_PUBLIC_BASE_PATH}${preview}`}
+                      alt="Uploaded image"
+                      className="max-h-[400px] w-full object-cover rounded-lg"
+                      width={1920 / 5}
+                      height={814 / 5}
+                    />
+                  ) : (
+                    <Image
+                      src={preview as string}
+                      // src={`${process.env.NEXT_PUBLIC_BASE_PATH}${preview}`}
+                      alt="Uploaded image"
+                      className="max-h-[400px] w-full object-cover rounded-lg"
+                      width={1920 / 5}
+                      height={814 / 5}
+                    />
+                  )} */}
+
                   <button
                     type="button"
                     onClick={handleRemoveImage}

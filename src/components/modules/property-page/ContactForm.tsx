@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ThreeStars } from "@/svgs/HomePageSvg";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -12,31 +12,96 @@ import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { formSchema, FormSchema } from "@/schema/contact-form-schema";
 import { MessageIcon, PhoneIcon } from "@/svgs/PropertyPageSvg";
+import { toast } from "sonner";
+import { PropertyApiResponse } from "@/components/propertiesTable/types";
 
 const ContactForm = () => {
-  const preferredLocation = [
-    { value: "ktm", selectFieldData: "Kathmandu" },
-    { value: "bkt", selectFieldData: "Bhaktapur" },
-    { value: "lalit", selectFieldData: "Lalitpur" },
-  ];
-  const propertyType = [
-    { value: "rental", selectFieldData: "Rental" },
-    { value: "own", selectFieldData: "Owned" },
-  ];
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [locations, setLocations] = useState<
+    { value: string; selectFieldData: string }[]
+  >([]);
+  const [propertyType, setPropertyType] = useState<
+    { value: string; selectFieldData: string }[]
+  >([]);
+  const [allProperties, setAllProperties] = useState<PropertyApiResponse[]>([]);
+
+  const fetchProperties = async () => {
+    try {
+      const res = await fetch("/estatein/api/addProperty");
+      const result = await res.json();
+      if (result.data && Array.isArray(result.data)) {
+        setAllProperties(result.data); // Store the original data
+      }
+    } catch (error) {
+      console.error("Failed to fetch properties:", error);
+      toast.error("Failed to fetch property");
+    } finally {
+    }
+  };
+
+  useEffect(() => {
+    // Fetch and display property
+    fetchProperties();
+  }, []);
+
+  //taking unique locations from json file
+  useEffect(() => {
+    const uniqueLocations = Array.from(
+      new Set(allProperties?.map((property) => property.location))
+    ).map((location) => ({
+      value: location,
+      selectFieldData: location,
+    }));
+    setLocations(uniqueLocations);
+  }, [allProperties]);
+
+  useEffect(() => {
+    // Fetch and display property type
+    async function fetchData() {
+      try {
+        const res = await fetch("/estatein/api/addPropertyType");
+        const result = await res.json();
+        setPropertyType(result.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        toast.error("Failed to fetch property types");
+      } finally {
+      }
+    }
+    fetchData();
+  }, []);
+
+  // //taking unique property type from json file
+  // useEffect(() => {
+  //   const uniquePropertyType = Array.from(
+  //     new Set(allProperties?.map((property) => property.propertyType))
+  //   ).map((item) => ({
+  //     value: item,
+  //     selectFieldData: item,
+  //   }));
+  //   setPropertyType(uniquePropertyType);
+  // }, [allProperties]);
+
   const noOfBathrooms = [
     { value: "1", selectFieldData: "One" },
     { value: "2", selectFieldData: "Two" },
     { value: "3", selectFieldData: "Three" },
+    { value: "4", selectFieldData: "Four" },
+    { value: "Others", selectFieldData: "Others" },
   ];
   const noOfBedrooms = [
     { value: "1", selectFieldData: "One" },
     { value: "2", selectFieldData: "Two" },
     { value: "3", selectFieldData: "Three" },
+    { value: "4", selectFieldData: "Four" },
+    { value: "Others", selectFieldData: "Others" },
   ];
   const budget = [
-    { value: "1000", selectFieldData: "10000" },
-    { value: "2000", selectFieldData: "20000" },
-    { value: "3000", selectFieldData: "30000" },
+    { value: "10K", selectFieldData: "10K" },
+    { value: "100K", selectFieldData: "100K" },
+    { value: "500K", selectFieldData: "500K" },
+    { value: "900K", selectFieldData: "900K" },
+    { value: "Others", selectFieldData: "Others" },
   ];
 
   const {
@@ -45,6 +110,8 @@ const ContactForm = () => {
     control,
     formState: { errors },
     reset,
+    setValue,
+    watch,
   } = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -58,28 +125,65 @@ const ContactForm = () => {
       noOfBedrooms: "",
       budget: "",
       preferredContactMethod: "number",
+      preferredNumber: "",
+      preferredEmail: "",
       message: "",
       terms: true,
     },
   });
 
-  // data: FormSchema
-  const onSubmit = () => {
-    // console.log("Form Data:", data);
-    reset({
-      firstName: "",
-      lastName: "",
-      email: "",
-      phoneNumber: "",
-      preferredLocation: "",
-      propertyType: "",
-      noOfBathrooms: "",
-      noOfBedrooms: "",
-      budget: "",
-      preferredContactMethod: "number",
-      message: "",
-      terms: true,
-    });
+  const onSubmit = async (data: FormSchema) => {
+    if (isSubmitting) return; // Prevent multiple submissions
+    try {
+      setIsSubmitting(true);
+
+      const response = await fetch("/estatein/api/contactForm", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      if (!response.ok) {
+        throw new Error("Failed to submit form");
+      }
+      toast.success("Form submitted successfully");
+      reset({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phoneNumber: "",
+        preferredLocation: "",
+        propertyType: "",
+        noOfBathrooms: "",
+        noOfBedrooms: "",
+        budget: "",
+        preferredContactMethod: "number",
+        preferredNumber: "",
+        preferredEmail: "",
+        message: "",
+        terms: true,
+      });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast.error("Error submitting form");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const email = watch("email");
+  const phoneNumber = watch("phoneNumber");
+
+  const populatePreferredPhoneNumber = (
+    e: React.MouseEvent<HTMLButtonElement>
+  ) => {
+    e.preventDefault();
+    setValue("preferredNumber", phoneNumber);
+  };
+  const populatePreferredEmail = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    setValue("preferredEmail", email);
   };
 
   return (
@@ -208,7 +312,7 @@ const ContactForm = () => {
               render={({ field }) => (
                 <SelectField
                   placeholder="Select Location"
-                  data={preferredLocation}
+                  data={locations}
                   value={field.value || ""}
                   onChange={field.onChange}
                 />
@@ -297,7 +401,8 @@ const ContactForm = () => {
           </div>
         </div>
         {/* third row */}
-        <div className="grid tablet-sm:grid-cols-2 gap-3 max-tablet-sm:pb-12">
+        {/* max-tablet-sm:pb-12 */}
+        <div className="grid tablet-sm:grid-cols-2 gap-3">
           <div className="flex flex-col gap-3">
             <Label
               htmlFor="budget"
@@ -321,7 +426,7 @@ const ContactForm = () => {
               <span className="text-red-500">{errors.budget.message}</span>
             )}
           </div>
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col space-y-3">
             <Label
               htmlFor="contact"
               className="font-semibold text-xl max-desktop-lg:text-base"
@@ -336,42 +441,70 @@ const ContactForm = () => {
                   <RadioGroup
                     onValueChange={field.onChange}
                     defaultValue={field.value}
-                    className="flex flex-row justify-between w-full h-16 max-desktop-lg:h-14 max-desktop-md:flex-col max-desktop-md:mb-6"
+                    className="grid grid-cols-1 desktop-md:grid-cols-2"
                   >
-                    <div className="flex items-center gap-3 w-full px-4 py-3 rounded-lg bg-[#E4E4E7] dark:bg-[#1C1C1C]">
-                      <div>
-                        <PhoneIcon />
-                      </div>
+                    <div className="flex flex-col w-full">
+                      <div className="flex items-center gap-3 w-full px-4 py-3 rounded-lg bg-[#E4E4E7] dark:bg-[#1C1C1C] h-16 max-desktop-lg:h-14">
+                        <div>
+                          <PhoneIcon />
+                        </div>
 
-                      <input
-                        type="number"
-                        placeholder="Enter Your Number"
-                        className="flex-1 bg-transparent dark:text-white dark:placeholder:text-gray-400 focus:outline-none text-sm"
-                        disabled
-                      />
+                        <input
+                          type="number"
+                          placeholder="Enter Your Number"
+                          className="flex-1 bg-transparent dark:text-white dark:placeholder:text-gray-400 focus:outline-none text-sm"
+                          {...register("preferredNumber")}
+                        />
 
-                      <div className="p-2 rounded-full max-mobile-extra-md:pl-0">
-                        <RadioGroupItem value="number" id="number" />
+                        <div className="p-2 rounded-full max-mobile-extra-md:pl-0">
+                          <RadioGroupItem value="number" id="number" />
+                        </div>
                       </div>
+                      <Button
+                        variant="link"
+                        className="flex justify-end items-center text-purple-shade-60"
+                        onClick={(e) => populatePreferredPhoneNumber(e)}
+                      >
+                        Same as above?
+                      </Button>
                     </div>
-                    <div className="flex items-center gap-3 w-full px-4 py-3 bg-[#E4E4E7] dark:bg-[#1C1C1C] rounded-lg">
-                      <div>
-                        <MessageIcon />
-                      </div>
-                      <input
-                        type="email"
-                        placeholder="Enter Your Email"
-                        className="flex-1 bg-transparent dark:text-white dark:placeholder:text-gray-400 focus:outline-none text-sm"
-                        disabled
-                      />
+                    <div className="flex flex-col w-full">
+                      <div className="flex items-center gap-3 w-full px-4 py-3 bg-[#E4E4E7] dark:bg-[#1C1C1C] rounded-lg h-16 max-desktop-lg:h-14">
+                        <div>
+                          <MessageIcon />
+                        </div>
+                        <input
+                          type="email"
+                          placeholder="Enter Your Email"
+                          className="flex-1 bg-transparent dark:text-white dark:placeholder:text-gray-400 focus:outline-none text-sm"
+                          {...register("preferredEmail")}
+                        />
 
-                      <div className="p-2 rounded-full max-mobile-extra-md:pl-0">
-                        <RadioGroupItem value="email" id="email" />
+                        <div className="p-2 rounded-full max-mobile-extra-md:pl-0">
+                          <RadioGroupItem value="email" id="email" />
+                        </div>
                       </div>
+                      <Button
+                        variant="link"
+                        className="flex justify-end items-center text-purple-shade-60"
+                        onClick={(e) => populatePreferredEmail(e)}
+                      >
+                        Same as above?
+                      </Button>
                     </div>
                   </RadioGroup>
                 )}
               />
+              {errors.preferredNumber && (
+                <span className="text-red-500 text-sm mt-1">
+                  {errors.preferredNumber.message}
+                </span>
+              )}
+              {errors.preferredEmail && (
+                <span className="text-red-500 text-sm mt-1">
+                  {errors.preferredEmail.message}
+                </span>
+              )}
               {errors.preferredContactMethod && (
                 <span className="text-red-500 text-sm mt-1">
                   {errors.preferredContactMethod.message}
@@ -426,8 +559,15 @@ const ContactForm = () => {
             </p>
           </div>
           <div className="max-mobile-md:w-full">
-            <Button className="bg-purple-shade-60 hover:bg-purple-shade-d60 py-6 px-4 font-medium rounded-md max-desktop-lg:text-sm max-mobile-lg:w-full dark:text-white">
-              Send Your Message
+            <Button
+              disabled={isSubmitting}
+              className={`py-6 px-4 font-medium rounded-md max-desktop-lg:text-sm max-mobile-lg:w-full dark:text-white ${
+                isSubmitting
+                  ? "bg-gray-400 cursor-not-allowed"
+                  : "bg-purple-shade-60 hover:bg-purple-shade-d60"
+              }`}
+            >
+              {isSubmitting ? "Submitting..." : "Send Your Message"}
             </Button>
           </div>
         </div>

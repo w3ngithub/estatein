@@ -1,36 +1,92 @@
+"use client";
 import { SendSmallIcon, ThreeStars } from "@/svgs/HomePageSvg";
 import { TwitterIcon } from "@/svgs/TermsAndConditionSvg";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
+import { toast } from "sonner";
 
 const MeetTeam = () => {
+  const [messages, setMessages] = useState<{ [key: string]: string }>({});
+  const [submitting, setIsSubmitting] = useState<{ [key: string]: boolean }>(
+    {}
+  );
+
   const teamMembers = [
     {
       name: "Max Mitchell",
       role: "Founder",
       imageSrc: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/about-us-team-one.png`,
       twitterUrl: "/twitter",
+      email: "gyawali.dipesh@webexpertsnepal.com",
     },
     {
       name: "Sarah Johnson",
       role: "Chief Real Estate Officer",
       imageSrc: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/about-us-team-two.png`,
       twitterUrl: "/twitter",
+      email: "jiffymarvel@gmail.com",
     },
     {
       name: "David Brown",
       role: "Head of Property Management",
       imageSrc: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/about-us-team-three.png`,
       twitterUrl: "/twitter",
+      email: "hello@gmail.com",
     },
     {
       name: "Michael Turner",
       role: "Legal Counsel",
       imageSrc: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/about-us-team-four.png`,
       twitterUrl: "/twitter",
+      email: "dipeshgyawali365@gmail.com",
     },
   ];
+
+  // Handle input change for each team member
+  const handleInputChange = (email: string, message: string) => {
+    setMessages((prev) => ({
+      ...prev,
+      [email]: message,
+    }));
+  };
+
+  // Handle message sending
+  const handleSendMessage = async (email: string) => {
+    if (submitting[email]) return; // Prevent multiple submissions for this email
+
+    if (!messages[email]?.trim()) {
+      toast.error("Please enter a message before sending.");
+      return;
+    }
+
+    try {
+      setIsSubmitting((prev) => ({ ...prev, [email]: true }));
+
+      const response = await fetch("/estatein/api/send-message", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          recipientEmail: email,
+          message: messages[email],
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status}`);
+      }
+
+      toast.success(`Message sent`);
+      setMessages((prev) => ({ ...prev, [email]: "" })); // Clear message after sending
+    } catch (error) {
+      console.error("Error sending message:", error);
+      toast.error("Failed to send message. Please try again.");
+    } finally {
+      setIsSubmitting((prev) => ({ ...prev, [email]: false }));
+    }
+  };
 
   return (
     <section className="container py-10">
@@ -85,10 +141,21 @@ const MeetTeam = () => {
                   type="text"
                   placeholder="Say Hello 👋"
                   className="w-full pr-10 bg-transparent dark:text-white dark:placeholder:text-gray-400 placeholder:text-lg max-desktop-lg:placeholder:text-base max-mobile-md:placeholder:text-sm focus:outline-none text-sm"
+                  value={messages[member.email] || ""}
+                  onChange={(e) =>
+                    handleInputChange(member.email, e.target.value)
+                  }
                 />
 
-                <div className="absolute top-1/2 right-2 transform -translate-y-1/2 p-2 rounded-full dark:bg-purple-shade-60 cursor-pointer">
-                  <SendSmallIcon />
+                <div
+                  className="absolute top-1/2 right-2 transform -translate-y-1/2 p-2 rounded-full dark:bg-purple-shade-60 cursor-pointer"
+                  onClick={() => handleSendMessage(member.email)}
+                >
+                  {submitting[member.email] ? (
+                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                  ) : (
+                    <SendSmallIcon />
+                  )}
                 </div>
               </div>
             </div>

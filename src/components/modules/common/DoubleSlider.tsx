@@ -21,7 +21,7 @@ const DoubleSlider = ({
   value,
   onChange,
 }: DoubleSliderProps) => {
-  const [values, setValues] = useState<number[]>([10, 900]);
+  const [values, setValues] = useState<number[]>([1000, 900000]);
 
   // Parse initial value from URL parameter
   useEffect(() => {
@@ -47,17 +47,27 @@ const DoubleSlider = ({
     }
   };
 
+  const formatThousands = (value: number) => {
+    if (value >= 1000) {
+      return `${(value / 1000).toFixed(0)}K`;
+    }
+    return value.toString();
+  };
+
   return (
     <Select>
       <SelectTrigger className="h-16 max-desktop-lg:h-14 border border-grey-15 dark:bg-grey-shade-8">
         <div className="border-r border-grey-shade-15 pr-3">{svgIcon}</div>
-        <SelectValue placeholder={placeholder}>
+        {/* <SelectValue placeholder={placeholder}>
           {`$${values[0]}K - $${values[1]}K`}
+        </SelectValue> */}
+        <SelectValue placeholder={placeholder}>
+          {`${formatThousands(values[0])} - ${formatThousands(values[1])}`}
         </SelectValue>
       </SelectTrigger>
       <SelectContent>
         <div className="flex justify-center items-center h-36 p-5">
-          <DualRangeSlider
+          {/* <DualRangeSlider
             label={(value) => <span className="text-white">{`${value}K`}</span>}
             value={values}
             // onValueChange={setValues}
@@ -65,6 +75,16 @@ const DoubleSlider = ({
             min={10}
             max={900}
             step={10}
+          /> */}
+          <DualRangeSlider
+            label={(value) => (
+              <span className="text-white">{formatThousands(value ?? 0)}</span>
+            )}
+            value={values}
+            onValueChange={handleValueChange}
+            min={1000} // Start at 1000 (1K)
+            max={900000} // 900K
+            step={1000}
           />
         </div>
       </SelectContent>

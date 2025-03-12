@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import {
   Card,
   CardContent,
@@ -8,11 +9,17 @@ import {
 } from "@/components/ui/card";
 import { PieChart, Pie, Tooltip, ResponsiveContainer, Cell } from "recharts";
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid } from "recharts";
+import PropertyType from "./PropertyType";
+import { toast } from "sonner";
+import PropertySizeType from "./PropertySizeType";
+import Loading from "@/components/elements/Loading";
+import { PropertyApiResponse } from "@/components/propertiesTable/types";
 
 interface PropertyPriceData {
   propertyName: string;
   area: number;
   price: number;
+  areaUnit: string;
 }
 
 interface CustomTooltipProps {
@@ -22,33 +29,18 @@ interface CustomTooltipProps {
   }>;
 }
 
-const data01 = [
-  { propertyName: "Villa A", propertySize: 400 },
-  { propertyName: "Villa B", propertySize: 300 },
-  { propertyName: "Villa C", propertySize: 300 },
-  { propertyName: "Villa D", propertySize: 200 },
-  { propertyName: "Villa E", propertySize: 278 },
-  { propertyName: "Villa F", propertySize: 189 },
-];
-const data: PropertyPriceData[] = [
-  { propertyName: "Villa A", area: 1000, price: 4000 },
-  { propertyName: "Villa B", area: 1200, price: 3000 },
-  { propertyName: "Villa C", area: 1500, price: 2000 },
-  { propertyName: "Villa D", area: 1800, price: 2780 },
-  { propertyName: "Villa E", area: 2000, price: 1890 },
-  { propertyName: "Villa F", area: 2500, price: 2390 },
-  { propertyName: "Villa G", area: 3000, price: 3490 },
-];
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "#A28DFF"];
 
 // Custom Tooltip Component
 const CustomTooltip = ({ active, payload }: CustomTooltipProps) => {
   if (active && payload && payload.length) {
-    const { propertyName, area, price } = payload[0].payload;
+    const { propertyName, area, price, areaUnit } = payload[0].payload;
     return (
       <div className="bg-white p-2 border shadow-md rounded-md text-black">
         <p className="font-bold">{propertyName}</p>
-        <p>Area: {area} sq ft</p>
+        <p>
+          Area: {area} {areaUnit}
+        </p>
         <p>Price: ${price}</p>
       </div>
     );
@@ -61,6 +53,80 @@ const DashboardContent = ({
 }: {
   onNavigateToSettings?: () => void;
 }) => {
+  const [property, setProperty] = useState<PropertyApiResponse[]>([]);
+  const [propertyType, setPropertyType] = useState<PropertyType[]>([]);
+  const [propertySizeType, setPropertySizeType] = useState<PropertySizeType[]>(
+    []
+  );
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const fetchProperties = async () => {
+    setIsLoading(true);
+    try {
+      const res = await fetch("/estatein/api/addProperty");
+      const result = await res.json();
+      if (result.data && Array.isArray(result.data)) {
+        setProperty(result.data);
+      }
+    } catch (error) {
+      console.error("Failed to fetch properties:", error);
+      toast.error("Failed to fetch property");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    // Fetch and display property type
+    fetchProperties();
+  }, []);
+
+  useEffect(() => {
+    // Fetch and display property type
+    async function fetchData() {
+      try {
+        const res = await fetch("/estatein/api/addPropertyType");
+        const result = await res.json();
+        setPropertyType(result.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        toast.error("Failed to fetch property types");
+      } finally {
+      }
+    }
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    // Fetch and display data
+    async function fetchData() {
+      try {
+        const res = await fetch("/estatein/api/addPropertySizeType");
+        const result = await res.json();
+        setPropertySizeType(result.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        toast.error("Failed to fetch property types");
+      }
+    }
+    fetchData();
+  }, []);
+
+  //pie chart data
+  const data01 = property.map((item) => ({
+    propertyName: item.villaName,
+    propertySize: item.totalArea,
+    areaUnit: item.areaUnit,
+  }));
+
+  //area chart data
+  const data = property.map((item) => ({
+    propertyName: item.villaName,
+    area: item.totalArea,
+    price: item.price,
+    areaUnit: item.areaUnit,
+  }));
+
   return (
     <div className="p-8 space-y-10">
       <h1 className="text-2xl">Dashboard</h1>
@@ -77,7 +143,7 @@ const DashboardContent = ({
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <p className="text-green-500 font-bold">15</p>
+            <p className="text-green-500 font-bold">{property.length}</p>
           </CardContent>
         </Card>
         <Card
@@ -91,7 +157,7 @@ const DashboardContent = ({
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <p className="text-green-500 font-bold">6</p>
+            <p className="text-green-500 font-bold">{propertyType.length}</p>
           </CardContent>
         </Card>
         <Card
@@ -105,7 +171,9 @@ const DashboardContent = ({
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <p className="text-green-500 font-bold">8</p>
+            <p className="text-green-500 font-bold">
+              {propertySizeType.length}
+            </p>
           </CardContent>
         </Card>
       </div>
@@ -119,29 +187,39 @@ const DashboardContent = ({
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="h-96">
+            <div className="h-96 mobile-lg:p-8">
               <ResponsiveContainer width="100%" height="100%">
-                <PieChart width={400} height={400}>
-                  <Pie
-                    nameKey="propertyName"
-                    dataKey="propertySize"
-                    isAnimationActive={false}
-                    data={data01}
-                    cx="50%"
-                    cy="50%"
-                    outerRadius={120}
-                    label={({ name }) => name}
-                  >
-                    {data01.map((_, index) => (
-                      <Cell
-                        key={`cell-${index}`}
-                        fill={COLORS[index % COLORS.length]}
-                      />
-                    ))}
-                  </Pie>
+                {isLoading ? (
+                  <div className="flex justify-center items-center h-40">
+                    <Loading />
+                  </div>
+                ) : (
+                  <PieChart width={400} height={400}>
+                    <Pie
+                      nameKey="propertyName"
+                      dataKey="propertySize"
+                      isAnimationActive={false}
+                      data={data01}
+                      cx="50%"
+                      cy="50%"
+                      outerRadius={120}
+                      label={({ name }) => name}
+                    >
+                      {data01.map((_, index) => (
+                        <Cell
+                          key={`cell-${index}`}
+                          fill={COLORS[index % COLORS.length]}
+                        />
+                      ))}
+                    </Pie>
 
-                  <Tooltip formatter={(value) => `${value} sq ft`} />
-                </PieChart>
+                    <Tooltip
+                      formatter={(value, _, { payload }) =>
+                        `${value} ${payload.areaUnit}`
+                      }
+                    />
+                  </PieChart>
+                )}
               </ResponsiveContainer>
             </div>
           </CardContent>
@@ -157,40 +235,46 @@ const DashboardContent = ({
           <CardContent>
             <div className="h-[500px] mobile-lg:p-8">
               <ResponsiveContainer width="100%" height={400}>
-                <AreaChart
-                  data={data}
-                  margin={{
-                    top: 10,
-                    right: 30,
-                    left: 0,
-                    bottom: 20,
-                  }}
-                >
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis
-                    dataKey="area"
-                    label={{
-                      value: "Area (sq ft)",
-                      position: "bottom",
-                      offset: -5,
+                {isLoading ? (
+                  <div className="flex justify-center items-center h-40">
+                    <Loading />
+                  </div>
+                ) : (
+                  <AreaChart
+                    data={data}
+                    margin={{
+                      top: 10,
+                      right: 30,
+                      left: 0,
+                      bottom: 20,
                     }}
-                  />
-                  <YAxis
-                    label={{
-                      value: "Price ($)",
-                      angle: -90,
-                      position: "insideLeft",
-                    }}
-                  />
-                  <Tooltip content={<CustomTooltip />} />
+                  >
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis
+                      dataKey="area"
+                      label={{
+                        value: "Area",
+                        position: "bottom",
+                        offset: -5,
+                      }}
+                    />
+                    <YAxis
+                      label={{
+                        value: "Price ($)",
+                        angle: -90,
+                        position: "insideLeft",
+                      }}
+                    />
+                    <Tooltip content={<CustomTooltip />} />
 
-                  <Area
-                    type="monotone"
-                    dataKey="price"
-                    stroke="#8884d8"
-                    fill="#8884d8"
-                  />
-                </AreaChart>
+                    <Area
+                      type="monotone"
+                      dataKey="price"
+                      stroke="#8884d8"
+                      fill="#8884d8"
+                    />
+                  </AreaChart>
+                )}
               </ResponsiveContainer>
             </div>
           </CardContent>
