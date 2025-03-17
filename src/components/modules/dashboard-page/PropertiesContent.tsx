@@ -14,7 +14,7 @@ const PropertiesContent = () => {
   const fetchProperties = async () => {
     setIsTableLoading(true);
     try {
-      const res = await fetch("/api/addProperty");
+      const res = await fetch("/estatein/api/addProperty");
       const result = await res.json();
       if (result.data && Array.isArray(result.data)) {
         setProperty(result.data);

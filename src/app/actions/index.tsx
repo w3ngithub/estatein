@@ -4,7 +4,7 @@ import { signIn, signOut } from "@/auth";
 import { AuthError } from "next-auth";
 
 export async function doLogout() {
-  await signOut({ redirectTo: "/" });
+  await signOut({ redirectTo: "/estatein" });
 }
 
 export async function handleCredentialsSignin({
@@ -18,7 +18,7 @@ export async function handleCredentialsSignin({
     await signIn("credentials", {
       userName,
       password,
-      redirectTo: "/admin/dashboard",
+      redirectTo: "/estatein/admin/dashboard",
     });
   } catch (error) {
     if (error instanceof AuthError) {

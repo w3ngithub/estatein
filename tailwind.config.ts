@@ -109,11 +109,11 @@ export default {
       backgroundImage: {
         "custom-gradient-purple":
           "linear-gradient(135deg, rgba(112, 59, 274, 0.75) 0%, rgba(0, 0, 0, 0.1) 12%)",
-        "service-banner": `url(/images/service-page-unlock-property-banner.png)`,
-        "smart-banner": `url(/images/service-page-unlock-property-banner.png)`,
-        "explore-right-img": `url(/images/footer-banner-background-second.png)`,
-        "explore-left-img": `url(/images/footer-banner-background-first.png)`,
-        "explore-world": `url(/images/contact-us-explore-world-banner.png)`,
+        "service-banner": `url(${process.env.NEXT_PUBLIC_BASE_PATH}/images/service-page-unlock-property-banner.png)`,
+        "smart-banner": `url(${process.env.NEXT_PUBLIC_BASE_PATH}/images/service-page-unlock-property-banner.png)`,
+        "explore-right-img": `url(${process.env.NEXT_PUBLIC_BASE_PATH}/images/footer-banner-background-second.png)`,
+        "explore-left-img": `url(${process.env.NEXT_PUBLIC_BASE_PATH}/images/footer-banner-background-first.png)`,
+        "explore-world": `url(${process.env.NEXT_PUBLIC_BASE_PATH}/images/contact-us-explore-world-banner.png)`,
       },
       borderRadius: {
         lg: "var(--radius)",
