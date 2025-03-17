@@ -89,7 +89,7 @@ const DiscoveredProperty = () => {
     setIsLoading(true);
 
     try {
-      const res = await fetch("/api/addProperty");
+      const res = await fetch("/estatein/api/addProperty");
       const result = await res.json();
       if (result.data && Array.isArray(result.data)) {
         setAllProperties(result.data); // Store the original data
@@ -112,7 +112,7 @@ const DiscoveredProperty = () => {
     // Fetch and display property type
     async function fetchData() {
       try {
-        const res = await fetch("/api/addPropertyType");
+        const res = await fetch("/estatein/api/addPropertyType");
         const result = await res.json();
         setPropertyType(result.data);
       } catch (error) {
@@ -128,7 +128,7 @@ const DiscoveredProperty = () => {
     // Fetch and display data
     async function fetchData() {
       try {
-        const res = await fetch("/api/addPropertySizeType");
+        const res = await fetch("/estatein/api/addPropertySizeType");
         const result = await res.json();
         setPropertySizeType(result.data);
       } catch (error) {
@@ -232,7 +232,7 @@ const DiscoveredProperty = () => {
   }, [api]);
 
   const handleNavigation = (id: string) => {
-    window.open(`/property/${id}`, "_blank");
+    window.open(`/estatein/property/${id}`, "_blank");
   };
   return (
     <div className="flex flex-col gap-10">
@@ -364,8 +364,11 @@ const DiscoveredProperty = () => {
                       <div className="flex flex-col gap-8">
                         <div className="relative aspect-[4/3] w-full">
                           <Image
-                            // src={`${process.env.NEXT_PUBLIC_BASE_PATH}/uploads/${item.coverImage}`}
-                            src={`/uploads/${item.coverImage}`}
+                            // src={`${
+                            //   process.env.NEXT_PUBLIC_BASE_PATH +
+                            //   `${item.coverImage}`
+                            // }`}
+                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/uploads/${item.coverImage}`}
                             width={432}
                             height={318}
                             alt="house image"

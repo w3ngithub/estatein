@@ -63,7 +63,7 @@ const DashboardContent = ({
   const fetchProperties = async () => {
     setIsLoading(true);
     try {
-      const res = await fetch("/api/addProperty");
+      const res = await fetch("/estatein/api/addProperty");
       const result = await res.json();
       if (result.data && Array.isArray(result.data)) {
         setProperty(result.data);
@@ -85,7 +85,7 @@ const DashboardContent = ({
     // Fetch and display property type
     async function fetchData() {
       try {
-        const res = await fetch("/api/addPropertyType");
+        const res = await fetch("/estatein/api/addPropertyType");
         const result = await res.json();
         setPropertyType(result.data);
       } catch (error) {
@@ -101,7 +101,7 @@ const DashboardContent = ({
     // Fetch and display data
     async function fetchData() {
       try {
-        const res = await fetch("/api/addPropertySizeType");
+        const res = await fetch("/estatein/api/addPropertySizeType");
         const result = await res.json();
         setPropertySizeType(result.data);
       } catch (error) {

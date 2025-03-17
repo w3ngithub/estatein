@@ -7,11 +7,8 @@ import PropertyImageCarousal from "@/components/modules/property-detail-page/Pro
 
 const fetchVillaDetails = async (id: string) => {
   // const baseUrl = process.env.NEXT_PUBLIC_BASE_PATH || "http://localhost:3000";
-  // const res = await fetch(
-  //   `http://localhost:3000/estatein/api/addProperty/${id}`
-  // );
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_BASE_PATH}/api/addProperty/${id}`
+    `http://localhost:3000/estatein/api/addProperty/${id}`
   );
   if (!res.ok) {
     throw new Error("Failed to fetch villa details");
