@@ -94,7 +94,7 @@ const AddPropertyModal = ({
     // Fetch and display property type
     async function fetchData() {
       try {
-        const res = await fetch("/estatein/api/addPropertyType");
+        const res = await fetch("/api/addPropertyType");
         const result = await res.json();
         setPropertyType(result.data);
       } catch (error) {
@@ -110,7 +110,7 @@ const AddPropertyModal = ({
     // Fetch and display data
     async function fetchData() {
       try {
-        const res = await fetch("/estatein/api/addPropertySizeType");
+        const res = await fetch("/api/addPropertySizeType");
         const result = await res.json();
         setPropertySizeType(result.data);
       } catch (error) {
@@ -170,7 +170,7 @@ const AddPropertyModal = ({
     try {
       // First, upload the images
       const imageUploadResponse = await fetch(
-        "/estatein/api/addProperty/upload-images",
+        "/api/addProperty/upload-images",
         {
           method: "POST",
           body: formData,
@@ -202,7 +202,7 @@ const AddPropertyModal = ({
       ];
 
       // Send the patch operations to the API
-      const response = await fetch("/estatein/api/addProperty", {
+      const response = await fetch("/api/addProperty", {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(patchOperations),

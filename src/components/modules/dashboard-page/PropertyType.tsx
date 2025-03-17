@@ -59,7 +59,7 @@ const PropertyType = ({ propertyType, setPropertyType }: PropertyTypeProps) => {
     async function fetchData() {
       setIsTableLoading(true);
       try {
-        const res = await fetch("/estatein/api/addPropertyType");
+        const res = await fetch("/api/addPropertyType");
         const result = await res.json();
         setPropertyType(result.data);
       } catch (error) {
@@ -86,7 +86,7 @@ const PropertyType = ({ propertyType, setPropertyType }: PropertyTypeProps) => {
     };
 
     try {
-      const response = await fetch("/estatein/api/addPropertyType", {
+      const response = await fetch("/api/addPropertyType", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -129,7 +129,7 @@ const PropertyType = ({ propertyType, setPropertyType }: PropertyTypeProps) => {
   const confirmDelete = async () => {
     setIsLoading(true);
     try {
-      const response = await fetch("/estatein/api/addPropertyType", {
+      const response = await fetch("/api/addPropertyType", {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",

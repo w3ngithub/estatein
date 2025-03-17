@@ -16,28 +16,29 @@ const MeetTeam = () => {
     {
       name: "Max Mitchell",
       role: "Founder",
-      imageSrc: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/about-us-team-one.png`,
+      // imageSrc: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/about-us-team-one.png`,
+      imageSrc: `/images/about-us-team-one.png`,
       twitterUrl: "/twitter",
       email: "gyawali.dipesh@webexpertsnepal.com",
     },
     {
       name: "Sarah Johnson",
       role: "Chief Real Estate Officer",
-      imageSrc: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/about-us-team-two.png`,
+      imageSrc: `/images/about-us-team-two.png`,
       twitterUrl: "/twitter",
       email: "jiffymarvel@gmail.com",
     },
     {
       name: "David Brown",
       role: "Head of Property Management",
-      imageSrc: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/about-us-team-three.png`,
+      imageSrc: `/images/about-us-team-three.png`,
       twitterUrl: "/twitter",
       email: "hello@gmail.com",
     },
     {
       name: "Michael Turner",
       role: "Legal Counsel",
-      imageSrc: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/about-us-team-four.png`,
+      imageSrc: `/images/about-us-team-four.png`,
       twitterUrl: "/twitter",
       email: "dipeshgyawali365@gmail.com",
     },
@@ -63,7 +64,7 @@ const MeetTeam = () => {
     try {
       setIsSubmitting((prev) => ({ ...prev, [email]: true }));
 
-      const response = await fetch("/estatein/api/send-message", {
+      const response = await fetch("/api/send-message", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
