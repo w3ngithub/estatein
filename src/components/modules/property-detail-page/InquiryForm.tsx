@@ -43,7 +43,7 @@ const InquiryForm = () => {
 
   const fetchProperties = async () => {
     try {
-      const res = await fetch("/api/addProperty");
+      const res = await fetch("/estatein/api/addProperty");
       const result = await res.json();
       if (result.data && Array.isArray(result.data)) {
         setAllProperties(result.data); // Store the original data
@@ -75,7 +75,7 @@ const InquiryForm = () => {
     if (isSubmitting) return; // Prevent multiple submissions
     try {
       setIsSubmitting(true);
-      const response = await fetch("/api/inquiryForm", {
+      const response = await fetch("/estatein/api/inquiryForm", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -41,10 +41,9 @@ const Hero = () => {
         <div className="z-100 w-1/2 absolute right-0 max-tablet-sm:relative max-tablet-sm:w-full">
           <div className="w-full h-full relative overflow-hidden">
             <Image
-              // src={`${
-              //   process.env.NEXT_PUBLIC_BASE_PATH + "/images/hero-building.png"
-              // }`}
-              src={`${"/images/hero-building.png"}`}
+              src={`${
+                process.env.NEXT_PUBLIC_BASE_PATH + "/images/hero-building.png"
+              }`}
               width={1920} // Large width to ensure high-quality scaling
               height={814} // Proportional height
               className="object-cover max-mobile-md:rounded-lg"
@@ -56,10 +55,9 @@ const Hero = () => {
           {/* logo */}
           <div className="absolute top-[20%] left-[-5%] max-mobile-md:top-[75%]">
             <Image
-              // src={`${
-              //   process.env.NEXT_PUBLIC_BASE_PATH + "/images/hero-logo.png"
-              // }`}
-              src={`${"/images/hero-logo.png"}`}
+              src={`${
+                process.env.NEXT_PUBLIC_BASE_PATH + "/images/hero-logo.png"
+              }`}
               width={129}
               height={129}
               alt="Hero Logo"

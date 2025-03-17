@@ -27,7 +27,7 @@ const ContactForm = () => {
 
   const fetchProperties = async () => {
     try {
-      const res = await fetch("/api/addProperty");
+      const res = await fetch("/estatein/api/addProperty");
       const result = await res.json();
       if (result.data && Array.isArray(result.data)) {
         setAllProperties(result.data); // Store the original data
@@ -59,7 +59,7 @@ const ContactForm = () => {
     // Fetch and display property type
     async function fetchData() {
       try {
-        const res = await fetch("/api/addPropertyType");
+        const res = await fetch("/estatein/api/addPropertyType");
         const result = await res.json();
         setPropertyType(result.data);
       } catch (error) {
@@ -137,7 +137,7 @@ const ContactForm = () => {
     try {
       setIsSubmitting(true);
 
-      const response = await fetch("/api/contactForm", {
+      const response = await fetch("/estatein/api/contactForm", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
