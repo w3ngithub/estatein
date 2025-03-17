@@ -77,7 +77,7 @@ const AddPropertySizeTypeModal = ({
     ];
 
     try {
-      const response = await fetch("/estatein/api/addPropertySizeType", {
+      const response = await fetch("/api/addPropertySizeType", {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(patchOps),

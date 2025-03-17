@@ -31,10 +31,11 @@ const OurJourney = () => {
         {/* second section */}
         <div>
           <Image
-            src={`${
-              process.env.NEXT_PUBLIC_BASE_PATH +
-              "/images/about-us-journey-house.png"
-            }`}
+            // src={`${
+            //   process.env.NEXT_PUBLIC_BASE_PATH +
+            //   "/images/about-us-journey-house.png"
+            // }`}
+            src={`${"/images/about-us-journey-house.png"}`}
             width={1920} // Large width to ensure high-quality scaling
             height={814} // Proportional height
             className="object-cover max-mobile-md:rounded-lg"

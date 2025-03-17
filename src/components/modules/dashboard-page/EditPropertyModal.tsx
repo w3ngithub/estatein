@@ -54,7 +54,9 @@ const EditPropertyModal = ({
 }: EditPropertyModalProps) => {
   const [isLoading, setIsLoading] = useState(true);
   const [imageUrl, setImageUrl] = useState(""); //for coverImage
+  console.log(imageUrl, "111111111");
   const [multipleImgUrl, setMultipleImgUrl] = useState([]); //for multiple images
+  console.log(multipleImgUrl, "111111111");
 
   const [newFeature, setNewFeature] = useState("");
 
@@ -89,7 +91,7 @@ const EditPropertyModal = ({
   });
 
   const urlToFile = async (url: string, filename: string): Promise<File> => {
-    const correctedUrl = `/estatein/uploads/${url}`;
+    const correctedUrl = `/uploads/${url}`;
 
     try {
       const response = await fetch(correctedUrl);
@@ -105,7 +107,7 @@ const EditPropertyModal = ({
     const fetchPropertyData = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch(`/estatein/api/addProperty/${propertyId}`);
+        const response = await fetch(`/api/addProperty/${propertyId}`);
         if (!response.ok) {
           throw new Error("Failed to fetch property details");
         }
@@ -195,7 +197,7 @@ const EditPropertyModal = ({
         values.multipleImages.some((img) => img instanceof File)
       ) {
         const imageUploadResponse = await fetch(
-          "/estatein/api/addProperty/upload-images",
+          "/api/addProperty/upload-images",
           {
             method: "PUT",
             body: formData,
@@ -233,7 +235,7 @@ const EditPropertyModal = ({
       };
 
       // Send update request
-      const response = await fetch(`/estatein/api/addProperty/${propertyId}`, {
+      const response = await fetch(`/api/addProperty/${propertyId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(updateData),

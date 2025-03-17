@@ -12,10 +12,7 @@ const ExploreWorld = () => {
             {/* 1st image */}
             <div>
               <Image
-                src={`${
-                  process.env.NEXT_PUBLIC_BASE_PATH +
-                  "/images/contact-us-explore-world-one.png"
-                }`}
+                src={`${"/images/contact-us-explore-world-one.png"}`}
                 width={1920}
                 height={814}
                 alt="desk"
@@ -25,10 +22,7 @@ const ExploreWorld = () => {
             {/* 2 */}
             <div>
               <Image
-                src={`${
-                  process.env.NEXT_PUBLIC_BASE_PATH +
-                  "/images/contact-us-explore-world-two.png"
-                }`}
+                src={`${"/images/contact-us-explore-world-two.png"}`}
                 width={1920}
                 height={814}
                 alt="team"
@@ -41,10 +35,7 @@ const ExploreWorld = () => {
             {/* 3 */}
             <div className="col-span-6">
               <Image
-                src={`${
-                  process.env.NEXT_PUBLIC_BASE_PATH +
-                  "/images/contact-us-explore-world-three.png"
-                }`}
+                src={`${"/images/contact-us-explore-world-three.png"}`}
                 width={1920}
                 height={814}
                 alt="team"
@@ -56,10 +47,7 @@ const ExploreWorld = () => {
                 {/* 4 */}
                 <div>
                   <Image
-                    src={`${
-                      process.env.NEXT_PUBLIC_BASE_PATH +
-                      "/images/contact-us-explore-world-four.png"
-                    }`}
+                    src={`${"/images/contact-us-explore-world-four.png"}`}
                     width={1920}
                     height={814}
                     alt="team"
@@ -69,10 +57,7 @@ const ExploreWorld = () => {
                 {/* 5 */}
                 <div>
                   <Image
-                    src={`${
-                      process.env.NEXT_PUBLIC_BASE_PATH +
-                      "/images/contact-us-explore-world-five.png"
-                    }`}
+                    src={`${"/images/contact-us-explore-world-five.png"}`}
                     width={1920}
                     height={814}
                     alt="team"
@@ -104,10 +89,7 @@ const ExploreWorld = () => {
             {/* 6 */}
             <div>
               <Image
-                src={`${
-                  process.env.NEXT_PUBLIC_BASE_PATH +
-                  "/images/contact-us-explore-world-six.png"
-                }`}
+                src={`${"/images/contact-us-explore-world-six.png"}`}
                 width={1920}
                 height={814}
                 alt="team"
