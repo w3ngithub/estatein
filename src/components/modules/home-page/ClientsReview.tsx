@@ -78,10 +78,11 @@ const ClientsReview = () => {
                       <div className="flex flex-row gap-3">
                         <div>
                           <Image
-                            src={`${
-                              process.env.NEXT_PUBLIC_BASE_PATH +
-                              `${item.profilePicSrc}`
-                            }`}
+                            // src={`${
+                            //   process.env.NEXT_PUBLIC_BASE_PATH +
+                            //   `${item.profilePicSrc}`
+                            // }`}
+                            src={`${item.profilePicSrc}`}
                             width={60}
                             height={60}
                             alt="profile icon"

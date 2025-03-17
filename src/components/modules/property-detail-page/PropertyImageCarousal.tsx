@@ -96,8 +96,8 @@ export default function PropertyImageCarousal({
                       onClick={() => handleThumbClick(index)}
                     >
                       <Image
-                        // src={`/estatein/uploads/${src}`}
-                        src={`${process.env.NEXT_PUBLIC_BASE_PATH}/uploads/${src}`}
+                        // src={`${process.env.NEXT_PUBLIC_BASE_PATH}/uploads/${src}`}
+                        src={`/uploads/${src}`}
                         alt={`Property view ${index + 1}`}
                         width={80}
                         height={60}
@@ -122,7 +122,8 @@ export default function PropertyImageCarousal({
               {images.map((src, index) => (
                 <CarouselItem key={index} className="pl-2 mobile-lg:basis-1/2">
                   <Image
-                    src={`/estatein/uploads/${src}`}
+                    // src={`/estatein/uploads/${src}`}
+                    src={`/uploads/${src}`}
                     alt={`Property view ${index + 1}`}
                     width={600}
                     height={400}

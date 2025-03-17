@@ -13,7 +13,7 @@ const Footer = () => {
     if (isSubmitting) return;
     try {
       setIsSubmitting(true);
-      const response = await fetch("/estatein/api/contact", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),

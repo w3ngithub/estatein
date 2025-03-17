@@ -9,7 +9,8 @@ const HeaderBanner = () => {
       {showBanner && (
         <div
           style={{
-            backgroundImage: `url(${process.env.NEXT_PUBLIC_BASE_PATH}/images/header-banner-image.png)`,
+            // backgroundImage: `url(${process.env.NEXT_PUBLIC_BASE_PATH}/images/header-banner-image.png)`,
+            backgroundImage: `url(/images/header-banner-image.png)`,
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
           }}

@@ -32,7 +32,7 @@ const FeaturedProperty = () => {
   const fetchProperties = async () => {
     setIsLoading(true);
     try {
-      const res = await fetch("/estatein/api/addProperty");
+      const res = await fetch("/api/addProperty");
       const result = await res.json();
       if (result.data && Array.isArray(result.data)) {
         setProperty(result.data);
@@ -63,7 +63,7 @@ const FeaturedProperty = () => {
 
   const handleNavigation = (id: string) => {
     // router.push(`/property/${id}`);
-    window.open(`/estatein/property/${id}`, "_blank");
+    window.open(`/property/${id}`, "_blank");
   };
 
   return (
@@ -110,11 +110,8 @@ const FeaturedProperty = () => {
                     <div className="flex flex-col gap-8">
                       <div className="relative aspect-[4/3] w-full">
                         <Image
-                          // src={`${
-                          //   process.env.NEXT_PUBLIC_BASE_PATH +
-                          //   `${item.coverImage}`
-                          // }`}
-                          src={`${process.env.NEXT_PUBLIC_BASE_PATH}/uploads/${item.coverImage}`}
+                          // src={`${process.env.NEXT_PUBLIC_BASE_PATH}/uploads/${item.coverImage}`}
+                          src={`/uploads/${item.coverImage}`}
                           width={432}
                           height={318}
                           alt="house image"

@@ -62,7 +62,7 @@ const PropertySizeType = ({
     async function fetchData() {
       setIsTableLoading(true);
       try {
-        const res = await fetch("/estatein/api/addPropertySizeType");
+        const res = await fetch("/api/addPropertySizeType");
         const result = await res.json();
         setPropertySizeType(result.data);
       } catch (error) {
@@ -89,7 +89,7 @@ const PropertySizeType = ({
     };
 
     try {
-      const response = await fetch("/estatein/api/addPropertySizeType", {
+      const response = await fetch("/api/addPropertySizeType", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -134,7 +134,7 @@ const PropertySizeType = ({
   const confirmDelete = async () => {
     setIsLoading(true);
     try {
-      const response = await fetch("/estatein/api/addPropertySizeType", {
+      const response = await fetch("/api/addPropertySizeType", {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
