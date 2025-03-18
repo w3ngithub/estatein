@@ -1,15 +1,17 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { X } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { type KeyboardEvent } from "react";
 
 interface SearchPropertyProps {
   onSearch: (search: string) => void;
+  handleClear: () => void;
 }
 
-const SearchProperty = ({ onSearch }: SearchPropertyProps) => {
+const SearchProperty = ({ onSearch, handleClear }: SearchPropertyProps) => {
   const searchParams = useSearchParams();
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -61,7 +63,16 @@ const SearchProperty = ({ onSearch }: SearchPropertyProps) => {
               />
             </svg>
           </div>
-          <div className="block max-mobile-lg:hidden">Find Property</div>
+          <div className="block max-mobile-xl:hidden">Find Property</div>
+        </Button>
+        <Button
+          onClick={handleClear}
+          className="py-3 px-4 text-lg bg-purple-shade-60 rounded-md hover:bg-purple-shade-d60 max-desktop-2xl:text-sm h-full dark:text-white"
+        >
+          <div className="">
+            <X />
+          </div>
+          <div className="block max-mobile-xl:hidden">Clear Filter</div>
         </Button>
       </div>
     </div>
