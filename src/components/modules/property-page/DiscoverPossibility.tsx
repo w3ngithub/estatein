@@ -28,6 +28,7 @@ import Loading from "@/components/elements/Loading";
 import PropertyType from "../dashboard-page/PropertyType";
 import PropertySizeType from "../dashboard-page/PropertySizeType";
 import { PropertyApiResponse } from "@/components/propertiesTable/types";
+import { X } from "lucide-react";
 
 const DiscoveredProperty = () => {
   const [allProperties, setAllProperties] = useState<PropertyApiResponse[]>([]); // Original, unfiltered list
@@ -48,6 +49,7 @@ const DiscoveredProperty = () => {
 
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const router = useRouter();
 
   // State for filters
   const [searchItemFilter, setSearchTermFilter] = useState(
@@ -215,8 +217,6 @@ const DiscoveredProperty = () => {
     allProperties,
   ]);
 
-  const router = useRouter();
-
   useEffect(() => {
     if (!api) {
       return;
@@ -234,6 +234,21 @@ const DiscoveredProperty = () => {
   const handleNavigation = (id: string) => {
     window.open(`/estatein/property/${id}`, "_blank");
   };
+
+  // Handle clear function to reset all filters
+  const handleClear = () => {
+    // Reset all filter states
+    setSearchTermFilter("");
+    setLocationFilter("");
+    setPropertyTypeFilter("");
+    setPriceRange("");
+    setPropertySizeFilter("");
+    setBuildDateFilter("");
+
+    // Clear URL parameters by navigating to the base path
+    router.push(pathname, { scroll: false });
+  };
+
   return (
     <div className="flex flex-col gap-10">
       <div className="search-select-container flex flex-col gap-0 max-mobile-md:gap-5 max-mobile-md:pt-5 mobile-md:mt-[-38px]">
@@ -245,6 +260,7 @@ const DiscoveredProperty = () => {
                 setSearchTermFilter(search);
                 updateUrlParams("search", search);
               }}
+              handleClear={handleClear}
             />
           </div>
         </div>
