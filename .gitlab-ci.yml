@@ -3,7 +3,7 @@ stages:
   
 
 variables:
-  REPO_URL: "ssh://git@gitlab.webexpertsnepal.com:81/mukesh/estatein.git"  # Default repository URL 
+  REPO_URL: "ssh://git@gitlab.webexpertsnepal.com:2020/mukesh/estatein.git "  # Default repository URL 
   PROJECT_NAME: Estatein # Use the GitLab project name as the folder name 
   GIT_HUB_REPO: "w3ngithub/estatein.git"
   PORT: "3006"  # Replace with a dynamic port for each project
