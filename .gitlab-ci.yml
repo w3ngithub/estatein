@@ -1,5 +1,6 @@
 stages:
   - setup
+  
 
 variables:
   REPO_URL: "ssh://git@gitlab.webexpertsnepal.com:81/mukesh/estatein.git"  # Default repository URL 
@@ -13,3 +14,4 @@ setup:
     - bash /home/gitlab-runner/reactProjects.sh $PROJECT_NAME $REPO_URL $GIT_HUB_REPO $PORT  # Run the script with project name and repo URL
   only:
     - main  # Specify which branch to trigger the pipeline on
+    
