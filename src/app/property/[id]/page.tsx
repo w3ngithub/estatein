@@ -6,9 +6,9 @@ import React from "react";
 import PropertyImageCarousal from "@/components/modules/property-detail-page/PropertyImageCarousal";
 
 const fetchVillaDetails = async (id: string) => {
-  // const baseUrl = process.env.NEXT_PUBLIC_BASE_PATH || "http://localhost:3000";
+  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_PATH || "http://localhost:3000/estatein";
   const res = await fetch(
-    `http://localhost:3000/estatein/api/addProperty/${id}`
+    `${baseUrl}/api/addProperty/${id}`
   );
   if (!res.ok) {
     throw new Error("Failed to fetch villa details");
@@ -17,7 +17,7 @@ const fetchVillaDetails = async (id: string) => {
   return data;
 };
 
-const page = async ({ params }: { params: Promise<{ id: string }> }) => {
+const page = async ({ params }: { params: { id: string } }) => {
   const { id } = await params;
   const villa = await fetchVillaDetails(id);
 
